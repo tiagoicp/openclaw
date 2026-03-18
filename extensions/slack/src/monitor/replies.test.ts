@@ -5,8 +5,7 @@ vi.mock("../send.js", () => ({
   sendMessageSlack: (...args: unknown[]) => sendMock(...args),
 }));
 
-let deliverReplies: typeof import("./replies.js").deliverReplies;
-import { deliverSlackSlashReplies } from "./replies.js";
+import { deliverReplies, deliverSlackSlashReplies, resolveSlackReplyBlocks } from "./replies.js";
 
 function baseParams(overrides?: Record<string, unknown>) {
   return {
@@ -21,11 +20,6 @@ function baseParams(overrides?: Record<string, unknown>) {
 }
 
 describe("deliverReplies identity passthrough", () => {
-  beforeAll(async () => {
-    vi.resetModules();
-    ({ deliverReplies } = await import("./replies.js"));
-  });
-
   beforeEach(() => {
     sendMock.mockReset();
   });
@@ -119,5 +113,114 @@ describe("deliverSlackSlashReplies chunking", () => {
       text,
       response_type: "ephemeral",
     });
+  });
+});
+
+describe("resolveSlackReplyBlocks", () => {
+  it("returns undefined when no blocks or interactive present", () => {
+    expect(resolveSlackReplyBlocks({ text: "hello" })).toBeUndefined();
+  });
+
+  it("returns channelData.slack.blocks when present", () => {
+    const blocks = [{ type: "divider" }];
+    const result = resolveSlackReplyBlocks({
+      text: "hi",
+      channelData: { slack: { blocks } },
+    });
+    expect(result).toEqual(blocks);
+  });
+
+  it("renders interactive blocks from [[slack_buttons:]] directives", () => {
+    const result = resolveSlackReplyBlocks({
+      text: "Choose:",
+      interactive: {
+        blocks: [
+          { type: "text", text: "Choose:" },
+          {
+            type: "buttons",
+            buttons: [
+              { label: "Approve", value: "approve" },
+              { label: "Reject", value: "reject" },
+            ],
+          },
+        ],
+      },
+    });
+    expect(result).toBeDefined();
+    expect(result).toHaveLength(2);
+    expect(result![0]).toMatchObject({ type: "section" });
+    expect(result![1]).toMatchObject({ type: "actions" });
+  });
+
+  it("merges channelData.slack.blocks and interactive blocks", () => {
+    const existing = [{ type: "divider" }];
+    const result = resolveSlackReplyBlocks({
+      text: "hi",
+      channelData: { slack: { blocks: existing } },
+      interactive: {
+        blocks: [{ type: "buttons", buttons: [{ label: "Go", value: "go" }] }],
+      },
+    });
+    expect(result).toBeDefined();
+    expect(result!.length).toBeGreaterThan(1);
+    expect(result![0]).toMatchObject({ type: "divider" });
+    expect(result![result!.length - 1]).toMatchObject({ type: "actions" });
+  });
+});
+
+describe("deliverReplies interactive blocks", () => {
+  beforeEach(() => {
+    sendMock.mockReset();
+    sendMock.mockResolvedValue(undefined);
+  });
+
+  it("delivers interactive reply blocks (from [[slack_buttons:]] directive) to sendMessageSlack", async () => {
+    await deliverReplies(
+      baseParams({
+        replies: [
+          {
+            text: "Choose an action",
+            interactive: {
+              blocks: [
+                { type: "text", text: "Choose an action" },
+                {
+                  type: "buttons",
+                  buttons: [
+                    { label: "Approve", value: "approve" },
+                    { label: "Reject", value: "reject" },
+                  ],
+                },
+              ],
+            },
+          },
+        ],
+      }),
+    );
+
+    expect(sendMock).toHaveBeenCalledOnce();
+    expect(sendMock).toHaveBeenCalledWith(
+      "C123",
+      "Choose an action",
+      expect.objectContaining({
+        blocks: expect.arrayContaining([
+          expect.objectContaining({ type: "section" }),
+          expect.objectContaining({ type: "actions" }),
+        ]),
+      }),
+    );
+  });
+
+  it("skips delivery when interactive blocks are empty and text is empty", async () => {
+    await deliverReplies(
+      baseParams({
+        replies: [
+          {
+            text: "",
+            interactive: { blocks: [] },
+          },
+        ],
+      }),
+    );
+    expect(sendMock).not.toHaveBeenCalled();
   });
 });

@@ -32,6 +32,7 @@ import {
   createSlackReplyDeliveryPlan,
   deliverReplies,
   readSlackReplyBlocks,
+  resolveSlackReplyBlocks,
   resolveSlackThreadTs,
 } from "../replies.js";
 import type { PreparedSlackMessage } from "./types.js";
@@ -283,7 +284,7 @@ export async function dispatchPreparedSlackMessage(prepared: PreparedSlackMessag
 
   const deliverWithStreaming = async (payload: ReplyPayload): Promise<void> => {
     const reply = resolveSendableOutboundReplyParts(payload);
-    if (streamFailed || reply.hasMedia || readSlackReplyBlocks(payload)?.length || !reply.hasText) {
+    if (streamFailed || reply.hasMedia || resolveSlackReplyBlocks(payload)?.length || !reply.hasText) {
       await deliverNormally(payload, streamSession?.threadTs);
       return;
     }
@@ -339,7 +340,7 @@ export async function dispatchPreparedSlackMessage(prepared: PreparedSlackMessag
       }
 
       const reply = resolveSendableOutboundReplyParts(payload);
-      const slackBlocks = readSlackReplyBlocks(payload);
+      const slackBlocks = resolveSlackReplyBlocks(payload);
       const draftMessageId = draftStream?.messageId();
       const draftChannelId = draftStream?.channelId();
       const finalText = reply.text;

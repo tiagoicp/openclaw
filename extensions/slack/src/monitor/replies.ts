@@ -10,6 +10,7 @@ import { isSilentReplyText, SILENT_REPLY_TOKEN } from "openclaw/plugin-sdk/reply
 import type { ReplyPayload } from "openclaw/plugin-sdk/reply-runtime";
 import type { RuntimeEnv } from "openclaw/plugin-sdk/runtime-env";
 import { parseSlackBlocksInput } from "../blocks-input.js";
+import { buildSlackInteractiveBlocks } from "../blocks-render.js";
 import { markdownToSlackMrkdwnChunks } from "../format.js";
 import { SLACK_TEXT_LIMIT } from "../limits.js";
 import { sendMessageSlack, type SlackSendIdentity } from "../send.js";
@@ -24,6 +25,19 @@ export function readSlackReplyBlocks(payload: ReplyPayload) {
   } catch {
     return undefined;
   }
+}
+
+/**
+ * Resolve all Slack blocks for delivery by merging pre-formatted channelData.slack.blocks
+ * with blocks rendered from the generic interactive payload (e.g. [[slack_buttons:]] directives).
+ */
+export function resolveSlackReplyBlocks(payload: ReplyPayload) {
+  const channelDataBlocks = readSlackReplyBlocks(payload);
+  const interactiveBlocks = payload.interactive
+    ? buildSlackInteractiveBlocks(payload.interactive)
+    : undefined;
+  const merged = [...(channelDataBlocks ?? []), ...(interactiveBlocks ?? [])];
+  return merged.length > 0 ? merged : undefined;
 }
 
 export async function deliverReplies(params: {
@@ -43,7 +57,7 @@ export async function deliverReplies(params: {
     const inlineReplyToId = params.replyToMode === "off" ? undefined : payload.replyToId;
     const threadTs = inlineReplyToId ?? params.replyThreadTs;
     const reply = resolveSendableOutboundReplyParts(payload);
-    const slackBlocks = readSlackReplyBlocks(payload);
+    const slackBlocks = resolveSlackReplyBlocks(payload);
     if (!reply.hasContent && !slackBlocks?.length) {
       continue;
     }
