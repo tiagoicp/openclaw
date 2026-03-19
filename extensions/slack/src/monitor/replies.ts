@@ -1,8 +1,15 @@
 import type { MarkdownTableMode } from "openclaw/plugin-sdk/config-runtime";
 import {
-  deliverTextOrMediaReply,
-  resolveSendableOutboundReplyParts,
-} from "openclaw/plugin-sdk/reply-payload";
+  buildCanonicalSentMessageHookContext,
+  createInternalHookEvent,
+  fireAndForgetHook,
+  toInternalMessageSentContext,
+  toPluginMessageContext,
+  toPluginMessageSentEvent,
+  triggerInternalHook,
+} from "openclaw/plugin-sdk/hook-runtime";
+import { getGlobalHookRunner } from "openclaw/plugin-sdk/plugin-runtime";
+import { resolveSendableOutboundReplyParts } from "openclaw/plugin-sdk/reply-payload";
 import type { ChunkMode } from "openclaw/plugin-sdk/reply-runtime";
 import { chunkMarkdownTextWithMode } from "openclaw/plugin-sdk/reply-runtime";
 import { createReplyReferencePlanner } from "openclaw/plugin-sdk/reply-runtime";
@@ -40,6 +47,57 @@ export function resolveSlackReplyBlocks(payload: ReplyPayload) {
   return merged.length > 0 ? merged : undefined;
 }
 
+function emitSlackMessageSentHooks(params: {
+  hookRunner: ReturnType<typeof getGlobalHookRunner>;
+  enabled: boolean;
+  sessionKeyForInternalHooks?: string;
+  target: string;
+  accountId?: string;
+  content: string;
+  success: boolean;
+  error?: string;
+  messageId?: string;
+}): void {
+  if (!params.enabled && !params.sessionKeyForInternalHooks) {
+    return;
+  }
+  const canonical = buildCanonicalSentMessageHookContext({
+    to: params.target,
+    content: params.content,
+    success: params.success,
+    error: params.error,
+    channelId: "slack",
+    accountId: params.accountId,
+    conversationId: params.target,
+    messageId: params.messageId,
+  });
+  if (params.enabled) {
+    fireAndForgetHook(
+      Promise.resolve(
+        params.hookRunner!.runMessageSent(
+          toPluginMessageSentEvent(canonical),
+          toPluginMessageContext(canonical),
+        ),
+      ),
+      "slack: message_sent plugin hook failed",
+    );
+  }
+  if (!params.sessionKeyForInternalHooks) {
+    return;
+  }
+  fireAndForgetHook(
+    triggerInternalHook(
+      createInternalHookEvent(
+        "message",
+        "sent",
+        params.sessionKeyForInternalHooks,
+        toInternalMessageSentContext(canonical),
+      ),
+    ),
+    "slack: message:sent internal hook failed",
+  );
+}
+
 export async function deliverReplies(params: {
   replies: ReplyPayload[];
   target: string;
@@ -50,69 +108,94 @@ export async function deliverReplies(params: {
   replyThreadTs?: string;
   replyToMode: "off" | "first" | "all";
   identity?: SlackSendIdentity;
+  sessionKeyForInternalHooks?: string;
 }) {
-  for (const payload of params.replies) {
+  const hookRunner = getGlobalHookRunner();
+  const hasMessageSendingHooks = hookRunner?.hasHooks("message_sending") ?? false;
+  const hasMessageSentHooks = hookRunner?.hasHooks("message_sent") ?? false;
+
+  for (let originalPayload of params.replies) {
+    let payload = originalPayload;
     // Keep reply tags opt-in: when replyToMode is off, explicit reply tags
     // must not force threading.
     const inlineReplyToId = params.replyToMode === "off" ? undefined : payload.replyToId;
     const threadTs = inlineReplyToId ?? params.replyThreadTs;
-    const reply = resolveSendableOutboundReplyParts(payload);
+    const mediaList = payload.mediaUrls ?? (payload.mediaUrl ? [payload.mediaUrl] : []);
+    const text = payload.text ?? "";
     const slackBlocks = resolveSlackReplyBlocks(payload);
-    if (!reply.hasContent && !slackBlocks?.length) {
+    if (!text && mediaList.length === 0 && !slackBlocks?.length) {
       continue;
     }
 
-    if (!reply.hasMedia && slackBlocks?.length) {
-      const trimmed = reply.trimmedText;
-      if (!trimmed && !slackBlocks?.length) {
+    if (hasMessageSendingHooks) {
+      const hookResult = await hookRunner?.runMessageSending(
+        { to: params.target, content: text, metadata: { channel: "slack", mediaUrls: mediaList } },
+        { channelId: "slack", accountId: params.accountId, conversationId: params.target },
+      );
+      if (hookResult?.cancel) {
         continue;
       }
-      if (trimmed && isSilentReplyText(trimmed, SILENT_REPLY_TOKEN)) {
-        continue;
+      if (typeof hookResult?.content === "string" && hookResult.content !== text) {
+        payload = { ...payload, text: hookResult.content };
       }
-      await sendMessageSlack(params.target, trimmed, {
-        token: params.token,
-        threadTs,
+    }
+
+    const contentForSentHook = payload.text ?? "";
+    try {
+      let firstMessageId: string | undefined;
+      if (mediaList.length === 0) {
+        const trimmed = (payload.text ?? "").trim();
+        if (!trimmed && !slackBlocks?.length) {
+          continue;
+        }
+        if (trimmed && isSilentReplyText(trimmed, SILENT_REPLY_TOKEN)) {
+          continue;
+        }
+        const result = await sendMessageSlack(params.target, trimmed, {
+          token: params.token,
+          threadTs,
+          accountId: params.accountId,
+          ...(slackBlocks?.length ? { blocks: slackBlocks } : {}),
+          ...(params.identity ? { identity: params.identity } : {}),
+        });
+        firstMessageId = result.messageId;
+      } else {
+        let first = true;
+        for (const mediaUrl of mediaList) {
+          const caption = first ? (payload.text ?? "") : "";
+          first = false;
+          const result = await sendMessageSlack(params.target, caption, {
+            token: params.token,
+            mediaUrl,
+            threadTs,
+            accountId: params.accountId,
+            ...(params.identity ? { identity: params.identity } : {}),
+          });
+          firstMessageId ??= result.messageId;
+        }
+      }
+      emitSlackMessageSentHooks({
+        hookRunner,
+        enabled: hasMessageSentHooks,
+        sessionKeyForInternalHooks: params.sessionKeyForInternalHooks,
+        target: params.target,
         accountId: params.accountId,
-        ...(slackBlocks?.length ? { blocks: slackBlocks } : {}),
-        ...(params.identity ? { identity: params.identity } : {}),
+        content: contentForSentHook,
+        success: true,
+        messageId: firstMessageId,
       });
-      params.runtime.log?.(`delivered reply to ${params.target}`);
-      continue;
-    }
-
-    const delivered = await deliverTextOrMediaReply({
-      payload,
-      text: reply.text,
-      chunkText: !reply.hasMedia
-        ? (value) => {
-            const trimmed = value.trim();
-            if (!trimmed || isSilentReplyText(trimmed, SILENT_REPLY_TOKEN)) {
-              return [];
-            }
-            return [trimmed];
-          }
-        : undefined,
-      sendText: async (trimmed) => {
-        await sendMessageSlack(params.target, trimmed, {
-          token: params.token,
-          threadTs,
-          accountId: params.accountId,
-          ...(params.identity ? { identity: params.identity } : {}),
-        });
-      },
-      sendMedia: async ({ mediaUrl, caption }) => {
-        await sendMessageSlack(params.target, caption ?? "", {
-          token: params.token,
-          mediaUrl,
-          threadTs,
-          accountId: params.accountId,
-          ...(params.identity ? { identity: params.identity } : {}),
-        });
-      },
-    });
-    if (delivered !== "empty") {
-      params.runtime.log?.(`delivered reply to ${params.target}`);
+    } catch (error) {
+      emitSlackMessageSentHooks({
+        hookRunner,
+        enabled: hasMessageSentHooks,
+        sessionKeyForInternalHooks: params.sessionKeyForInternalHooks,
+        target: params.target,
+        accountId: params.accountId,
+        content: contentForSentHook,
+        success: false,
+        error: error instanceof Error ? error.message : String(error),
+      });
+      throw error;
     }
   }
 }

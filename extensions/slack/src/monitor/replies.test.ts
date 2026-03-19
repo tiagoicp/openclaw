@@ -24,7 +24,7 @@ describe("deliverReplies identity passthrough", () => {
     sendMock.mockReset();
   });
   it("passes identity to sendMessageSlack for text replies", async () => {
-    sendMock.mockResolvedValue(undefined);
+    sendMock.mockResolvedValue({ messageId: "ts-1", channelId: "C123" });
     const identity = { username: "Bot", iconEmoji: ":robot:" };
     await deliverReplies(baseParams({ identity }));
 
@@ -33,7 +33,7 @@ describe("deliverReplies identity passthrough", () => {
   });
 
   it("passes identity to sendMessageSlack for media replies", async () => {
-    sendMock.mockResolvedValue(undefined);
+    sendMock.mockResolvedValue({ messageId: "ts-1", channelId: "C123" });
     const identity = { username: "Bot", iconUrl: "https://example.com/icon.png" };
     await deliverReplies(
       baseParams({
@@ -47,7 +47,7 @@ describe("deliverReplies identity passthrough", () => {
   });
 
   it("omits identity key when not provided", async () => {
-    sendMock.mockResolvedValue(undefined);
+    sendMock.mockResolvedValue({ messageId: "ts-1", channelId: "C123" });
     await deliverReplies(baseParams());
 
     expect(sendMock).toHaveBeenCalledOnce();
@@ -55,7 +55,7 @@ describe("deliverReplies identity passthrough", () => {
   });
 
   it("delivers block-only replies through to sendMessageSlack", async () => {
-    sendMock.mockResolvedValue(undefined);
+    sendMock.mockResolvedValue({ messageId: "ts-1", channelId: "C123" });
     const blocks = [
       {
         type: "actions",
@@ -171,7 +171,7 @@ describe("resolveSlackReplyBlocks", () => {
 describe("deliverReplies interactive blocks", () => {
   beforeEach(() => {
     sendMock.mockReset();
-    sendMock.mockResolvedValue(undefined);
+    sendMock.mockResolvedValue({ messageId: "ts-1", channelId: "C123" });
   });
 
   it("delivers interactive reply blocks (from [[slack_buttons:]] directive) to sendMessageSlack", async () => {
