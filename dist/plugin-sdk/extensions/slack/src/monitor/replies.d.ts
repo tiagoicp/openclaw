@@ -4,6 +4,11 @@ import type { ReplyPayload } from "openclaw/plugin-sdk/reply-runtime";
 import type { RuntimeEnv } from "openclaw/plugin-sdk/runtime-env";
 import { type SlackSendIdentity } from "../send.js";
 export declare function readSlackReplyBlocks(payload: ReplyPayload): (import("@slack/web-api").Block | import("@slack/web-api").KnownBlock)[] | undefined;
+/**
+ * Resolve all Slack blocks for delivery by merging pre-formatted channelData.slack.blocks
+ * with blocks rendered from the generic interactive payload (e.g. [[slack_buttons:]] directives).
+ */
+export declare function resolveSlackReplyBlocks(payload: ReplyPayload): import("@slack/web-api").Block[] | undefined;
 export declare function deliverReplies(params: {
     replies: ReplyPayload[];
     target: string;
@@ -14,6 +19,7 @@ export declare function deliverReplies(params: {
     replyThreadTs?: string;
     replyToMode: "off" | "first" | "all";
     identity?: SlackSendIdentity;
+    sessionKeyForInternalHooks?: string;
 }): Promise<void>;
 export type SlackRespondFn = (payload: {
     text: string;

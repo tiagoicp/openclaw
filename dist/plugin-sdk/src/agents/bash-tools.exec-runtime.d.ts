@@ -13,20 +13,7 @@ export declare const DEFAULT_PATH: string;
 export declare const DEFAULT_NOTIFY_TAIL_CHARS = 400;
 export declare const DEFAULT_APPROVAL_TIMEOUT_MS = 120000;
 export declare const DEFAULT_APPROVAL_REQUEST_TIMEOUT_MS = 130000;
-export declare const execSchema: import("@sinclair/typebox").TObject<{
-    command: import("@sinclair/typebox").TString;
-    workdir: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-    env: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TRecord<import("@sinclair/typebox").TString, import("@sinclair/typebox").TString>>;
-    yieldMs: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
-    background: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-    timeout: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
-    pty: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-    elevated: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-    host: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-    security: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-    ask: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-    node: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-}>;
+export declare const execSchema: any;
 export type ExecProcessOutcome = {
     status: "completed" | "failed";
     exitCode: number | null;

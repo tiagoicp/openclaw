@@ -89,7 +89,7 @@ export declare function getPageForTargetId(opts: {
     cdpUrl: string;
     targetId?: string;
 }): Promise<Page>;
-export declare function refLocator(page: Page, ref: string): import("playwright-core").Locator;
+export declare function refLocator(page: Page, ref: string): any;
 export declare function closePlaywrightBrowserConnection(opts?: {
     cdpUrl?: string;
 }): Promise<void>;

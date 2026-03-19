@@ -23,9 +23,7 @@ type ApplyPatchOptions = {
     workspaceOnly?: boolean;
     signal?: AbortSignal;
 };
-declare const applyPatchSchema: import("@sinclair/typebox").TObject<{
-    input: import("@sinclair/typebox").TString;
-}>;
+declare const applyPatchSchema: any;
 export declare function createApplyPatchTool(options?: {
     cwd?: string;
     sandbox?: SandboxApplyPatchConfig;
