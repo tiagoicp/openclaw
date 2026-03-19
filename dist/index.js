@@ -6,7 +6,7 @@ import { t as installUnhandledRejectionHandler } from "./unhandled-rejections-CD
 import process from "node:process";
 import { fileURLToPath } from "node:url";
 //#region src/index.ts
-const library = await import("./library-B4UVAj6H.js");
+const library = await import("./library-BMrYIpZ1.js");
 const assertWebChannel = library.assertWebChannel;
 const applyTemplate = library.applyTemplate;
 const createDefaultDeps = library.createDefaultDeps;
@@ -30,7 +30,7 @@ const saveSessionStore = library.saveSessionStore;
 const toWhatsappJid = library.toWhatsappJid;
 const waitForever = library.waitForever;
 async function runLegacyCliEntry(argv = process.argv) {
-	const [{ installGaxiosFetchCompat }, { runCli }] = await Promise.all([import("./gaxios-fetch-compat-B7BnjzpF.js"), import("./run-main-CEjtsgmk.js")]);
+	const [{ installGaxiosFetchCompat }, { runCli }] = await Promise.all([import("./gaxios-fetch-compat-B7BnjzpF.js"), import("./run-main-Di4Cx_8Q.js")]);
 	await installGaxiosFetchCompat();
 	await runCli(argv);
 }

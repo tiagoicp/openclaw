@@ -20,7 +20,7 @@ import "../../resolve-route-BKJ_gx17.js";
 import "../../config-schema-SbU9iMOP.js";
 import { r as onDiagnosticEvent } from "../../diagnostic-events-KUVDzFVc.js";
 import { i as definePluginEntry } from "../../core-DoWJeX1b.js";
-import "../../delegate-VRfyt_wr.js";
+import "../../delegate-DsPW8Ams.js";
 import "../../secret-file-C6VA1we_.js";
 import "../../diagnostics-otel-DkPx_1De.js";
 import { a as diag, i as metrics, n as init_esm$2, o as SpanStatusCode, r as trace, t as esm_exports$2 } from "../../esm-iPc5shQd.js";

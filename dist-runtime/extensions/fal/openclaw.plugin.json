@@ -1,8 +1,12 @@
 {
   "id": "fal",
-  "providers": ["fal"],
+  "providers": [
+    "fal"
+  ],
   "providerAuthEnvVars": {
-    "fal": ["FAL_KEY"]
+    "fal": [
+      "FAL_KEY"
+    ]
   },
   "providerAuthChoices": [
     {

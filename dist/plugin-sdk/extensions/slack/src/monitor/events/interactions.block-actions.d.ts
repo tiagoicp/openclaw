@@ -1,4 +1,5 @@
 import type { SlackMonitorContext } from "../context.js";
+import type { SlackMessageHandler } from "../message-handler.js";
 type InteractionSelectionFields = {
     blockId?: string;
     callbackId?: string;
@@ -45,5 +46,6 @@ export declare function summarizeAction(action: Record<string, unknown>): SlackA
 export declare function registerSlackBlockActionHandler(params: {
     ctx: SlackMonitorContext;
     formatSystemEvent: (payload: Record<string, unknown>) => string;
+    handleSlackMessage?: SlackMessageHandler;
 }): void;
 export {};

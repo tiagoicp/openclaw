@@ -1,8 +1,13 @@
 {
   "id": "anthropic",
-  "providers": ["anthropic"],
+  "providers": [
+    "anthropic"
+  ],
   "providerAuthEnvVars": {
-    "anthropic": ["ANTHROPIC_OAUTH_TOKEN", "ANTHROPIC_API_KEY"]
+    "anthropic": [
+      "ANTHROPIC_OAUTH_TOKEN",
+      "ANTHROPIC_API_KEY"
+    ]
   },
   "providerAuthChoices": [
     {

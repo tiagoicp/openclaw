@@ -17,7 +17,7 @@ import "../../zod-schema.core-2nNLrIvV.js";
 import "../../resolve-route-BKJ_gx17.js";
 import "../../config-schema-SbU9iMOP.js";
 import { i as definePluginEntry } from "../../core-DoWJeX1b.js";
-import "../../delegate-VRfyt_wr.js";
+import "../../delegate-DsPW8Ams.js";
 import "../../secret-file-C6VA1we_.js";
 //#region extensions/memory-core/index.ts
 var memory_core_default = definePluginEntry({

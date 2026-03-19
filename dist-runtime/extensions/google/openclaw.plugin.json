@@ -1,8 +1,14 @@
 {
   "id": "google",
-  "providers": ["google", "google-gemini-cli"],
+  "providers": [
+    "google",
+    "google-gemini-cli"
+  ],
   "providerAuthEnvVars": {
-    "google": ["GEMINI_API_KEY", "GOOGLE_API_KEY"]
+    "google": [
+      "GEMINI_API_KEY",
+      "GOOGLE_API_KEY"
+    ]
   },
   "providerAuthChoices": [
     {
@@ -50,7 +56,10 @@
         "additionalProperties": false,
         "properties": {
           "apiKey": {
-            "type": ["string", "object"]
+            "type": [
+              "string",
+              "object"
+            ]
           },
           "model": {
             "type": "string"

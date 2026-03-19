@@ -21,7 +21,7 @@ import { i as definePluginEntry } from "../../core-DoWJeX1b.js";
 import { et as resolveOllamaApiBase, in as OLLAMA_DEFAULT_BASE_URL } from "../../provider-models-mqi97xJa.js";
 import "../../provider-onboard-YZwyyz0l.js";
 import "../../model-definitions-CPk0fx2x.js";
-import "../../delegate-VRfyt_wr.js";
+import "../../delegate-DsPW8Ams.js";
 import "../../secret-file-C6VA1we_.js";
 //#region extensions/ollama/index.ts
 const PROVIDER_ID = "ollama";

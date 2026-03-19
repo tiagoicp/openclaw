@@ -1,8 +1,12 @@
 {
   "id": "xai",
-  "providers": ["xai"],
+  "providers": [
+    "xai"
+  ],
   "providerAuthEnvVars": {
-    "xai": ["XAI_API_KEY"]
+    "xai": [
+      "XAI_API_KEY"
+    ]
   },
   "providerAuthChoices": [
     {
@@ -43,7 +47,10 @@
         "additionalProperties": false,
         "properties": {
           "apiKey": {
-            "type": ["string", "object"]
+            "type": [
+              "string",
+              "object"
+            ]
           },
           "model": {
             "type": "string"

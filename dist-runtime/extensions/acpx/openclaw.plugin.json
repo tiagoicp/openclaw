@@ -2,7 +2,9 @@
   "id": "acpx",
   "name": "ACPX Runtime",
   "description": "ACP runtime backend powered by acpx with configurable command path and version policy.",
-  "skills": ["./skills"],
+  "skills": [
+    "./skills"
+  ],
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
@@ -18,11 +20,18 @@
       },
       "permissionMode": {
         "type": "string",
-        "enum": ["approve-all", "approve-reads", "deny-all"]
+        "enum": [
+          "approve-all",
+          "approve-reads",
+          "deny-all"
+        ]
       },
       "nonInteractivePermissions": {
         "type": "string",
-        "enum": ["deny", "fail"]
+        "enum": [
+          "deny",
+          "fail"
+        ]
       },
       "strictWindowsCmdWrapper": {
         "type": "boolean"
@@ -59,7 +68,9 @@
               "description": "Environment variables for the MCP server"
             }
           },
-          "required": ["command"]
+          "required": [
+            "command"
+          ]
         }
       }
     }

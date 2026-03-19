@@ -25,7 +25,7 @@ import "../../config-schema-SbU9iMOP.js";
 import { l as readNumberParam, p as readStringParam } from "../../common-BSZuydpj.js";
 import { i as definePluginEntry } from "../../core-DoWJeX1b.js";
 import "../../fetch-guard-r6nhKyr7.js";
-import "../../delegate-VRfyt_wr.js";
+import "../../delegate-DsPW8Ams.js";
 import { o as wrapWebContent } from "../../external-content-DohesiX3.js";
 import "../../secret-file-C6VA1we_.js";
 import { a as resolveProviderWebSearchPluginConfig, o as setProviderWebSearchPluginConfigValue } from "../../provider-web-search-DR5xY1kU.js";

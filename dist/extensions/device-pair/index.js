@@ -17,7 +17,7 @@ import "../../zod-schema.core-2nNLrIvV.js";
 import "../../resolve-route-BKJ_gx17.js";
 import "../../config-schema-SbU9iMOP.js";
 import { i as definePluginEntry, l as resolveTailnetHostWithRunner, u as resolveGatewayBindUrl } from "../../core-DoWJeX1b.js";
-import "../../delegate-VRfyt_wr.js";
+import "../../delegate-DsPW8Ams.js";
 import "../../pairing-token-D5GBjAVE.js";
 import "../../secret-file-C6VA1we_.js";
 import { t as runPluginCommandWithTimeout } from "../../run-command-DzWtU6EE.js";

@@ -1,8 +1,12 @@
 {
   "id": "together",
-  "providers": ["together"],
+  "providers": [
+    "together"
+  ],
   "providerAuthEnvVars": {
-    "together": ["TOGETHER_API_KEY"]
+    "together": [
+      "TOGETHER_API_KEY"
+    ]
   },
   "providerAuthChoices": [
     {

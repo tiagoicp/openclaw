@@ -1,8 +1,12 @@
 {
   "id": "vllm",
-  "providers": ["vllm"],
+  "providers": [
+    "vllm"
+  ],
   "providerAuthEnvVars": {
-    "vllm": ["VLLM_API_KEY"]
+    "vllm": [
+      "VLLM_API_KEY"
+    ]
   },
   "providerAuthChoices": [
     {

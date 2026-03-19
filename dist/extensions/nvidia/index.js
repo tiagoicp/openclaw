@@ -19,7 +19,7 @@ import "../../config-schema-SbU9iMOP.js";
 import { n as buildSingleProviderApiKeyCatalog } from "../../provider-catalog-C51_gEwd.js";
 import { i as definePluginEntry } from "../../core-DoWJeX1b.js";
 import { t as buildNvidiaProvider } from "../../provider-catalog-CeQr0_fw.js";
-import "../../delegate-VRfyt_wr.js";
+import "../../delegate-DsPW8Ams.js";
 import "../../secret-file-C6VA1we_.js";
 //#region extensions/nvidia/index.ts
 const PROVIDER_ID = "nvidia";
