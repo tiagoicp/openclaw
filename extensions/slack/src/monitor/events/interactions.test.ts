@@ -1822,5 +1822,99 @@ describe("registerSlackInteractionEvents", () => {
     expect(Array.isArray(payload.inputs) ? payload.inputs.length : 0).toBeLessThanOrEqual(3);
     expect((payload.inputsOmitted ?? 0) >= 1).toBe(true);
   });
+
+  it("wakes the agent via handleSlackMessage when a reply button is clicked", async () => {
+    const handleSlackMessage = vi.fn().mockResolvedValue(undefined);
+    const { ctx, getHandler } = createContext();
+    registerSlackInteractionEvents({ ctx: ctx as never, handleSlackMessage });
+
+    const handler = getHandler();
+    expect(handler).toBeTruthy();
+
+    const ack = vi.fn().mockResolvedValue(undefined);
+    await handler!({
+      ack,
+      body: {
+        user: { id: "U42" },
+        channel: { id: "C9" },
+        container: { channel_id: "C9", message_ts: "200.300", thread_ts: "200.100" },
+        message: {
+          ts: "200.300",
+          text: "fallback",
+          blocks: [
+            {
+              type: "actions",
+              block_id: "openclaw_reply_buttons_1",
+              elements: [{ type: "button", action_id: "openclaw:reply_button:0" }],
+            },
+          ],
+        },
+      },
+      action: {
+        type: "button",
+        action_id: "openclaw:reply_button:0",
+        block_id: "openclaw_reply_buttons_1",
+        value: "approve",
+        text: { type: "plain_text", text: "Approve" },
+      },
+    });
+
+    expect(ack).toHaveBeenCalled();
+    expect(enqueueSystemEventMock).toHaveBeenCalledTimes(1);
+    expect(handleSlackMessage).toHaveBeenCalledTimes(1);
+    const [syntheticMessage, opts] = handleSlackMessage.mock.calls[0] as [
+      { type: string; user: string; channel: string; text: string; thread_ts?: string },
+      { source: string },
+    ];
+    expect(syntheticMessage).toMatchObject({
+      type: "message",
+      user: "U42",
+      channel: "C9",
+      text: "approve",
+      thread_ts: "200.100",
+    });
+    expect(opts.source).toBe("message");
+  });
+
+  it("does not wake the agent for non-reply openclaw interactions", async () => {
+    const handleSlackMessage = vi.fn().mockResolvedValue(undefined);
+    const { ctx, getHandler } = createContext();
+    registerSlackInteractionEvents({ ctx: ctx as never, handleSlackMessage });
+
+    const handler = getHandler();
+    expect(handler).toBeTruthy();
+
+    const ack = vi.fn().mockResolvedValue(undefined);
+    await handler!({
+      ack,
+      body: {
+        user: { id: "U99" },
+        channel: { id: "C1" },
+        container: { channel_id: "C1", message_ts: "300.400", thread_ts: "300.100" },
+        message: {
+          ts: "300.400",
+          text: "fallback",
+          blocks: [
+            {
+              type: "actions",
+              block_id: "verify_block",
+              elements: [{ type: "button", action_id: "openclaw:verify" }],
+            },
+          ],
+        },
+      },
+      action: {
+        type: "button",
+        action_id: "openclaw:verify",
+        block_id: "verify_block",
+        value: "ok",
+        text: { type: "plain_text", text: "Verify" },
+      },
+    });
+
+    expect(ack).toHaveBeenCalled();
+    expect(enqueueSystemEventMock).toHaveBeenCalledTimes(1);
+    expect(handleSlackMessage).not.toHaveBeenCalled();
+  });
 });
 const selectedDateTimeEpoch = 1_771_632_300;

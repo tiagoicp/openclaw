@@ -10,6 +10,7 @@ import { dispatchPluginInteractiveHandler } from "openclaw/plugin-sdk/plugin-run
 import { SLACK_REPLY_BUTTON_ACTION_ID, SLACK_REPLY_SELECT_ACTION_ID } from "../../blocks-render.js";
 import { authorizeSlackSystemEventSender } from "../auth.js";
 import type { SlackMonitorContext } from "../context.js";
+import type { SlackMessageHandler } from "../message-handler.js";
 import { escapeSlackMrkdwn } from "../mrkdwn.js";
 
 type InteractionMessageBlock = {
@@ -714,6 +715,7 @@ async function handleSlackBlockAction(params: {
   ctx: SlackMonitorContext;
   args: SlackActionMiddlewareArgs;
   formatSystemEvent: (payload: Record<string, unknown>) => string;
+  handleSlackMessage?: SlackMessageHandler;
 }): Promise<void> {
   const { ack, body, action, respond } = params.args;
   await ack();
@@ -776,11 +778,34 @@ async function handleSlackBlockAction(params: {
     parsed,
     respond,
   });
+  // Reply buttons and selects are agent-directed interactions — wake the agent
+  // by routing a synthetic message through the standard message handler so it
+  // can read the button value and reply in the same thread.
+  if (
+    params.handleSlackMessage &&
+    (parsed.actionId.startsWith(SLACK_REPLY_BUTTON_ACTION_ID) ||
+      parsed.actionId === SLACK_REPLY_SELECT_ACTION_ID)
+  ) {
+    const buttonValue =
+      parsed.actionSummary.value ?? parsed.actionSummary.selectedValues?.find(Boolean) ?? "";
+    await params.handleSlackMessage(
+      {
+        type: "message",
+        user: parsed.userId,
+        channel: parsed.channelId ?? "",
+        channel_type: auth.channelType,
+        text: buttonValue,
+        thread_ts: parsed.threadTs ?? parsed.messageTs,
+      },
+      { source: "message" },
+    );
+  }
 }
 
 export function registerSlackBlockActionHandler(params: {
   ctx: SlackMonitorContext;
   formatSystemEvent: (payload: Record<string, unknown>) => string;
+  handleSlackMessage?: SlackMessageHandler;
 }): void {
   if (typeof params.ctx.app.action !== "function") {
     return;
@@ -790,6 +815,7 @@ export function registerSlackBlockActionHandler(params: {
       ctx: params.ctx,
       args,
       formatSystemEvent: params.formatSystemEvent,
+      handleSlackMessage: params.handleSlackMessage,
     });
   });
 }

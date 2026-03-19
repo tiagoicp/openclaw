@@ -1,5 +1,6 @@
 import { truncateSlackText } from "../../truncate.js";
 import type { SlackMonitorContext } from "../context.js";
+import type { SlackMessageHandler } from "../message-handler.js";
 import {
   registerSlackBlockActionHandler,
   summarizeAction,
@@ -179,11 +180,15 @@ function summarizeViewState(values: unknown): ModalInputSummary[] {
   return entries;
 }
 
-export function registerSlackInteractionEvents(params: { ctx: SlackMonitorContext }) {
+export function registerSlackInteractionEvents(params: {
+  ctx: SlackMonitorContext;
+  handleSlackMessage?: SlackMessageHandler;
+}) {
   const { ctx } = params;
   registerSlackBlockActionHandler({
     ctx,
     formatSystemEvent: formatSlackInteractionSystemEvent,
+    handleSlackMessage: params.handleSlackMessage,
   });
 
   if (typeof ctx.app.view !== "function") {
