@@ -3,12 +3,12 @@ type StringEnumOptions<T extends readonly string[]> = {
     title?: string;
     default?: T[number];
 };
-export declare function stringEnum<T extends readonly string[]>(values: T, options?: StringEnumOptions<T>): any;
-export declare function optionalStringEnum<T extends readonly string[]>(values: T, options?: StringEnumOptions<T>): any;
+export declare function stringEnum<T extends readonly string[]>(values: T, options?: StringEnumOptions<T>): import("@sinclair/typebox").TUnsafe<T[number]>;
+export declare function optionalStringEnum<T extends readonly string[]>(values: T, options?: StringEnumOptions<T>): import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnsafe<T[number]>>;
 export declare function channelTargetSchema(options?: {
     description?: string;
-}): any;
+}): import("@sinclair/typebox").TString;
 export declare function channelTargetsSchema(options?: {
     description?: string;
-}): any;
+}): import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>;
 export {};

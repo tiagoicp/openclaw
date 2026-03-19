@@ -1,17 +1,17 @@
 #!/usr/bin/env node
-import { t as isMainModule } from "./is-main-Dlhip3zZ.js";
-import { M as isRootVersionInvocation, j as isRootHelpInvocation, k as hasHelpOrVersion } from "./logger-Qep7Kkk8.js";
-import "./paths-C--RM-nt.js";
-import { n as applyCliProfileEnv, r as parseCliProfileArgs, t as normalizeWindowsArgv } from "./windows-argv-SasahpdU.js";
-import "./tmp-openclaw-dir-DHiu0fYi.js";
-import "./theme-CWrxY1-_.js";
-import "./globals-ir4cuPXg.js";
-import "./subsystem-DZirmh0Z.js";
-import "./ansi-cwY8Vrne.js";
-import "./boolean-B6zcAynR.js";
-import { r as normalizeEnv, t as isTruthyEnvValue } from "./env-BhXregSC.js";
-import { t as ensureOpenClawExecMarkerOnProcess } from "./openclaw-exec-env-DQumaYka.js";
-import { t as installProcessWarningFilter } from "./warning-filter-hHA7Rorp.js";
+import { t as isMainModule } from "./is-main-rEJGO2f-.js";
+import { M as isRootVersionInvocation, j as isRootHelpInvocation, k as hasHelpOrVersion } from "./logger-Bisu6sgz.js";
+import "./paths-D_QmduAc.js";
+import { n as applyCliProfileEnv, r as parseCliProfileArgs, t as normalizeWindowsArgv } from "./windows-argv-BlMzY6nr.js";
+import "./tmp-openclaw-dir-CEAo8CGE.js";
+import "./theme-Bnch_o1K.js";
+import "./globals-CnsLPQis.js";
+import "./subsystem-Dm-AQqmI.js";
+import "./ansi-BMqrB9En.js";
+import "./boolean-BgLJTske.js";
+import { r as normalizeEnv, t as isTruthyEnvValue } from "./env-mHZMLTjc.js";
+import { t as ensureOpenClawExecMarkerOnProcess } from "./openclaw-exec-env-DzAdphpR.js";
+import { t as installProcessWarningFilter } from "./warning-filter-m2BbicIr.js";
 import { enableCompileCache } from "node:module";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
@@ -72,7 +72,7 @@ if (!isMainModule({
 	currentFile: fileURLToPath(import.meta.url),
 	wrapperEntryPairs: [...ENTRY_WRAPPER_PAIRS]
 })) {} else {
-	const { installGaxiosFetchCompat } = await import("./gaxios-fetch-compat-B_1P0CNF.js");
+	const { installGaxiosFetchCompat } = await import("./gaxios-fetch-compat-B7BnjzpF.js");
 	await installGaxiosFetchCompat();
 	process.title = "openclaw";
 	ensureOpenClawExecMarkerOnProcess();
@@ -123,7 +123,7 @@ if (!isMainModule({
 	}
 	function tryHandleRootVersionFastPath(argv) {
 		if (!isRootVersionInvocation(argv)) return false;
-		Promise.all([import("./version-Cy3k5Fra.js"), import("./git-commit-CtfrEpEb.js")]).then(([{ VERSION }, { resolveCommitHash }]) => {
+		Promise.all([import("./version-C9Tk3NDj.js"), import("./git-commit-lPIBkMLX.js")]).then(([{ VERSION }, { resolveCommitHash }]) => {
 			const commit = resolveCommitHash({ moduleUrl: import.meta.url });
 			console.log(commit ? `OpenClaw ${VERSION} (${commit})` : `OpenClaw ${VERSION}`);
 			process.exit(0);
@@ -161,14 +161,14 @@ function tryHandleRootHelpFastPath(argv, deps = {}) {
 		}
 		return true;
 	}
-	import("./root-help-C5h6790k.js").then(({ outputRootHelp }) => {
+	import("./root-help-D2NBDni5.js").then(({ outputRootHelp }) => {
 		outputRootHelp();
 	}).catch(handleError);
 	return true;
 }
 function runMainOrRootHelp(argv) {
 	if (tryHandleRootHelpFastPath(argv)) return;
-	import("./run-main-r903e5dn.js").then(({ runCli }) => runCli(argv)).catch((error) => {
+	import("./run-main-CEjtsgmk.js").then(({ runCli }) => runCli(argv)).catch((error) => {
 		console.error("[openclaw] Failed to start CLI:", error instanceof Error ? error.stack ?? error.message : error);
 		process.exitCode = 1;
 	});

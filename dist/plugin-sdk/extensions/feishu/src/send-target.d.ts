@@ -4,7 +4,7 @@ export declare function resolveFeishuSendTarget(params: {
     to: string;
     accountId?: string;
 }): {
-    client: Lark.Client;
+    client: import("@larksuiteoapi/node-sdk").Client;
     receiveId: string;
     receiveIdType: "chat_id" | "open_id" | "user_id";
 };

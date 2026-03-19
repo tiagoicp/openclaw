@@ -6,6 +6,6 @@ export declare function loadMSTeamsSdk(): Promise<MSTeamsSdk>;
 export declare function buildMSTeamsAuthConfig(creds: MSTeamsCredentials, sdk: MSTeamsSdk): MSTeamsAuthConfig;
 export declare function createMSTeamsAdapter(authConfig: MSTeamsAuthConfig, sdk: MSTeamsSdk): MSTeamsAdapter;
 export declare function loadMSTeamsSdkWithAuth(creds: MSTeamsCredentials): Promise<{
-    sdk: any;
-    authConfig: any;
+    sdk: typeof import("@microsoft/agents-hosting");
+    authConfig: import("@microsoft/agents-hosting").AuthConfiguration;
 }>;
