@@ -343,10 +343,8 @@ function buildSlackPluginInteractionData(params: {
     params.summary.selectedValues?.map((value) => value.trim()).find(Boolean) ||
     "";
   if (
-    actionId === SLACK_REPLY_BUTTON_ACTION_ID ||
-    actionId === SLACK_REPLY_SELECT_ACTION_ID ||
-    actionId.startsWith(`${SLACK_REPLY_BUTTON_ACTION_ID}:`) ||
-    actionId.startsWith(`${SLACK_REPLY_SELECT_ACTION_ID}:`)
+    actionId.startsWith(SLACK_REPLY_BUTTON_ACTION_ID) ||
+    actionId === SLACK_REPLY_SELECT_ACTION_ID
   ) {
     return payload || null;
   }
