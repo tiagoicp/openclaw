@@ -17,7 +17,7 @@ import "../zod-schema.core-2nNLrIvV.js";
 import "../resolve-route-BKJ_gx17.js";
 import "../config-schema-SbU9iMOP.js";
 import { i as definePluginEntry } from "../core-DoWJeX1b.js";
-import "../delegate-DsPW8Ams.js";
+import "../delegate-DZgF1n1_.js";
 import "../secret-file-C6VA1we_.js";
 import "../talk-voice-CvRjPUor.js";
 export { definePluginEntry };

@@ -15,7 +15,7 @@ import "../../warning-filter-m2BbicIr.js";
 import "../../utils-CIAfMgvq.js";
 import "../../links-DtUd3CJi.js";
 import "../../models-config.providers.discovery-CBSen190.js";
-import "../../auth-profiles-BqVjFbSG.js";
+import "../../auth-profiles-C1V2x6_A.js";
 import "../../model-selection-BvgYPMZN.js";
 import "../../agent-scope-BvOTVsJZ.js";
 import "../../boundary-path-BVHzCDEE.js";
@@ -69,7 +69,7 @@ import "../../paths-DkI03UGW.js";
 import { r as buildChannelConfigSchema } from "../../config-schema-SbU9iMOP.js";
 import "../../channel-plugin-common-lL08nJSM.js";
 import "../../directory-runtime-4Kx3Gvfd.js";
-import "../../read-only-account-inspect-CNdttAUP.js";
+import "../../read-only-account-inspect-BzQtVN0P.js";
 import "../../common-BSZuydpj.js";
 import "../../discord-core-D_7rg7Bl.js";
 import "../../channel-config-helpers-DgtPbGwx.js";
@@ -98,12 +98,12 @@ import "../../provider-models-mqi97xJa.js";
 import "../../provider-onboard-YZwyyz0l.js";
 import "../../model-definitions-CPk0fx2x.js";
 import "../../call-CuSVmxO6.js";
-import "../../delegate-DsPW8Ams.js";
+import "../../delegate-DZgF1n1_.js";
 import "../../with-timeout-6Mk1JecS.js";
 import "../../multimodal-BZ5nSU8_.js";
 import "../../memory-search-BEee7lTM.js";
 import "../../query-expansion-C5OcnmBU.js";
-import "../../search-manager-VGSYs6ud.js";
+import "../../search-manager-B73xZeLt.js";
 import "../../setup-binary-BRNtxkNZ.js";
 import "../../signal-cli-install-CazITAFo.js";
 import "../../identity-file-L2phPATJ.js";
@@ -113,7 +113,7 @@ import "../../delivery-queue-B2kD8cNZ.js";
 import "../../external-content-DohesiX3.js";
 import "../../security-runtime-DVVSOOlu.js";
 import "../../telegram-core-BZ7aS5CA.js";
-import "../../audit-B5ue2Fk9.js";
+import "../../audit-HKoXXKMO.js";
 import "../../gateway-runtime-Btluew0E.js";
 import "../../connection-auth-BCwdTkvS.js";
 import "../../config-value-C42C4nMV.js";
@@ -124,7 +124,7 @@ import "../../stagger-Ds3EfozT.js";
 import "../../restart-stale-pids-D84WQQ67.js";
 import "../../provider-usage.fetch-Cilv-_i6.js";
 import "../../history-CZuN-T_-.js";
-import "../../channel-summary-c6xT1Dx7.js";
+import "../../channel-summary-DavcDlJH.js";
 import "../../secret-file-C6VA1we_.js";
 import "../../accounts-B1tM8Jyc.js";
 import "../../pairing-labels-CC5WpLtU.js";
@@ -135,7 +135,7 @@ import "../../progress-D69d44Ic.js";
 import "../../shared-TeMeV5_s.js";
 import { a as missingTargetError, c as DEFAULT_ACCOUNT_ID, i as isAccountConfigured, l as getAccountConfig, n as twitchSetupWizard, o as normalizeToken, r as generateMessageId, s as normalizeTwitchChannel, t as twitchSetupAdapter, u as listAccountIds } from "../../twitch-Dzsnjenm.js";
 import { n as buildPassiveProbedChannelStatusSummary } from "../../channel-status-summary-CbgtDyC-.js";
-import { A as DataObject, B as Enumerable, C as transformTwitchApiResponse, D as HellFreezesOverError, E as extractUserName, F as mapOptional, I as arrayToObject, L as __decorate, M as accessTokenIsExpired, N as promiseWithResolvers, O as rtfm, P as mapNullable, R as __read, S as handleTwitchApiResponseError, T as extractUserId, _ as EventEmitter, a as getClientManager, b as callTwitchApi, c as ChatClient, d as PartitionedTimeBasedRateLimiter, f as RateLimitReachedError, g as StaticAuthProvider, h as require_detect_node, i as stripMarkdownForTwitch, j as rawDataSymbol, k as CustomError, l as CachedGetter, m as createLogger$1, n as setTwitchRuntime, o as removeClientManager, p as CustomError$1, r as chunkTextForTwitch, s as resolveTwitchToken, t as monitorTwitchProvider, u as Cacheable, v as TokenInfo, w as HttpStatusCodeError, x as callTwitchApiRaw, y as InvalidTokenError, z as __spreadArray } from "../../monitor-BcAgPgbW.js";
+import { A as DataObject, B as Enumerable, C as transformTwitchApiResponse, D as HellFreezesOverError, E as extractUserName, F as mapOptional, I as arrayToObject, L as __decorate, M as accessTokenIsExpired, N as promiseWithResolvers, O as rtfm, P as mapNullable, R as __read, S as handleTwitchApiResponseError, T as extractUserId, _ as EventEmitter, a as getClientManager, b as callTwitchApi, c as ChatClient, d as PartitionedTimeBasedRateLimiter, f as RateLimitReachedError, g as StaticAuthProvider, h as require_detect_node, i as stripMarkdownForTwitch, j as rawDataSymbol, k as CustomError, l as CachedGetter, m as createLogger$1, n as setTwitchRuntime, o as removeClientManager, p as CustomError$1, r as chunkTextForTwitch, s as resolveTwitchToken, t as monitorTwitchProvider, u as Cacheable, v as TokenInfo, w as HttpStatusCodeError, x as callTwitchApiRaw, y as InvalidTokenError, z as __spreadArray } from "../../monitor-DRgA4c0O.js";
 import { z } from "zod";
 //#region node_modules/.pnpm/@d-fischer+shared-utils@3.6.4/node_modules/@d-fischer/shared-utils/es/functions/array/flatten.mjs
 function flatten(arr) {
@@ -12182,7 +12182,7 @@ var twitch_default = defineChannelPluginEntry({
 					lastError: null
 				});
 				ctx.log?.info(`Starting Twitch connection for ${account.username}`);
-				const { monitorTwitchProvider } = await import("../../monitor-BxfaPoT4.js");
+				const { monitorTwitchProvider } = await import("../../monitor-Spza_S04.js");
 				await monitorTwitchProvider({
 					account,
 					accountId,
