@@ -160,3 +160,160 @@ describe("getReplyFromConfig reset-hook fallback", () => {
     expect(mocks.emitResetCommandHooks).not.toHaveBeenCalled();
   });
 });
+
+describe("getReplyFromConfig auto-reset hook", () => {
+  function buildRegularMessageContext(): MsgContext {
+    return {
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      Body: "hello",
+      RawBody: "hello",
+      CommandBody: "hello",
+      CommandAuthorized: true,
+      SessionKey: "agent:main:telegram:direct:123",
+      From: "telegram:123",
+      To: "telegram:bot",
+    };
+  }
+
+  beforeEach(() => {
+    mocks.resolveReplyDirectives.mockReset();
+    mocks.handleInlineActions.mockReset();
+    mocks.emitResetCommandHooks.mockReset();
+    mocks.initSessionState.mockReset();
+
+    // Simulate a stale-session auto-reset: isNewSession=true, resetTriggered=false, previousSessionEntry present.
+    mocks.initSessionState.mockResolvedValue({
+      sessionCtx: buildRegularMessageContext(),
+      sessionEntry: { sessionId: "new-session" },
+      previousSessionEntry: { sessionId: "old-session" },
+      sessionStore: {},
+      sessionKey: "agent:main:telegram:direct:123",
+      sessionId: "new-session",
+      isNewSession: true,
+      resetTriggered: false,
+      systemSent: false,
+      abortedLastRun: false,
+      storePath: "/tmp/sessions.json",
+      sessionScope: "per-sender",
+      groupResolution: undefined,
+      isGroup: false,
+      triggerBodyNormalized: "hello",
+      bodyStripped: undefined,
+    });
+
+    mocks.resolveReplyDirectives.mockResolvedValue(createContinueDirectivesResult(false));
+  });
+
+  it("emits reset hook with action=reset for daily auto-resets (inline reply early exit)", async () => {
+    mocks.handleInlineActions.mockResolvedValue({ kind: "reply", reply: undefined });
+
+    await getReplyFromConfig(buildRegularMessageContext(), undefined, {});
+
+    expect(mocks.emitResetCommandHooks).toHaveBeenCalledTimes(1);
+    expect(mocks.emitResetCommandHooks).toHaveBeenCalledWith(
+      expect.objectContaining({
+        action: "reset",
+        sessionKey: "agent:main:telegram:direct:123",
+        previousSessionEntry: expect.objectContaining({ sessionId: "old-session" }),
+      }),
+    );
+  });
+
+  it("emits reset hook with action=reset for daily auto-resets (full reply path)", async () => {
+    mocks.handleInlineActions.mockResolvedValue({
+      kind: "continue",
+      directives: {},
+      abortedLastRun: false,
+    });
+
+    await getReplyFromConfig(buildRegularMessageContext(), undefined, {});
+
+    expect(mocks.emitResetCommandHooks).toHaveBeenCalledTimes(1);
+    expect(mocks.emitResetCommandHooks).toHaveBeenCalledWith(
+      expect.objectContaining({
+        action: "reset",
+        sessionKey: "agent:main:telegram:direct:123",
+        previousSessionEntry: expect.objectContaining({ sessionId: "old-session" }),
+      }),
+    );
+  });
+
+  it("does not emit auto-reset hook when resetTriggered is true (explicit /new)", async () => {
+    mocks.handleInlineActions.mockResolvedValue({ kind: "reply", reply: undefined });
+    mocks.initSessionState.mockResolvedValue({
+      sessionCtx: buildRegularMessageContext(),
+      sessionEntry: { sessionId: "new-session" },
+      previousSessionEntry: { sessionId: "old-session" },
+      sessionStore: {},
+      sessionKey: "agent:main:telegram:direct:123",
+      sessionId: "new-session",
+      isNewSession: true,
+      resetTriggered: true,
+      systemSent: false,
+      abortedLastRun: false,
+      storePath: "/tmp/sessions.json",
+      sessionScope: "per-sender",
+      groupResolution: undefined,
+      isGroup: false,
+      triggerBodyNormalized: "/new",
+      bodyStripped: "",
+    });
+
+    await getReplyFromConfig(buildRegularMessageContext(), undefined, {});
+
+    // maybeEmitMissingResetHooks may fire but maybeEmitAutoResetHook should not.
+    // Regardless, at most one call is expected (from missing-hooks fallback if command body matches).
+    const autoResetCalls = mocks.emitResetCommandHooks.mock.calls.filter(
+      (call: [{ action: string }]) => call[0].action === "reset" && !call[0],
+    );
+    // Verify auto-reset hook was not called (resetTriggered=true means it was an explicit command).
+    for (const call of mocks.emitResetCommandHooks.mock.calls as Array<
+      [{ action: string; sessionKey: string }]
+    >) {
+      // The missing-hooks fallback might fire with action "new" for command body "/new".
+      // The auto-reset hook must NOT fire since resetTriggered=true guards it.
+      expect(call[0]).not.toMatchObject({
+        action: "reset",
+        previousSessionEntry: { sessionId: "old-session" },
+      });
+    }
+    void autoResetCalls;
+  });
+
+  it("does not emit auto-reset hook when no previousSessionEntry (fresh first session)", async () => {
+    mocks.handleInlineActions.mockResolvedValue({ kind: "reply", reply: undefined });
+    mocks.initSessionState.mockResolvedValue({
+      sessionCtx: buildRegularMessageContext(),
+      sessionEntry: { sessionId: "new-session" },
+      previousSessionEntry: undefined,
+      sessionStore: {},
+      sessionKey: "agent:main:telegram:direct:123",
+      sessionId: "new-session",
+      isNewSession: true,
+      resetTriggered: false,
+      systemSent: false,
+      abortedLastRun: false,
+      storePath: "/tmp/sessions.json",
+      sessionScope: "per-sender",
+      groupResolution: undefined,
+      isGroup: false,
+      triggerBodyNormalized: "hello",
+      bodyStripped: undefined,
+    });
+
+    await getReplyFromConfig(buildRegularMessageContext(), undefined, {});
+
+    expect(mocks.emitResetCommandHooks).not.toHaveBeenCalled();
+  });
+
+  it("does not emit auto-reset hook when resetHookTriggered is already set", async () => {
+    mocks.handleInlineActions.mockResolvedValue({ kind: "reply", reply: undefined });
+    mocks.resolveReplyDirectives.mockResolvedValue(createContinueDirectivesResult(true));
+
+    await getReplyFromConfig(buildRegularMessageContext(), undefined, {});
+
+    expect(mocks.emitResetCommandHooks).not.toHaveBeenCalled();
+  });
+});

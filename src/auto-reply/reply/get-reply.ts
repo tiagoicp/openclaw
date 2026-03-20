@@ -352,6 +352,24 @@ export async function getReplyFromConfig(
     });
   };
 
+  // Fires for staleness-triggered (daily) auto-resets — not explicit /new or /reset commands.
+  // Without this, the session-memory hook never sees auto-rotated sessions.
+  const maybeEmitAutoResetHook = async () => {
+    if (!isNewSession || resetTriggered || !previousSessionEntry || command.resetHookTriggered) {
+      return;
+    }
+    await emitResetCommandHooks({
+      action: "reset",
+      ctx,
+      cfg,
+      command,
+      sessionKey,
+      sessionEntry,
+      previousSessionEntry,
+      workspaceDir,
+    });
+  };
+
   const inlineActionResult = await handleInlineActions({
     ctx,
     sessionCtx,
@@ -394,9 +412,11 @@ export async function getReplyFromConfig(
   });
   if (inlineActionResult.kind === "reply") {
     await maybeEmitMissingResetHooks();
+    await maybeEmitAutoResetHook();
     return inlineActionResult.reply;
   }
   await maybeEmitMissingResetHooks();
+  await maybeEmitAutoResetHook();
   directives = inlineActionResult.directives;
   abortedLastRun = inlineActionResult.abortedLastRun ?? abortedLastRun;
 
