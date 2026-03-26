@@ -358,6 +358,7 @@ export async function getReplyFromConfig(
     if (!isNewSession || resetTriggered || !previousSessionEntry || command.resetHookTriggered) {
       return;
     }
+    const { emitResetCommandHooks } = await import("./commands-core.runtime.js");
     await emitResetCommandHooks({
       action: "reset",
       ctx,
