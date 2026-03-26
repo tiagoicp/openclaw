@@ -4,4 +4,5 @@ export type { AcpCloseSessionInput, AcpCloseSessionResult, AcpInitializeSessionI
 export declare function getAcpSessionManager(): AcpSessionManager;
 export declare const __testing: {
     resetAcpSessionManagerForTests(): void;
+    setAcpSessionManagerForTests(manager: unknown): void;
 };

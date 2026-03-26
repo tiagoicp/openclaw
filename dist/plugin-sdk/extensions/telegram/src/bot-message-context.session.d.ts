@@ -1,6 +1,7 @@
+import { type NormalizedLocation } from "openclaw/plugin-sdk/channel-inbound";
 import type { OpenClawConfig } from "openclaw/plugin-sdk/config-runtime";
 import type { TelegramDirectConfig, TelegramGroupConfig, TelegramTopicConfig } from "openclaw/plugin-sdk/config-runtime";
-import { type HistoryEntry } from "openclaw/plugin-sdk/reply-runtime";
+import { type HistoryEntry } from "openclaw/plugin-sdk/reply-history";
 import { finalizeInboundContext } from "openclaw/plugin-sdk/reply-runtime";
 import type { ResolvedAgentRoute } from "openclaw/plugin-sdk/routing";
 import type { TelegramMediaRef, TelegramMessageContextOptions } from "./bot-message-context.types.js";
@@ -31,7 +32,7 @@ export declare function buildTelegramInboundContextPayload(params: {
     stickerCacheHit: boolean;
     effectiveWasMentioned: boolean;
     commandAuthorized: boolean;
-    locationData?: import("openclaw/plugin-sdk/channel-runtime").NormalizedLocation;
+    locationData?: NormalizedLocation;
     options?: TelegramMessageContextOptions;
     dmAllowFrom?: Array<string | number>;
 }): Promise<{

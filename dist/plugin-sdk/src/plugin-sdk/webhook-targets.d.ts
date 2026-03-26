@@ -18,6 +18,7 @@ export type RegisterWebhookTargetOptions<T extends {
     }) => void;
 };
 type RegisterPluginHttpRouteParams = Parameters<typeof registerPluginHttpRoute>[0];
+export { registerPluginHttpRoute };
 export type RegisterWebhookPluginRouteOptions = Omit<RegisterPluginHttpRouteParams, "path" | "fallbackPath">;
 /** Register a webhook target and lazily install the matching plugin HTTP route on first use. */
 export declare function registerWebhookTargetWithPluginRoute<T extends {
@@ -94,4 +95,3 @@ export declare function resolveWebhookTargetWithAuthOrRejectSync<T>(params: {
 }): T | null;
 /** Reject non-POST webhook requests with the conventional Allow header. */
 export declare function rejectNonPostWebhookRequest(req: IncomingMessage, res: ServerResponse): boolean;
-export {};

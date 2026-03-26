@@ -1,4 +1,3 @@
-import type { DiscordPluralKitConfig } from "../plugin-sdk/discord.js";
 import type { BlockStreamingChunkConfig, BlockStreamingCoalesceConfig, DmPolicy, GroupPolicy, MarkdownConfig, OutboundRetryConfig, ReplyToMode } from "./types.base.js";
 import type { ChannelHealthMonitorConfig, ChannelHeartbeatVisibilityConfig } from "./types.channels.js";
 import type { DmConfig, ProviderCommandsConfig } from "./types.messages.js";
@@ -6,6 +5,10 @@ import type { SecretInput } from "./types.secrets.js";
 import type { GroupToolPolicyBySenderConfig, GroupToolPolicyConfig } from "./types.tools.js";
 import type { TtsConfig } from "./types.tts.js";
 export type DiscordStreamMode = "off" | "partial" | "block" | "progress";
+export type DiscordPluralKitConfig = {
+    enabled?: boolean;
+    token?: string;
+};
 export type DiscordDmConfig = {
     /** If false, ignore all incoming Discord DMs. Default: true. */
     enabled?: boolean;
@@ -43,6 +46,10 @@ export type DiscordGuildChannelConfig = {
     includeThreadStarter?: boolean;
     /** If true, automatically create a thread for each new message in this channel. */
     autoThread?: boolean;
+    /** Archive duration (minutes) for auto-created threads. Valid values: 60, 1440, 4320, 10080. */
+    autoArchiveDuration?: "60" | "1440" | "4320" | "10080" | 60 | 1440 | 4320 | 10080;
+    /** Naming strategy for auto-created threads. "message" uses message text; "generated" renames with an LLM title. */
+    autoThreadName?: "message" | "generated";
 };
 export type DiscordReactionNotificationMode = "off" | "own" | "all" | "allowlist";
 export type DiscordGuildEntry = {

@@ -1,4 +1,5 @@
 import { Label, Modal, TextDisplay, type ComponentParserResult, type TopLevelComponents } from "@buape/carbon";
+declare const ModalBase: typeof Modal;
 export declare const DISCORD_COMPONENT_CUSTOM_ID_KEY = "occomp";
 export declare const DISCORD_MODAL_CUSTOM_ID_KEY = "ocmodal";
 export declare const DISCORD_COMPONENT_ATTACHMENT_PREFIX = "attachment://";
@@ -184,7 +185,7 @@ export declare function buildDiscordComponentMessage(params: {
     accountId?: string;
 }): DiscordComponentBuildResult;
 export declare function buildDiscordComponentMessageFlags(components: TopLevelComponents[]): number | undefined;
-export declare class DiscordFormModal extends Modal {
+export declare class DiscordFormModal extends ModalBase {
     title: string;
     customId: string;
     components: Array<Label | TextDisplay>;

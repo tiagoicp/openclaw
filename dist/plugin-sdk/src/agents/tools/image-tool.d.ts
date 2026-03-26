@@ -1,10 +1,16 @@
 import type { OpenClawConfig } from "../../config/config.js";
+import { getMediaUnderstandingProvider } from "../../media-understanding/provider-registry.js";
+import { buildProviderRegistry } from "../../media-understanding/runner.js";
 import { coerceImageAssistantText, decodeDataUrl, type ImageModelConfig } from "./image-tool.helpers.js";
 import { type AnyAgentTool, type SandboxFsBridge, type ToolFsPolicy } from "./tool-runtime.helpers.js";
 export declare const __testing: {
     readonly decodeDataUrl: typeof decodeDataUrl;
     readonly coerceImageAssistantText: typeof coerceImageAssistantText;
     readonly resolveImageToolMaxTokens: typeof resolveImageToolMaxTokens;
+    readonly setProviderDepsForTest: (overrides?: {
+        buildProviderRegistry?: typeof buildProviderRegistry;
+        getMediaUnderstandingProvider?: typeof getMediaUnderstandingProvider;
+    }) => void;
 };
 declare function resolveImageToolMaxTokens(modelMaxTokens: number | undefined, requestedMaxTokens?: number): number;
 /**

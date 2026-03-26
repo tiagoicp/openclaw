@@ -33,7 +33,7 @@ export declare const resolveTelegramRuntimeGroupPolicy: (params: {
     providerConfigPresent: boolean;
     groupPolicy?: TelegramAccountConfig["groupPolicy"];
     defaultGroupPolicy?: TelegramAccountConfig["groupPolicy"];
-}) => import("openclaw/plugin-sdk/config-runtime").RuntimeGroupPolicyResolution;
+}) => import("../../../src/config/runtime-group-policy.ts").RuntimeGroupPolicyResolution;
 export declare const evaluateTelegramGroupPolicyAccess: (params: {
     isGroup: boolean;
     chatId: string | number;

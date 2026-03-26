@@ -14,25 +14,7 @@ type DirectSendResult = {
     [key: string]: unknown;
 };
 type DirectSendFn<TOpts extends Record<string, unknown>, TResult extends DirectSendResult> = (to: string, text: string, opts: TOpts) => Promise<TResult>;
-type SendPayloadContext = Parameters<NonNullable<ChannelOutboundAdapter["sendPayload"]>>[0];
-type SendPayloadResult = Awaited<ReturnType<NonNullable<ChannelOutboundAdapter["sendPayload"]>>>;
-type SendPayloadAdapter = Pick<ChannelOutboundAdapter, "sendMedia" | "sendText" | "chunker" | "textChunkLimit">;
-export declare function resolvePayloadMediaUrls(payload: SendPayloadContext["payload"]): string[];
-export declare function sendPayloadMediaSequence<TResult>(params: {
-    text: string;
-    mediaUrls: readonly string[];
-    send: (input: {
-        text: string;
-        mediaUrl: string;
-        index: number;
-        isFirst: boolean;
-    }) => Promise<TResult>;
-}): Promise<TResult | undefined>;
-export declare function sendTextMediaPayload(params: {
-    channel: string;
-    ctx: SendPayloadContext;
-    adapter: SendPayloadAdapter;
-}): Promise<SendPayloadResult>;
+export { resolvePayloadMediaUrls, sendPayloadMediaSequence, sendPayloadMediaSequenceAndFinalize, sendPayloadMediaSequenceOrFallback, sendTextMediaPayload, } from "openclaw/plugin-sdk/reply-payload";
 export declare function resolveScopedChannelMediaMaxBytes(params: {
     cfg: OpenClawConfig;
     accountId?: string | null;
@@ -55,4 +37,3 @@ export declare function createDirectTextMediaOutbound<TOpts extends Record<strin
     buildTextOptions: (params: DirectSendOptions) => TOpts;
     buildMediaOptions: (params: DirectSendOptions) => TOpts;
 }): ChannelOutboundAdapter;
-export {};

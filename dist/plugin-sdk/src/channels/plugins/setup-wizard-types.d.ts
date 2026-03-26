@@ -8,6 +8,7 @@ export type SetupChannelsOptions = {
     allowDisable?: boolean;
     allowSignalInstall?: boolean;
     onSelection?: (selection: ChannelId[]) => void;
+    onPostWriteHook?: (hook: ChannelOnboardingPostWriteHook) => void;
     accountIds?: Partial<Record<ChannelId, string>>;
     onAccountId?: (channel: ChannelId, accountId: string) => void;
     onResolvedPlugin?: (channel: ChannelId, plugin: ChannelSetupPlugin) => void;
@@ -53,6 +54,20 @@ export type ChannelSetupConfigureContext = {
     shouldPromptAccountIds: boolean;
     forceAllowFrom: boolean;
 };
+export type ChannelOnboardingPostWriteContext = {
+    previousCfg: OpenClawConfig;
+    cfg: OpenClawConfig;
+    accountId: string;
+    runtime: RuntimeEnv;
+};
+export type ChannelOnboardingPostWriteHook = {
+    channel: ChannelId;
+    accountId: string;
+    run: (ctx: {
+        cfg: OpenClawConfig;
+        runtime: RuntimeEnv;
+    }) => Promise<void> | void;
+};
 export type ChannelSetupResult = {
     cfg: OpenClawConfig;
     accountId?: string;
@@ -67,8 +82,12 @@ export type ChannelSetupDmPolicy = {
     channel: ChannelId;
     policyKey: string;
     allowFromKey: string;
-    getCurrent: (cfg: OpenClawConfig) => DmPolicy;
-    setPolicy: (cfg: OpenClawConfig, policy: DmPolicy) => OpenClawConfig;
+    resolveConfigKeys?: (cfg: OpenClawConfig, accountId?: string) => {
+        policyKey: string;
+        allowFromKey: string;
+    };
+    getCurrent: (cfg: OpenClawConfig, accountId?: string) => DmPolicy;
+    setPolicy: (cfg: OpenClawConfig, policy: DmPolicy, accountId?: string) => OpenClawConfig;
     promptAllowFrom?: (params: {
         cfg: OpenClawConfig;
         prompter: WizardPrompter;
@@ -81,6 +100,7 @@ export type ChannelSetupWizardAdapter = {
     configure: (ctx: ChannelSetupConfigureContext) => Promise<ChannelSetupResult>;
     configureInteractive?: (ctx: ChannelSetupInteractiveContext) => Promise<ChannelSetupConfiguredResult>;
     configureWhenConfigured?: (ctx: ChannelSetupInteractiveContext) => Promise<ChannelSetupConfiguredResult>;
+    afterConfigWritten?: (ctx: ChannelOnboardingPostWriteContext) => Promise<void> | void;
     dmPolicy?: ChannelSetupDmPolicy;
     onAccountRecorded?: (accountId: string, options?: SetupChannelsOptions) => void;
     disable?: (cfg: OpenClawConfig) => OpenClawConfig;

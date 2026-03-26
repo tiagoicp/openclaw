@@ -1,9 +1,14 @@
 import type { OpenClawConfig } from "../config/config.js";
+import { callGateway } from "../gateway/call.js";
 import type { GatewayMessageChannel } from "../utils/message-channel.js";
 import type { SandboxFsBridge } from "./sandbox/fs-bridge.js";
 import type { SpawnedToolContext } from "./spawned-context.js";
 import type { ToolFsPolicy } from "./tool-fs-policy.js";
 import type { AnyAgentTool } from "./tools/common.js";
+type OpenClawToolsDeps = {
+    callGateway: typeof callGateway;
+    config?: OpenClawConfig;
+};
 export declare function createOpenClawTools(options?: {
     sandboxBrowserBridgeUrl?: string;
     allowHostBrowserControl?: boolean;
@@ -61,3 +66,7 @@ export declare function createOpenClawTools(options?: {
     /** Allow plugin tools for this tool set to late-bind the gateway subagent. */
     allowGatewaySubagentBinding?: boolean;
 } & SpawnedToolContext): AnyAgentTool[];
+export declare const __testing: {
+    setDepsForTest(overrides?: Partial<OpenClawToolsDeps>): void;
+};
+export {};

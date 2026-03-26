@@ -32,6 +32,33 @@ export declare const SessionsResolveParamsSchema: import("@sinclair/typebox").TO
     includeGlobal: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
     includeUnknown: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
 }>;
+export declare const SessionsCreateParamsSchema: import("@sinclair/typebox").TObject<{
+    key: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    agentId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    label: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    model: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    parentSessionKey: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    task: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    message: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+}>;
+export declare const SessionsSendParamsSchema: import("@sinclair/typebox").TObject<{
+    key: import("@sinclair/typebox").TString;
+    message: import("@sinclair/typebox").TString;
+    thinking: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    attachments: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TUnknown>>;
+    timeoutMs: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
+    idempotencyKey: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+}>;
+export declare const SessionsMessagesSubscribeParamsSchema: import("@sinclair/typebox").TObject<{
+    key: import("@sinclair/typebox").TString;
+}>;
+export declare const SessionsMessagesUnsubscribeParamsSchema: import("@sinclair/typebox").TObject<{
+    key: import("@sinclair/typebox").TString;
+}>;
+export declare const SessionsAbortParamsSchema: import("@sinclair/typebox").TObject<{
+    key: import("@sinclair/typebox").TString;
+    runId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+}>;
 export declare const SessionsPatchParamsSchema: import("@sinclair/typebox").TObject<{
     key: import("@sinclair/typebox").TString;
     label: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TString, import("@sinclair/typebox").TNull]>>;

@@ -1,12 +1,14 @@
 import { type SubagentTargetResolution } from "../auto-reply/reply/subagents-utils.js";
 import type { OpenClawConfig } from "../config/config.js";
 import type { SessionEntry } from "../config/sessions.js";
+import { callGateway } from "../gateway/call.js";
 import { type SubagentRunRecord } from "./subagent-registry.js";
 export declare const DEFAULT_RECENT_MINUTES = 30;
 export declare const MAX_RECENT_MINUTES: number;
 export declare const MAX_STEER_MESSAGE_CHARS = 4000;
 export declare const STEER_RATE_LIMIT_MS = 2000;
 export declare const STEER_ABORT_SETTLE_TIMEOUT_MS = 5000;
+type GatewayCaller = typeof callGateway;
 export type SessionEntryResolution = {
     storePath: string;
     entry: SessionEntry | undefined;
@@ -28,6 +30,7 @@ export type SubagentListItem = {
     pendingDescendants: number;
     runtime: string;
     runtimeMs: number;
+    childSessions?: string[];
     model?: string;
     totalTokens?: number;
     startedAt?: number;
@@ -104,6 +107,24 @@ export declare function killControlledSubagentRun(params: {
     text: string;
     error?: undefined;
 }>;
+export declare function killSubagentRunAdmin(params: {
+    cfg: OpenClawConfig;
+    sessionKey: string;
+}): Promise<{
+    found: false;
+    killed: boolean;
+    runId?: undefined;
+    sessionKey?: undefined;
+    cascadeKilled?: undefined;
+    cascadeLabels?: undefined;
+} | {
+    found: true;
+    killed: boolean;
+    runId: string;
+    sessionKey: string;
+    cascadeKilled: number;
+    cascadeLabels: string[] | undefined;
+}>;
 export declare function steerControlledSubagentRun(params: {
     cfg: OpenClawConfig;
     controller: ResolvedSubagentController;
@@ -134,24 +155,40 @@ export declare function sendControlledSubagentMessage(params: {
     status: "forbidden";
     error: string;
     runId?: undefined;
+    text?: undefined;
+    replyText?: undefined;
+} | {
+    status: "done";
+    runId: string;
+    text: string;
+    error?: undefined;
     replyText?: undefined;
 } | {
     status: "timeout";
     runId: string;
     error?: undefined;
+    text?: undefined;
     replyText?: undefined;
 } | {
     status: "error";
     runId: string;
     error: string;
+    text?: undefined;
     replyText?: undefined;
 } | {
     status: "ok";
     runId: string;
     replyText: string | undefined;
     error?: undefined;
+    text?: undefined;
 }>;
 export declare function resolveControlledSubagentTarget(runs: SubagentRunRecord[], token: string | undefined, options?: {
     recentMinutes?: number;
     isActive?: (entry: SubagentRunRecord) => boolean;
 }): SubagentTargetResolution;
+export declare const __testing: {
+    setDepsForTest(overrides?: Partial<{
+        callGateway: GatewayCaller;
+    }>): void;
+};
+export {};

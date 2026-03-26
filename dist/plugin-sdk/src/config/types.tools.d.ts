@@ -201,6 +201,11 @@ export type ExecToolConfig = {
     pathPrepend?: string[];
     /** Safe stdin-only binaries that can run without allowlist entries. */
     safeBins?: string[];
+    /**
+     * Require explicit approval for interpreter inline-eval forms (`python -c`, `node -e`, etc.).
+     * Prevents silent allowlist reuse and allow-always persistence for those forms.
+     */
+    strictInlineEval?: boolean;
     /** Extra explicit directories trusted for safeBins path checks (never derived from PATH). */
     safeBinTrustedDirs?: string[];
     /** Optional custom safe-bin profiles for entries in tools.exec.safeBins. */
@@ -268,6 +273,8 @@ export type AgentToolsConfig = {
     sandbox?: {
         tools?: {
             allow?: string[];
+            /** Additional allowlist entries merged into allow and/or the sandbox default allowlist. */
+            alsoAllow?: string[];
             deny?: string[];
         };
     };
@@ -425,14 +432,14 @@ export type ToolsConfig = {
             enabled?: boolean;
             /** Search provider id. */
             provider?: string;
+            /** Shared API key slot used by providers that do not need nested config. */
+            apiKey?: SecretInput;
             /** Default search results count (1-10). */
             maxResults?: number;
             /** Timeout in seconds for search requests. */
             timeoutSeconds?: number;
             /** Cache TTL in minutes for search results. */
             cacheTtlMinutes?: number;
-            /** @deprecated Legacy Brave credential path. */
-            apiKey?: SecretInput;
             /** @deprecated Legacy Brave scoped config. */
             brave?: WebSearchLegacyProviderConfig;
             /** @deprecated Legacy Firecrawl scoped config. */
@@ -445,7 +452,7 @@ export type ToolsConfig = {
             kimi?: WebSearchLegacyProviderConfig;
             /** @deprecated Legacy Perplexity scoped config. */
             perplexity?: WebSearchLegacyProviderConfig;
-        };
+        } & Record<string, unknown>;
         fetch?: {
             /** Enable web fetch tool (default: true). */
             enabled?: boolean;
@@ -560,6 +567,8 @@ export type ToolsConfig = {
     sandbox?: {
         tools?: {
             allow?: string[];
+            /** Additional allowlist entries merged into allow and/or the sandbox default allowlist. */
+            alsoAllow?: string[];
             deny?: string[];
         };
     };

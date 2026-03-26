@@ -13,7 +13,15 @@ export type ArchivedPreview = {
     deleteIfUnused?: boolean;
 };
 export type LanePreviewLifecycle = "transient" | "complete";
-export type LaneDeliveryResult = "preview-finalized" | "preview-retained" | "preview-updated" | "sent" | "skipped";
+export type LaneDeliveryResult = {
+    kind: "preview-finalized";
+    delivery: {
+        content: string;
+        messageId?: number;
+    };
+} | {
+    kind: "preview-retained" | "preview-updated" | "sent" | "skipped";
+};
 type CreateLaneTextDelivererParams = {
     lanes: Record<LaneName, DraftLaneState>;
     archivedAnswerPreviews: ArchivedPreview[];

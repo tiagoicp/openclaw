@@ -1,519 +1,186 @@
 import "../../redact-BDinS1q9.js";
 import "../../errors-BxyFnvP3.js";
 import "../../unhandled-rejections-CDJ8dOVP.js";
-import "../../logger-Bisu6sgz.js";
-import "../../paths-D_QmduAc.js";
-import "../../tmp-openclaw-dir-CEAo8CGE.js";
-import "../../theme-Bnch_o1K.js";
-import "../../globals-CnsLPQis.js";
-import "../../subsystem-Dm-AQqmI.js";
-import "../../ansi-BMqrB9En.js";
-import "../../boolean-BgLJTske.js";
-import "../../env-mHZMLTjc.js";
-import "../../warning-filter-m2BbicIr.js";
-import "../../utils-CIAfMgvq.js";
-import "../../links-DtUd3CJi.js";
-import "../../models-config.providers.discovery-CBSen190.js";
-import { Dh as normalizeBaseUrl, Eh as assertOkOrThrowHttpError, Gc as createMoonshotThinkingWrapper, Kc as resolveMoonshotThinkingType, Nm as describeImageWithModel, Oh as postJsonRequest, Pm as describeImagesWithModel, Tv as createProviderApiKeyAuthMethod } from "../../auth-profiles-C1V2x6_A.js";
-import "../../model-selection-BvgYPMZN.js";
-import "../../agent-scope-BvOTVsJZ.js";
-import "../../boundary-path-BVHzCDEE.js";
-import "../../boundary-file-read-1knRHcS0.js";
-import "../../logger-DcSg74GU.js";
-import "../../exec-Bwz57vWc.js";
-import "../../workspace-C3BQkKrq.js";
-import "../../io-BLrYinYw.js";
-import "../../host-env-security-DRYydSLp.js";
-import "../../safe-text-Bls0e7eh.js";
-import "../../version-BXFMfrjE.js";
-import "../../env-substitution-CCbMWMw3.js";
-import "../../config-state-DxIr_ZFp.js";
-import "../../includes-Babm_gOl.js";
-import "../../zod-schema.providers-core-JSZEvSLs.js";
-import "../../registry-DHFXbGRB.js";
-import "../../manifest-registry-BN97WD1N.js";
-import "../../ip-COVlKUC6.js";
-import "../../zod-schema.channels-CLt0EoyM.js";
-import "../../zod-schema.core-2nNLrIvV.js";
-import "../../zod-schema.providers-whatsapp-HQNdy-Lo.js";
-import "../../config-BuXmKtbA.js";
-import "../../file-lock-BCRwTnvL.js";
-import "../../audit-fs-CKHUnnaF.js";
-import "../../resolve-OpLtNdHa.js";
-import { d as readConfiguredSecretString, f as readProviderEnvValue, h as resolveSearchTimeoutSeconds, m as resolveSearchCount, o as buildSearchCacheKey, p as resolveSearchCacheTtlMs, u as readCachedSearchPayload, v as withTrustedWebSearchEndpoint, y as writeCachedSearchPayload } from "../../plugins-allowlist-Dx3qwwff.js";
-import "../../tool-policy-match-DO-I18kG.js";
-import "../../config-DDXUFMD9.js";
-import "../../tailnet-CYknm7bK.js";
-import "../../net-BDAb36NC.js";
-import "../../credentials-Dlg2fw8S.js";
-import "../../routes-D_PnVmld.js";
-import "../../frontmatter-cz9vUzch.js";
-import "../../env-overrides-BvSheZZr.js";
-import "../../path-alias-guards-pxSwQROL.js";
-import "../../sandbox-paths-C2oLsWMS.js";
-import "../../skills-C9qTCwzA.js";
-import "../../ports-DbHCZ217.js";
-import "../../ports-lsof--GPZ_QnB.js";
-import "../../ssh-tunnel-E6I5wsVD.js";
-import "../../proxy-env-TLeMux0w.js";
-import "../../fs-safe-DNTBHVlm.js";
-import "../../mime-BZfENK18.js";
-import "../../image-ops-DsrR0jfa.js";
-import "../../server-middleware-uG2Nzt3c.js";
-import "../../message-channel-YbR1kGoD.js";
-import "../../resolve-route-BKJ_gx17.js";
-import "../../registry-u4-bSC0t.js";
-import "../../plugins-CrRqO64r.js";
-import "../../paths-DkI03UGW.js";
-import "../../config-schema-SbU9iMOP.js";
-import "../../channel-plugin-common-lL08nJSM.js";
-import "../../directory-runtime-4Kx3Gvfd.js";
-import "../../read-only-account-inspect-BzQtVN0P.js";
-import { l as readNumberParam, p as readStringParam } from "../../common-BSZuydpj.js";
-import "../../discord-core-D_7rg7Bl.js";
-import "../../channel-config-helpers-DgtPbGwx.js";
-import "../../channel-policy-DpLpqCrB.js";
-import "../../commands-Ccb6jko6.js";
-import "../../method-scopes-CIPmQDuC.js";
-import "../../session-cost-usage-4I5dS4fe.js";
-import "../../logging-VTZm8jB6.js";
-import "../../runtime-env-C8UxrL-i.js";
-import "../../send-BCFA3Awg.js";
-import "../../state-paths-QS0axAl1.js";
-import "../../cli-runtime-BoYcLS-9.js";
-import "../../routing-CM1q67VT.js";
-import "../../diagnostic-DtQOjD7p.js";
-import "../../text-runtime-DD-uemN_.js";
-import "../../dm-policy-shared-DR-r8JQl.js";
-import { n as buildSingleProviderApiKeyCatalog } from "../../provider-catalog-C51_gEwd.js";
-import { i as definePluginEntry } from "../../core-DoWJeX1b.js";
-import "../../registry-D0H7k4Rl.js";
-import "../../pairing-store-BqbEmTVQ.js";
-import "../../json-store-BlJH8v0x.js";
-import "../../fetch-guard-r6nhKyr7.js";
-import "../../whatsapp-core-CDBsOcJv.js";
-import "../../hook-runtime-M4GviJQN.js";
-import "../../internal-hooks-jmovcAUX.js";
-import { dt as MOONSHOT_DEFAULT_MODEL_REF, ft as applyMoonshotConfig, ht as buildMoonshotProvider, pt as applyMoonshotConfigCn } from "../../provider-models-mqi97xJa.js";
-import "../../provider-onboard-YZwyyz0l.js";
-import "../../model-definitions-CPk0fx2x.js";
-import "../../call-CuSVmxO6.js";
-import "../../delegate-DZgF1n1_.js";
-import "../../with-timeout-6Mk1JecS.js";
-import "../../multimodal-BZ5nSU8_.js";
-import "../../memory-search-BEee7lTM.js";
-import "../../query-expansion-C5OcnmBU.js";
-import "../../search-manager-B73xZeLt.js";
-import "../../setup-binary-BRNtxkNZ.js";
-import "../../signal-cli-install-CazITAFo.js";
-import "../../identity-file-L2phPATJ.js";
-import "../../command-secret-targets-DoLf7afU.js";
-import "../../pairing-token-D5GBjAVE.js";
-import "../../delivery-queue-B2kD8cNZ.js";
-import { o as wrapWebContent } from "../../external-content-DohesiX3.js";
-import "../../security-runtime-DVVSOOlu.js";
-import "../../telegram-core-BZ7aS5CA.js";
-import "../../audit-HKoXXKMO.js";
-import "../../gateway-runtime-Btluew0E.js";
-import "../../connection-auth-BCwdTkvS.js";
-import "../../config-value-C42C4nMV.js";
-import "../../exec-approvals-CZGtkt6y.js";
-import "../../nodes-screen-DWWnCUAS.js";
-import "../../system-run-command-BnhKEiGR.js";
-import "../../stagger-Ds3EfozT.js";
-import "../../restart-stale-pids-D84WQQ67.js";
-import "../../provider-usage.fetch-Cilv-_i6.js";
-import "../../history-CZuN-T_-.js";
-import "../../channel-summary-DavcDlJH.js";
-import "../../secret-file-C6VA1we_.js";
-import "../../accounts-B1tM8Jyc.js";
-import "../../pairing-labels-CC5WpLtU.js";
-import "../../process-runtime-UwxhzAyo.js";
-import "../../cli-utils-CreDWcAs.js";
-import "../../help-format-zSqk-GrQ.js";
-import "../../progress-D69d44Ic.js";
-import "../../shared-TeMeV5_s.js";
-import "../../provider-stream-CRzRapfE.js";
-import { a as resolveProviderWebSearchPluginConfig, o as setProviderWebSearchPluginConfigValue } from "../../provider-web-search-DR5xY1kU.js";
-import "../../enable-Dox0zt2F.js";
-import "../../media-understanding-BGVBLZxZ.js";
-import { Type } from "@sinclair/typebox";
-//#region extensions/moonshot/media-understanding-provider.ts
-const DEFAULT_MOONSHOT_VIDEO_BASE_URL = "https://api.moonshot.ai/v1";
-const DEFAULT_MOONSHOT_VIDEO_MODEL = "kimi-k2.5";
-const DEFAULT_MOONSHOT_VIDEO_PROMPT = "Describe the video.";
-function resolveModel(model) {
-	return model?.trim() || DEFAULT_MOONSHOT_VIDEO_MODEL;
-}
-function resolvePrompt(prompt) {
-	return prompt?.trim() || DEFAULT_MOONSHOT_VIDEO_PROMPT;
-}
-function coerceMoonshotText(payload) {
-	const message = payload.choices?.[0]?.message;
-	if (!message) return null;
-	if (typeof message.content === "string" && message.content.trim()) return message.content.trim();
-	if (Array.isArray(message.content)) {
-		const text = message.content.map((part) => typeof part.text === "string" ? part.text.trim() : "").filter(Boolean).join("\n").trim();
-		if (text) return text;
-	}
-	if (typeof message.reasoning_content === "string" && message.reasoning_content.trim()) return message.reasoning_content.trim();
-	return null;
-}
-async function describeMoonshotVideo(params) {
-	const fetchFn = params.fetchFn ?? fetch;
-	const baseUrl = normalizeBaseUrl(params.baseUrl, DEFAULT_MOONSHOT_VIDEO_BASE_URL);
-	const model = resolveModel(params.model);
-	const mime = params.mime ?? "video/mp4";
-	const prompt = resolvePrompt(params.prompt);
-	const url = `${baseUrl}/chat/completions`;
-	const headers = new Headers(params.headers);
-	if (!headers.has("content-type")) headers.set("content-type", "application/json");
-	if (!headers.has("authorization")) headers.set("authorization", `Bearer ${params.apiKey}`);
-	const { response: res, release } = await postJsonRequest({
-		url,
-		headers,
-		body: {
-			model,
-			messages: [{
-				role: "user",
-				content: [{
-					type: "text",
-					text: prompt
-				}, {
-					type: "video_url",
-					video_url: { url: `data:${mime};base64,${params.buffer.toString("base64")}` }
-				}]
-			}]
-		},
-		timeoutMs: params.timeoutMs,
-		fetchFn
-	});
-	try {
-		await assertOkOrThrowHttpError(res, "Moonshot video description failed");
-		const text = coerceMoonshotText(await res.json());
-		if (!text) throw new Error("Moonshot video description response missing content");
-		return {
-			text,
-			model
-		};
-	} finally {
-		await release();
-	}
-}
-const moonshotMediaUnderstandingProvider = {
-	id: "moonshot",
-	capabilities: ["image", "video"],
-	describeImage: describeImageWithModel,
-	describeImages: describeImagesWithModel,
-	describeVideo: describeMoonshotVideo
-};
-//#endregion
-//#region extensions/moonshot/src/kimi-web-search-provider.ts
-const DEFAULT_KIMI_BASE_URL = "https://api.moonshot.ai/v1";
-const DEFAULT_KIMI_MODEL = "moonshot-v1-128k";
-const KIMI_WEB_SEARCH_TOOL = {
-	type: "builtin_function",
-	function: { name: "$web_search" }
-};
-function resolveKimiConfig(config, searchConfig) {
-	const pluginConfig = resolveProviderWebSearchPluginConfig(config, "moonshot");
-	if (pluginConfig) return pluginConfig;
-	const kimi = searchConfig?.kimi;
-	return kimi && typeof kimi === "object" && !Array.isArray(kimi) ? kimi : {};
-}
-function resolveKimiApiKey(kimi) {
-	return readConfiguredSecretString(kimi?.apiKey, "plugins.entries.moonshot.config.webSearch.apiKey") ?? readProviderEnvValue(["KIMI_API_KEY", "MOONSHOT_API_KEY"]);
-}
-function resolveKimiModel(kimi) {
-	return (typeof kimi?.model === "string" ? kimi.model.trim() : "") || DEFAULT_KIMI_MODEL;
-}
-function resolveKimiBaseUrl(kimi) {
-	return (typeof kimi?.baseUrl === "string" ? kimi.baseUrl.trim() : "") || DEFAULT_KIMI_BASE_URL;
-}
-function extractKimiMessageText(message) {
-	const content = message?.content?.trim();
-	if (content) return content;
-	return message?.reasoning_content?.trim() || void 0;
-}
-function extractKimiCitations(data) {
-	const citations = (data.search_results ?? []).map((entry) => entry.url?.trim()).filter((url) => Boolean(url));
-	for (const toolCall of data.choices?.[0]?.message?.tool_calls ?? []) {
-		const rawArguments = toolCall.function?.arguments;
-		if (!rawArguments) continue;
-		try {
-			const parsed = JSON.parse(rawArguments);
-			if (typeof parsed.url === "string" && parsed.url.trim()) citations.push(parsed.url.trim());
-			for (const result of parsed.search_results ?? []) if (typeof result.url === "string" && result.url.trim()) citations.push(result.url.trim());
-		} catch {}
-	}
-	return [...new Set(citations)];
-}
-function buildKimiToolResultContent(data) {
-	return JSON.stringify({ search_results: (data.search_results ?? []).map((entry) => ({
-		title: entry.title ?? "",
-		url: entry.url ?? "",
-		content: entry.content ?? ""
-	})) });
-}
-async function runKimiSearch(params) {
-	const endpoint = `${params.baseUrl.trim().replace(/\/$/, "")}/chat/completions`;
-	const messages = [{
-		role: "user",
-		content: params.query
-	}];
-	const collectedCitations = /* @__PURE__ */ new Set();
-	for (let round = 0; round < 3; round += 1) {
-		const next = await withTrustedWebSearchEndpoint({
-			url: endpoint,
-			timeoutSeconds: params.timeoutSeconds,
-			init: {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${params.apiKey}`
-				},
-				body: JSON.stringify({
-					model: params.model,
-					messages,
-					tools: [KIMI_WEB_SEARCH_TOOL]
-				})
-			}
-		}, async (res) => {
-			if (!res.ok) {
-				const detail = await res.text();
-				throw new Error(`Kimi API error (${res.status}): ${detail || res.statusText}`);
-			}
-			const data = await res.json();
-			for (const citation of extractKimiCitations(data)) collectedCitations.add(citation);
-			const choice = data.choices?.[0];
-			const message = choice?.message;
-			const text = extractKimiMessageText(message);
-			const toolCalls = message?.tool_calls ?? [];
-			if (choice?.finish_reason !== "tool_calls" || toolCalls.length === 0) return {
-				done: true,
-				content: text ?? "No response",
-				citations: [...collectedCitations]
-			};
-			messages.push({
-				role: "assistant",
-				content: message?.content ?? "",
-				...message?.reasoning_content ? { reasoning_content: message.reasoning_content } : {},
-				tool_calls: toolCalls
-			});
-			const toolContent = buildKimiToolResultContent(data);
-			let pushed = false;
-			for (const toolCall of toolCalls) {
-				const toolCallId = toolCall.id?.trim();
-				if (!toolCallId) continue;
-				pushed = true;
-				messages.push({
-					role: "tool",
-					tool_call_id: toolCallId,
-					content: toolContent
-				});
-			}
-			if (!pushed) return {
-				done: true,
-				content: text ?? "No response",
-				citations: [...collectedCitations]
-			};
-			return { done: false };
-		});
-		if (next.done) return {
-			content: next.content,
-			citations: next.citations
-		};
-	}
-	return {
-		content: "Search completed but no final answer was produced.",
-		citations: [...collectedCitations]
-	};
-}
-function createKimiSchema() {
-	return Type.Object({
-		query: Type.String({ description: "Search query string." }),
-		count: Type.Optional(Type.Number({
-			description: "Number of results to return (1-10).",
-			minimum: 1,
-			maximum: 10
-		})),
-		country: Type.Optional(Type.String({ description: "Not supported by Kimi." })),
-		language: Type.Optional(Type.String({ description: "Not supported by Kimi." })),
-		freshness: Type.Optional(Type.String({ description: "Not supported by Kimi." })),
-		date_after: Type.Optional(Type.String({ description: "Not supported by Kimi." })),
-		date_before: Type.Optional(Type.String({ description: "Not supported by Kimi." }))
-	});
-}
-function createKimiToolDefinition(config, searchConfig) {
-	return {
-		description: "Search the web using Kimi by Moonshot. Returns AI-synthesized answers with citations from native $web_search.",
-		parameters: createKimiSchema(),
-		execute: async (args) => {
-			const params = args;
-			for (const name of [
-				"country",
-				"language",
-				"freshness",
-				"date_after",
-				"date_before"
-			]) if (readStringParam(params, name)) {
-				const label = name === "country" ? "country filtering" : name === "language" ? "language filtering" : name === "freshness" ? "freshness filtering" : "date_after/date_before filtering";
-				return {
-					error: name.startsWith("date_") ? "unsupported_date_filter" : `unsupported_${name}`,
-					message: `${label} is not supported by the kimi provider. Only Brave and Perplexity support ${name === "country" ? "country filtering" : name === "language" ? "language filtering" : name === "freshness" ? "freshness" : "date filtering"}.`,
-					docs: "https://docs.openclaw.ai/tools/web"
-				};
-			}
-			const kimiConfig = resolveKimiConfig(config, searchConfig);
-			const apiKey = resolveKimiApiKey(kimiConfig);
-			if (!apiKey) return {
-				error: "missing_kimi_api_key",
-				message: "web_search (kimi) needs a Moonshot API key. Set KIMI_API_KEY or MOONSHOT_API_KEY in the Gateway environment, or configure plugins.entries.moonshot.config.webSearch.apiKey.",
-				docs: "https://docs.openclaw.ai/tools/web"
-			};
-			const query = readStringParam(params, "query", { required: true });
-			const count = readNumberParam(params, "count", { integer: true }) ?? searchConfig?.maxResults ?? void 0;
-			const model = resolveKimiModel(kimiConfig);
-			const baseUrl = resolveKimiBaseUrl(kimiConfig);
-			const cacheKey = buildSearchCacheKey([
-				"kimi",
-				query,
-				resolveSearchCount(count, 5),
-				baseUrl,
-				model
-			]);
-			const cached = readCachedSearchPayload(cacheKey);
-			if (cached) return cached;
-			const start = Date.now();
-			const result = await runKimiSearch({
-				query,
-				apiKey,
-				baseUrl,
-				model,
-				timeoutSeconds: resolveSearchTimeoutSeconds(searchConfig)
-			});
-			const payload = {
-				query,
-				provider: "kimi",
-				model,
-				tookMs: Date.now() - start,
-				externalContent: {
-					untrusted: true,
-					source: "web_search",
-					provider: "kimi",
-					wrapped: true
-				},
-				content: wrapWebContent(result.content),
-				citations: result.citations
-			};
-			writeCachedSearchPayload(cacheKey, payload, resolveSearchCacheTtlMs(searchConfig));
-			return payload;
-		}
-	};
-}
-function createKimiWebSearchProvider() {
-	return {
-		id: "kimi",
-		label: "Kimi (Moonshot)",
-		hint: "Moonshot web search",
-		envVars: ["KIMI_API_KEY", "MOONSHOT_API_KEY"],
-		placeholder: "sk-...",
-		signupUrl: "https://platform.moonshot.cn/",
-		docsUrl: "https://docs.openclaw.ai/tools/web",
-		autoDetectOrder: 40,
-		credentialPath: "plugins.entries.moonshot.config.webSearch.apiKey",
-		inactiveSecretPaths: ["plugins.entries.moonshot.config.webSearch.apiKey"],
-		getCredentialValue: (searchConfig) => {
-			const kimi = searchConfig?.kimi;
-			return kimi && typeof kimi === "object" && !Array.isArray(kimi) ? kimi.apiKey : void 0;
-		},
-		setCredentialValue: (searchConfigTarget, value) => {
-			const scoped = searchConfigTarget.kimi;
-			if (!scoped || typeof scoped !== "object" || Array.isArray(scoped)) {
-				searchConfigTarget.kimi = { apiKey: value };
-				return;
-			}
-			scoped.apiKey = value;
-		},
-		getConfiguredCredentialValue: (config) => resolveProviderWebSearchPluginConfig(config, "moonshot")?.apiKey,
-		setConfiguredCredentialValue: (configTarget, value) => {
-			setProviderWebSearchPluginConfigValue(configTarget, "moonshot", "apiKey", value);
-		},
-		createTool: (ctx) => createKimiToolDefinition(ctx.config, ctx.searchConfig)
-	};
-}
-//#endregion
-//#region extensions/moonshot/index.ts
-const PROVIDER_ID = "moonshot";
-var moonshot_default = definePluginEntry({
-	id: PROVIDER_ID,
-	name: "Moonshot Provider",
-	description: "Bundled Moonshot provider plugin",
-	register(api) {
-		api.registerProvider({
-			id: PROVIDER_ID,
-			label: "Moonshot",
-			docsPath: "/providers/moonshot",
-			envVars: ["MOONSHOT_API_KEY"],
-			auth: [createProviderApiKeyAuthMethod({
-				providerId: PROVIDER_ID,
-				methodId: "api-key",
-				label: "Kimi API key (.ai)",
-				hint: "Kimi K2.5 + Kimi",
-				optionKey: "moonshotApiKey",
-				flagName: "--moonshot-api-key",
-				envVar: "MOONSHOT_API_KEY",
-				promptMessage: "Enter Moonshot API key",
-				defaultModel: MOONSHOT_DEFAULT_MODEL_REF,
-				expectedProviders: ["moonshot"],
-				applyConfig: (cfg) => applyMoonshotConfig(cfg),
-				wizard: {
-					choiceId: "moonshot-api-key",
-					choiceLabel: "Kimi API key (.ai)",
-					groupId: "moonshot",
-					groupLabel: "Moonshot AI (Kimi K2.5)",
-					groupHint: "Kimi K2.5 + Kimi"
-				}
-			}), createProviderApiKeyAuthMethod({
-				providerId: PROVIDER_ID,
-				methodId: "api-key-cn",
-				label: "Kimi API key (.cn)",
-				hint: "Kimi K2.5 + Kimi",
-				optionKey: "moonshotApiKey",
-				flagName: "--moonshot-api-key",
-				envVar: "MOONSHOT_API_KEY",
-				promptMessage: "Enter Moonshot API key (.cn)",
-				defaultModel: MOONSHOT_DEFAULT_MODEL_REF,
-				expectedProviders: ["moonshot"],
-				applyConfig: (cfg) => applyMoonshotConfigCn(cfg),
-				wizard: {
-					choiceId: "moonshot-api-key-cn",
-					choiceLabel: "Kimi API key (.cn)",
-					groupId: "moonshot",
-					groupLabel: "Moonshot AI (Kimi K2.5)",
-					groupHint: "Kimi K2.5 + Kimi"
-				}
-			})],
-			catalog: {
-				order: "simple",
-				run: (ctx) => buildSingleProviderApiKeyCatalog({
-					ctx,
-					providerId: PROVIDER_ID,
-					buildProvider: buildMoonshotProvider,
-					allowExplicitBaseUrl: true
-				})
-			},
-			wrapStreamFn: (ctx) => {
-				const thinkingType = resolveMoonshotThinkingType({
-					configuredThinking: ctx.extraParams?.thinking,
-					thinkingLevel: ctx.thinkingLevel
-				});
-				return createMoonshotThinkingWrapper(ctx.streamFn, thinkingType);
-			}
-		});
-		api.registerMediaUnderstandingProvider(moonshotMediaUnderstandingProvider);
-		api.registerWebSearchProvider(createKimiWebSearchProvider());
-	}
-});
-//#endregion
+import "../../env-D1ktUnAV.js";
+import "../../paths-CjuwkA2v.js";
+import "../../safe-text-K2Nonoo3.js";
+import "../../tmp-openclaw-dir-DzRxfh9a.js";
+import "../../theme-BH5F9mlg.js";
+import "../../version-DGzLsBG-.js";
+import "../../zod-schema.agent-runtime-DNndkpI8.js";
+import "../../runtime-BF_KUcJM.js";
+import "../../registry-bOiEdffE.js";
+import "../../ip-ByO4-_4f.js";
+import "../../warning-filter-C_BEyyvc.js";
+import "../../links-DaR1j_Bv.js";
+import "../../paths-DJBuCoRE.js";
+import "../../auth-profiles-z_oM_y_O.js";
+import "../../provider-runtime.runtime-BokSGTHt.js";
+import "../../file-lock-Cm3HPowf.js";
+import "../../audit-fs-7IxnGQxG.js";
+import "../../resolve-DqJVzTVp.js";
+import "../../profiles-CRvutsjq.js";
+import "../../tailscale-FHZADwLL.js";
+import "../../tailnet-BPCtbdja.js";
+import "../../net-1LAzWzJc.js";
+import "../../auth-BC0t_CEl.js";
+import "../../credentials-6hokf6e3.js";
+import "../../message-channel-ZzTqBBLH.js";
+import "../../sessions-uRDRs4f-.js";
+import "../../plugins-h0t63KQW.js";
+import "../../paths-BEHCHyAI.js";
+import "../../delivery-context-oynQ_N5k.js";
+import "../../session-write-lock-B7nwE7de.js";
+import "../../method-scopes-DtJfTstv.js";
+import "../../call-CFi2qbI2.js";
+import "../../detect-binary-78pS71eg.js";
+import "../../prompt-style-qxNRcnm3.js";
+import "../../ports-lsof-qBGFcQvX.js";
+import "../../restart-stale-pids-ciXEfnyN.js";
+import "../../ports-DF41F7NN.js";
+import "../../logging-CS4wyI-j.js";
+import "../../commands-AceByDw5.js";
+import "../../issue-format-Cj39YIRp.js";
+import "../../provider-env-vars-BZwz5sMG.js";
+import "../../model-auth-env-BWzx2-YC.js";
+import "../../anthropic-vertex-provider-Cik2BDhe.js";
+import "../../pi-model-discovery-hz4apXP-.js";
+import "../../identity-xGthCqY8.js";
+import "../../heartbeat-DqtPOAC0.js";
+import { v_ as moonshot_default } from "../../pi-embedded-DFNOKLyy.js";
+import "../../internal-hooks-CVdBfFMw.js";
+import "../../multimodal-CDYWira8.js";
+import "../../memory-search-B5CuuJZB.js";
+import "../../secret-input-x2By3bJy.js";
+import "../../bindings-KL-4Efmw.js";
+import "../../resolve-route-C5Xj9lGN.js";
+import "../../routing-DA_79T-X.js";
+import "../../identity-file-ClDAlI0t.js";
+import "../../outbound-runtime-BAxohuIf.js";
+import "../../provider-model-definitions-CrItEa-O.js";
+import "../../provider-models-GbpUTgQg.js";
+import "../../provider-catalog-hDyZGQ8R.js";
+import "../../provider-catalog-0WIhy6f_.js";
+import "../../provider-catalog-CdCrQ7UP.js";
+import "../../provider-catalog-DzIvFdfj.js";
+import "../../provider-catalog-COMYNKV2.js";
+import "../../provider-catalog-Bce8iOMh.js";
+import "../../provider-catalog-CPx35FBq.js";
+import "../../provider-catalog-Czll7Q5-.js";
+import "../../provider-catalog-BFvOY2Dt.js";
+import "../../provider-catalog-VZaye2Ib.js";
+import "../../models-config.providers.discovery-oJl_MWQT.js";
+import "../../text-runtime-B-kOpuLv.js";
+import "../../docker-BrzH-NvE.js";
+import "../../tool-catalog-BQWPAtTb.js";
+import "../../common-CMCEg0LE.js";
+import "../../image-ops-xftchR8Z.js";
+import "../../thinking-Me2S38se.js";
+import "../../path-alias-guards-BfUEa8Z8.js";
+import "../../sandbox-paths-DM85ql27.js";
+import "../../channel-actions-M8UJU-J1.js";
+import "../../mime-Bwp1UQ_8.js";
+import "../../ssrf-BdAu1_OT.js";
+import "../../fetch-guard-BiSGgjb-.js";
+import "../../provider-web-search-B2TRQt7q.js";
+import "../../manager-BFi-xqLj.js";
+import "../../config-schema-BoeEl_gh.js";
+import "../../channel-plugin-common-Bw5e9GHM.js";
+import "../../status-helpers-DTFg68Zs.js";
+import "../../conversation-runtime-BfLWHgdb.js";
+import "../../runtime-whatsapp-boundary-C0sTsAVN.js";
+import "../../pairing-store-Ci8ZfuL6.js";
+import "../../json-store-Dizz4Rhx.js";
+import "../../secret-file-BzdoxKYZ.js";
+import "../../channel-config-schema-DOQ4q6a_.js";
+import "../../setup-binary-Tg8N6z5q.js";
+import "../../archive-Oi0PB5pw.js";
+import "../../fs-safe-DpC9pe80.js";
+import "../../signal-cli-install-pAmdy64m.js";
+import "../../setup-wizard-proxy-3tbzVvIf.js";
+import "../../setup-Cuh8Qocv.js";
+import "../../dm-policy-shared-3Jdbvvlm.js";
+import "../../runtime-env-pWTJLxVn.js";
+import "../../temp-path-DvwSkpQg.js";
+import "../../diagnostic-Dx7wnQab.js";
+import "../../logging-B3tLYQAZ.js";
+import "../../config-runtime-BMqUsOKJ.js";
+import "../../level-overrides-CaIdz1Y2.js";
+import "../../exec-approvals-CoUFlPSg.js";
+import "../../webhook-ingress-CwnvXQ9i.js";
+import "../../system-events-D_U3rn_H.js";
+import "../../ssrf-policy-Cve-f-IZ.js";
+import "../../hook-runtime-C0FQ8mwc.js";
+import "../../templating-BpbUbFSs.js";
+import "../../channel-reply-pipeline-BQ2GND11.js";
+import "../../reply-history-CYr7j6cE.js";
+import "../../commands-registry.data-C-Zb7sHo.js";
+import "../../commands-registry-kALONq2A.js";
+import "../../frontmatter-C_CWb6f1.js";
+import "../../env-overrides-CilRbuhU.js";
+import "../../skills-Xrdxpo0d.js";
+import "../../skills-remote-D055n83h.js";
+import "../../workspace-dirs-BooYyzLb.js";
+import "../../pairing-token-BhzPXbCy.js";
+import "../../skill-commands-X9DVN0CB.js";
+import "../../exec-inline-eval-CAjjj6oR.js";
+import "../../sandbox-DSgCBor-.js";
+import "../../target-registry-CUzd3r6R.js";
+import "../../external-content-BtOAY1jC.js";
+import "../../brave-iyc-zT4j.js";
+import "../../duckduckgo-RnKnjVjk.js";
+import "../../exa-B_PEobTF.js";
+import "../../security-runtime-DuEgVcd_.js";
+import "../../provider-auth-ref-CkjXioxW.js";
+import "../../provider-auth-input-DY2h0M4n.js";
+import "../../provider-auth-helpers-CfaQ5Xn6.js";
+import "../../provider-api-key-auth-Uu86HoCQ.js";
+import "../../provider-usage-D_y-rSPa.js";
+import "../../provider-models-BlbL1wnJ.js";
+import "../../media-understanding-Bo9B_E3l.js";
+import "../../media-understanding-provider-C5e8GFRO.js";
+import "../../provider-entry-Dh6ETIXa.js";
+import "../../media-understanding-provider-Cvthuw62.js";
+import "../../provider-onboard-DmLoftpN.js";
+import "../../onboard-p6odcf1a.js";
+import "../../perplexity-web-search-provider-CBvej2u9.js";
+import "../../perplexity-DVSMCtcT.js";
+import "../../model-definitions-CLlu-y8L.js";
+import "../../onboard-CQyz1Xh9.js";
+import "../../provider-catalog-BbgD0Blc.js";
+import "../../provider-models-CPWTfv6u.js";
+import "../../stream-WNyIq00o.js";
+import "../../web-search-C2bCgEzC.js";
+import "../../client-fetch-DG9t9440.js";
+import "../../config-B6bjVdCF.js";
+import "../../web-media-B7RZCKik.js";
+import "../../stagger-C20Z_jRQ.js";
+import "../../command-secret-targets-CiFc3JN3.js";
+import "../../delivery-queue-iwWmpCz9.js";
+import "../../pairing-labels-PxfGoTvk.js";
+import "../../directory-runtime-D9Y42mW-.js";
+import "../../read-only-account-inspect-f6OlttkD.js";
+import "../../src-hV2aBDoy.js";
+import "../../web-media-C0RRMmtv.js";
+import "../../state-paths-CG7b-A_-.js";
+import "../../axios-zS_oAKS1.js";
+import "../../channel-summary-BE3kiFA7.js";
+import "../../session-system-events-Bkb0fc95.js";
+import "../../ssh-tunnel-Ca8F0wnz.js";
+import "../../server-middleware-DUIlEnG_.js";
+import "../../llm-task-D_W5GYK4.js";
+import "../../tool-policy-match-DgTjuJ-l.js";
+import "../../runtime-DAr9Q1gF.js";
+import "../../channel-status-DxDpNj1k.js";
+import "../../discord-core-CTFa_tPG.js";
+import "../../cli-runtime-CivyfPOe.js";
+import "../../config-presence-Bo4-9YVM.js";
+import "../../query-expansion-CeNhqo71.js";
+import "../../search-manager-BH4BTUaa.js";
+import "../../acp-runtime-CRrXx1ZI.js";
+import "../../telegram-core-n7uYzMlP.js";
+import "../../audit-D7armGfs.js";
+import "../../gateway-runtime-_5BLwTPa.js";
+import "../../connection-auth-DQ6Wy_i-.js";
+import "../../mcp-config-vaYGkUmW.js";
 export { moonshot_default as default };

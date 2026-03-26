@@ -14,6 +14,7 @@ export type SafeBinProfileFixture = {
     deniedFlags?: readonly string[];
 };
 export type SafeBinProfileFixtures = Readonly<Record<string, SafeBinProfileFixture>>;
+export declare const DEFAULT_SAFE_BINS: readonly ["cut", "uniq", "head", "tail", "tr", "wc"];
 export declare function collectKnownLongFlags(allowedValueFlags: ReadonlySet<string>, deniedFlags: ReadonlySet<string>): string[];
 export declare function buildLongFlagPrefixMap(knownLongFlags: readonly string[]): ReadonlyMap<string, string | null>;
 export declare const SAFE_BIN_PROFILE_FIXTURES: Record<string, SafeBinProfileFixture>;
@@ -22,3 +23,4 @@ export declare function normalizeSafeBinProfileFixtures(fixtures?: SafeBinProfil
 export declare function resolveSafeBinProfiles(fixtures?: SafeBinProfileFixtures | null): Record<string, SafeBinProfile>;
 export declare function resolveSafeBinDeniedFlags(fixtures?: Readonly<Record<string, SafeBinProfileFixture>>): Record<string, string[]>;
 export declare function renderSafeBinDeniedFlagsDocBullets(fixtures?: Readonly<Record<string, SafeBinProfileFixture>>): string;
+export declare function renderDefaultSafeBinsDocText(defaults?: readonly string[]): string;

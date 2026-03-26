@@ -1,8 +1,8 @@
-import type { NormalizedUsage } from "../../agents/usage.js";
 import type { ChannelId, ChannelThreadingToolContext } from "../../channels/plugins/types.js";
 import type { OpenClawConfig } from "../../config/config.js";
 import type { TemplateContext } from "../templating.js";
-import type { ReplyPayload } from "../types.js";
+import { resolveProviderScopedAuthProfile, resolveRunAuthProfile } from "./agent-runner-auth-profile.js";
+export { resolveProviderScopedAuthProfile, resolveRunAuthProfile };
 import type { FollowupRun } from "./queue.js";
 /**
  * Build provider-specific threading context for tool auto-injection.
@@ -16,17 +16,6 @@ export declare function buildThreadingToolContext(params: {
 }): ChannelThreadingToolContext;
 export declare const isBunFetchSocketError: (message?: string) => boolean;
 export declare const formatBunFetchSocketError: (message: string) => string;
-export declare const formatResponseUsageLine: (params: {
-    usage?: NormalizedUsage;
-    showCost: boolean;
-    costConfig?: {
-        input: number;
-        output: number;
-        cacheRead: number;
-        cacheWrite: number;
-    };
-}) => string | null;
-export declare const appendUsageLine: (payloads: ReplyPayload[], line: string) => ReplyPayload[];
 export declare const resolveEnforceFinalTag: (run: FollowupRun["run"], provider: string) => boolean;
 export declare function resolveModelFallbackOptions(run: FollowupRun["run"]): {
     cfg: OpenClawConfig;
@@ -98,10 +87,6 @@ export declare function buildTemplateSenderContext(sessionCtx: TemplateContext):
     senderName: string | undefined;
     senderUsername: string | undefined;
     senderE164: string | undefined;
-};
-export declare function resolveRunAuthProfile(run: FollowupRun["run"], provider: string): {
-    authProfileId?: string;
-    authProfileIdSource?: "auto" | "user";
 };
 export declare function buildEmbeddedRunContexts(params: {
     run: FollowupRun["run"];
@@ -202,13 +187,4 @@ export declare function buildEmbeddedRunExecutionParams(params: {
         provider: string;
         model: string;
     };
-};
-export declare function resolveProviderScopedAuthProfile(params: {
-    provider: string;
-    primaryProvider: string;
-    authProfileId?: string;
-    authProfileIdSource?: "auto" | "user";
-}): {
-    authProfileId?: string;
-    authProfileIdSource?: "auto" | "user";
 };

@@ -7,6 +7,9 @@
  * etc.) directly to the stored user message content so the LLM can access
  * them. These blocks are AI-facing only and must never surface in user-visible
  * chat history.
+ *
+ * Also strips the timestamp prefix injected by `injectTimestamp` so UI surfaces
+ * do not show AI-facing envelope metadata as user text.
  */
 /**
  * Remove all injected inbound metadata prefix blocks from `text`.

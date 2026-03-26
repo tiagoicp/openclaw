@@ -1,6 +1,6 @@
 import { Button, Command, StringSelectMenu } from "@buape/carbon";
+import { type NativeCommandSpec } from "openclaw/plugin-sdk/command-auth";
 import type { OpenClawConfig, loadConfig } from "openclaw/plugin-sdk/config-runtime";
-import type { NativeCommandSpec } from "openclaw/plugin-sdk/reply-runtime";
 import { type DiscordCommandArgContext, type DiscordModelPickerContext } from "./native-command-ui.js";
 import type { ThreadBindingManager } from "./thread-bindings.js";
 type DiscordConfig = NonNullable<OpenClawConfig["channels"]>["discord"];

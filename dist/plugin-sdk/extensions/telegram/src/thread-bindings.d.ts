@@ -53,6 +53,6 @@ export declare function setTelegramThreadBindingMaxAgeBySessionKey(params: {
     maxAgeMs: number;
 }): TelegramThreadBindingRecord[];
 export declare const __testing: {
-    resetTelegramThreadBindingsForTests(): void;
+    resetTelegramThreadBindingsForTests(): Promise<void>;
 };
 export {};

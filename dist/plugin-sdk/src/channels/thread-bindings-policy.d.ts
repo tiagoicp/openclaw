@@ -1,5 +1,6 @@
 import type { OpenClawConfig } from "../config/config.js";
 export declare const DISCORD_THREAD_BINDING_CHANNEL = "discord";
+export declare const MATRIX_THREAD_BINDING_CHANNEL = "matrix";
 export type ThreadBindingSpawnKind = "subagent" | "acp";
 export type ThreadBindingSpawnPolicy = {
     channel: string;
@@ -15,6 +16,25 @@ export declare function resolveThreadBindingMaxAgeMs(params: {
     channelMaxAgeHoursRaw: unknown;
     sessionMaxAgeHoursRaw: unknown;
 }): number;
+type ThreadBindingLifecycleRecord = {
+    boundAt: number;
+    lastActivityAt: number;
+    idleTimeoutMs?: number;
+    maxAgeMs?: number;
+};
+export declare function resolveThreadBindingLifecycle(params: {
+    record: ThreadBindingLifecycleRecord;
+    defaultIdleTimeoutMs: number;
+    defaultMaxAgeMs: number;
+}): {
+    expiresAt?: number;
+    reason?: "idle-expired" | "max-age-expired";
+};
+export declare function resolveThreadBindingEffectiveExpiresAt(params: {
+    record: ThreadBindingLifecycleRecord;
+    defaultIdleTimeoutMs: number;
+    defaultMaxAgeMs: number;
+}): number | undefined;
 export declare function resolveThreadBindingsEnabled(params: {
     channelEnabledRaw: unknown;
     sessionEnabledRaw: unknown;
@@ -45,3 +65,4 @@ export declare function formatThreadBindingSpawnDisabledError(params: {
     accountId: string;
     kind: ThreadBindingSpawnKind;
 }): string;
+export {};

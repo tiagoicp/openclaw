@@ -1,10 +1,13 @@
 import type { ExecAllowlistEntry } from "./exec-approvals.js";
-export declare const DEFAULT_SAFE_BINS: string[];
-export type CommandResolution = {
+export type ExecutableResolution = {
     rawExecutable: string;
     resolvedPath?: string;
     resolvedRealPath?: string;
     executableName: string;
+};
+export type CommandResolution = {
+    execution: ExecutableResolution;
+    policy: ExecutableResolution;
     effectiveArgv?: string[];
     wrapperChain?: string[];
     policyBlocked?: boolean;
@@ -12,8 +15,14 @@ export type CommandResolution = {
 };
 export declare function resolveCommandResolution(command: string, cwd?: string, env?: NodeJS.ProcessEnv): CommandResolution | null;
 export declare function resolveCommandResolutionFromArgv(argv: string[], cwd?: string, env?: NodeJS.ProcessEnv): CommandResolution | null;
-export declare function resolveAllowlistCandidatePath(resolution: CommandResolution | null, cwd?: string): string | undefined;
-export declare function matchAllowlist(entries: ExecAllowlistEntry[], resolution: CommandResolution | null): ExecAllowlistEntry | null;
+export declare function resolveExecutionTargetResolution(resolution: CommandResolution | ExecutableResolution | null): ExecutableResolution | null;
+export declare function resolvePolicyTargetResolution(resolution: CommandResolution | ExecutableResolution | null): ExecutableResolution | null;
+export declare function resolveExecutionTargetCandidatePath(resolution: CommandResolution | ExecutableResolution | null, cwd?: string): string | undefined;
+export declare function resolvePolicyTargetCandidatePath(resolution: CommandResolution | ExecutableResolution | null, cwd?: string): string | undefined;
+export declare function resolveApprovalAuditCandidatePath(resolution: CommandResolution | null, cwd?: string): string | undefined;
+export declare function resolveAllowlistCandidatePath(resolution: CommandResolution | ExecutableResolution | null, cwd?: string): string | undefined;
+export declare function resolvePolicyAllowlistCandidatePath(resolution: CommandResolution | ExecutableResolution | null, cwd?: string): string | undefined;
+export declare function matchAllowlist(entries: ExecAllowlistEntry[], resolution: ExecutableResolution | null): ExecAllowlistEntry | null;
 export type ExecArgvToken = {
     kind: "empty";
     raw: string;

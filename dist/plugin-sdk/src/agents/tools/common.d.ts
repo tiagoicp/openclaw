@@ -2,6 +2,7 @@ import type { AgentTool, AgentToolResult } from "@mariozechner/pi-agent-core";
 import type { ImageSanitizationLimits } from "../image-sanitization.js";
 export type AnyAgentTool = AgentTool<any, unknown> & {
     ownerOnly?: boolean;
+    displaySummary?: string;
 };
 export type StringParamOptions = {
     required?: boolean;
@@ -48,6 +49,12 @@ export declare function readReactionParams(params: Record<string, unknown>, opti
     removeKey?: string;
     removeErrorMessage: string;
 }): ReactionParams;
+export declare function stringifyToolPayload(payload: unknown): string;
+export declare function textResult<TDetails>(text: string, details: TDetails): AgentToolResult<TDetails>;
+export declare function failedTextResult<TDetails extends {
+    status: "failed";
+}>(text: string, details: TDetails): AgentToolResult<TDetails>;
+export declare function payloadTextResult<TDetails>(payload: TDetails): AgentToolResult<TDetails>;
 export declare function jsonResult(payload: unknown): AgentToolResult<unknown>;
 export declare function wrapOwnerOnlyToolExecution(tool: AnyAgentTool, senderIsOwner: boolean): AnyAgentTool;
 export declare function imageResult(params: {

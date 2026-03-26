@@ -1,4 +1,4 @@
-import type { SessionEntry } from "../../config/sessions.js";
+import type { SessionEntry } from "../../config/sessions/types.js";
 import type { MsgContext } from "../templating.js";
 export type AbortCutoff = {
     messageSid?: string;
@@ -9,12 +9,6 @@ export declare function resolveAbortCutoffFromContext(ctx: MsgContext): AbortCut
 export declare function readAbortCutoffFromSessionEntry(entry: SessionAbortCutoffEntry | undefined): AbortCutoff | undefined;
 export declare function hasAbortCutoff(entry: SessionAbortCutoffEntry | undefined): boolean;
 export declare function applyAbortCutoffToSessionEntry(entry: SessionAbortCutoffEntry, cutoff: AbortCutoff | undefined): void;
-export declare function clearAbortCutoffInSession(params: {
-    sessionEntry?: SessionEntry;
-    sessionStore?: Record<string, SessionEntry>;
-    sessionKey?: string;
-    storePath?: string;
-}): Promise<boolean>;
 export declare function shouldSkipMessageByAbortCutoff(params: {
     cutoffMessageSid?: string;
     cutoffTimestamp?: number;

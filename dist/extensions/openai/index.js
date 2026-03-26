@@ -1,598 +1,195 @@
 import "../../redact-BDinS1q9.js";
 import "../../errors-BxyFnvP3.js";
 import "../../unhandled-rejections-CDJ8dOVP.js";
-import "../../logger-Bisu6sgz.js";
-import "../../paths-D_QmduAc.js";
-import "../../tmp-openclaw-dir-CEAo8CGE.js";
-import "../../theme-Bnch_o1K.js";
-import "../../globals-CnsLPQis.js";
-import "../../subsystem-Dm-AQqmI.js";
-import "../../ansi-BMqrB9En.js";
-import "../../boolean-BgLJTske.js";
-import "../../env-mHZMLTjc.js";
-import "../../warning-filter-m2BbicIr.js";
-import "../../utils-CIAfMgvq.js";
-import "../../links-DtUd3CJi.js";
-import { y as CODEX_CLI_PROFILE_ID } from "../../models-config.providers.discovery-CBSen190.js";
-import { Ax as listProfilesForProvider, Eg as buildOpenAISpeechProvider, Hc as createOpenAIAttributionHeadersWrapper, Ix as ensureAuthProfileStore, Nm as describeImageWithModel, Pm as describeImagesWithModel, Th as transcribeOpenAiCompatibleAudio, Tv as createProviderApiKeyAuthMethod, Uc as createOpenAIDefaultTransportWrapper } from "../../auth-profiles-C1V2x6_A.js";
-import { w as normalizeProviderId } from "../../model-selection-BvgYPMZN.js";
-import "../../agent-scope-BvOTVsJZ.js";
-import "../../boundary-path-BVHzCDEE.js";
-import "../../boundary-file-read-1knRHcS0.js";
-import "../../logger-DcSg74GU.js";
-import "../../exec-Bwz57vWc.js";
-import "../../workspace-C3BQkKrq.js";
-import "../../io-BLrYinYw.js";
-import "../../host-env-security-DRYydSLp.js";
-import "../../safe-text-Bls0e7eh.js";
-import "../../version-BXFMfrjE.js";
-import "../../env-substitution-CCbMWMw3.js";
-import "../../config-state-DxIr_ZFp.js";
-import "../../includes-Babm_gOl.js";
-import "../../zod-schema.providers-core-JSZEvSLs.js";
-import "../../registry-DHFXbGRB.js";
-import "../../manifest-registry-BN97WD1N.js";
-import "../../ip-COVlKUC6.js";
-import "../../zod-schema.channels-CLt0EoyM.js";
-import "../../zod-schema.core-2nNLrIvV.js";
-import "../../zod-schema.providers-whatsapp-HQNdy-Lo.js";
-import "../../config-BuXmKtbA.js";
-import "../../file-lock-BCRwTnvL.js";
-import "../../audit-fs-CKHUnnaF.js";
-import "../../resolve-OpLtNdHa.js";
-import "../../plugins-allowlist-Dx3qwwff.js";
-import "../../tool-policy-match-DO-I18kG.js";
-import "../../config-DDXUFMD9.js";
-import "../../tailnet-CYknm7bK.js";
-import "../../net-BDAb36NC.js";
-import "../../credentials-Dlg2fw8S.js";
-import "../../routes-D_PnVmld.js";
-import "../../frontmatter-cz9vUzch.js";
-import "../../env-overrides-BvSheZZr.js";
-import "../../path-alias-guards-pxSwQROL.js";
-import "../../sandbox-paths-C2oLsWMS.js";
-import "../../skills-C9qTCwzA.js";
-import "../../ports-DbHCZ217.js";
-import "../../ports-lsof--GPZ_QnB.js";
-import "../../ssh-tunnel-E6I5wsVD.js";
-import "../../proxy-env-TLeMux0w.js";
-import "../../fs-safe-DNTBHVlm.js";
-import "../../mime-BZfENK18.js";
-import "../../image-ops-DsrR0jfa.js";
-import "../../server-middleware-uG2Nzt3c.js";
-import "../../message-channel-YbR1kGoD.js";
-import "../../resolve-route-BKJ_gx17.js";
-import "../../registry-u4-bSC0t.js";
-import "../../plugins-CrRqO64r.js";
-import "../../paths-DkI03UGW.js";
-import "../../config-schema-SbU9iMOP.js";
-import "../../channel-plugin-common-lL08nJSM.js";
-import "../../directory-runtime-4Kx3Gvfd.js";
-import "../../read-only-account-inspect-BzQtVN0P.js";
-import "../../common-BSZuydpj.js";
-import "../../discord-core-D_7rg7Bl.js";
-import "../../channel-config-helpers-DgtPbGwx.js";
-import "../../channel-policy-DpLpqCrB.js";
-import "../../commands-Ccb6jko6.js";
-import "../../method-scopes-CIPmQDuC.js";
-import "../../session-cost-usage-4I5dS4fe.js";
-import "../../logging-VTZm8jB6.js";
-import "../../runtime-env-C8UxrL-i.js";
-import "../../send-BCFA3Awg.js";
-import "../../state-paths-QS0axAl1.js";
-import "../../cli-runtime-BoYcLS-9.js";
-import "../../routing-CM1q67VT.js";
-import "../../diagnostic-DtQOjD7p.js";
-import "../../text-runtime-DD-uemN_.js";
-import "../../dm-policy-shared-DR-r8JQl.js";
-import { r as findCatalogTemplate } from "../../provider-catalog-C51_gEwd.js";
-import { i as definePluginEntry, x as buildOauthProviderAuthResult } from "../../core-DoWJeX1b.js";
-import "../../registry-D0H7k4Rl.js";
-import "../../pairing-store-BqbEmTVQ.js";
-import "../../json-store-BlJH8v0x.js";
-import "../../fetch-guard-r6nhKyr7.js";
-import "../../whatsapp-core-CDBsOcJv.js";
-import "../../hook-runtime-M4GviJQN.js";
-import "../../internal-hooks-jmovcAUX.js";
-import { Bt as applyOpenAIConfig, Ht as cloneFirstTemplateModel, It as OPENAI_DEFAULT_MODEL, tn as normalizeModelCompat } from "../../provider-models-mqi97xJa.js";
-import "../../provider-onboard-YZwyyz0l.js";
-import "../../model-definitions-CPk0fx2x.js";
-import "../../call-CuSVmxO6.js";
-import "../../delegate-DZgF1n1_.js";
-import "../../with-timeout-6Mk1JecS.js";
-import "../../multimodal-BZ5nSU8_.js";
-import "../../memory-search-BEee7lTM.js";
-import "../../query-expansion-C5OcnmBU.js";
-import "../../search-manager-B73xZeLt.js";
-import "../../setup-binary-BRNtxkNZ.js";
-import "../../signal-cli-install-CazITAFo.js";
-import "../../identity-file-L2phPATJ.js";
-import "../../command-secret-targets-DoLf7afU.js";
-import "../../pairing-token-D5GBjAVE.js";
-import "../../delivery-queue-B2kD8cNZ.js";
-import "../../external-content-DohesiX3.js";
-import "../../security-runtime-DVVSOOlu.js";
-import "../../telegram-core-BZ7aS5CA.js";
-import "../../audit-HKoXXKMO.js";
-import "../../gateway-runtime-Btluew0E.js";
-import "../../connection-auth-BCwdTkvS.js";
-import "../../config-value-C42C4nMV.js";
-import "../../exec-approvals-CZGtkt6y.js";
-import "../../nodes-screen-DWWnCUAS.js";
-import "../../system-run-command-BnhKEiGR.js";
-import "../../stagger-Ds3EfozT.js";
-import "../../restart-stale-pids-D84WQQ67.js";
-import { i as fetchCodexUsage } from "../../provider-usage.fetch-Cilv-_i6.js";
-import "../../history-CZuN-T_-.js";
-import "../../channel-summary-DavcDlJH.js";
-import "../../secret-file-C6VA1we_.js";
-import "../../accounts-B1tM8Jyc.js";
-import "../../pairing-labels-CC5WpLtU.js";
-import "../../process-runtime-UwxhzAyo.js";
-import "../../cli-utils-CreDWcAs.js";
-import "../../help-format-zSqk-GrQ.js";
-import "../../progress-D69d44Ic.js";
-import "../../shared-TeMeV5_s.js";
-import "../../prompt-style-BzSNuBnj.js";
-import "../../issue-format-DHdfT94W.js";
-import { t as buildOpenAIImageGenerationProvider } from "../../image-generation-CwjLe3TQ.js";
-import "../../shared-D0vQiquy.js";
-import "../../logging-DoKPzL8d.js";
-import "../../github-copilot-auth-B8uEpgpz.js";
-import { t as loginOpenAICodexOAuth } from "../../provider-auth-login-DVSBN_4Y.js";
-import "../../note-xP9K_bzf.js";
-import "../../provider-openai-codex-oauth-tls-CPwJCo_a.js";
-import "../../provider-stream-CRzRapfE.js";
-import "../../provider-usage-B_JD4wEk.js";
-import "../../media-understanding-BGVBLZxZ.js";
-import "../../speech-B4BJktJo.js";
-import { getOAuthApiKey } from "@mariozechner/pi-ai/oauth";
-//#region extensions/openai/media-understanding-provider.ts
-const DEFAULT_OPENAI_AUDIO_BASE_URL = "https://api.openai.com/v1";
-const DEFAULT_OPENAI_AUDIO_MODEL = "gpt-4o-mini-transcribe";
-async function transcribeOpenAiAudio(params) {
-	return await transcribeOpenAiCompatibleAudio({
-		...params,
-		defaultBaseUrl: DEFAULT_OPENAI_AUDIO_BASE_URL,
-		defaultModel: DEFAULT_OPENAI_AUDIO_MODEL
-	});
-}
-const openaiMediaUnderstandingProvider = {
-	id: "openai",
-	capabilities: ["image", "audio"],
-	describeImage: describeImageWithModel,
-	describeImages: describeImagesWithModel,
-	transcribeAudio: transcribeOpenAiAudio
-};
-//#endregion
-//#region extensions/openai/openai-codex-catalog.ts
-const OPENAI_CODEX_BASE_URL$1 = "https://chatgpt.com/backend-api";
-function buildOpenAICodexProvider() {
-	return {
-		baseUrl: OPENAI_CODEX_BASE_URL$1,
-		api: "openai-codex-responses",
-		models: []
-	};
-}
-//#endregion
-//#region extensions/openai/shared.ts
-function matchesExactOrPrefix(id, values) {
-	const normalizedId = id.trim().toLowerCase();
-	return values.some((value) => {
-		const normalizedValue = value.trim().toLowerCase();
-		return normalizedId === normalizedValue || normalizedId.startsWith(normalizedValue);
-	});
-}
-function isOpenAIApiBaseUrl(baseUrl) {
-	const trimmed = baseUrl?.trim();
-	if (!trimmed) return false;
-	return /^https?:\/\/api\.openai\.com(?:\/v1)?\/?$/i.test(trimmed);
-}
-//#endregion
-//#region extensions/openai/openai-codex-provider.ts
-const PROVIDER_ID$1 = "openai-codex";
-const OPENAI_CODEX_BASE_URL = "https://chatgpt.com/backend-api";
-const OPENAI_CODEX_GPT_54_MODEL_ID = "gpt-5.4";
-const OPENAI_CODEX_GPT_54_CONTEXT_TOKENS = 105e4;
-const OPENAI_CODEX_GPT_54_MAX_TOKENS = 128e3;
-const OPENAI_CODEX_GPT_54_TEMPLATE_MODEL_IDS = ["gpt-5.3-codex", "gpt-5.2-codex"];
-const OPENAI_CODEX_GPT_53_MODEL_ID = "gpt-5.3-codex";
-const OPENAI_CODEX_GPT_53_SPARK_MODEL_ID = "gpt-5.3-codex-spark";
-const OPENAI_CODEX_GPT_53_SPARK_CONTEXT_TOKENS = 128e3;
-const OPENAI_CODEX_GPT_53_SPARK_MAX_TOKENS = 128e3;
-const OPENAI_CODEX_TEMPLATE_MODEL_IDS = ["gpt-5.2-codex"];
-const OPENAI_CODEX_DEFAULT_MODEL = `${PROVIDER_ID$1}/${OPENAI_CODEX_GPT_54_MODEL_ID}`;
-const OPENAI_CODEX_XHIGH_MODEL_IDS = [
-	OPENAI_CODEX_GPT_54_MODEL_ID,
-	OPENAI_CODEX_GPT_53_MODEL_ID,
-	OPENAI_CODEX_GPT_53_SPARK_MODEL_ID,
-	"gpt-5.2-codex",
-	"gpt-5.1-codex"
-];
-const OPENAI_CODEX_MODERN_MODEL_IDS = [
-	OPENAI_CODEX_GPT_54_MODEL_ID,
-	"gpt-5.2",
-	"gpt-5.2-codex",
-	OPENAI_CODEX_GPT_53_MODEL_ID,
-	OPENAI_CODEX_GPT_53_SPARK_MODEL_ID,
-	"gpt-5.1-codex",
-	"gpt-5.1-codex-mini",
-	"gpt-5.1-codex-max"
-];
-function isOpenAICodexBaseUrl(baseUrl) {
-	const trimmed = baseUrl?.trim();
-	if (!trimmed) return false;
-	return /^https?:\/\/chatgpt\.com\/backend-api\/?$/i.test(trimmed);
-}
-function normalizeCodexTransport(model) {
-	const api = (!model.baseUrl || isOpenAIApiBaseUrl(model.baseUrl) || isOpenAICodexBaseUrl(model.baseUrl)) && model.api === "openai-responses" ? "openai-codex-responses" : model.api;
-	const baseUrl = api === "openai-codex-responses" && (!model.baseUrl || isOpenAIApiBaseUrl(model.baseUrl)) ? OPENAI_CODEX_BASE_URL : model.baseUrl;
-	if (api === model.api && baseUrl === model.baseUrl) return model;
-	return {
-		...model,
-		api,
-		baseUrl
-	};
-}
-function resolveCodexForwardCompatModel(ctx) {
-	const trimmedModelId = ctx.modelId.trim();
-	const lower = trimmedModelId.toLowerCase();
-	let templateIds;
-	let patch;
-	if (lower === OPENAI_CODEX_GPT_54_MODEL_ID) {
-		templateIds = OPENAI_CODEX_GPT_54_TEMPLATE_MODEL_IDS;
-		patch = {
-			contextWindow: OPENAI_CODEX_GPT_54_CONTEXT_TOKENS,
-			maxTokens: OPENAI_CODEX_GPT_54_MAX_TOKENS
-		};
-	} else if (lower === OPENAI_CODEX_GPT_53_SPARK_MODEL_ID) {
-		templateIds = [OPENAI_CODEX_GPT_53_MODEL_ID, ...OPENAI_CODEX_TEMPLATE_MODEL_IDS];
-		patch = {
-			api: "openai-codex-responses",
-			provider: PROVIDER_ID$1,
-			baseUrl: OPENAI_CODEX_BASE_URL,
-			reasoning: true,
-			input: ["text"],
-			cost: {
-				input: 0,
-				output: 0,
-				cacheRead: 0,
-				cacheWrite: 0
-			},
-			contextWindow: OPENAI_CODEX_GPT_53_SPARK_CONTEXT_TOKENS,
-			maxTokens: OPENAI_CODEX_GPT_53_SPARK_MAX_TOKENS
-		};
-	} else if (lower === OPENAI_CODEX_GPT_53_MODEL_ID) templateIds = OPENAI_CODEX_TEMPLATE_MODEL_IDS;
-	else return;
-	return cloneFirstTemplateModel({
-		providerId: PROVIDER_ID$1,
-		modelId: trimmedModelId,
-		templateIds,
-		ctx,
-		patch
-	}) ?? normalizeModelCompat({
-		id: trimmedModelId,
-		name: trimmedModelId,
-		api: "openai-codex-responses",
-		provider: PROVIDER_ID$1,
-		baseUrl: OPENAI_CODEX_BASE_URL,
-		reasoning: true,
-		input: ["text", "image"],
-		cost: {
-			input: 0,
-			output: 0,
-			cacheRead: 0,
-			cacheWrite: 0
-		},
-		contextWindow: patch?.contextWindow ?? 2e5,
-		maxTokens: patch?.maxTokens ?? 2e5
-	});
-}
-async function refreshOpenAICodexOAuthCredential(cred) {
-	try {
-		const refreshed = await getOAuthApiKey("openai-codex", { "openai-codex": cred });
-		if (!refreshed) throw new Error("OpenAI Codex OAuth refresh returned no credentials.");
-		return {
-			...cred,
-			...refreshed.newCredentials,
-			type: "oauth",
-			provider: PROVIDER_ID$1,
-			email: cred.email
-		};
-	} catch (error) {
-		const message = error instanceof Error ? error.message : String(error);
-		if (/extract\s+accountid\s+from\s+token/i.test(message) && typeof cred.access === "string" && cred.access.trim().length > 0) return cred;
-		throw error;
-	}
-}
-async function runOpenAICodexOAuth(ctx) {
-	let creds;
-	try {
-		creds = await loginOpenAICodexOAuth({
-			prompter: ctx.prompter,
-			runtime: ctx.runtime,
-			isRemote: ctx.isRemote,
-			openUrl: ctx.openUrl,
-			localBrowserMessage: "Complete sign-in in browser…"
-		});
-	} catch {
-		return { profiles: [] };
-	}
-	if (!creds) return { profiles: [] };
-	return buildOauthProviderAuthResult({
-		providerId: PROVIDER_ID$1,
-		defaultModel: OPENAI_CODEX_DEFAULT_MODEL,
-		access: creds.access,
-		refresh: creds.refresh,
-		expires: creds.expires,
-		email: typeof creds.email === "string" ? creds.email : void 0
-	});
-}
-function buildOpenAICodexProviderPlugin() {
-	return {
-		id: PROVIDER_ID$1,
-		label: "OpenAI Codex",
-		docsPath: "/providers/models",
-		deprecatedProfileIds: [CODEX_CLI_PROFILE_ID],
-		auth: [{
-			id: "oauth",
-			label: "ChatGPT OAuth",
-			hint: "Browser sign-in",
-			kind: "oauth",
-			run: async (ctx) => await runOpenAICodexOAuth(ctx)
-		}],
-		wizard: { setup: {
-			choiceId: "openai-codex",
-			choiceLabel: "OpenAI Codex (ChatGPT OAuth)",
-			choiceHint: "Browser sign-in",
-			methodId: "oauth"
-		} },
-		catalog: {
-			order: "profile",
-			run: async (ctx) => {
-				if (listProfilesForProvider(ensureAuthProfileStore(ctx.agentDir, { allowKeychainPrompt: false }), PROVIDER_ID$1).length === 0) return null;
-				return { provider: buildOpenAICodexProvider() };
-			}
-		},
-		resolveDynamicModel: (ctx) => resolveCodexForwardCompatModel(ctx),
-		capabilities: { providerFamily: "openai" },
-		supportsXHighThinking: ({ modelId }) => matchesExactOrPrefix(modelId, OPENAI_CODEX_XHIGH_MODEL_IDS),
-		isModernModelRef: ({ modelId }) => matchesExactOrPrefix(modelId, OPENAI_CODEX_MODERN_MODEL_IDS),
-		prepareExtraParams: (ctx) => {
-			const transport = ctx.extraParams?.transport;
-			if (transport === "auto" || transport === "sse" || transport === "websocket") return ctx.extraParams;
-			return {
-				...ctx.extraParams,
-				transport: "auto"
-			};
-		},
-		wrapStreamFn: (ctx) => createOpenAIAttributionHeadersWrapper(ctx.streamFn),
-		normalizeResolvedModel: (ctx) => {
-			if (normalizeProviderId(ctx.provider) !== PROVIDER_ID$1) return;
-			return normalizeCodexTransport(ctx.model);
-		},
-		resolveUsageAuth: async (ctx) => await ctx.resolveOAuthToken(),
-		fetchUsageSnapshot: async (ctx) => await fetchCodexUsage(ctx.token, ctx.accountId, ctx.timeoutMs, ctx.fetchFn),
-		refreshOAuth: async (cred) => await refreshOpenAICodexOAuthCredential(cred),
-		augmentModelCatalog: (ctx) => {
-			const gpt54Template = findCatalogTemplate({
-				entries: ctx.entries,
-				providerId: PROVIDER_ID$1,
-				templateIds: OPENAI_CODEX_GPT_54_TEMPLATE_MODEL_IDS
-			});
-			const sparkTemplate = findCatalogTemplate({
-				entries: ctx.entries,
-				providerId: PROVIDER_ID$1,
-				templateIds: [OPENAI_CODEX_GPT_53_MODEL_ID, ...OPENAI_CODEX_TEMPLATE_MODEL_IDS]
-			});
-			return [gpt54Template ? {
-				...gpt54Template,
-				id: OPENAI_CODEX_GPT_54_MODEL_ID,
-				name: OPENAI_CODEX_GPT_54_MODEL_ID
-			} : void 0, sparkTemplate ? {
-				...sparkTemplate,
-				id: OPENAI_CODEX_GPT_53_SPARK_MODEL_ID,
-				name: OPENAI_CODEX_GPT_53_SPARK_MODEL_ID
-			} : void 0].filter((entry) => entry !== void 0);
-		}
-	};
-}
-//#endregion
-//#region extensions/openai/openai-provider.ts
-const PROVIDER_ID = "openai";
-const OPENAI_GPT_54_MODEL_ID = "gpt-5.4";
-const OPENAI_GPT_54_PRO_MODEL_ID = "gpt-5.4-pro";
-const OPENAI_GPT_54_MINI_MODEL_ID = "gpt-5.4-mini";
-const OPENAI_GPT_54_NANO_MODEL_ID = "gpt-5.4-nano";
-const OPENAI_GPT_54_CONTEXT_TOKENS = 105e4;
-const OPENAI_GPT_54_MAX_TOKENS = 128e3;
-const OPENAI_GPT_54_TEMPLATE_MODEL_IDS = ["gpt-5.2"];
-const OPENAI_GPT_54_PRO_TEMPLATE_MODEL_IDS = ["gpt-5.2-pro", "gpt-5.2"];
-const OPENAI_GPT_54_MINI_TEMPLATE_MODEL_IDS = ["gpt-5-mini"];
-const OPENAI_GPT_54_NANO_TEMPLATE_MODEL_IDS = ["gpt-5-nano", "gpt-5-mini"];
-const OPENAI_XHIGH_MODEL_IDS = [
-	"gpt-5.4",
-	"gpt-5.4-pro",
-	"gpt-5.4-mini",
-	"gpt-5.4-nano",
-	"gpt-5.2"
-];
-const OPENAI_MODERN_MODEL_IDS = [
-	"gpt-5.4",
-	"gpt-5.4-pro",
-	"gpt-5.4-mini",
-	"gpt-5.4-nano",
-	"gpt-5.2",
-	"gpt-5.0"
-];
-const OPENAI_DIRECT_SPARK_MODEL_ID = "gpt-5.3-codex-spark";
-const SUPPRESSED_SPARK_PROVIDERS = new Set(["openai", "azure-openai-responses"]);
-function normalizeOpenAITransport(model) {
-	if (!(model.api === "openai-completions" && (!model.baseUrl || isOpenAIApiBaseUrl(model.baseUrl)))) return model;
-	return {
-		...model,
-		api: "openai-responses"
-	};
-}
-function resolveOpenAIGpt54ForwardCompatModel(ctx) {
-	const trimmedModelId = ctx.modelId.trim();
-	const lower = trimmedModelId.toLowerCase();
-	let templateIds;
-	let patch;
-	if (lower === OPENAI_GPT_54_MODEL_ID) {
-		templateIds = OPENAI_GPT_54_TEMPLATE_MODEL_IDS;
-		patch = {
-			api: "openai-responses",
-			provider: PROVIDER_ID,
-			baseUrl: "https://api.openai.com/v1",
-			reasoning: true,
-			input: ["text", "image"],
-			contextWindow: OPENAI_GPT_54_CONTEXT_TOKENS,
-			maxTokens: OPENAI_GPT_54_MAX_TOKENS
-		};
-	} else if (lower === OPENAI_GPT_54_PRO_MODEL_ID) {
-		templateIds = OPENAI_GPT_54_PRO_TEMPLATE_MODEL_IDS;
-		patch = {
-			api: "openai-responses",
-			provider: PROVIDER_ID,
-			baseUrl: "https://api.openai.com/v1",
-			reasoning: true,
-			input: ["text", "image"],
-			contextWindow: OPENAI_GPT_54_CONTEXT_TOKENS,
-			maxTokens: OPENAI_GPT_54_MAX_TOKENS
-		};
-	} else if (lower === OPENAI_GPT_54_MINI_MODEL_ID) {
-		templateIds = OPENAI_GPT_54_MINI_TEMPLATE_MODEL_IDS;
-		patch = {
-			api: "openai-responses",
-			provider: PROVIDER_ID,
-			baseUrl: "https://api.openai.com/v1",
-			reasoning: true,
-			input: ["text", "image"]
-		};
-	} else if (lower === OPENAI_GPT_54_NANO_MODEL_ID) {
-		templateIds = OPENAI_GPT_54_NANO_TEMPLATE_MODEL_IDS;
-		patch = {
-			api: "openai-responses",
-			provider: PROVIDER_ID,
-			baseUrl: "https://api.openai.com/v1",
-			reasoning: true,
-			input: ["text", "image"]
-		};
-	} else return;
-	return cloneFirstTemplateModel({
-		providerId: PROVIDER_ID,
-		modelId: trimmedModelId,
-		templateIds,
-		ctx,
-		patch
-	}) ?? normalizeModelCompat({
-		id: trimmedModelId,
-		name: trimmedModelId,
-		...patch,
-		cost: {
-			input: 0,
-			output: 0,
-			cacheRead: 0,
-			cacheWrite: 0
-		},
-		contextWindow: patch.contextWindow ?? 2e5,
-		maxTokens: patch.maxTokens ?? 2e5
-	});
-}
-function buildOpenAIProvider() {
-	return {
-		id: PROVIDER_ID,
-		label: "OpenAI",
-		docsPath: "/providers/models",
-		envVars: ["OPENAI_API_KEY"],
-		auth: [createProviderApiKeyAuthMethod({
-			providerId: PROVIDER_ID,
-			methodId: "api-key",
-			label: "OpenAI API key",
-			hint: "Direct OpenAI API key",
-			optionKey: "openaiApiKey",
-			flagName: "--openai-api-key",
-			envVar: "OPENAI_API_KEY",
-			promptMessage: "Enter OpenAI API key",
-			defaultModel: OPENAI_DEFAULT_MODEL,
-			expectedProviders: ["openai"],
-			applyConfig: (cfg) => applyOpenAIConfig(cfg),
-			wizard: {
-				choiceId: "openai-api-key",
-				choiceLabel: "OpenAI API key",
-				groupId: "openai",
-				groupLabel: "OpenAI",
-				groupHint: "Codex OAuth + API key"
-			}
-		})],
-		resolveDynamicModel: (ctx) => resolveOpenAIGpt54ForwardCompatModel(ctx),
-		normalizeResolvedModel: (ctx) => {
-			if (normalizeProviderId(ctx.provider) !== PROVIDER_ID) return;
-			return normalizeOpenAITransport(ctx.model);
-		},
-		capabilities: { providerFamily: "openai" },
-		wrapStreamFn: (ctx) => createOpenAIAttributionHeadersWrapper(createOpenAIDefaultTransportWrapper(ctx.streamFn)),
-		supportsXHighThinking: ({ modelId }) => matchesExactOrPrefix(modelId, OPENAI_XHIGH_MODEL_IDS),
-		isModernModelRef: ({ modelId }) => matchesExactOrPrefix(modelId, OPENAI_MODERN_MODEL_IDS),
-		buildMissingAuthMessage: (ctx) => {
-			if (ctx.provider !== PROVIDER_ID || ctx.listProfileIds("openai-codex").length === 0) return;
-			return "No API key found for provider \"openai\". You are authenticated with OpenAI Codex OAuth. Use openai-codex/gpt-5.4 (OAuth) or set OPENAI_API_KEY to use openai/gpt-5.4.";
-		},
-		suppressBuiltInModel: (ctx) => {
-			if (!SUPPRESSED_SPARK_PROVIDERS.has(normalizeProviderId(ctx.provider)) || ctx.modelId.toLowerCase() !== OPENAI_DIRECT_SPARK_MODEL_ID) return;
-			return {
-				suppress: true,
-				errorMessage: `Unknown model: ${ctx.provider}/${OPENAI_DIRECT_SPARK_MODEL_ID}. ${OPENAI_DIRECT_SPARK_MODEL_ID} is only supported via openai-codex OAuth. Use openai-codex/${OPENAI_DIRECT_SPARK_MODEL_ID}.`
-			};
-		},
-		augmentModelCatalog: (ctx) => {
-			const openAiGpt54Template = findCatalogTemplate({
-				entries: ctx.entries,
-				providerId: PROVIDER_ID,
-				templateIds: OPENAI_GPT_54_TEMPLATE_MODEL_IDS
-			});
-			const openAiGpt54ProTemplate = findCatalogTemplate({
-				entries: ctx.entries,
-				providerId: PROVIDER_ID,
-				templateIds: OPENAI_GPT_54_PRO_TEMPLATE_MODEL_IDS
-			});
-			const openAiGpt54MiniTemplate = findCatalogTemplate({
-				entries: ctx.entries,
-				providerId: PROVIDER_ID,
-				templateIds: OPENAI_GPT_54_MINI_TEMPLATE_MODEL_IDS
-			});
-			const openAiGpt54NanoTemplate = findCatalogTemplate({
-				entries: ctx.entries,
-				providerId: PROVIDER_ID,
-				templateIds: OPENAI_GPT_54_NANO_TEMPLATE_MODEL_IDS
-			});
-			return [
-				openAiGpt54Template ? {
-					...openAiGpt54Template,
-					id: OPENAI_GPT_54_MODEL_ID,
-					name: OPENAI_GPT_54_MODEL_ID
-				} : void 0,
-				openAiGpt54ProTemplate ? {
-					...openAiGpt54ProTemplate,
-					id: OPENAI_GPT_54_PRO_MODEL_ID,
-					name: OPENAI_GPT_54_PRO_MODEL_ID
-				} : void 0,
-				openAiGpt54MiniTemplate ? {
-					...openAiGpt54MiniTemplate,
-					id: OPENAI_GPT_54_MINI_MODEL_ID,
-					name: OPENAI_GPT_54_MINI_MODEL_ID
-				} : void 0,
-				openAiGpt54NanoTemplate ? {
-					...openAiGpt54NanoTemplate,
-					id: OPENAI_GPT_54_NANO_MODEL_ID,
-					name: OPENAI_GPT_54_NANO_MODEL_ID
-				} : void 0
-			].filter((entry) => entry !== void 0);
-		}
-	};
-}
-//#endregion
+import "../../env-D1ktUnAV.js";
+import "../../paths-CjuwkA2v.js";
+import "../../safe-text-K2Nonoo3.js";
+import "../../tmp-openclaw-dir-DzRxfh9a.js";
+import "../../theme-BH5F9mlg.js";
+import "../../version-DGzLsBG-.js";
+import "../../zod-schema.agent-runtime-DNndkpI8.js";
+import "../../runtime-BF_KUcJM.js";
+import "../../registry-bOiEdffE.js";
+import "../../ip-ByO4-_4f.js";
+import "../../warning-filter-C_BEyyvc.js";
+import "../../links-DaR1j_Bv.js";
+import "../../paths-DJBuCoRE.js";
+import "../../auth-profiles-z_oM_y_O.js";
+import "../../provider-runtime.runtime-BokSGTHt.js";
+import "../../file-lock-Cm3HPowf.js";
+import "../../audit-fs-7IxnGQxG.js";
+import "../../resolve-DqJVzTVp.js";
+import "../../profiles-CRvutsjq.js";
+import "../../tailscale-FHZADwLL.js";
+import "../../tailnet-BPCtbdja.js";
+import "../../net-1LAzWzJc.js";
+import "../../auth-BC0t_CEl.js";
+import "../../credentials-6hokf6e3.js";
+import "../../message-channel-ZzTqBBLH.js";
+import "../../sessions-uRDRs4f-.js";
+import "../../plugins-h0t63KQW.js";
+import "../../paths-BEHCHyAI.js";
+import "../../delivery-context-oynQ_N5k.js";
+import "../../session-write-lock-B7nwE7de.js";
+import "../../method-scopes-DtJfTstv.js";
+import "../../call-CFi2qbI2.js";
+import "../../detect-binary-78pS71eg.js";
+import "../../prompt-style-qxNRcnm3.js";
+import "../../ports-lsof-qBGFcQvX.js";
+import "../../restart-stale-pids-ciXEfnyN.js";
+import "../../ports-DF41F7NN.js";
+import "../../logging-CS4wyI-j.js";
+import "../../commands-AceByDw5.js";
+import "../../issue-format-Cj39YIRp.js";
+import "../../provider-env-vars-BZwz5sMG.js";
+import "../../model-auth-env-BWzx2-YC.js";
+import "../../anthropic-vertex-provider-Cik2BDhe.js";
+import "../../pi-model-discovery-hz4apXP-.js";
+import "../../identity-xGthCqY8.js";
+import "../../heartbeat-DqtPOAC0.js";
+import { pl as buildOpenAISpeechProvider } from "../../pi-embedded-DFNOKLyy.js";
+import "../../internal-hooks-CVdBfFMw.js";
+import "../../multimodal-CDYWira8.js";
+import "../../memory-search-B5CuuJZB.js";
+import "../../secret-input-x2By3bJy.js";
+import "../../bindings-KL-4Efmw.js";
+import "../../resolve-route-C5Xj9lGN.js";
+import "../../routing-DA_79T-X.js";
+import "../../identity-file-ClDAlI0t.js";
+import "../../outbound-runtime-BAxohuIf.js";
+import "../../provider-model-definitions-CrItEa-O.js";
+import "../../provider-models-GbpUTgQg.js";
+import "../../provider-catalog-hDyZGQ8R.js";
+import "../../provider-catalog-0WIhy6f_.js";
+import "../../provider-catalog-CdCrQ7UP.js";
+import "../../provider-catalog-DzIvFdfj.js";
+import "../../provider-catalog-COMYNKV2.js";
+import "../../provider-catalog-Bce8iOMh.js";
+import "../../provider-catalog-CPx35FBq.js";
+import "../../provider-catalog-Czll7Q5-.js";
+import "../../provider-catalog-BFvOY2Dt.js";
+import "../../provider-catalog-VZaye2Ib.js";
+import "../../models-config.providers.discovery-oJl_MWQT.js";
+import "../../text-runtime-B-kOpuLv.js";
+import "../../docker-BrzH-NvE.js";
+import "../../tool-catalog-BQWPAtTb.js";
+import "../../common-CMCEg0LE.js";
+import "../../image-ops-xftchR8Z.js";
+import "../../thinking-Me2S38se.js";
+import "../../path-alias-guards-BfUEa8Z8.js";
+import "../../sandbox-paths-DM85ql27.js";
+import "../../channel-actions-M8UJU-J1.js";
+import "../../mime-Bwp1UQ_8.js";
+import "../../ssrf-BdAu1_OT.js";
+import "../../fetch-guard-BiSGgjb-.js";
+import "../../provider-web-search-B2TRQt7q.js";
+import "../../manager-BFi-xqLj.js";
+import "../../config-schema-BoeEl_gh.js";
+import "../../channel-plugin-common-Bw5e9GHM.js";
+import "../../status-helpers-DTFg68Zs.js";
+import "../../conversation-runtime-BfLWHgdb.js";
+import "../../runtime-whatsapp-boundary-C0sTsAVN.js";
+import "../../pairing-store-Ci8ZfuL6.js";
+import "../../json-store-Dizz4Rhx.js";
+import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
+import "../../secret-file-BzdoxKYZ.js";
+import "../../channel-config-schema-DOQ4q6a_.js";
+import "../../setup-binary-Tg8N6z5q.js";
+import "../../archive-Oi0PB5pw.js";
+import "../../fs-safe-DpC9pe80.js";
+import "../../signal-cli-install-pAmdy64m.js";
+import "../../setup-wizard-proxy-3tbzVvIf.js";
+import "../../setup-Cuh8Qocv.js";
+import "../../dm-policy-shared-3Jdbvvlm.js";
+import "../../runtime-env-pWTJLxVn.js";
+import "../../temp-path-DvwSkpQg.js";
+import "../../diagnostic-Dx7wnQab.js";
+import "../../logging-B3tLYQAZ.js";
+import "../../config-runtime-BMqUsOKJ.js";
+import "../../level-overrides-CaIdz1Y2.js";
+import "../../exec-approvals-CoUFlPSg.js";
+import "../../webhook-ingress-CwnvXQ9i.js";
+import "../../system-events-D_U3rn_H.js";
+import "../../ssrf-policy-Cve-f-IZ.js";
+import "../../hook-runtime-C0FQ8mwc.js";
+import "../../templating-BpbUbFSs.js";
+import "../../channel-reply-pipeline-BQ2GND11.js";
+import "../../reply-history-CYr7j6cE.js";
+import "../../commands-registry.data-C-Zb7sHo.js";
+import "../../commands-registry-kALONq2A.js";
+import "../../frontmatter-C_CWb6f1.js";
+import "../../env-overrides-CilRbuhU.js";
+import "../../skills-Xrdxpo0d.js";
+import "../../skills-remote-D055n83h.js";
+import "../../workspace-dirs-BooYyzLb.js";
+import "../../pairing-token-BhzPXbCy.js";
+import "../../skill-commands-X9DVN0CB.js";
+import "../../exec-inline-eval-CAjjj6oR.js";
+import "../../sandbox-DSgCBor-.js";
+import "../../target-registry-CUzd3r6R.js";
+import "../../external-content-BtOAY1jC.js";
+import "../../brave-iyc-zT4j.js";
+import "../../duckduckgo-RnKnjVjk.js";
+import "../../exa-B_PEobTF.js";
+import "../../security-runtime-DuEgVcd_.js";
+import "../../provider-auth-ref-CkjXioxW.js";
+import "../../provider-auth-input-DY2h0M4n.js";
+import "../../provider-auth-helpers-CfaQ5Xn6.js";
+import "../../provider-api-key-auth-Uu86HoCQ.js";
+import "../../provider-usage-D_y-rSPa.js";
+import "../../provider-models-BlbL1wnJ.js";
+import "../../media-understanding-Bo9B_E3l.js";
+import "../../media-understanding-provider-C5e8GFRO.js";
+import "../../provider-entry-Dh6ETIXa.js";
+import "../../media-understanding-provider-Cvthuw62.js";
+import "../../provider-onboard-DmLoftpN.js";
+import "../../onboard-p6odcf1a.js";
+import "../../perplexity-web-search-provider-CBvej2u9.js";
+import "../../perplexity-DVSMCtcT.js";
+import "../../model-definitions-CLlu-y8L.js";
+import "../../onboard-CQyz1Xh9.js";
+import "../../provider-catalog-BbgD0Blc.js";
+import "../../provider-models-CPWTfv6u.js";
+import "../../stream-WNyIq00o.js";
+import "../../web-search-C2bCgEzC.js";
+import "../../client-fetch-DG9t9440.js";
+import "../../config-B6bjVdCF.js";
+import "../../web-media-B7RZCKik.js";
+import "../../stagger-C20Z_jRQ.js";
+import "../../command-secret-targets-CiFc3JN3.js";
+import "../../delivery-queue-iwWmpCz9.js";
+import "../../pairing-labels-PxfGoTvk.js";
+import "../../directory-runtime-D9Y42mW-.js";
+import "../../read-only-account-inspect-f6OlttkD.js";
+import "../../src-hV2aBDoy.js";
+import "../../web-media-C0RRMmtv.js";
+import "../../state-paths-CG7b-A_-.js";
+import "../../axios-zS_oAKS1.js";
+import "../../channel-summary-BE3kiFA7.js";
+import "../../session-system-events-Bkb0fc95.js";
+import "../../ssh-tunnel-Ca8F0wnz.js";
+import "../../server-middleware-DUIlEnG_.js";
+import "../../llm-task-D_W5GYK4.js";
+import "../../tool-policy-match-DgTjuJ-l.js";
+import "../../runtime-DAr9Q1gF.js";
+import "../../channel-status-DxDpNj1k.js";
+import "../../discord-core-CTFa_tPG.js";
+import "../../cli-runtime-CivyfPOe.js";
+import "../../config-presence-Bo4-9YVM.js";
+import "../../query-expansion-CeNhqo71.js";
+import "../../search-manager-BH4BTUaa.js";
+import "../../acp-runtime-CRrXx1ZI.js";
+import "../../telegram-core-n7uYzMlP.js";
+import "../../audit-D7armGfs.js";
+import "../../gateway-runtime-_5BLwTPa.js";
+import "../../connection-auth-DQ6Wy_i-.js";
+import "../../mcp-config-vaYGkUmW.js";
+import { t as buildOpenAIImageGenerationProvider } from "../../image-generation-provider-DvOOOlKo.js";
+import "../../provider-auth-login-DTl_ItjL.js";
+import { n as openaiMediaUnderstandingProvider } from "../../media-understanding-provider-DdwdWo-J.js";
+import "../../shared-CWOXHZz1.js";
+import { t as buildOpenAICodexProviderPlugin } from "../../openai-codex-provider-B5M5wGZc.js";
+import { t as buildOpenAIProvider } from "../../openai-provider-DKIT40pa.js";
 //#region extensions/openai/index.ts
 var openai_default = definePluginEntry({
 	id: "openai",

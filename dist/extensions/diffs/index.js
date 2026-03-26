@@ -1,12 +1,14 @@
 import { r as __exportAll } from "../../chunk-DORXReHP.js";
-import { n as resolvePreferredOpenClawTmpDir } from "../../tmp-openclaw-dir-CEAo8CGE.js";
-import "../../diffs-DCqfPJC9.js";
+import { n as resolvePreferredOpenClawTmpDir } from "../../tmp-openclaw-dir-DzRxfh9a.js";
+import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
+import "../../diffs-B34xU9V3.js";
+import "../../api-DXAwA0ig.js";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { constants } from "node:fs";
 import path from "node:path";
-import fs$1 from "node:fs/promises";
 import crypto from "node:crypto";
+import fs$1 from "node:fs/promises";
 import { Type } from "@sinclair/typebox";
 import { chromium } from "playwright-core";
 //#region extensions/diffs/src/types.ts
@@ -554,7 +556,8 @@ var DiffArtifactStore = class {
 			createdAt: createdAt.toISOString(),
 			expiresAt: expiresAt.toISOString(),
 			viewerPath: `${VIEWER_PREFIX}/${id}/${token}`,
-			htmlPath
+			htmlPath,
+			...params.context ? { context: params.context } : {}
 		};
 		await fs$1.mkdir(artifactDir, { recursive: true });
 		await fs$1.writeFile(htmlPath, params.html, "utf8");
@@ -610,7 +613,8 @@ var DiffArtifactStore = class {
 			id,
 			createdAt: createdAt.toISOString(),
 			expiresAt,
-			filePath: this.normalizeStoredPath(filePath, "filePath")
+			filePath: this.normalizeStoredPath(filePath, "filePath"),
+			...params.context ? { context: params.context } : {}
 		};
 		await fs$1.mkdir(artifactDir, { recursive: true });
 		await this.writeStandaloneMeta(meta);
@@ -618,7 +622,8 @@ var DiffArtifactStore = class {
 		return {
 			id,
 			filePath: meta.filePath,
-			expiresAt: meta.expiresAt
+			expiresAt: meta.expiresAt,
+			...meta.context ? { context: meta.context } : {}
 		};
 	}
 	allocateImagePath(id, format = "png") {
@@ -689,7 +694,8 @@ var DiffArtifactStore = class {
 				id: value.id,
 				createdAt: value.createdAt,
 				expiresAt: value.expiresAt,
-				filePath: this.normalizeStoredPath(value.filePath, "filePath")
+				filePath: this.normalizeStoredPath(value.filePath, "filePath"),
+				...value.context ? { context: normalizeArtifactContext(value.context) } : {}
 			};
 		} catch (error) {
 			this.logger?.warn(`Failed to normalize standalone diff metadata for ${id}: ${String(error)}`);
@@ -747,6 +753,20 @@ function isExpired(meta) {
 }
 function isFileNotFound(error) {
 	return error instanceof Error && "code" in error && error.code === "ENOENT";
+}
+function normalizeArtifactContext(value) {
+	if (!value || typeof value !== "object" || Array.isArray(value)) return;
+	const raw = value;
+	const context = {
+		agentId: normalizeOptionalString(raw.agentId),
+		sessionId: normalizeOptionalString(raw.sessionId),
+		messageChannel: normalizeOptionalString(raw.messageChannel),
+		agentAccountId: normalizeOptionalString(raw.agentAccountId)
+	};
+	return Object.values(context).some((entry) => entry !== void 0) ? context : void 0;
+}
+function normalizeOptionalString(value) {
+	return typeof value === "string" && value.trim().length > 0 ? value.trim() : void 0;
 }
 //#endregion
 //#region extensions/diffs/src/browser.ts
@@ -8400,319 +8420,319 @@ const bundledLanguagesInfo = [
 	{
 		"id": "abap",
 		"name": "ABAP",
-		"import": (() => import("../../abap-BdKqtdkW.js"))
+		"import": (() => import("../../abap-BEz6R2TK.js"))
 	},
 	{
 		"id": "actionscript-3",
 		"name": "ActionScript",
-		"import": (() => import("../../actionscript-3-rk2Vstzi.js"))
+		"import": (() => import("../../actionscript-3-huR_Kg4A.js"))
 	},
 	{
 		"id": "ada",
 		"name": "Ada",
-		"import": (() => import("../../ada-CMNOxyGq.js"))
+		"import": (() => import("../../ada-p74OpdkH.js"))
 	},
 	{
 		"id": "angular-html",
 		"name": "Angular HTML",
-		"import": (() => import("../../angular-html-DvZCDrmm.js"))
+		"import": (() => import("../../angular-html-BHdU-d0j.js"))
 	},
 	{
 		"id": "angular-ts",
 		"name": "Angular TypeScript",
-		"import": (() => import("../../angular-ts-DFp0mGlx.js"))
+		"import": (() => import("../../angular-ts-B4Oz5FtO.js"))
 	},
 	{
 		"id": "apache",
 		"name": "Apache Conf",
-		"import": (() => import("../../apache-Dau4nXmw.js"))
+		"import": (() => import("../../apache-CbLlryJL.js"))
 	},
 	{
 		"id": "apex",
 		"name": "Apex",
-		"import": (() => import("../../apex-Cc-BW4oB.js"))
+		"import": (() => import("../../apex-B_M-9yAB.js"))
 	},
 	{
 		"id": "apl",
 		"name": "APL",
-		"import": (() => import("../../apl-CGwAyHc6.js"))
+		"import": (() => import("../../apl-CV87GVNN.js"))
 	},
 	{
 		"id": "applescript",
 		"name": "AppleScript",
-		"import": (() => import("../../applescript-mrlMHwLv.js"))
+		"import": (() => import("../../applescript-DIk-fRgp.js"))
 	},
 	{
 		"id": "ara",
 		"name": "Ara",
-		"import": (() => import("../../ara-4BXzEI5N.js"))
+		"import": (() => import("../../ara-BfHgOs5Z.js"))
 	},
 	{
 		"id": "asciidoc",
 		"name": "AsciiDoc",
 		"aliases": ["adoc"],
-		"import": (() => import("../../asciidoc-WmM7PtTK.js"))
+		"import": (() => import("../../asciidoc-DlZxtu_3.js"))
 	},
 	{
 		"id": "asm",
 		"name": "Assembly",
-		"import": (() => import("../../asm-BKyYHa9h.js"))
+		"import": (() => import("../../asm-JRqqP2CB.js"))
 	},
 	{
 		"id": "astro",
 		"name": "Astro",
-		"import": (() => import("../../astro-C6ajeLXJ.js"))
+		"import": (() => import("../../astro-Dzg8ksEy.js"))
 	},
 	{
 		"id": "awk",
 		"name": "AWK",
-		"import": (() => import("../../awk-pV5jF1yr.js"))
+		"import": (() => import("../../awk-CxWFYlDd.js"))
 	},
 	{
 		"id": "ballerina",
 		"name": "Ballerina",
-		"import": (() => import("../../ballerina-BBlm7KOE.js"))
+		"import": (() => import("../../ballerina-BgDJ3clR.js"))
 	},
 	{
 		"id": "bat",
 		"name": "Batch File",
 		"aliases": ["batch"],
-		"import": (() => import("../../bat-Dsm0xfy1.js"))
+		"import": (() => import("../../bat-Bi9h2gDV.js"))
 	},
 	{
 		"id": "beancount",
 		"name": "Beancount",
-		"import": (() => import("../../beancount-7HHmefEn.js"))
+		"import": (() => import("../../beancount-BF20cw1r.js"))
 	},
 	{
 		"id": "berry",
 		"name": "Berry",
 		"aliases": ["be"],
-		"import": (() => import("../../berry-DmcYeF8b.js"))
+		"import": (() => import("../../berry-e3MXZSGf.js"))
 	},
 	{
 		"id": "bibtex",
 		"name": "BibTeX",
-		"import": (() => import("../../bibtex-Di_82YLo.js"))
+		"import": (() => import("../../bibtex-gyVrgs_t.js"))
 	},
 	{
 		"id": "bicep",
 		"name": "Bicep",
-		"import": (() => import("../../bicep-IPQHdwzr.js"))
+		"import": (() => import("../../bicep-DHnBK-KN.js"))
 	},
 	{
 		"id": "bird2",
 		"name": "BIRD2 Configuration",
 		"aliases": ["bird"],
-		"import": (() => import("../../bird2-PS0AFRdQ.js"))
+		"import": (() => import("../../bird2-B-8Vki5u.js"))
 	},
 	{
 		"id": "blade",
 		"name": "Blade",
-		"import": (() => import("../../blade-jYynBLMN.js"))
+		"import": (() => import("../../blade-DsLdF2ZL.js"))
 	},
 	{
 		"id": "bsl",
 		"name": "1C (Enterprise)",
 		"aliases": ["1c"],
-		"import": (() => import("../../bsl-DBnbtxrH.js"))
+		"import": (() => import("../../bsl-BJDSFfye.js"))
 	},
 	{
 		"id": "c",
 		"name": "C",
-		"import": (() => import("../../c-OAdRzMX8.js"))
+		"import": (() => import("../../c-DQO5bNne.js"))
 	},
 	{
 		"id": "c3",
 		"name": "C3",
-		"import": (() => import("../../c3-B2saaj9w.js"))
+		"import": (() => import("../../c3-Bm4Eczt7.js"))
 	},
 	{
 		"id": "cadence",
 		"name": "Cadence",
 		"aliases": ["cdc"],
-		"import": (() => import("../../cadence-CZWQU59C.js"))
+		"import": (() => import("../../cadence-Cw5Mtz4J.js"))
 	},
 	{
 		"id": "cairo",
 		"name": "Cairo",
-		"import": (() => import("../../cairo-BMLnR-Qc.js"))
+		"import": (() => import("../../cairo-D9pDREXk.js"))
 	},
 	{
 		"id": "clarity",
 		"name": "Clarity",
-		"import": (() => import("../../clarity-BF3-hEaG.js"))
+		"import": (() => import("../../clarity-VlmpR8o3.js"))
 	},
 	{
 		"id": "clojure",
 		"name": "Clojure",
 		"aliases": ["clj"],
-		"import": (() => import("../../clojure-fXoHCh2K.js"))
+		"import": (() => import("../../clojure-DouuVpdz.js"))
 	},
 	{
 		"id": "cmake",
 		"name": "CMake",
-		"import": (() => import("../../cmake-DAFs9Z7x.js"))
+		"import": (() => import("../../cmake-DouYaed3.js"))
 	},
 	{
 		"id": "cobol",
 		"name": "COBOL",
-		"import": (() => import("../../cobol-CmE4wcaX.js"))
+		"import": (() => import("../../cobol-y1NhhfyI.js"))
 	},
 	{
 		"id": "codeowners",
 		"name": "CODEOWNERS",
-		"import": (() => import("../../codeowners-DX53MZMe.js"))
+		"import": (() => import("../../codeowners-DrxViU_t.js"))
 	},
 	{
 		"id": "codeql",
 		"name": "CodeQL",
 		"aliases": ["ql"],
-		"import": (() => import("../../codeql-OkNgAZ63.js"))
+		"import": (() => import("../../codeql-Dij8lqxl.js"))
 	},
 	{
 		"id": "coffee",
 		"name": "CoffeeScript",
 		"aliases": ["coffeescript"],
-		"import": (() => import("../../coffee-CULcpVW1.js"))
+		"import": (() => import("../../coffee-DrJe15hA.js"))
 	},
 	{
 		"id": "common-lisp",
 		"name": "Common Lisp",
 		"aliases": ["lisp"],
-		"import": (() => import("../../common-lisp-DQA7dN-u.js"))
+		"import": (() => import("../../common-lisp-DsrzMNmn.js"))
 	},
 	{
 		"id": "coq",
 		"name": "Coq",
-		"import": (() => import("../../coq-BAOYJqyr.js"))
+		"import": (() => import("../../coq-CBwutY2U.js"))
 	},
 	{
 		"id": "cpp",
 		"name": "C++",
 		"aliases": ["c++"],
-		"import": (() => import("../../cpp-Db2kMF9K.js"))
+		"import": (() => import("../../cpp-BKrdEIay.js"))
 	},
 	{
 		"id": "crystal",
 		"name": "Crystal",
-		"import": (() => import("../../crystal-CF3cX7wz.js"))
+		"import": (() => import("../../crystal-BoFNGp5k.js"))
 	},
 	{
 		"id": "csharp",
 		"name": "C#",
 		"aliases": ["c#", "cs"],
-		"import": (() => import("../../csharp-DOuB_fTk.js"))
+		"import": (() => import("../../csharp-BsxYcjXj.js"))
 	},
 	{
 		"id": "css",
 		"name": "CSS",
-		"import": (() => import("../../css-bwB3_Ify.js"))
+		"import": (() => import("../../css-C0VnDU5Z.js"))
 	},
 	{
 		"id": "csv",
 		"name": "CSV",
-		"import": (() => import("../../csv-15dDWhDG.js"))
+		"import": (() => import("../../csv-CAwFk5bI.js"))
 	},
 	{
 		"id": "cue",
 		"name": "CUE",
-		"import": (() => import("../../cue-BIXaJ7FU.js"))
+		"import": (() => import("../../cue-C6uReK1P.js"))
 	},
 	{
 		"id": "cypher",
 		"name": "Cypher",
 		"aliases": ["cql"],
-		"import": (() => import("../../cypher-XwmLcOKa.js"))
+		"import": (() => import("../../cypher-BmRES2d4.js"))
 	},
 	{
 		"id": "d",
 		"name": "D",
-		"import": (() => import("../../d-Dg7VkcJa.js"))
+		"import": (() => import("../../d-DEMfhuEA.js"))
 	},
 	{
 		"id": "dart",
 		"name": "Dart",
-		"import": (() => import("../../dart-DzpqOAA5.js"))
+		"import": (() => import("../../dart-CFsWrgI3.js"))
 	},
 	{
 		"id": "dax",
 		"name": "DAX",
-		"import": (() => import("../../dax-Ce9dM6jA.js"))
+		"import": (() => import("../../dax-CuoXRros.js"))
 	},
 	{
 		"id": "desktop",
 		"name": "Desktop",
-		"import": (() => import("../../desktop-Bxw-7umK.js"))
+		"import": (() => import("../../desktop-9kvYzgi4.js"))
 	},
 	{
 		"id": "diff",
 		"name": "Diff",
-		"import": (() => import("../../diff-BWatnqgW.js"))
+		"import": (() => import("../../diff-BqFO3zhI.js"))
 	},
 	{
 		"id": "docker",
 		"name": "Dockerfile",
 		"aliases": ["dockerfile"],
-		"import": (() => import("../../docker-89sdYFa3.js"))
+		"import": (() => import("../../docker-DBIDIMEK.js"))
 	},
 	{
 		"id": "dotenv",
 		"name": "dotEnv",
-		"import": (() => import("../../dotenv-n2lxlPMl.js"))
+		"import": (() => import("../../dotenv-DN5nYiHO.js"))
 	},
 	{
 		"id": "dream-maker",
 		"name": "Dream Maker",
-		"import": (() => import("../../dream-maker-DUxLDHX2.js"))
+		"import": (() => import("../../dream-maker-kzxU4pJW.js"))
 	},
 	{
 		"id": "edge",
 		"name": "Edge",
-		"import": (() => import("../../edge-CJ-Z_J8h.js"))
+		"import": (() => import("../../edge-atQJ7jeI.js"))
 	},
 	{
 		"id": "elixir",
 		"name": "Elixir",
-		"import": (() => import("../../elixir-BiSzfiOp.js"))
+		"import": (() => import("../../elixir-BnGKB3ud.js"))
 	},
 	{
 		"id": "elm",
 		"name": "Elm",
-		"import": (() => import("../../elm-BSfL1X_3.js"))
+		"import": (() => import("../../elm-DQfoEary.js"))
 	},
 	{
 		"id": "emacs-lisp",
 		"name": "Emacs Lisp",
 		"aliases": ["elisp"],
-		"import": (() => import("../../emacs-lisp-D3FA-_rg.js"))
+		"import": (() => import("../../emacs-lisp-CklaiSBr.js"))
 	},
 	{
 		"id": "erb",
 		"name": "ERB",
-		"import": (() => import("../../erb-B1tWu2M5.js"))
+		"import": (() => import("../../erb-CE-vjajZ.js"))
 	},
 	{
 		"id": "erlang",
 		"name": "Erlang",
 		"aliases": ["erl"],
-		"import": (() => import("../../erlang-i5XP47bo.js"))
+		"import": (() => import("../../erlang-B35AQrwB.js"))
 	},
 	{
 		"id": "fennel",
 		"name": "Fennel",
-		"import": (() => import("../../fennel-0kdYR4-D.js"))
+		"import": (() => import("../../fennel-DddiXOgZ.js"))
 	},
 	{
 		"id": "fish",
 		"name": "Fish",
-		"import": (() => import("../../fish-Dd1qNDXu.js"))
+		"import": (() => import("../../fish-DPg3LcRs.js"))
 	},
 	{
 		"id": "fluent",
 		"name": "Fluent",
 		"aliases": ["ftl"],
-		"import": (() => import("../../fluent-DJXOJ57u.js"))
+		"import": (() => import("../../fluent-1931pL4w.js"))
 	},
 	{
 		"id": "fortran-fixed-form",
@@ -8722,7 +8742,7 @@ const bundledLanguagesInfo = [
 			"for",
 			"f77"
 		],
-		"import": (() => import("../../fortran-fixed-form-CjYUKsX9.js"))
+		"import": (() => import("../../fortran-fixed-form-mT3SWjFE.js"))
 	},
 	{
 		"id": "fortran-free-form",
@@ -8734,186 +8754,186 @@ const bundledLanguagesInfo = [
 			"f08",
 			"f18"
 		],
-		"import": (() => import("../../fortran-free-form-DWAzP8Mg.js"))
+		"import": (() => import("../../fortran-free-form-CojGdmt1.js"))
 	},
 	{
 		"id": "fsharp",
 		"name": "F#",
 		"aliases": ["f#", "fs"],
-		"import": (() => import("../../fsharp-DOhBINLN.js"))
+		"import": (() => import("../../fsharp-rLCDAZFU.js"))
 	},
 	{
 		"id": "gdresource",
 		"name": "GDResource",
 		"aliases": ["tscn", "tres"],
-		"import": (() => import("../../gdresource-htDIIcJW.js"))
+		"import": (() => import("../../gdresource-Dtvq5O-9.js"))
 	},
 	{
 		"id": "gdscript",
 		"name": "GDScript",
 		"aliases": ["gd"],
-		"import": (() => import("../../gdscript-BFUNgsFs.js"))
+		"import": (() => import("../../gdscript-jWYTU31w.js"))
 	},
 	{
 		"id": "gdshader",
 		"name": "GDShader",
-		"import": (() => import("../../gdshader-CVceiEsL.js"))
+		"import": (() => import("../../gdshader-BJuJjFMR.js"))
 	},
 	{
 		"id": "genie",
 		"name": "Genie",
-		"import": (() => import("../../genie-jQsGtOGx.js"))
+		"import": (() => import("../../genie-D8VwPCa5.js"))
 	},
 	{
 		"id": "gherkin",
 		"name": "Gherkin",
-		"import": (() => import("../../gherkin-Dv8br1YS.js"))
+		"import": (() => import("../../gherkin-Ca3VyRW8.js"))
 	},
 	{
 		"id": "git-commit",
 		"name": "Git Commit Message",
-		"import": (() => import("../../git-commit-DBTdEOcR.js"))
+		"import": (() => import("../../git-commit-DJKSNn50.js"))
 	},
 	{
 		"id": "git-rebase",
 		"name": "Git Rebase Message",
-		"import": (() => import("../../git-rebase-ChDQqhc-.js"))
+		"import": (() => import("../../git-rebase-BkFUAOLI.js"))
 	},
 	{
 		"id": "gleam",
 		"name": "Gleam",
-		"import": (() => import("../../gleam-BO7kkIVn.js"))
+		"import": (() => import("../../gleam-B5ctTvOq.js"))
 	},
 	{
 		"id": "glimmer-js",
 		"name": "Glimmer JS",
 		"aliases": ["gjs"],
-		"import": (() => import("../../glimmer-js-BfjnVYBD.js"))
+		"import": (() => import("../../glimmer-js-1Y4-ANWo.js"))
 	},
 	{
 		"id": "glimmer-ts",
 		"name": "Glimmer TS",
 		"aliases": ["gts"],
-		"import": (() => import("../../glimmer-ts-5mLUzp9V.js"))
+		"import": (() => import("../../glimmer-ts-NtpnBfbp.js"))
 	},
 	{
 		"id": "glsl",
 		"name": "GLSL",
-		"import": (() => import("../../glsl-BMr9Q_BT.js"))
+		"import": (() => import("../../glsl-PMFwfoet.js"))
 	},
 	{
 		"id": "gn",
 		"name": "GN",
-		"import": (() => import("../../gn-BagPOpNe.js"))
+		"import": (() => import("../../gn-DgO0cLUX.js"))
 	},
 	{
 		"id": "gnuplot",
 		"name": "Gnuplot",
-		"import": (() => import("../../gnuplot-BTVp7C7G.js"))
+		"import": (() => import("../../gnuplot-DZEcqdGP.js"))
 	},
 	{
 		"id": "go",
 		"name": "Go",
-		"import": (() => import("../../go-wGc6CJQH.js"))
+		"import": (() => import("../../go-OwIvkorl.js"))
 	},
 	{
 		"id": "graphql",
 		"name": "GraphQL",
 		"aliases": ["gql"],
-		"import": (() => import("../../graphql-CUCLGXk6.js"))
+		"import": (() => import("../../graphql-BHiFhqUf.js"))
 	},
 	{
 		"id": "groovy",
 		"name": "Groovy",
-		"import": (() => import("../../groovy-C346_ZHr.js"))
+		"import": (() => import("../../groovy-TWJp0dKf.js"))
 	},
 	{
 		"id": "hack",
 		"name": "Hack",
-		"import": (() => import("../../hack-bWFXRD0B.js"))
+		"import": (() => import("../../hack-Cr2HR0W6.js"))
 	},
 	{
 		"id": "haml",
 		"name": "Ruby Haml",
-		"import": (() => import("../../haml-3CycON08.js"))
+		"import": (() => import("../../haml-CUc0IxRR.js"))
 	},
 	{
 		"id": "handlebars",
 		"name": "Handlebars",
 		"aliases": ["hbs"],
-		"import": (() => import("../../handlebars-Eu8TTTIY.js"))
+		"import": (() => import("../../handlebars-BmF73p9C.js"))
 	},
 	{
 		"id": "haskell",
 		"name": "Haskell",
 		"aliases": ["hs"],
-		"import": (() => import("../../haskell-Bf67ibJb.js"))
+		"import": (() => import("../../haskell-B1Dmlp1Z.js"))
 	},
 	{
 		"id": "haxe",
 		"name": "Haxe",
-		"import": (() => import("../../haxe-Bfa0nish.js"))
+		"import": (() => import("../../haxe-B39_r4em.js"))
 	},
 	{
 		"id": "hcl",
 		"name": "HashiCorp HCL",
-		"import": (() => import("../../hcl-BF9Y3ioo.js"))
+		"import": (() => import("../../hcl-Divg4pvY.js"))
 	},
 	{
 		"id": "hjson",
 		"name": "Hjson",
-		"import": (() => import("../../hjson-DM08dLIm.js"))
+		"import": (() => import("../../hjson-DDd-ksao.js"))
 	},
 	{
 		"id": "hlsl",
 		"name": "HLSL",
-		"import": (() => import("../../hlsl-BybrHGHn.js"))
+		"import": (() => import("../../hlsl-9qa_XO-_.js"))
 	},
 	{
 		"id": "html",
 		"name": "HTML",
-		"import": (() => import("../../html-CLEX4iw8.js"))
+		"import": (() => import("../../html-DJEiDh4_.js"))
 	},
 	{
 		"id": "html-derivative",
 		"name": "HTML (Derivative)",
-		"import": (() => import("../../html-derivative-BUd9me6C.js"))
+		"import": (() => import("../../html-derivative-LwwUq7IA.js"))
 	},
 	{
 		"id": "http",
 		"name": "HTTP",
-		"import": (() => import("../../http-eL_0Zctb.js"))
+		"import": (() => import("../../http-CsNhna9j.js"))
 	},
 	{
 		"id": "hurl",
 		"name": "Hurl",
-		"import": (() => import("../../hurl-DAzXnynC.js"))
+		"import": (() => import("../../hurl-ADax_T_q.js"))
 	},
 	{
 		"id": "hxml",
 		"name": "HXML",
-		"import": (() => import("../../hxml-CLBDJoMr.js"))
+		"import": (() => import("../../hxml-CSC6_QJF.js"))
 	},
 	{
 		"id": "hy",
 		"name": "Hy",
-		"import": (() => import("../../hy-DDZkUnAx.js"))
+		"import": (() => import("../../hy-Wn1UewZB.js"))
 	},
 	{
 		"id": "imba",
 		"name": "Imba",
-		"import": (() => import("../../imba-Zco5vv-4.js"))
+		"import": (() => import("../../imba-DtHQWPGK.js"))
 	},
 	{
 		"id": "ini",
 		"name": "INI",
 		"aliases": ["properties"],
-		"import": (() => import("../../ini-DZW0-zpm.js"))
+		"import": (() => import("../../ini-DZKkCymo.js"))
 	},
 	{
 		"id": "java",
 		"name": "Java",
-		"import": (() => import("../../java-CwlwnZya.js"))
+		"import": (() => import("../../java-BVW8dAML.js"))
 	},
 	{
 		"id": "javascript",
@@ -8923,463 +8943,463 @@ const bundledLanguagesInfo = [
 			"cjs",
 			"mjs"
 		],
-		"import": (() => import("../../javascript-DOWbta7R.js"))
+		"import": (() => import("../../javascript-Dg2j7LAW.js"))
 	},
 	{
 		"id": "jinja",
 		"name": "Jinja",
-		"import": (() => import("../../jinja-qrCLcij5.js"))
+		"import": (() => import("../../jinja-BCGDpQD4.js"))
 	},
 	{
 		"id": "jison",
 		"name": "Jison",
-		"import": (() => import("../../jison-CfW0zoJ5.js"))
+		"import": (() => import("../../jison-BavriD3V.js"))
 	},
 	{
 		"id": "json",
 		"name": "JSON",
-		"import": (() => import("../../json-DehEDBkm.js"))
+		"import": (() => import("../../json-C7ES9WKu.js"))
 	},
 	{
 		"id": "json5",
 		"name": "JSON5",
-		"import": (() => import("../../json5-DerctOnj.js"))
+		"import": (() => import("../../json5-B8pyzujQ.js"))
 	},
 	{
 		"id": "jsonc",
 		"name": "JSON with Comments",
-		"import": (() => import("../../jsonc-DgyJgcqa.js"))
+		"import": (() => import("../../jsonc-DAc9s-nM.js"))
 	},
 	{
 		"id": "jsonl",
 		"name": "JSON Lines",
-		"import": (() => import("../../jsonl-IqDch099.js"))
+		"import": (() => import("../../jsonl-DzCTkMct.js"))
 	},
 	{
 		"id": "jsonnet",
 		"name": "Jsonnet",
-		"import": (() => import("../../jsonnet-CKKB7gU2.js"))
+		"import": (() => import("../../jsonnet-D2hDFnOj.js"))
 	},
 	{
 		"id": "jssm",
 		"name": "JSSM",
 		"aliases": ["fsl"],
-		"import": (() => import("../../jssm-6EjP1-bd.js"))
+		"import": (() => import("../../jssm-CTsz93MI.js"))
 	},
 	{
 		"id": "jsx",
 		"name": "JSX",
-		"import": (() => import("../../jsx-D5RGEcKn.js"))
+		"import": (() => import("../../jsx-Bif8NS_f.js"))
 	},
 	{
 		"id": "julia",
 		"name": "Julia",
 		"aliases": ["jl"],
-		"import": (() => import("../../julia-BEFDwyqt.js"))
+		"import": (() => import("../../julia-DuDhMpQP.js"))
 	},
 	{
 		"id": "just",
 		"name": "Just",
-		"import": (() => import("../../just-vAWBOQ_A.js"))
+		"import": (() => import("../../just-ChmCCBhq.js"))
 	},
 	{
 		"id": "kdl",
 		"name": "KDL",
-		"import": (() => import("../../kdl-B9E53A9g.js"))
+		"import": (() => import("../../kdl-DZMK1QMd.js"))
 	},
 	{
 		"id": "kotlin",
 		"name": "Kotlin",
 		"aliases": ["kt", "kts"],
-		"import": (() => import("../../kotlin-CmctHV89.js"))
+		"import": (() => import("../../kotlin-D-5pPpCi.js"))
 	},
 	{
 		"id": "kusto",
 		"name": "Kusto",
 		"aliases": ["kql"],
-		"import": (() => import("../../kusto-C-38Z_DJ.js"))
+		"import": (() => import("../../kusto-BIa19PLV.js"))
 	},
 	{
 		"id": "latex",
 		"name": "LaTeX",
-		"import": (() => import("../../latex-Dn0EHWpB.js"))
+		"import": (() => import("../../latex-CafzHdwC.js"))
 	},
 	{
 		"id": "lean",
 		"name": "Lean 4",
 		"aliases": ["lean4"],
-		"import": (() => import("../../lean-DPHIiYOG.js"))
+		"import": (() => import("../../lean-CHKVKCx-.js"))
 	},
 	{
 		"id": "less",
 		"name": "Less",
-		"import": (() => import("../../less-Dkj-YdBj.js"))
+		"import": (() => import("../../less-Ui7yqGCK.js"))
 	},
 	{
 		"id": "liquid",
 		"name": "Liquid",
-		"import": (() => import("../../liquid-DBjMwhmW.js"))
+		"import": (() => import("../../liquid-BHy7fkmb.js"))
 	},
 	{
 		"id": "llvm",
 		"name": "LLVM IR",
-		"import": (() => import("../../llvm-CLgk4wff.js"))
+		"import": (() => import("../../llvm-D-c6o06s.js"))
 	},
 	{
 		"id": "log",
 		"name": "Log file",
-		"import": (() => import("../../log-DmFzszSo.js"))
+		"import": (() => import("../../log-vQEh2Qvq.js"))
 	},
 	{
 		"id": "logo",
 		"name": "Logo",
-		"import": (() => import("../../logo-CLbew0N0.js"))
+		"import": (() => import("../../logo-DmmPsRBN.js"))
 	},
 	{
 		"id": "lua",
 		"name": "Lua",
-		"import": (() => import("../../lua-Driif0do.js"))
+		"import": (() => import("../../lua-Bu5gTC7S.js"))
 	},
 	{
 		"id": "luau",
 		"name": "Luau",
-		"import": (() => import("../../luau-DqYCCDaD.js"))
+		"import": (() => import("../../luau-w2MC6bjs.js"))
 	},
 	{
 		"id": "make",
 		"name": "Makefile",
 		"aliases": ["makefile"],
-		"import": (() => import("../../make-LXcqYCeK.js"))
+		"import": (() => import("../../make-BwiQmDDa.js"))
 	},
 	{
 		"id": "markdown",
 		"name": "Markdown",
 		"aliases": ["md"],
-		"import": (() => import("../../markdown-BA185rQR.js"))
+		"import": (() => import("../../markdown-DL17fjGf.js"))
 	},
 	{
 		"id": "marko",
 		"name": "Marko",
-		"import": (() => import("../../marko-Cygt5SNo.js"))
+		"import": (() => import("../../marko-lVI2g0vT.js"))
 	},
 	{
 		"id": "matlab",
 		"name": "MATLAB",
-		"import": (() => import("../../matlab-BglgqPB4.js"))
+		"import": (() => import("../../matlab-B6Nfavy_.js"))
 	},
 	{
 		"id": "mdc",
 		"name": "MDC",
-		"import": (() => import("../../mdc-wf9gG4OJ.js"))
+		"import": (() => import("../../mdc-CuPUu988.js"))
 	},
 	{
 		"id": "mdx",
 		"name": "MDX",
-		"import": (() => import("../../mdx-Cfr5lq2k.js"))
+		"import": (() => import("../../mdx-BTwhQ-Uw.js"))
 	},
 	{
 		"id": "mermaid",
 		"name": "Mermaid",
 		"aliases": ["mmd"],
-		"import": (() => import("../../mermaid-C5JApBIl.js"))
+		"import": (() => import("../../mermaid-BiVuv4Jk.js"))
 	},
 	{
 		"id": "mipsasm",
 		"name": "MIPS Assembly",
 		"aliases": ["mips"],
-		"import": (() => import("../../mipsasm-BQX63VEC.js"))
+		"import": (() => import("../../mipsasm-DbpCeSFf.js"))
 	},
 	{
 		"id": "mojo",
 		"name": "Mojo",
-		"import": (() => import("../../mojo-CPrl_BPa.js"))
+		"import": (() => import("../../mojo-AL3iaAcX.js"))
 	},
 	{
 		"id": "moonbit",
 		"name": "MoonBit",
 		"aliases": ["mbt", "mbti"],
-		"import": (() => import("../../moonbit-CTDK7YtM.js"))
+		"import": (() => import("../../moonbit-CgmW9_zi.js"))
 	},
 	{
 		"id": "move",
 		"name": "Move",
-		"import": (() => import("../../move-hsrLjKdD.js"))
+		"import": (() => import("../../move-CTgWUNJR.js"))
 	},
 	{
 		"id": "narrat",
 		"name": "Narrat Language",
 		"aliases": ["nar"],
-		"import": (() => import("../../narrat-D6-OCygA.js"))
+		"import": (() => import("../../narrat-C6LnnZgX.js"))
 	},
 	{
 		"id": "nextflow",
 		"name": "Nextflow",
 		"aliases": ["nf"],
-		"import": (() => import("../../nextflow-Bod2hg9j.js"))
+		"import": (() => import("../../nextflow-CmiE2tfL.js"))
 	},
 	{
 		"id": "nextflow-groovy",
 		"name": "nextflow-groovy",
-		"import": (() => import("../../nextflow-groovy-Bb0Og-qN.js"))
+		"import": (() => import("../../nextflow-groovy-DUGjxqTF.js"))
 	},
 	{
 		"id": "nginx",
 		"name": "Nginx",
-		"import": (() => import("../../nginx-BYQ3yftp.js"))
+		"import": (() => import("../../nginx-DvO400au.js"))
 	},
 	{
 		"id": "nim",
 		"name": "Nim",
-		"import": (() => import("../../nim-A-vp--8E.js"))
+		"import": (() => import("../../nim-D1KDYUSa.js"))
 	},
 	{
 		"id": "nix",
 		"name": "Nix",
-		"import": (() => import("../../nix-C0rz4HDP.js"))
+		"import": (() => import("../../nix-DbH2kNB9.js"))
 	},
 	{
 		"id": "nushell",
 		"name": "nushell",
 		"aliases": ["nu"],
-		"import": (() => import("../../nushell-DKGSGft3.js"))
+		"import": (() => import("../../nushell-C_9qhpRE.js"))
 	},
 	{
 		"id": "objective-c",
 		"name": "Objective-C",
 		"aliases": ["objc"],
-		"import": (() => import("../../objective-c-DZOVwS5o.js"))
+		"import": (() => import("../../objective-c-DnVlOm8x.js"))
 	},
 	{
 		"id": "objective-cpp",
 		"name": "Objective-C++",
-		"import": (() => import("../../objective-cpp-D_G-Wv_0.js"))
+		"import": (() => import("../../objective-cpp-CqZNYyKT.js"))
 	},
 	{
 		"id": "ocaml",
 		"name": "OCaml",
-		"import": (() => import("../../ocaml-ClMNJiH6.js"))
+		"import": (() => import("../../ocaml-C-PDcPlm.js"))
 	},
 	{
 		"id": "odin",
 		"name": "Odin",
-		"import": (() => import("../../odin-B7uFuJ1N.js"))
+		"import": (() => import("../../odin-D7yC3EJd.js"))
 	},
 	{
 		"id": "openscad",
 		"name": "OpenSCAD",
 		"aliases": ["scad"],
-		"import": (() => import("../../openscad-BWPM08Tq.js"))
+		"import": (() => import("../../openscad-BVOpEn8y.js"))
 	},
 	{
 		"id": "pascal",
 		"name": "Pascal",
-		"import": (() => import("../../pascal-DdCyWeNh.js"))
+		"import": (() => import("../../pascal-DnG8jxwl.js"))
 	},
 	{
 		"id": "perl",
 		"name": "Perl",
-		"import": (() => import("../../perl-Bs4RQczc.js"))
+		"import": (() => import("../../perl-C2sOZfHC.js"))
 	},
 	{
 		"id": "php",
 		"name": "PHP",
-		"import": (() => import("../../php-Bse53LGk.js"))
+		"import": (() => import("../../php-95cTFpMJ.js"))
 	},
 	{
 		"id": "pkl",
 		"name": "Pkl",
-		"import": (() => import("../../pkl-DuBbPh_u.js"))
+		"import": (() => import("../../pkl-DJkuiolr.js"))
 	},
 	{
 		"id": "plsql",
 		"name": "PL/SQL",
-		"import": (() => import("../../plsql-B03WfeLz.js"))
+		"import": (() => import("../../plsql-BHTmrh3b.js"))
 	},
 	{
 		"id": "po",
 		"name": "Gettext PO",
 		"aliases": ["pot", "potx"],
-		"import": (() => import("../../po-mRGl2Aqy.js"))
+		"import": (() => import("../../po-D2hqI6cc.js"))
 	},
 	{
 		"id": "polar",
 		"name": "Polar",
-		"import": (() => import("../../polar-D6p_9LrO.js"))
+		"import": (() => import("../../polar-TVIwVCkW.js"))
 	},
 	{
 		"id": "postcss",
 		"name": "PostCSS",
-		"import": (() => import("../../postcss-s6FK0KFr.js"))
+		"import": (() => import("../../postcss-DSSToOft.js"))
 	},
 	{
 		"id": "powerquery",
 		"name": "PowerQuery",
-		"import": (() => import("../../powerquery-CTkl6m2g.js"))
+		"import": (() => import("../../powerquery-BZIy5dJ5.js"))
 	},
 	{
 		"id": "powershell",
 		"name": "PowerShell",
 		"aliases": ["ps", "ps1"],
-		"import": (() => import("../../powershell-omHW-iAc.js"))
+		"import": (() => import("../../powershell-DW--YQBI.js"))
 	},
 	{
 		"id": "prisma",
 		"name": "Prisma",
-		"import": (() => import("../../prisma-BwivXCDT.js"))
+		"import": (() => import("../../prisma-DezpDMPt.js"))
 	},
 	{
 		"id": "prolog",
 		"name": "Prolog",
-		"import": (() => import("../../prolog-BQ4yhWIL.js"))
+		"import": (() => import("../../prolog-CFxHvTVn.js"))
 	},
 	{
 		"id": "proto",
 		"name": "Protocol Buffer 3",
 		"aliases": ["protobuf"],
-		"import": (() => import("../../proto-Cj8QjwGu.js"))
+		"import": (() => import("../../proto-BK-83-1-.js"))
 	},
 	{
 		"id": "pug",
 		"name": "Pug",
 		"aliases": ["jade"],
-		"import": (() => import("../../pug-BJdsN0wf.js"))
+		"import": (() => import("../../pug-BeH6KcF2.js"))
 	},
 	{
 		"id": "puppet",
 		"name": "Puppet",
-		"import": (() => import("../../puppet-CvYgOkac.js"))
+		"import": (() => import("../../puppet-BcK2DFxH.js"))
 	},
 	{
 		"id": "purescript",
 		"name": "PureScript",
-		"import": (() => import("../../purescript-DhUryrI9.js"))
+		"import": (() => import("../../purescript-Ck1FwcCN.js"))
 	},
 	{
 		"id": "python",
 		"name": "Python",
 		"aliases": ["py"],
-		"import": (() => import("../../python-74S6hv-T.js"))
+		"import": (() => import("../../python-Ov1EYTxt.js"))
 	},
 	{
 		"id": "qml",
 		"name": "QML",
-		"import": (() => import("../../qml-CC7AK7Ox.js"))
+		"import": (() => import("../../qml-BcDV-Bes.js"))
 	},
 	{
 		"id": "qmldir",
 		"name": "QML Directory",
-		"import": (() => import("../../qmldir-8Rr8HUY2.js"))
+		"import": (() => import("../../qmldir-DTS5Hr18.js"))
 	},
 	{
 		"id": "qss",
 		"name": "Qt Style Sheets",
-		"import": (() => import("../../qss-C-3KG1cV.js"))
+		"import": (() => import("../../qss-DFJ2mpmK.js"))
 	},
 	{
 		"id": "r",
 		"name": "R",
-		"import": (() => import("../../r-DAWgiv-Q.js"))
+		"import": (() => import("../../r-Bou4b5Gv.js"))
 	},
 	{
 		"id": "racket",
 		"name": "Racket",
-		"import": (() => import("../../racket-Dv1OG2rc.js"))
+		"import": (() => import("../../racket-DsiJmhRo.js"))
 	},
 	{
 		"id": "raku",
 		"name": "Raku",
 		"aliases": ["perl6"],
-		"import": (() => import("../../raku-DB0Uz5as.js"))
+		"import": (() => import("../../raku-pX8sjSFu.js"))
 	},
 	{
 		"id": "razor",
 		"name": "ASP.NET Razor",
-		"import": (() => import("../../razor-BciilDSM.js"))
+		"import": (() => import("../../razor-BPN6HDE_.js"))
 	},
 	{
 		"id": "reg",
 		"name": "Windows Registry Script",
-		"import": (() => import("../../reg-Dbzn8LK3.js"))
+		"import": (() => import("../../reg-BiRDCv9R.js"))
 	},
 	{
 		"id": "regexp",
 		"name": "RegExp",
 		"aliases": ["regex"],
-		"import": (() => import("../../regexp-BJQilQVG.js"))
+		"import": (() => import("../../regexp-D5agscUa.js"))
 	},
 	{
 		"id": "rel",
 		"name": "Rel",
-		"import": (() => import("../../rel-Z6766uzx.js"))
+		"import": (() => import("../../rel-CD_lZPnH.js"))
 	},
 	{
 		"id": "riscv",
 		"name": "RISC-V",
-		"import": (() => import("../../riscv-DVNKnO2D.js"))
+		"import": (() => import("../../riscv-BTZxyVY4.js"))
 	},
 	{
 		"id": "ron",
 		"name": "RON",
-		"import": (() => import("../../ron-BrqQaRcO.js"))
+		"import": (() => import("../../ron-oeLSYQqv.js"))
 	},
 	{
 		"id": "rosmsg",
 		"name": "ROS Interface",
-		"import": (() => import("../../rosmsg-BMdZT90P.js"))
+		"import": (() => import("../../rosmsg-CtQghhQe.js"))
 	},
 	{
 		"id": "rst",
 		"name": "reStructuredText",
-		"import": (() => import("../../rst-C3rwUMjH.js"))
+		"import": (() => import("../../rst-C7WdMDX-.js"))
 	},
 	{
 		"id": "ruby",
 		"name": "Ruby",
 		"aliases": ["rb"],
-		"import": (() => import("../../ruby-B6LmSz61.js"))
+		"import": (() => import("../../ruby-DBnPeeTE.js"))
 	},
 	{
 		"id": "rust",
 		"name": "Rust",
 		"aliases": ["rs"],
-		"import": (() => import("../../rust-B63cHSGq.js"))
+		"import": (() => import("../../rust-C5uaN5Xf.js"))
 	},
 	{
 		"id": "sas",
 		"name": "SAS",
-		"import": (() => import("../../sas-1PhJpvDq.js"))
+		"import": (() => import("../../sas-Cv7oONVl.js"))
 	},
 	{
 		"id": "sass",
 		"name": "Sass",
-		"import": (() => import("../../sass-DC8289c-.js"))
+		"import": (() => import("../../sass-CpGpd7av.js"))
 	},
 	{
 		"id": "scala",
 		"name": "Scala",
-		"import": (() => import("../../scala-CjY59j4k.js"))
+		"import": (() => import("../../scala-nPdFBueu.js"))
 	},
 	{
 		"id": "scheme",
 		"name": "Scheme",
-		"import": (() => import("../../scheme-BQHUxCvK.js"))
+		"import": (() => import("../../scheme-CkplwFV7.js"))
 	},
 	{
 		"id": "scss",
 		"name": "SCSS",
-		"import": (() => import("../../scss-CkKz_nII.js"))
+		"import": (() => import("../../scss-CEmZ7dKF.js"))
 	},
 	{
 		"id": "sdbl",
 		"name": "1C (Query)",
 		"aliases": ["1c-query"],
-		"import": (() => import("../../sdbl-BNtHdBEw.js"))
+		"import": (() => import("../../sdbl-Cz9TreFP.js"))
 	},
 	{
 		"id": "shaderlab",
 		"name": "ShaderLab",
 		"aliases": ["shader"],
-		"import": (() => import("../../shaderlab-BrA7Zmt0.js"))
+		"import": (() => import("../../shaderlab-Bjyr-8Go.js"))
 	},
 	{
 		"id": "shellscript",
@@ -9390,150 +9410,150 @@ const bundledLanguagesInfo = [
 			"shell",
 			"zsh"
 		],
-		"import": (() => import("../../shellscript-rcquOzZq.js"))
+		"import": (() => import("../../shellscript-P-qdDRPA.js"))
 	},
 	{
 		"id": "shellsession",
 		"name": "Shell Session",
 		"aliases": ["console"],
-		"import": (() => import("../../shellsession-0jcvjH4W.js"))
+		"import": (() => import("../../shellsession-DZSxtIK_.js"))
 	},
 	{
 		"id": "smalltalk",
 		"name": "Smalltalk",
-		"import": (() => import("../../smalltalk-Dv71hJ_b.js"))
+		"import": (() => import("../../smalltalk-DmpL5YAV.js"))
 	},
 	{
 		"id": "solidity",
 		"name": "Solidity",
-		"import": (() => import("../../solidity-vHBf-lSv.js"))
+		"import": (() => import("../../solidity-DRY4vF0f.js"))
 	},
 	{
 		"id": "soy",
 		"name": "Closure Templates",
 		"aliases": ["closure-templates"],
-		"import": (() => import("../../soy-DReiWhwe.js"))
+		"import": (() => import("../../soy-D8i8Ox6t.js"))
 	},
 	{
 		"id": "sparql",
 		"name": "SPARQL",
-		"import": (() => import("../../sparql-CqPVUg-w.js"))
+		"import": (() => import("../../sparql-Bhln48X_.js"))
 	},
 	{
 		"id": "splunk",
 		"name": "Splunk Query Language",
 		"aliases": ["spl"],
-		"import": (() => import("../../splunk-CLAUUtG_.js"))
+		"import": (() => import("../../splunk-WiJ4BtW_.js"))
 	},
 	{
 		"id": "sql",
 		"name": "SQL",
-		"import": (() => import("../../sql-DLxH_vAA.js"))
+		"import": (() => import("../../sql-I_WLQ0BF.js"))
 	},
 	{
 		"id": "ssh-config",
 		"name": "SSH Config",
-		"import": (() => import("../../ssh-config-Cvx-i_HB.js"))
+		"import": (() => import("../../ssh-config-4CCN55QJ.js"))
 	},
 	{
 		"id": "stata",
 		"name": "Stata",
-		"import": (() => import("../../stata-pg5ZWQeg.js"))
+		"import": (() => import("../../stata-yNF7wzzg.js"))
 	},
 	{
 		"id": "stylus",
 		"name": "Stylus",
 		"aliases": ["styl"],
-		"import": (() => import("../../stylus-DpJ-u5ub.js"))
+		"import": (() => import("../../stylus-HHV7fb6H.js"))
 	},
 	{
 		"id": "surrealql",
 		"name": "SurrealQL",
 		"aliases": ["surql"],
-		"import": (() => import("../../surrealql-COrQOpm-.js"))
+		"import": (() => import("../../surrealql-BR_9MqYT.js"))
 	},
 	{
 		"id": "svelte",
 		"name": "Svelte",
-		"import": (() => import("../../svelte-Cfmn9xdR.js"))
+		"import": (() => import("../../svelte-HPIo3nPu.js"))
 	},
 	{
 		"id": "swift",
 		"name": "Swift",
-		"import": (() => import("../../swift-B5kFhCSK.js"))
+		"import": (() => import("../../swift-B9bn9UMe.js"))
 	},
 	{
 		"id": "system-verilog",
 		"name": "SystemVerilog",
-		"import": (() => import("../../system-verilog-Dz2hC3_x.js"))
+		"import": (() => import("../../system-verilog-CtFOfNZx.js"))
 	},
 	{
 		"id": "systemd",
 		"name": "Systemd Units",
-		"import": (() => import("../../systemd-z7PAORNx.js"))
+		"import": (() => import("../../systemd-CbS3Pxyj.js"))
 	},
 	{
 		"id": "talonscript",
 		"name": "TalonScript",
 		"aliases": ["talon"],
-		"import": (() => import("../../talonscript-CP30z0JC.js"))
+		"import": (() => import("../../talonscript-CaPQU8El.js"))
 	},
 	{
 		"id": "tasl",
 		"name": "Tasl",
-		"import": (() => import("../../tasl-WwLQrrCS.js"))
+		"import": (() => import("../../tasl-CQB1etEF.js"))
 	},
 	{
 		"id": "tcl",
 		"name": "Tcl",
-		"import": (() => import("../../tcl-BjYwph3T.js"))
+		"import": (() => import("../../tcl-WoTIUsKt.js"))
 	},
 	{
 		"id": "templ",
 		"name": "Templ",
-		"import": (() => import("../../templ-3ZP_JvRz.js"))
+		"import": (() => import("../../templ-8izyEM0Q.js"))
 	},
 	{
 		"id": "terraform",
 		"name": "Terraform",
 		"aliases": ["tf", "tfvars"],
-		"import": (() => import("../../terraform-D9LIAPsa.js"))
+		"import": (() => import("../../terraform-D9gzKx9Y.js"))
 	},
 	{
 		"id": "tex",
 		"name": "TeX",
-		"import": (() => import("../../tex-DeoUYaAN.js"))
+		"import": (() => import("../../tex-DfzYNPoW.js"))
 	},
 	{
 		"id": "toml",
 		"name": "TOML",
-		"import": (() => import("../../toml-CNZjOkoo.js"))
+		"import": (() => import("../../toml-BP8Fe2wD.js"))
 	},
 	{
 		"id": "ts-tags",
 		"name": "TypeScript with Tags",
 		"aliases": ["lit"],
-		"import": (() => import("../../ts-tags-sMMKS5B7.js"))
+		"import": (() => import("../../ts-tags-D35AB4Lj.js"))
 	},
 	{
 		"id": "tsv",
 		"name": "TSV",
-		"import": (() => import("../../tsv-DzjA8D35.js"))
+		"import": (() => import("../../tsv-CkFHfZHj.js"))
 	},
 	{
 		"id": "tsx",
 		"name": "TSX",
-		"import": (() => import("../../tsx-CRwhepc3.js"))
+		"import": (() => import("../../tsx-CApwT4mT.js"))
 	},
 	{
 		"id": "turtle",
 		"name": "Turtle",
-		"import": (() => import("../../turtle-C2LYpsBc.js"))
+		"import": (() => import("../../turtle-B1YjxA_z.js"))
 	},
 	{
 		"id": "twig",
 		"name": "Twig",
-		"import": (() => import("../../twig-7ScJTq84.js"))
+		"import": (() => import("../../twig-Dzvi5BEk.js"))
 	},
 	{
 		"id": "typescript",
@@ -9543,131 +9563,131 @@ const bundledLanguagesInfo = [
 			"cts",
 			"mts"
 		],
-		"import": (() => import("../../typescript-CmACBnaT.js"))
+		"import": (() => import("../../typescript-B9z6NOPt.js"))
 	},
 	{
 		"id": "typespec",
 		"name": "TypeSpec",
 		"aliases": ["tsp"],
-		"import": (() => import("../../typespec-hBiV1u46.js"))
+		"import": (() => import("../../typespec-CuK0eKN9.js"))
 	},
 	{
 		"id": "typst",
 		"name": "Typst",
 		"aliases": ["typ"],
-		"import": (() => import("../../typst-DIjNzB3m.js"))
+		"import": (() => import("../../typst-CzL-ShTg.js"))
 	},
 	{
 		"id": "v",
 		"name": "V",
-		"import": (() => import("../../v-yjchj8c1.js"))
+		"import": (() => import("../../v-uzPFCWmk.js"))
 	},
 	{
 		"id": "vala",
 		"name": "Vala",
-		"import": (() => import("../../vala-CvJqdVf1.js"))
+		"import": (() => import("../../vala-BagIS9y4.js"))
 	},
 	{
 		"id": "vb",
 		"name": "Visual Basic",
 		"aliases": ["cmd"],
-		"import": (() => import("../../vb-DeqVh5N4.js"))
+		"import": (() => import("../../vb-B-GiRejY.js"))
 	},
 	{
 		"id": "verilog",
 		"name": "Verilog",
-		"import": (() => import("../../verilog-DHC9CW6A.js"))
+		"import": (() => import("../../verilog-BjmJ4LD_.js"))
 	},
 	{
 		"id": "vhdl",
 		"name": "VHDL",
-		"import": (() => import("../../vhdl-2AVjjNr6.js"))
+		"import": (() => import("../../vhdl-B_MG2cJU.js"))
 	},
 	{
 		"id": "viml",
 		"name": "Vim Script",
 		"aliases": ["vim", "vimscript"],
-		"import": (() => import("../../viml-DBqH8EMm.js"))
+		"import": (() => import("../../viml-CLpPgLp6.js"))
 	},
 	{
 		"id": "vue",
 		"name": "Vue",
-		"import": (() => import("../../vue-AVVD0ssY.js"))
+		"import": (() => import("../../vue-MUMXvxjS.js"))
 	},
 	{
 		"id": "vue-html",
 		"name": "Vue HTML",
-		"import": (() => import("../../vue-html-T2zZ3Lb7.js"))
+		"import": (() => import("../../vue-html-BV2tDcnp.js"))
 	},
 	{
 		"id": "vue-vine",
 		"name": "Vue Vine",
-		"import": (() => import("../../vue-vine-CMTfB3FX.js"))
+		"import": (() => import("../../vue-vine-D9329kzN.js"))
 	},
 	{
 		"id": "vyper",
 		"name": "Vyper",
 		"aliases": ["vy"],
-		"import": (() => import("../../vyper-4KChABcU.js"))
+		"import": (() => import("../../vyper-BVKmzsg1.js"))
 	},
 	{
 		"id": "wasm",
 		"name": "WebAssembly",
-		"import": (() => import("../../wasm-B5dEb5El.js"))
+		"import": (() => import("../../wasm-CvRh6v45.js"))
 	},
 	{
 		"id": "wenyan",
 		"name": "Wenyan",
 		"aliases": ["文言"],
-		"import": (() => import("../../wenyan-uB7M7cXR.js"))
+		"import": (() => import("../../wenyan-Di935TGc.js"))
 	},
 	{
 		"id": "wgsl",
 		"name": "WGSL",
-		"import": (() => import("../../wgsl-UBVoDoaz.js"))
+		"import": (() => import("../../wgsl-C73M19bp.js"))
 	},
 	{
 		"id": "wikitext",
 		"name": "Wikitext",
 		"aliases": ["mediawiki", "wiki"],
-		"import": (() => import("../../wikitext-Ce0y96te.js"))
+		"import": (() => import("../../wikitext-C7XA-i3m.js"))
 	},
 	{
 		"id": "wit",
 		"name": "WebAssembly Interface Types",
-		"import": (() => import("../../wit-BYmXaCsr.js"))
+		"import": (() => import("../../wit-Daf9VxQD.js"))
 	},
 	{
 		"id": "wolfram",
 		"name": "Wolfram",
 		"aliases": ["wl"],
-		"import": (() => import("../../wolfram-BVnU3868.js"))
+		"import": (() => import("../../wolfram-BdtuR1AJ.js"))
 	},
 	{
 		"id": "xml",
 		"name": "XML",
-		"import": (() => import("../../xml-CQFXYi0r.js"))
+		"import": (() => import("../../xml-li55nYkk.js"))
 	},
 	{
 		"id": "xsl",
 		"name": "XSL",
-		"import": (() => import("../../xsl-CaG4L9jh.js"))
+		"import": (() => import("../../xsl-D1pvZiOd.js"))
 	},
 	{
 		"id": "yaml",
 		"name": "YAML",
 		"aliases": ["yml"],
-		"import": (() => import("../../yaml-CMc1cvu4.js"))
+		"import": (() => import("../../yaml-p9bx1IDj.js"))
 	},
 	{
 		"id": "zenscript",
 		"name": "ZenScript",
-		"import": (() => import("../../zenscript-BcyT19V7.js"))
+		"import": (() => import("../../zenscript-HZuuNF7N.js"))
 	},
 	{
 		"id": "zig",
 		"name": "Zig",
-		"import": (() => import("../../zig-DVAsw822.js"))
+		"import": (() => import("../../zig-CTOQg39c.js"))
 	}
 ];
 const bundledLanguagesBase = Object.fromEntries(bundledLanguagesInfo.map((i) => [i.id, i.import]));
@@ -9681,391 +9701,391 @@ const bundledThemes = Object.fromEntries([
 		"id": "andromeeda",
 		"displayName": "Andromeeda",
 		"type": "dark",
-		"import": (() => import("../../andromeeda-BHOPH3s_.js"))
+		"import": (() => import("../../andromeeda-Cpe8zrMb.js"))
 	},
 	{
 		"id": "aurora-x",
 		"displayName": "Aurora X",
 		"type": "dark",
-		"import": (() => import("../../aurora-x-BBei7LFe.js"))
+		"import": (() => import("../../aurora-x-aPRiomv-.js"))
 	},
 	{
 		"id": "ayu-dark",
 		"displayName": "Ayu Dark",
 		"type": "dark",
-		"import": (() => import("../../ayu-dark-CnCQQwTy.js"))
+		"import": (() => import("../../ayu-dark-B79039UH.js"))
 	},
 	{
 		"id": "ayu-light",
 		"displayName": "Ayu Light",
 		"type": "light",
-		"import": (() => import("../../ayu-light-USyWH5lx.js"))
+		"import": (() => import("../../ayu-light-BKtGlQrK.js"))
 	},
 	{
 		"id": "ayu-mirage",
 		"displayName": "Ayu Mirage",
 		"type": "dark",
-		"import": (() => import("../../ayu-mirage-BLDIGs_L.js"))
+		"import": (() => import("../../ayu-mirage-gOa88i4N.js"))
 	},
 	{
 		"id": "catppuccin-frappe",
 		"displayName": "Catppuccin Frappé",
 		"type": "dark",
-		"import": (() => import("../../catppuccin-frappe-w4N5vF45.js"))
+		"import": (() => import("../../catppuccin-frappe-UqwyeHq2.js"))
 	},
 	{
 		"id": "catppuccin-latte",
 		"displayName": "Catppuccin Latte",
 		"type": "light",
-		"import": (() => import("../../catppuccin-latte-_ISzk29Q.js"))
+		"import": (() => import("../../catppuccin-latte-CZFSBe-g.js"))
 	},
 	{
 		"id": "catppuccin-macchiato",
 		"displayName": "Catppuccin Macchiato",
 		"type": "dark",
-		"import": (() => import("../../catppuccin-macchiato-B4MMxXyo.js"))
+		"import": (() => import("../../catppuccin-macchiato-C33OiBGh.js"))
 	},
 	{
 		"id": "catppuccin-mocha",
 		"displayName": "Catppuccin Mocha",
 		"type": "dark",
-		"import": (() => import("../../catppuccin-mocha-Ci4yBc5W.js"))
+		"import": (() => import("../../catppuccin-mocha-C0d1m0OM.js"))
 	},
 	{
 		"id": "dark-plus",
 		"displayName": "Dark Plus",
 		"type": "dark",
-		"import": (() => import("../../dark-plus-0zjVGc2o.js"))
+		"import": (() => import("../../dark-plus-WmuplhKu.js"))
 	},
 	{
 		"id": "dracula",
 		"displayName": "Dracula Theme",
 		"type": "dark",
-		"import": (() => import("../../dracula-DI1ElXSU.js"))
+		"import": (() => import("../../dracula-CH1efxAk.js"))
 	},
 	{
 		"id": "dracula-soft",
 		"displayName": "Dracula Theme Soft",
 		"type": "dark",
-		"import": (() => import("../../dracula-soft-D3p6yW3f.js"))
+		"import": (() => import("../../dracula-soft-DkaT2UlV.js"))
 	},
 	{
 		"id": "everforest-dark",
 		"displayName": "Everforest Dark",
 		"type": "dark",
-		"import": (() => import("../../everforest-dark-CbXnE-or.js"))
+		"import": (() => import("../../everforest-dark-DByEwDY1.js"))
 	},
 	{
 		"id": "everforest-light",
 		"displayName": "Everforest Light",
 		"type": "light",
-		"import": (() => import("../../everforest-light-ByLSwuPK.js"))
+		"import": (() => import("../../everforest-light-C1NioRkn.js"))
 	},
 	{
 		"id": "github-dark",
 		"displayName": "GitHub Dark",
 		"type": "dark",
-		"import": (() => import("../../github-dark-CQOGvCW7.js"))
+		"import": (() => import("../../github-dark-B4bZg28R.js"))
 	},
 	{
 		"id": "github-dark-default",
 		"displayName": "GitHub Dark Default",
 		"type": "dark",
-		"import": (() => import("../../github-dark-default-ChuNJiqa.js"))
+		"import": (() => import("../../github-dark-default-BA-wRXk8.js"))
 	},
 	{
 		"id": "github-dark-dimmed",
 		"displayName": "GitHub Dark Dimmed",
 		"type": "dark",
-		"import": (() => import("../../github-dark-dimmed-BWOulH4K.js"))
+		"import": (() => import("../../github-dark-dimmed-dF095PW8.js"))
 	},
 	{
 		"id": "github-dark-high-contrast",
 		"displayName": "GitHub Dark High Contrast",
 		"type": "dark",
-		"import": (() => import("../../github-dark-high-contrast-B-zokzQP.js"))
+		"import": (() => import("../../github-dark-high-contrast-D_f7i7p3.js"))
 	},
 	{
 		"id": "github-light",
 		"displayName": "GitHub Light",
 		"type": "light",
-		"import": (() => import("../../github-light-CfwXTRds.js"))
+		"import": (() => import("../../github-light-BtNSlSuE.js"))
 	},
 	{
 		"id": "github-light-default",
 		"displayName": "GitHub Light Default",
 		"type": "light",
-		"import": (() => import("../../github-light-default-C-DlBuV6.js"))
+		"import": (() => import("../../github-light-default-DQJRo7nN.js"))
 	},
 	{
 		"id": "github-light-high-contrast",
 		"displayName": "GitHub Light High Contrast",
 		"type": "light",
-		"import": (() => import("../../github-light-high-contrast-Cg101srI.js"))
+		"import": (() => import("../../github-light-high-contrast-DpSfu_VE.js"))
 	},
 	{
 		"id": "gruvbox-dark-hard",
 		"displayName": "Gruvbox Dark Hard",
 		"type": "dark",
-		"import": (() => import("../../gruvbox-dark-hard-ClA8MiRj.js"))
+		"import": (() => import("../../gruvbox-dark-hard-CXiCCfvF.js"))
 	},
 	{
 		"id": "gruvbox-dark-medium",
 		"displayName": "Gruvbox Dark Medium",
 		"type": "dark",
-		"import": (() => import("../../gruvbox-dark-medium-D29O1fJj.js"))
+		"import": (() => import("../../gruvbox-dark-medium-BhuA3Tmi.js"))
 	},
 	{
 		"id": "gruvbox-dark-soft",
 		"displayName": "Gruvbox Dark Soft",
 		"type": "dark",
-		"import": (() => import("../../gruvbox-dark-soft-D6KWjh4q.js"))
+		"import": (() => import("../../gruvbox-dark-soft-C5451C13.js"))
 	},
 	{
 		"id": "gruvbox-light-hard",
 		"displayName": "Gruvbox Light Hard",
 		"type": "light",
-		"import": (() => import("../../gruvbox-light-hard-Dp2E3Qmb.js"))
+		"import": (() => import("../../gruvbox-light-hard-CSGGepWA.js"))
 	},
 	{
 		"id": "gruvbox-light-medium",
 		"displayName": "Gruvbox Light Medium",
 		"type": "light",
-		"import": (() => import("../../gruvbox-light-medium-Bo1EgZp_.js"))
+		"import": (() => import("../../gruvbox-light-medium-mpYkFmNL.js"))
 	},
 	{
 		"id": "gruvbox-light-soft",
 		"displayName": "Gruvbox Light Soft",
 		"type": "light",
-		"import": (() => import("../../gruvbox-light-soft-DOv1juI5.js"))
+		"import": (() => import("../../gruvbox-light-soft-B49ObyR_.js"))
 	},
 	{
 		"id": "horizon",
 		"displayName": "Horizon",
 		"type": "dark",
-		"import": (() => import("../../horizon-BjbWkun8.js"))
+		"import": (() => import("../../horizon-ClIsTHy2.js"))
 	},
 	{
 		"id": "horizon-bright",
 		"displayName": "Horizon Bright",
 		"type": "dark",
-		"import": (() => import("../../horizon-bright-DLC5qfMk.js"))
+		"import": (() => import("../../horizon-bright-Cq515IlJ.js"))
 	},
 	{
 		"id": "houston",
 		"displayName": "Houston",
 		"type": "dark",
-		"import": (() => import("../../houston-DGJ_mqvu.js"))
+		"import": (() => import("../../houston-C-2nhBvh.js"))
 	},
 	{
 		"id": "kanagawa-dragon",
 		"displayName": "Kanagawa Dragon",
 		"type": "dark",
-		"import": (() => import("../../kanagawa-dragon-Coz557in.js"))
+		"import": (() => import("../../kanagawa-dragon-DhT9qizq.js"))
 	},
 	{
 		"id": "kanagawa-lotus",
 		"displayName": "Kanagawa Lotus",
 		"type": "light",
-		"import": (() => import("../../kanagawa-lotus-D6h_o2Bc.js"))
+		"import": (() => import("../../kanagawa-lotus-BqlvCyDB.js"))
 	},
 	{
 		"id": "kanagawa-wave",
 		"displayName": "Kanagawa Wave",
 		"type": "dark",
-		"import": (() => import("../../kanagawa-wave-FUvkSWgT.js"))
+		"import": (() => import("../../kanagawa-wave-ClbTeZEO.js"))
 	},
 	{
 		"id": "laserwave",
 		"displayName": "LaserWave",
 		"type": "dark",
-		"import": (() => import("../../laserwave-1TJAQObf.js"))
+		"import": (() => import("../../laserwave-CxHhCWrM.js"))
 	},
 	{
 		"id": "light-plus",
 		"displayName": "Light Plus",
 		"type": "light",
-		"import": (() => import("../../light-plus-CxLXBnx5.js"))
+		"import": (() => import("../../light-plus-B1k7ZqxY.js"))
 	},
 	{
 		"id": "material-theme",
 		"displayName": "Material Theme",
 		"type": "dark",
-		"import": (() => import("../../material-theme-DoEqQoL2.js"))
+		"import": (() => import("../../material-theme-C0WRVtCq.js"))
 	},
 	{
 		"id": "material-theme-darker",
 		"displayName": "Material Theme Darker",
 		"type": "dark",
-		"import": (() => import("../../material-theme-darker-BVT_LEsj.js"))
+		"import": (() => import("../../material-theme-darker-BKn43V2h.js"))
 	},
 	{
 		"id": "material-theme-lighter",
 		"displayName": "Material Theme Lighter",
 		"type": "light",
-		"import": (() => import("../../material-theme-lighter-DBDFY6vl.js"))
+		"import": (() => import("../../material-theme-lighter-CX-sgzb9.js"))
 	},
 	{
 		"id": "material-theme-ocean",
 		"displayName": "Material Theme Ocean",
 		"type": "dark",
-		"import": (() => import("../../material-theme-ocean-BwGJy2ew.js"))
+		"import": (() => import("../../material-theme-ocean-B2ORYHMw.js"))
 	},
 	{
 		"id": "material-theme-palenight",
 		"displayName": "Material Theme Palenight",
 		"type": "dark",
-		"import": (() => import("../../material-theme-palenight-CQ1XepKY.js"))
+		"import": (() => import("../../material-theme-palenight-Dwe5AOko.js"))
 	},
 	{
 		"id": "min-dark",
 		"displayName": "Min Dark",
 		"type": "dark",
-		"import": (() => import("../../min-dark-VMupavvF.js"))
+		"import": (() => import("../../min-dark-D2QtvazY.js"))
 	},
 	{
 		"id": "min-light",
 		"displayName": "Min Light",
 		"type": "light",
-		"import": (() => import("../../min-light-BZAeOs7S.js"))
+		"import": (() => import("../../min-light-Df7F8DH1.js"))
 	},
 	{
 		"id": "monokai",
 		"displayName": "Monokai",
 		"type": "dark",
-		"import": (() => import("../../monokai-36lxDNhj.js"))
+		"import": (() => import("../../monokai-XcEnMM32.js"))
 	},
 	{
 		"id": "night-owl",
 		"displayName": "Night Owl",
 		"type": "dark",
-		"import": (() => import("../../night-owl-Bu3LIuWa.js"))
+		"import": (() => import("../../night-owl-DKQRmyxm.js"))
 	},
 	{
 		"id": "night-owl-light",
 		"displayName": "Night Owl Light",
 		"type": "light",
-		"import": (() => import("../../night-owl-light-Co_FBdRc.js"))
+		"import": (() => import("../../night-owl-light-vlbtoMv-.js"))
 	},
 	{
 		"id": "nord",
 		"displayName": "Nord",
 		"type": "dark",
-		"import": (() => import("../../nord-BH2keRiV.js"))
+		"import": (() => import("../../nord-BfBkXU8E.js"))
 	},
 	{
 		"id": "one-dark-pro",
 		"displayName": "One Dark Pro",
 		"type": "dark",
-		"import": (() => import("../../one-dark-pro-B6oL3gtX.js"))
+		"import": (() => import("../../one-dark-pro-BG2ynBTZ.js"))
 	},
 	{
 		"id": "one-light",
 		"displayName": "One Light",
 		"type": "light",
-		"import": (() => import("../../one-light-CF8vUebd.js"))
+		"import": (() => import("../../one-light-CnlIsjcp.js"))
 	},
 	{
 		"id": "plastic",
 		"displayName": "Plastic",
 		"type": "dark",
-		"import": (() => import("../../plastic-CXxn8x0i.js"))
+		"import": (() => import("../../plastic-BEkHyEJU.js"))
 	},
 	{
 		"id": "poimandres",
 		"displayName": "Poimandres",
 		"type": "dark",
-		"import": (() => import("../../poimandres-BsG4xDAD.js"))
+		"import": (() => import("../../poimandres-Cx_ZM100.js"))
 	},
 	{
 		"id": "red",
 		"displayName": "Red",
 		"type": "dark",
-		"import": (() => import("../../red-DFtMGdO3.js"))
+		"import": (() => import("../../red-B137v88W.js"))
 	},
 	{
 		"id": "rose-pine",
 		"displayName": "Rosé Pine",
 		"type": "dark",
-		"import": (() => import("../../rose-pine-zH0dloU1.js"))
+		"import": (() => import("../../rose-pine-D3wrUkzr.js"))
 	},
 	{
 		"id": "rose-pine-dawn",
 		"displayName": "Rosé Pine Dawn",
 		"type": "light",
-		"import": (() => import("../../rose-pine-dawn-CjJTc0Fi.js"))
+		"import": (() => import("../../rose-pine-dawn-2WLtveym.js"))
 	},
 	{
 		"id": "rose-pine-moon",
 		"displayName": "Rosé Pine Moon",
 		"type": "dark",
-		"import": (() => import("../../rose-pine-moon-k41cWNwi.js"))
+		"import": (() => import("../../rose-pine-moon-B5hME41X.js"))
 	},
 	{
 		"id": "slack-dark",
 		"displayName": "Slack Dark",
 		"type": "dark",
-		"import": (() => import("../../slack-dark-BzBvBU1P.js"))
+		"import": (() => import("../../slack-dark-CvTG9GzA.js"))
 	},
 	{
 		"id": "slack-ochin",
 		"displayName": "Slack Ochin",
 		"type": "light",
-		"import": (() => import("../../slack-ochin-DoA39WfO.js"))
+		"import": (() => import("../../slack-ochin-DW-L4cbO.js"))
 	},
 	{
 		"id": "snazzy-light",
 		"displayName": "Snazzy Light",
 		"type": "light",
-		"import": (() => import("../../snazzy-light-D0eReGw6.js"))
+		"import": (() => import("../../snazzy-light-BeQB0evh.js"))
 	},
 	{
 		"id": "solarized-dark",
 		"displayName": "Solarized Dark",
 		"type": "dark",
-		"import": (() => import("../../solarized-dark-CmVXX3t3.js"))
+		"import": (() => import("../../solarized-dark-Db99fCBd.js"))
 	},
 	{
 		"id": "solarized-light",
 		"displayName": "Solarized Light",
 		"type": "light",
-		"import": (() => import("../../solarized-light-CfY170zu.js"))
+		"import": (() => import("../../solarized-light-C1UPNXbf.js"))
 	},
 	{
 		"id": "synthwave-84",
 		"displayName": "Synthwave '84",
 		"type": "dark",
-		"import": (() => import("../../synthwave-84-B3i5OghP.js"))
+		"import": (() => import("../../synthwave-84-C7faTFIF.js"))
 	},
 	{
 		"id": "tokyo-night",
 		"displayName": "Tokyo Night",
 		"type": "dark",
-		"import": (() => import("../../tokyo-night-Bh-uMj1s.js"))
+		"import": (() => import("../../tokyo-night-BKz016F0.js"))
 	},
 	{
 		"id": "vesper",
 		"displayName": "Vesper",
 		"type": "dark",
-		"import": (() => import("../../vesper-BsJH7OBt.js"))
+		"import": (() => import("../../vesper-huCdQuQ_.js"))
 	},
 	{
 		"id": "vitesse-black",
 		"displayName": "Vitesse Black",
 		"type": "dark",
-		"import": (() => import("../../vitesse-black-C6pyXDUB.js"))
+		"import": (() => import("../../vitesse-black-s378LMR8.js"))
 	},
 	{
 		"id": "vitesse-dark",
 		"displayName": "Vitesse Dark",
 		"type": "dark",
-		"import": (() => import("../../vitesse-dark-BbH3qM6e.js"))
+		"import": (() => import("../../vitesse-dark-BiveWUL6.js"))
 	},
 	{
 		"id": "vitesse-light",
 		"displayName": "Vitesse Light",
 		"type": "light",
-		"import": (() => import("../../vitesse-light-tv9qDt9e.js"))
+		"import": (() => import("../../vitesse-light-GAaeQPVJ.js"))
 	}
 ].map((i) => [i.id, i.import]));
 //#endregion
@@ -10459,7 +10479,7 @@ async function createOnigurumaEngine(options) {
 const createHighlighter = /* @__PURE__ */ createBundledHighlighter({
 	langs: bundledLanguages,
 	themes: bundledThemes,
-	engine: () => createOnigurumaEngine(import("../../wasm-DrldnYiM.js"))
+	engine: () => createOnigurumaEngine(import("../../wasm-CmNRZWH8.js"))
 });
 const { codeToHtml, codeToHast, codeToTokens, codeToTokensBase, codeToTokensWithThemes, getSingletonHighlighter, getLastGrammarState } = /* @__PURE__ */ createSingletonShorthands(createHighlighter, { guessEmbeddedLanguages });
 //#endregion
@@ -13620,7 +13640,7 @@ async function getSharedHighlighter({ themes, langs, preferredHighlighter = "shi
 	highlighter ??= createHighlighter({
 		themes: [],
 		langs: ["text"],
-		engine: preferredHighlighter === "shiki-wasm" ? createOnigurumaEngine(import("../../wasm-DrldnYiM.js")) : createJavaScriptRegexEngine()
+		engine: preferredHighlighter === "shiki-wasm" ? createOnigurumaEngine(import("../../wasm-CmNRZWH8.js")) : createJavaScriptRegexEngine()
 	});
 	const instance = isHighlighterLoading(highlighter) ? await highlighter : highlighter;
 	highlighter = instance;
@@ -13651,14 +13671,14 @@ function isHighlighterLoading(h = highlighter) {
 	return h != null && "then" in h;
 }
 registerCustomTheme("pierre-dark", async () => {
-	const m = await import("../../pierre-dark-BRY3bQ4U.js");
+	const m = await import("../../pierre-dark-DXPFmDCs.js");
 	return {
 		...m.default ?? m,
 		name: "pierre-dark"
 	};
 });
 registerCustomTheme("pierre-light", async () => {
-	const m = await import("../../pierre-light-C8GnQJjB.js");
+	const m = await import("../../pierre-light-BikHAs3z.js");
 	return {
 		...m.default ?? m,
 		name: "pierre-light"
@@ -17477,7 +17497,7 @@ const DiffsToolSchema = Type.Object({
 		description: "Optional title for the rendered diff.",
 		maxLength: MAX_TITLE_BYTES
 	})),
-	mode: Type.Optional(stringEnum(DIFF_MODES, "Output mode: view, file, image, or both. Default: both.")),
+	mode: Type.Optional(stringEnum(DIFF_MODES, "Output mode: view, file, image (deprecated alias for file), or both. Default: both.")),
 	theme: Type.Optional(stringEnum(DIFF_THEMES, "Viewer theme. Default: dark.")),
 	layout: Type.Optional(stringEnum(DIFF_LAYOUTS, "Diff layout. Default: unified.")),
 	fileQuality: Type.Optional(stringEnum(DIFF_IMAGE_QUALITY_PRESETS, "File quality preset: standard, hq, or print.")),
@@ -17520,6 +17540,7 @@ function createDiffsTool(params) {
 		parameters: DiffsToolSchema,
 		execute: async (_toolCallId, rawParams) => {
 			const toolParams = rawParams;
+			const artifactContext = buildArtifactContext(params.context);
 			const input = normalizeDiffInput(toolParams);
 			const mode = normalizeMode(toolParams.mode, params.defaults.mode);
 			const theme = normalizeTheme(toolParams.theme, params.defaults.theme);
@@ -17550,7 +17571,8 @@ function createDiffsTool(params) {
 					html: rendered.imageHtml,
 					theme,
 					image,
-					ttlMs
+					ttlMs,
+					context: artifactContext
 				});
 				return {
 					content: [{
@@ -17562,10 +17584,13 @@ function createDiffsTool(params) {
 					}],
 					details: buildArtifactDetails({
 						baseDetails: {
+							...artifactFile.artifactId ? { artifactId: artifactFile.artifactId } : {},
+							...artifactFile.expiresAt ? { expiresAt: artifactFile.expiresAt } : {},
 							title: rendered.title,
 							inputKind: rendered.inputKind,
 							fileCount: rendered.fileCount,
-							mode
+							mode,
+							...artifactContext ? { context: artifactContext } : {}
 						},
 						artifactFile,
 						image
@@ -17577,7 +17602,8 @@ function createDiffsTool(params) {
 				title: rendered.title,
 				inputKind: rendered.inputKind,
 				fileCount: rendered.fileCount,
-				ttlMs
+				ttlMs,
+				context: artifactContext
 			});
 			const viewerUrl = buildViewerUrl({
 				config: params.api.config,
@@ -17592,7 +17618,8 @@ function createDiffsTool(params) {
 				expiresAt: artifact.expiresAt,
 				inputKind: artifact.inputKind,
 				fileCount: artifact.fileCount,
-				mode
+				mode,
+				...artifactContext ? { context: artifactContext } : {}
 			};
 			if (mode === "view") return {
 				content: [{
@@ -17677,10 +17704,12 @@ function buildFileArtifactMessage(params) {
 	return lines.join("\n");
 }
 async function renderDiffArtifactFile(params) {
-	const outputPath = params.artifactId ? params.store.allocateFilePath(params.artifactId, params.image.format) : (await params.store.createStandaloneFileArtifact({
+	const standaloneArtifact = params.artifactId ? void 0 : await params.store.createStandaloneFileArtifact({
 		format: params.image.format,
-		ttlMs: params.ttlMs
-	})).filePath;
+		ttlMs: params.ttlMs,
+		context: params.context
+	});
+	const outputPath = params.artifactId ? params.store.allocateFilePath(params.artifactId, params.image.format) : standaloneArtifact.filePath;
 	await params.screenshotter.screenshotHtml({
 		html: params.html,
 		outputPath,
@@ -17689,8 +17718,24 @@ async function renderDiffArtifactFile(params) {
 	});
 	return {
 		path: outputPath,
-		bytes: (await fs$1.stat(outputPath)).size
+		bytes: (await fs$1.stat(outputPath)).size,
+		...standaloneArtifact?.id ? { artifactId: standaloneArtifact.id } : {},
+		...standaloneArtifact?.expiresAt ? { expiresAt: standaloneArtifact.expiresAt } : {}
 	};
+}
+function buildArtifactContext(context) {
+	if (!context) return;
+	const artifactContext = {
+		agentId: normalizeContextString(context.agentId),
+		sessionId: normalizeContextString(context.sessionId),
+		messageChannel: normalizeContextString(context.messageChannel),
+		agentAccountId: normalizeContextString(context.agentAccountId)
+	};
+	return Object.values(artifactContext).some((value) => value !== void 0) ? artifactContext : void 0;
+}
+function normalizeContextString(value) {
+	const normalized = value?.trim();
+	return normalized ? normalized : void 0;
 }
 function normalizeDiffInput(params) {
 	const patch = params.patch?.trim();
@@ -17759,7 +17804,7 @@ var PluginToolInputError = class extends Error {
 };
 //#endregion
 //#region extensions/diffs/index.ts
-const plugin = {
+var diffs_default = definePluginEntry({
 	id: "diffs",
 	name: "Diffs",
 	description: "Read-only diff viewer and PNG/PDF renderer for agents.",
@@ -17771,11 +17816,12 @@ const plugin = {
 			rootDir: path.join(resolvePreferredOpenClawTmpDir(), "openclaw-diffs"),
 			logger: api.logger
 		});
-		api.registerTool(createDiffsTool({
+		api.registerTool((ctx) => createDiffsTool({
 			api,
 			store,
-			defaults
-		}));
+			defaults,
+			context: ctx
+		}), { name: "diffs" });
 		api.registerHttpRoute({
 			path: "/plugins/diffs",
 			auth: "plugin",
@@ -17788,6 +17834,6 @@ const plugin = {
 		});
 		api.on("before_prompt_build", async () => ({ prependSystemContext: DIFFS_AGENT_GUIDANCE }));
 	}
-};
+});
 //#endregion
-export { plugin as default };
+export { diffs_default as default };

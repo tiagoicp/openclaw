@@ -139,20 +139,34 @@ export declare const SkillsBinsParamsSchema: import("@sinclair/typebox").TObject
 export declare const SkillsBinsResultSchema: import("@sinclair/typebox").TObject<{
     bins: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>;
 }>;
-export declare const SkillsInstallParamsSchema: import("@sinclair/typebox").TObject<{
+export declare const SkillsInstallParamsSchema: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TObject<{
     name: import("@sinclair/typebox").TString;
     installId: import("@sinclair/typebox").TString;
     timeoutMs: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
-}>;
-export declare const SkillsUpdateParamsSchema: import("@sinclair/typebox").TObject<{
+}>, import("@sinclair/typebox").TObject<{
+    source: import("@sinclair/typebox").TLiteral<"clawhub">;
+    slug: import("@sinclair/typebox").TString;
+    version: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    force: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+    timeoutMs: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
+}>]>;
+export declare const SkillsUpdateParamsSchema: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TObject<{
     skillKey: import("@sinclair/typebox").TString;
     enabled: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
     apiKey: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     env: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TRecord<import("@sinclair/typebox").TString, import("@sinclair/typebox").TString>>;
-}>;
+}>, import("@sinclair/typebox").TObject<{
+    source: import("@sinclair/typebox").TLiteral<"clawhub">;
+    slug: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    all: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+}>]>;
 export declare const ToolsCatalogParamsSchema: import("@sinclair/typebox").TObject<{
     agentId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     includePlugins: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+}>;
+export declare const ToolsEffectiveParamsSchema: import("@sinclair/typebox").TObject<{
+    agentId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    sessionKey: import("@sinclair/typebox").TString;
 }>;
 export declare const ToolCatalogProfileSchema: import("@sinclair/typebox").TObject<{
     id: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"minimal">, import("@sinclair/typebox").TLiteral<"coding">, import("@sinclair/typebox").TLiteral<"messaging">, import("@sinclair/typebox").TLiteral<"full">]>;
@@ -201,6 +215,47 @@ export declare const ToolsCatalogResultSchema: import("@sinclair/typebox").TObje
             pluginId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
             optional: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
             defaultProfiles: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"minimal">, import("@sinclair/typebox").TLiteral<"coding">, import("@sinclair/typebox").TLiteral<"messaging">, import("@sinclair/typebox").TLiteral<"full">]>>;
+        }>>;
+    }>>;
+}>;
+export declare const ToolsEffectiveEntrySchema: import("@sinclair/typebox").TObject<{
+    id: import("@sinclair/typebox").TString;
+    label: import("@sinclair/typebox").TString;
+    description: import("@sinclair/typebox").TString;
+    rawDescription: import("@sinclair/typebox").TString;
+    source: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"core">, import("@sinclair/typebox").TLiteral<"plugin">, import("@sinclair/typebox").TLiteral<"channel">]>;
+    pluginId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    channelId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+}>;
+export declare const ToolsEffectiveGroupSchema: import("@sinclair/typebox").TObject<{
+    id: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"core">, import("@sinclair/typebox").TLiteral<"plugin">, import("@sinclair/typebox").TLiteral<"channel">]>;
+    label: import("@sinclair/typebox").TString;
+    source: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"core">, import("@sinclair/typebox").TLiteral<"plugin">, import("@sinclair/typebox").TLiteral<"channel">]>;
+    tools: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
+        id: import("@sinclair/typebox").TString;
+        label: import("@sinclair/typebox").TString;
+        description: import("@sinclair/typebox").TString;
+        rawDescription: import("@sinclair/typebox").TString;
+        source: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"core">, import("@sinclair/typebox").TLiteral<"plugin">, import("@sinclair/typebox").TLiteral<"channel">]>;
+        pluginId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        channelId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    }>>;
+}>;
+export declare const ToolsEffectiveResultSchema: import("@sinclair/typebox").TObject<{
+    agentId: import("@sinclair/typebox").TString;
+    profile: import("@sinclair/typebox").TString;
+    groups: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
+        id: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"core">, import("@sinclair/typebox").TLiteral<"plugin">, import("@sinclair/typebox").TLiteral<"channel">]>;
+        label: import("@sinclair/typebox").TString;
+        source: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"core">, import("@sinclair/typebox").TLiteral<"plugin">, import("@sinclair/typebox").TLiteral<"channel">]>;
+        tools: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
+            id: import("@sinclair/typebox").TString;
+            label: import("@sinclair/typebox").TString;
+            description: import("@sinclair/typebox").TString;
+            rawDescription: import("@sinclair/typebox").TString;
+            source: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"core">, import("@sinclair/typebox").TLiteral<"plugin">, import("@sinclair/typebox").TLiteral<"channel">]>;
+            pluginId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+            channelId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
         }>>;
     }>>;
 }>;

@@ -8,7 +8,7 @@ export declare function runDiscordTaskWithTimeout(params: {
     run: (abortSignal: AbortSignal | undefined) => Promise<void>;
     timeoutMs?: number;
     abortSignals?: Array<AbortSignal | undefined>;
-    onTimeout: (timeoutMs: number) => void;
+    onTimeout: (timeoutMs: number) => void | Promise<void>;
     onAbortAfterTimeout?: () => void;
     onErrorAfterTimeout?: (error: unknown) => void;
 }): Promise<boolean>;

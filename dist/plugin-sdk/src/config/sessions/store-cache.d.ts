@@ -1,4 +1,6 @@
 import type { SessionEntry } from "./types.js";
+export declare function getSessionStoreTtl(): number;
+export declare function isSessionStoreCacheEnabled(): boolean;
 export declare function clearSessionStoreCaches(): void;
 export declare function invalidateSessionStoreCache(storePath: string): void;
 export declare function getSerializedSessionStore(storePath: string): string | undefined;
@@ -6,7 +8,6 @@ export declare function setSerializedSessionStore(storePath: string, serialized?
 export declare function dropSessionStoreObjectCache(storePath: string): void;
 export declare function readSessionStoreCache(params: {
     storePath: string;
-    ttlMs: number;
     mtimeMs?: number;
     sizeBytes?: number;
 }): Record<string, SessionEntry> | null;

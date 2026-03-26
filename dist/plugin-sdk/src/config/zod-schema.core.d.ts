@@ -85,12 +85,12 @@ export declare const SecretsConfigSchema: z.ZodOptional<z.ZodObject<{
 }, z.core.$strict>>;
 export declare const ModelApiSchema: z.ZodEnum<{
     ollama: "ollama";
-    "github-copilot": "github-copilot";
     "openai-completions": "openai-completions";
     "openai-responses": "openai-responses";
     "openai-codex-responses": "openai-codex-responses";
     "anthropic-messages": "anthropic-messages";
     "google-generative-ai": "google-generative-ai";
+    "github-copilot": "github-copilot";
     "bedrock-converse-stream": "bedrock-converse-stream";
 }>;
 export declare const ModelCompatSchema: z.ZodOptional<z.ZodObject<{
@@ -101,7 +101,7 @@ export declare const ModelCompatSchema: z.ZodOptional<z.ZodObject<{
     supportsTools: z.ZodOptional<z.ZodBoolean>;
     supportsStrictMode: z.ZodOptional<z.ZodBoolean>;
     maxTokensField: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"max_completion_tokens">, z.ZodLiteral<"max_tokens">]>>;
-    thinkingFormat: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"zai">, z.ZodLiteral<"qwen">, z.ZodLiteral<"qwen-chat-template">]>>;
+    thinkingFormat: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"openrouter">, z.ZodLiteral<"zai">, z.ZodLiteral<"qwen">, z.ZodLiteral<"qwen-chat-template">]>>;
     requiresToolResultName: z.ZodOptional<z.ZodBoolean>;
     requiresAssistantAfterToolResult: z.ZodOptional<z.ZodBoolean>;
     requiresThinkingAsText: z.ZodOptional<z.ZodBoolean>;
@@ -116,12 +116,12 @@ export declare const ModelDefinitionSchema: z.ZodObject<{
     name: z.ZodString;
     api: z.ZodOptional<z.ZodEnum<{
         ollama: "ollama";
-        "github-copilot": "github-copilot";
         "openai-completions": "openai-completions";
         "openai-responses": "openai-responses";
         "openai-codex-responses": "openai-codex-responses";
         "anthropic-messages": "anthropic-messages";
         "google-generative-ai": "google-generative-ai";
+        "github-copilot": "github-copilot";
         "bedrock-converse-stream": "bedrock-converse-stream";
     }>>;
     reasoning: z.ZodOptional<z.ZodBoolean>;
@@ -143,7 +143,7 @@ export declare const ModelDefinitionSchema: z.ZodObject<{
         supportsTools: z.ZodOptional<z.ZodBoolean>;
         supportsStrictMode: z.ZodOptional<z.ZodBoolean>;
         maxTokensField: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"max_completion_tokens">, z.ZodLiteral<"max_tokens">]>>;
-        thinkingFormat: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"zai">, z.ZodLiteral<"qwen">, z.ZodLiteral<"qwen-chat-template">]>>;
+        thinkingFormat: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"openrouter">, z.ZodLiteral<"zai">, z.ZodLiteral<"qwen">, z.ZodLiteral<"qwen-chat-template">]>>;
         requiresToolResultName: z.ZodOptional<z.ZodBoolean>;
         requiresAssistantAfterToolResult: z.ZodOptional<z.ZodBoolean>;
         requiresThinkingAsText: z.ZodOptional<z.ZodBoolean>;
@@ -172,12 +172,12 @@ export declare const ModelProviderSchema: z.ZodObject<{
     auth: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"api-key">, z.ZodLiteral<"aws-sdk">, z.ZodLiteral<"oauth">, z.ZodLiteral<"token">]>>;
     api: z.ZodOptional<z.ZodEnum<{
         ollama: "ollama";
-        "github-copilot": "github-copilot";
         "openai-completions": "openai-completions";
         "openai-responses": "openai-responses";
         "openai-codex-responses": "openai-codex-responses";
         "anthropic-messages": "anthropic-messages";
         "google-generative-ai": "google-generative-ai";
+        "github-copilot": "github-copilot";
         "bedrock-converse-stream": "bedrock-converse-stream";
     }>>;
     injectNumCtxForOpenAICompat: z.ZodOptional<z.ZodBoolean>;
@@ -200,12 +200,12 @@ export declare const ModelProviderSchema: z.ZodObject<{
         name: z.ZodString;
         api: z.ZodOptional<z.ZodEnum<{
             ollama: "ollama";
-            "github-copilot": "github-copilot";
             "openai-completions": "openai-completions";
             "openai-responses": "openai-responses";
             "openai-codex-responses": "openai-codex-responses";
             "anthropic-messages": "anthropic-messages";
             "google-generative-ai": "google-generative-ai";
+            "github-copilot": "github-copilot";
             "bedrock-converse-stream": "bedrock-converse-stream";
         }>>;
         reasoning: z.ZodOptional<z.ZodBoolean>;
@@ -227,7 +227,7 @@ export declare const ModelProviderSchema: z.ZodObject<{
             supportsTools: z.ZodOptional<z.ZodBoolean>;
             supportsStrictMode: z.ZodOptional<z.ZodBoolean>;
             maxTokensField: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"max_completion_tokens">, z.ZodLiteral<"max_tokens">]>>;
-            thinkingFormat: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"zai">, z.ZodLiteral<"qwen">, z.ZodLiteral<"qwen-chat-template">]>>;
+            thinkingFormat: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"openrouter">, z.ZodLiteral<"zai">, z.ZodLiteral<"qwen">, z.ZodLiteral<"qwen-chat-template">]>>;
             requiresToolResultName: z.ZodOptional<z.ZodBoolean>;
             requiresAssistantAfterToolResult: z.ZodOptional<z.ZodBoolean>;
             requiresThinkingAsText: z.ZodOptional<z.ZodBoolean>;
@@ -267,12 +267,12 @@ export declare const ModelsConfigSchema: z.ZodOptional<z.ZodObject<{
         auth: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"api-key">, z.ZodLiteral<"aws-sdk">, z.ZodLiteral<"oauth">, z.ZodLiteral<"token">]>>;
         api: z.ZodOptional<z.ZodEnum<{
             ollama: "ollama";
-            "github-copilot": "github-copilot";
             "openai-completions": "openai-completions";
             "openai-responses": "openai-responses";
             "openai-codex-responses": "openai-codex-responses";
             "anthropic-messages": "anthropic-messages";
             "google-generative-ai": "google-generative-ai";
+            "github-copilot": "github-copilot";
             "bedrock-converse-stream": "bedrock-converse-stream";
         }>>;
         injectNumCtxForOpenAICompat: z.ZodOptional<z.ZodBoolean>;
@@ -295,12 +295,12 @@ export declare const ModelsConfigSchema: z.ZodOptional<z.ZodObject<{
             name: z.ZodString;
             api: z.ZodOptional<z.ZodEnum<{
                 ollama: "ollama";
-                "github-copilot": "github-copilot";
                 "openai-completions": "openai-completions";
                 "openai-responses": "openai-responses";
                 "openai-codex-responses": "openai-codex-responses";
                 "anthropic-messages": "anthropic-messages";
                 "google-generative-ai": "google-generative-ai";
+                "github-copilot": "github-copilot";
                 "bedrock-converse-stream": "bedrock-converse-stream";
             }>>;
             reasoning: z.ZodOptional<z.ZodBoolean>;
@@ -322,7 +322,7 @@ export declare const ModelsConfigSchema: z.ZodOptional<z.ZodObject<{
                 supportsTools: z.ZodOptional<z.ZodBoolean>;
                 supportsStrictMode: z.ZodOptional<z.ZodBoolean>;
                 maxTokensField: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"max_completion_tokens">, z.ZodLiteral<"max_tokens">]>>;
-                thinkingFormat: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"zai">, z.ZodLiteral<"qwen">, z.ZodLiteral<"qwen-chat-template">]>>;
+                thinkingFormat: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"openrouter">, z.ZodLiteral<"zai">, z.ZodLiteral<"qwen">, z.ZodLiteral<"qwen-chat-template">]>>;
                 requiresToolResultName: z.ZodOptional<z.ZodBoolean>;
                 requiresAssistantAfterToolResult: z.ZodOptional<z.ZodBoolean>;
                 requiresThinkingAsText: z.ZodOptional<z.ZodBoolean>;
@@ -467,8 +467,8 @@ export declare const TtsConfigSchema: z.ZodOptional<z.ZodObject<{
         modelId: z.ZodOptional<z.ZodString>;
         seed: z.ZodOptional<z.ZodNumber>;
         applyTextNormalization: z.ZodOptional<z.ZodEnum<{
-            auto: "auto";
             off: "off";
+            auto: "auto";
             on: "on";
         }>>;
         languageCode: z.ZodOptional<z.ZodString>;

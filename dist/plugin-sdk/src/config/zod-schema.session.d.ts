@@ -120,10 +120,10 @@ export declare const MessagesSchema: z.ZodOptional<z.ZodObject<{
     }, z.core.$strict>>;
     ackReaction: z.ZodOptional<z.ZodString>;
     ackReactionScope: z.ZodOptional<z.ZodEnum<{
-        direct: "direct";
         off: "off";
         all: "all";
         none: "none";
+        direct: "direct";
         "group-mentions": "group-mentions";
         "group-all": "group-all";
     }>>;
@@ -193,8 +193,8 @@ export declare const MessagesSchema: z.ZodOptional<z.ZodObject<{
             modelId: z.ZodOptional<z.ZodString>;
             seed: z.ZodOptional<z.ZodNumber>;
             applyTextNormalization: z.ZodOptional<z.ZodEnum<{
-                auto: "auto";
                 off: "off";
+                auto: "auto";
                 on: "on";
             }>>;
             languageCode: z.ZodOptional<z.ZodString>;

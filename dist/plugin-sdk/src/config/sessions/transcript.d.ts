@@ -26,6 +26,7 @@ export declare function appendAssistantMessageToSessionTranscript(params: {
 }): Promise<{
     ok: true;
     sessionFile: string;
+    messageId: string;
 } | {
     ok: false;
     reason: string;

@@ -1,6 +1,7 @@
-import type { StreamFn } from "@mariozechner/pi-agent-core";
+import type { AgentMessage, StreamFn } from "@mariozechner/pi-agent-core";
 import type { OpenClawConfig } from "../../../config/config.js";
 import type { PluginHookAgentContext, PluginHookBeforeAgentStartResult, PluginHookBeforePromptBuildResult } from "../../../plugins/types.js";
+import type { TranscriptPolicy } from "../../transcript-policy.js";
 import type { CompactEmbeddedPiSessionParams } from "../compact.js";
 import type { EmbeddedRunAttemptParams, EmbeddedRunAttemptResult } from "./types.js";
 type PromptBuildHookRunner = {
@@ -14,6 +15,29 @@ type PromptBuildHookRunner = {
         messages: unknown[];
     }, ctx: PluginHookAgentContext) => Promise<PluginHookBeforeAgentStartResult | undefined>;
 };
+export declare function buildSessionsYieldContextMessage(message: string): string;
+export declare function queueSessionsYieldInterruptMessage(activeSession: {
+    agent: {
+        steer: (message: AgentMessage) => void;
+    };
+}): void;
+export declare function persistSessionsYieldContextMessage(activeSession: {
+    sendCustomMessage: (message: {
+        customType: string;
+        content: string;
+        display: boolean;
+        details?: Record<string, unknown>;
+    }, options?: {
+        triggerTurn?: boolean;
+    }) => Promise<void>;
+}, message: string): Promise<void>;
+export declare function stripSessionsYieldArtifacts(activeSession: {
+    messages: AgentMessage[];
+    agent: {
+        replaceMessages: (messages: AgentMessage[]) => void;
+    };
+    sessionManager?: unknown;
+}): void;
 export declare function isOllamaCompatProvider(model: {
     provider?: string;
     baseUrl?: string;
@@ -34,6 +58,7 @@ export declare function shouldInjectOllamaCompatNumCtx(params: {
 }): boolean;
 export declare function wrapOllamaCompatNumCtx(baseFn: StreamFn | undefined, numCtx: number): StreamFn;
 export declare function wrapStreamFnTrimToolCallNames(baseFn: StreamFn, allowedToolNames?: Set<string>): StreamFn;
+export declare function wrapStreamFnSanitizeMalformedToolCalls(baseFn: StreamFn, allowedToolNames?: Set<string>, transcriptPolicy?: Pick<TranscriptPolicy, "validateGeminiTurns" | "validateAnthropicTurns">): StreamFn;
 export declare function wrapStreamFnRepairMalformedToolCallArguments(baseFn: StreamFn): StreamFn;
 export declare function decodeHtmlEntitiesInObject(obj: unknown): unknown;
 export declare function resolvePromptBuildHookResult(params: {
@@ -43,12 +68,12 @@ export declare function resolvePromptBuildHookResult(params: {
     hookRunner?: PromptBuildHookRunner | null;
     legacyBeforeAgentStartResult?: PluginHookBeforeAgentStartResult;
 }): Promise<PluginHookBeforePromptBuildResult>;
-export declare function composeSystemPromptWithHookContext(params: {
-    baseSystemPrompt?: string;
-    prependSystemContext?: string;
-    appendSystemContext?: string;
-}): string | undefined;
+export { appendAttemptCacheTtlIfNeeded, composeSystemPromptWithHookContext, resolveAttemptSpawnWorkspaceDir, } from "./attempt.thread-helpers.js";
 export declare function resolvePromptModeForSession(sessionKey?: string): "minimal" | "full";
+export declare function shouldInjectHeartbeatPrompt(params: {
+    isDefaultAgent: boolean;
+    trigger?: EmbeddedRunAttemptParams["trigger"];
+}): boolean;
 export declare function resolveAttemptFsWorkspaceOnly(params: {
     config?: OpenClawConfig;
     sessionAgentId: string;
@@ -64,4 +89,3 @@ export declare function buildAfterTurnRuntimeContext(params: {
     agentDir: string;
 }): Partial<CompactEmbeddedPiSessionParams>;
 export declare function runEmbeddedAttempt(params: EmbeddedRunAttemptParams): Promise<EmbeddedRunAttemptResult>;
-export {};

@@ -7,6 +7,9 @@ type ResolvedAgentConfig = {
     workspace?: string;
     agentDir?: string;
     model?: AgentEntry["model"];
+    thinkingDefault?: AgentEntry["thinkingDefault"];
+    reasoningDefault?: AgentEntry["reasoningDefault"];
+    fastModeDefault?: AgentEntry["fastModeDefault"];
     skills?: AgentEntry["skills"];
     memorySearch?: AgentEntry["memorySearch"];
     humanDelay?: AgentEntry["humanDelay"];

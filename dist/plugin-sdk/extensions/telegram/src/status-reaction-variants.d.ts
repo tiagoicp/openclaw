@@ -1,4 +1,4 @@
-import { type StatusReactionEmojis } from "openclaw/plugin-sdk/channel-runtime";
+import { type StatusReactionEmojis } from "openclaw/plugin-sdk/channel-feedback";
 type StatusReactionEmojiKey = keyof Required<StatusReactionEmojis>;
 export declare const TELEGRAM_STATUS_REACTION_VARIANTS: Record<StatusReactionEmojiKey, string[]>;
 export declare function resolveTelegramStatusReactionEmojis(params: {

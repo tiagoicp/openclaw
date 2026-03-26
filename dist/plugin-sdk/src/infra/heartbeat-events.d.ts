@@ -19,3 +19,4 @@ export declare function resolveIndicatorType(status: HeartbeatEventPayload["stat
 export declare function emitHeartbeatEvent(evt: Omit<HeartbeatEventPayload, "ts">): void;
 export declare function onHeartbeatEvent(listener: (evt: HeartbeatEventPayload) => void): () => void;
 export declare function getLastHeartbeatEvent(): HeartbeatEventPayload | null;
+export declare function resetHeartbeatEventsForTest(): void;

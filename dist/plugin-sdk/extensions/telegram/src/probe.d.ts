@@ -1,4 +1,4 @@
-import type { BaseProbeResult } from "openclaw/plugin-sdk/channel-runtime";
+import type { BaseProbeResult } from "openclaw/plugin-sdk/channel-contract";
 import type { TelegramNetworkConfig } from "../runtime-api.js";
 export type TelegramProbe = BaseProbeResult & {
     status?: number | null;
@@ -19,6 +19,7 @@ export type TelegramProbeOptions = {
     proxyUrl?: string;
     network?: TelegramNetworkConfig;
     accountId?: string;
+    apiRoot?: string;
 };
 export declare function resetTelegramProbeFetcherCacheForTests(): void;
 export declare function probeTelegram(token: string, timeoutMs: number, proxyOrOptions?: string | TelegramProbeOptions): Promise<TelegramProbe>;

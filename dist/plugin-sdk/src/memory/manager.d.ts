@@ -14,9 +14,11 @@ export declare class MemoryIndexManager extends MemoryManagerEmbeddingOps implem
     protected readonly settings: ResolvedMemorySearchConfig;
     protected provider: EmbeddingProvider | null;
     private readonly requestedProvider;
+    private providerInitPromise;
+    private providerInitialized;
     protected fallbackFrom?: "openai" | "local" | "gemini" | "voyage" | "mistral" | "ollama";
     protected fallbackReason?: string;
-    private readonly providerUnavailableReason?;
+    private providerUnavailableReason?;
     protected openAi?: OpenAiEmbeddingClient;
     protected gemini?: GeminiEmbeddingClient;
     protected voyage?: VoyageEmbeddingClient;
@@ -76,18 +78,22 @@ export declare class MemoryIndexManager extends MemoryManagerEmbeddingOps implem
     private readonlyRecoverySuccesses;
     private readonlyRecoveryFailures;
     private readonlyRecoveryLastError?;
+    private static loadProviderResult;
     static get(params: {
         cfg: OpenClawConfig;
         agentId: string;
         purpose?: "default" | "status";
     }): Promise<MemoryIndexManager | null>;
     private constructor();
+    private applyProviderResult;
+    private ensureProviderInitialized;
     warmSession(sessionKey?: string): Promise<void>;
     search(query: string, opts?: {
         maxResults?: number;
         minScore?: number;
         sessionKey?: string;
     }): Promise<MemorySearchResult[]>;
+    private hasIndexedContent;
     private searchVector;
     private buildFtsQuery;
     private searchKeyword;

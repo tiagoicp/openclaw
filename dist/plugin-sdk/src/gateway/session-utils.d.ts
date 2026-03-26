@@ -1,7 +1,7 @@
 import { type OpenClawConfig, loadConfig } from "../config/config.js";
 import { type SessionEntry, type SessionScope } from "../config/sessions.js";
 import type { GatewayAgentRow, GatewaySessionRow, GatewaySessionsDefaults, SessionsListResult } from "./session-utils.types.js";
-export { archiveFileOnDisk, archiveSessionTranscripts, capArrayByJsonBytes, readFirstUserMessageFromTranscript, readLastMessagePreviewFromTranscript, readSessionTitleFieldsFromTranscript, readSessionPreviewItemsFromTranscript, readSessionMessages, resolveSessionTranscriptCandidates, } from "./session-utils.fs.js";
+export { archiveFileOnDisk, archiveSessionTranscripts, attachOpenClawTranscriptMeta, capArrayByJsonBytes, readFirstUserMessageFromTranscript, readLastMessagePreviewFromTranscript, readLatestSessionUsageFromTranscript, readSessionTitleFieldsFromTranscript, readSessionPreviewItemsFromTranscript, readSessionMessages, resolveSessionTranscriptCandidates, } from "./session-utils.fs.js";
 export type { GatewayAgentRow, GatewaySessionRow, GatewaySessionsDefaults, SessionsListResult, SessionsPatchResult, SessionsPreviewEntry, SessionsPreviewResult, } from "./session-utils.types.js";
 export declare function deriveSessionTitle(entry: SessionEntry | undefined, firstUserMessage?: string | null): string | undefined;
 export declare function loadSessionEntry(sessionKey: string): {
@@ -12,6 +12,11 @@ export declare function loadSessionEntry(sessionKey: string): {
     canonicalKey: string;
     legacyKey: string | undefined;
 };
+export declare function resolveFreshestSessionStoreMatchFromStoreKeys(store: Record<string, SessionEntry>, storeKeys: string[]): {
+    key: string;
+    entry: SessionEntry;
+} | undefined;
+export declare function resolveFreshestSessionEntryFromStoreKeys(store: Record<string, SessionEntry>, storeKeys: string[]): SessionEntry | undefined;
 /**
  * Find all on-disk store keys that match the given key case-insensitively.
  * Returns every key from the store whose lowercased form equals the target's lowercased form.
@@ -77,10 +82,25 @@ export declare function resolveSessionModelRef(cfg: OpenClawConfig, entry?: Sess
     provider: string;
     model: string;
 };
-export declare function resolveSessionModelIdentityRef(cfg: OpenClawConfig, entry?: SessionEntry | Pick<SessionEntry, "model" | "modelProvider" | "modelOverride" | "providerOverride">, agentId?: string): {
+export declare function resolveSessionModelIdentityRef(cfg: OpenClawConfig, entry?: SessionEntry | Pick<SessionEntry, "model" | "modelProvider" | "modelOverride" | "providerOverride">, agentId?: string, fallbackModelRef?: string): {
     provider?: string;
     model: string;
 };
+export declare function buildGatewaySessionRow(params: {
+    cfg: OpenClawConfig;
+    storePath: string;
+    store: Record<string, SessionEntry>;
+    key: string;
+    entry?: SessionEntry;
+    now?: number;
+    includeDerivedTitles?: boolean;
+    includeLastMessage?: boolean;
+}): GatewaySessionRow;
+export declare function loadGatewaySessionRow(sessionKey: string, options?: {
+    includeDerivedTitles?: boolean;
+    includeLastMessage?: boolean;
+    now?: number;
+}): GatewaySessionRow | null;
 export declare function listSessionsFromStore(params: {
     cfg: OpenClawConfig;
     storePath: string;

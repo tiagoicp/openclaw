@@ -13,7 +13,7 @@ type CreateWhatsAppOutboundBaseParams = {
     sendMessageWhatsApp: WhatsAppSendMessage;
     sendPollWhatsApp: WhatsAppSendPoll;
     shouldLogVerbose: () => boolean;
-    resolveTarget?: ChannelOutboundAdapter["resolveTarget"];
+    resolveTarget: ChannelOutboundAdapter["resolveTarget"];
     normalizeText?: (text: string | undefined) => string;
     skipEmptyText?: boolean;
 };

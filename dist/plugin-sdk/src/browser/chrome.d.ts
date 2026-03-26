@@ -1,4 +1,4 @@
-import { type ChildProcessWithoutNullStreams } from "node:child_process";
+import { type ChildProcess } from "node:child_process";
 import type { SsrFPolicy } from "../infra/net/ssrf.js";
 import { type BrowserExecutable } from "./chrome.executables.js";
 import type { ResolvedBrowserConfig, ResolvedBrowserProfile } from "./config.js";
@@ -11,9 +11,14 @@ export type RunningChrome = {
     userDataDir: string;
     cdpPort: number;
     startedAt: number;
-    proc: ChildProcessWithoutNullStreams;
+    proc: ChildProcess;
 };
 export declare function resolveOpenClawUserDataDir(profileName?: string): string;
+export declare function buildOpenClawChromeLaunchArgs(params: {
+    resolved: ResolvedBrowserConfig;
+    profile: ResolvedBrowserProfile;
+    userDataDir: string;
+}): string[];
 export declare function isChromeReachable(cdpUrl: string, timeoutMs?: number, ssrfPolicy?: SsrFPolicy): Promise<boolean>;
 export declare function getChromeWebSocketUrl(cdpUrl: string, timeoutMs?: number, ssrfPolicy?: SsrFPolicy): Promise<string | null>;
 export declare function isChromeCdpReady(cdpUrl: string, timeoutMs?: number, handshakeTimeoutMs?: number, ssrfPolicy?: SsrFPolicy): Promise<boolean>;

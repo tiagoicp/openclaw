@@ -1,8 +1,8 @@
-type BuildCommandTextFromArgs = typeof import("openclaw/plugin-sdk/reply-runtime").buildCommandTextFromArgs;
-type FindCommandByNativeName = typeof import("openclaw/plugin-sdk/reply-runtime").findCommandByNativeName;
-type ListNativeCommandSpecsForConfig = typeof import("openclaw/plugin-sdk/reply-runtime").listNativeCommandSpecsForConfig;
-type ParseCommandArgs = typeof import("openclaw/plugin-sdk/reply-runtime").parseCommandArgs;
-type ResolveCommandArgMenu = typeof import("openclaw/plugin-sdk/reply-runtime").resolveCommandArgMenu;
+type BuildCommandTextFromArgs = typeof import("openclaw/plugin-sdk/command-auth").buildCommandTextFromArgs;
+type FindCommandByNativeName = typeof import("openclaw/plugin-sdk/command-auth").findCommandByNativeName;
+type ListNativeCommandSpecsForConfig = typeof import("openclaw/plugin-sdk/command-auth").listNativeCommandSpecsForConfig;
+type ParseCommandArgs = typeof import("openclaw/plugin-sdk/command-auth").parseCommandArgs;
+type ResolveCommandArgMenu = typeof import("openclaw/plugin-sdk/command-auth").resolveCommandArgMenu;
 export declare function buildCommandTextFromArgs(...args: Parameters<BuildCommandTextFromArgs>): ReturnType<BuildCommandTextFromArgs>;
 export declare function findCommandByNativeName(...args: Parameters<FindCommandByNativeName>): ReturnType<FindCommandByNativeName>;
 export declare function listNativeCommandSpecsForConfig(...args: Parameters<ListNativeCommandSpecsForConfig>): ReturnType<ListNativeCommandSpecsForConfig>;

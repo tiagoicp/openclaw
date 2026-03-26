@@ -13,6 +13,7 @@ export declare function runReplyAgent(params: {
     shouldSteer: boolean;
     shouldFollowup: boolean;
     isActive: boolean;
+    isRunActive?: () => boolean;
     isStreaming: boolean;
     opts?: GetReplyOptions;
     typing: TypingController;

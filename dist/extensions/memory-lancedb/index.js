@@ -1,31 +1,196 @@
-import "../../logger-Bisu6sgz.js";
-import "../../paths-D_QmduAc.js";
-import "../../tmp-openclaw-dir-CEAo8CGE.js";
-import "../../theme-Bnch_o1K.js";
-import "../../globals-CnsLPQis.js";
-import "../../subsystem-Dm-AQqmI.js";
-import "../../ansi-BMqrB9En.js";
-import "../../utils-CIAfMgvq.js";
-import "../../agent-scope-BvOTVsJZ.js";
-import "../../boundary-path-BVHzCDEE.js";
-import "../../boundary-file-read-1knRHcS0.js";
-import "../../logger-DcSg74GU.js";
-import "../../exec-Bwz57vWc.js";
-import "../../workspace-C3BQkKrq.js";
-import "../../registry-DHFXbGRB.js";
-import "../../zod-schema.core-2nNLrIvV.js";
-import "../../resolve-route-BKJ_gx17.js";
-import "../../config-schema-SbU9iMOP.js";
-import { i as definePluginEntry } from "../../core-DoWJeX1b.js";
-import "../../delegate-DZgF1n1_.js";
-import "../../secret-file-C6VA1we_.js";
-import "../../memory-lancedb-yV7XObNW.js";
-import fs from "node:fs";
-import { join } from "node:path";
-import { homedir } from "node:os";
+import "../../redact-BDinS1q9.js";
+import "../../errors-BxyFnvP3.js";
+import "../../unhandled-rejections-CDJ8dOVP.js";
+import "../../env-D1ktUnAV.js";
+import "../../paths-CjuwkA2v.js";
+import "../../safe-text-K2Nonoo3.js";
+import "../../tmp-openclaw-dir-DzRxfh9a.js";
+import "../../theme-BH5F9mlg.js";
+import "../../version-DGzLsBG-.js";
+import "../../zod-schema.agent-runtime-DNndkpI8.js";
+import "../../runtime-BF_KUcJM.js";
+import "../../registry-bOiEdffE.js";
+import "../../ip-ByO4-_4f.js";
+import "../../warning-filter-C_BEyyvc.js";
+import "../../links-DaR1j_Bv.js";
+import "../../paths-DJBuCoRE.js";
+import "../../auth-profiles-z_oM_y_O.js";
+import "../../provider-runtime.runtime-BokSGTHt.js";
+import "../../file-lock-Cm3HPowf.js";
+import "../../audit-fs-7IxnGQxG.js";
+import "../../resolve-DqJVzTVp.js";
+import "../../profiles-CRvutsjq.js";
+import "../../tailscale-FHZADwLL.js";
+import "../../tailnet-BPCtbdja.js";
+import "../../net-1LAzWzJc.js";
+import "../../auth-BC0t_CEl.js";
+import "../../credentials-6hokf6e3.js";
+import "../../message-channel-ZzTqBBLH.js";
+import "../../sessions-uRDRs4f-.js";
+import "../../plugins-h0t63KQW.js";
+import "../../paths-BEHCHyAI.js";
+import "../../delivery-context-oynQ_N5k.js";
+import "../../session-write-lock-B7nwE7de.js";
+import "../../method-scopes-DtJfTstv.js";
+import "../../call-CFi2qbI2.js";
+import "../../detect-binary-78pS71eg.js";
+import "../../prompt-style-qxNRcnm3.js";
+import "../../ports-lsof-qBGFcQvX.js";
+import "../../restart-stale-pids-ciXEfnyN.js";
+import "../../ports-DF41F7NN.js";
+import "../../logging-CS4wyI-j.js";
+import "../../commands-AceByDw5.js";
+import "../../issue-format-Cj39YIRp.js";
+import "../../provider-env-vars-BZwz5sMG.js";
+import "../../model-auth-env-BWzx2-YC.js";
+import "../../anthropic-vertex-provider-Cik2BDhe.js";
+import "../../pi-model-discovery-hz4apXP-.js";
+import "../../identity-xGthCqY8.js";
+import "../../heartbeat-DqtPOAC0.js";
+import { Wy as ensureGlobalUndiciEnvProxyDispatcher } from "../../pi-embedded-DFNOKLyy.js";
+import "../../internal-hooks-CVdBfFMw.js";
+import "../../multimodal-CDYWira8.js";
+import "../../memory-search-B5CuuJZB.js";
+import "../../secret-input-x2By3bJy.js";
+import "../../bindings-KL-4Efmw.js";
+import "../../resolve-route-C5Xj9lGN.js";
+import "../../routing-DA_79T-X.js";
+import "../../identity-file-ClDAlI0t.js";
+import "../../outbound-runtime-BAxohuIf.js";
+import "../../provider-model-definitions-CrItEa-O.js";
+import "../../provider-models-GbpUTgQg.js";
+import "../../provider-catalog-hDyZGQ8R.js";
+import "../../provider-catalog-0WIhy6f_.js";
+import "../../provider-catalog-CdCrQ7UP.js";
+import "../../provider-catalog-DzIvFdfj.js";
+import "../../provider-catalog-COMYNKV2.js";
+import "../../provider-catalog-Bce8iOMh.js";
+import "../../provider-catalog-CPx35FBq.js";
+import "../../provider-catalog-Czll7Q5-.js";
+import "../../provider-catalog-BFvOY2Dt.js";
+import "../../provider-catalog-VZaye2Ib.js";
+import "../../models-config.providers.discovery-oJl_MWQT.js";
+import "../../text-runtime-B-kOpuLv.js";
+import "../../docker-BrzH-NvE.js";
+import "../../tool-catalog-BQWPAtTb.js";
+import "../../common-CMCEg0LE.js";
+import "../../image-ops-xftchR8Z.js";
+import "../../thinking-Me2S38se.js";
+import "../../path-alias-guards-BfUEa8Z8.js";
+import "../../sandbox-paths-DM85ql27.js";
+import "../../channel-actions-M8UJU-J1.js";
+import "../../mime-Bwp1UQ_8.js";
+import "../../ssrf-BdAu1_OT.js";
+import "../../fetch-guard-BiSGgjb-.js";
+import "../../provider-web-search-B2TRQt7q.js";
+import "../../manager-BFi-xqLj.js";
+import "../../config-schema-BoeEl_gh.js";
+import "../../channel-plugin-common-Bw5e9GHM.js";
+import "../../status-helpers-DTFg68Zs.js";
+import "../../conversation-runtime-BfLWHgdb.js";
+import "../../runtime-whatsapp-boundary-C0sTsAVN.js";
+import "../../pairing-store-Ci8ZfuL6.js";
+import "../../json-store-Dizz4Rhx.js";
+import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
+import "../../secret-file-BzdoxKYZ.js";
+import "../../channel-config-schema-DOQ4q6a_.js";
+import "../../setup-binary-Tg8N6z5q.js";
+import "../../archive-Oi0PB5pw.js";
+import "../../fs-safe-DpC9pe80.js";
+import "../../signal-cli-install-pAmdy64m.js";
+import "../../setup-wizard-proxy-3tbzVvIf.js";
+import "../../setup-Cuh8Qocv.js";
+import "../../dm-policy-shared-3Jdbvvlm.js";
+import "../../runtime-env-pWTJLxVn.js";
+import "../../temp-path-DvwSkpQg.js";
+import "../../diagnostic-Dx7wnQab.js";
+import "../../logging-B3tLYQAZ.js";
+import "../../config-runtime-BMqUsOKJ.js";
+import "../../level-overrides-CaIdz1Y2.js";
+import "../../exec-approvals-CoUFlPSg.js";
+import "../../webhook-ingress-CwnvXQ9i.js";
+import "../../system-events-D_U3rn_H.js";
+import "../../ssrf-policy-Cve-f-IZ.js";
+import "../../hook-runtime-C0FQ8mwc.js";
+import "../../templating-BpbUbFSs.js";
+import "../../channel-reply-pipeline-BQ2GND11.js";
+import "../../reply-history-CYr7j6cE.js";
+import "../../commands-registry.data-C-Zb7sHo.js";
+import "../../commands-registry-kALONq2A.js";
+import "../../frontmatter-C_CWb6f1.js";
+import "../../env-overrides-CilRbuhU.js";
+import "../../skills-Xrdxpo0d.js";
+import "../../skills-remote-D055n83h.js";
+import "../../workspace-dirs-BooYyzLb.js";
+import "../../pairing-token-BhzPXbCy.js";
+import "../../skill-commands-X9DVN0CB.js";
+import "../../exec-inline-eval-CAjjj6oR.js";
+import "../../sandbox-DSgCBor-.js";
+import "../../target-registry-CUzd3r6R.js";
+import "../../external-content-BtOAY1jC.js";
+import "../../brave-iyc-zT4j.js";
+import "../../duckduckgo-RnKnjVjk.js";
+import "../../exa-B_PEobTF.js";
+import "../../security-runtime-DuEgVcd_.js";
+import "../../provider-auth-ref-CkjXioxW.js";
+import "../../provider-auth-input-DY2h0M4n.js";
+import "../../provider-auth-helpers-CfaQ5Xn6.js";
+import "../../provider-api-key-auth-Uu86HoCQ.js";
+import "../../provider-usage-D_y-rSPa.js";
+import "../../provider-models-BlbL1wnJ.js";
+import "../../media-understanding-Bo9B_E3l.js";
+import "../../media-understanding-provider-C5e8GFRO.js";
+import "../../provider-entry-Dh6ETIXa.js";
+import "../../media-understanding-provider-Cvthuw62.js";
+import "../../provider-onboard-DmLoftpN.js";
+import "../../onboard-p6odcf1a.js";
+import "../../perplexity-web-search-provider-CBvej2u9.js";
+import "../../perplexity-DVSMCtcT.js";
+import "../../model-definitions-CLlu-y8L.js";
+import "../../onboard-CQyz1Xh9.js";
+import "../../provider-catalog-BbgD0Blc.js";
+import "../../provider-models-CPWTfv6u.js";
+import "../../stream-WNyIq00o.js";
+import "../../web-search-C2bCgEzC.js";
+import "../../client-fetch-DG9t9440.js";
+import "../../config-B6bjVdCF.js";
+import "../../web-media-B7RZCKik.js";
+import "../../stagger-C20Z_jRQ.js";
+import "../../command-secret-targets-CiFc3JN3.js";
+import "../../delivery-queue-iwWmpCz9.js";
+import "../../pairing-labels-PxfGoTvk.js";
+import "../../directory-runtime-D9Y42mW-.js";
+import "../../read-only-account-inspect-f6OlttkD.js";
+import "../../src-hV2aBDoy.js";
+import "../../web-media-C0RRMmtv.js";
+import "../../state-paths-CG7b-A_-.js";
+import "../../axios-zS_oAKS1.js";
+import "../../channel-summary-BE3kiFA7.js";
+import "../../session-system-events-Bkb0fc95.js";
+import "../../ssh-tunnel-Ca8F0wnz.js";
+import "../../server-middleware-DUIlEnG_.js";
+import "../../llm-task-D_W5GYK4.js";
+import "../../tool-policy-match-DgTjuJ-l.js";
+import "../../runtime-DAr9Q1gF.js";
+import "../../channel-status-DxDpNj1k.js";
+import "../../discord-core-CTFa_tPG.js";
+import "../../cli-runtime-CivyfPOe.js";
+import "../../config-presence-Bo4-9YVM.js";
+import "../../query-expansion-CeNhqo71.js";
+import "../../search-manager-BH4BTUaa.js";
+import "../../acp-runtime-CRrXx1ZI.js";
+import "../../telegram-core-n7uYzMlP.js";
+import "../../audit-D7armGfs.js";
+import "../../gateway-runtime-_5BLwTPa.js";
+import "../../connection-auth-DQ6Wy_i-.js";
+import "../../mcp-config-vaYGkUmW.js";
+import "../../memory-lancedb-Bf0JsMXY.js";
+import "../../api-RBLQGxOO.js";
+import { i as vectorDimsForModel, n as MEMORY_CATEGORIES, r as memoryConfigSchema } from "../../config-G2hmMmfq.js";
+import { n as loadLanceDbModule } from "../../lancedb-runtime-EERB-J-L.js";
 import { randomUUID } from "node:crypto";
 import { Type } from "@sinclair/typebox";
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/tslib.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/tslib.mjs
 function __classPrivateFieldSet(receiver, state, value, kind, f) {
 	if (kind === "m") throw new TypeError("Private method is not writable");
 	if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
@@ -38,7 +203,7 @@ function __classPrivateFieldGet(receiver, state, kind, f) {
 	return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/utils/uuid.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/utils/uuid.mjs
 /**
 * https://stackoverflow.com/a/2117523
 */
@@ -53,7 +218,7 @@ let uuid4 = function() {
 	return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) => (+c ^ randomByte() & 15 >> +c / 4).toString(16));
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/errors.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/errors.mjs
 function isAbortError(err) {
 	return typeof err === "object" && err !== null && ("name" in err && err.name === "AbortError" || "message" in err && String(err.message).includes("FetchRequestCanceledException"));
 }
@@ -76,7 +241,7 @@ const castToError = (err) => {
 	return new Error(err);
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/core/error.mjs
+//#region extensions/memory-lancedb/node_modules/openai/core/error.mjs
 var OpenAIError = class extends Error {};
 var APIError = class APIError extends OpenAIError {
 	constructor(status, error, message, headers) {
@@ -154,7 +319,7 @@ var InvalidWebhookSignatureError = class extends Error {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/utils/values.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/utils/values.mjs
 const startsWithSchemeRegexp = /^[a-z][a-z0-9+.-]*:/i;
 const isAbsoluteURL = (url) => {
 	return startsWithSchemeRegexp.test(url);
@@ -190,13 +355,13 @@ const safeJSON = (text) => {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/utils/sleep.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/utils/sleep.mjs
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/version.mjs
+//#region extensions/memory-lancedb/node_modules/openai/version.mjs
 const VERSION = "6.32.0";
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/detect-platform.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/detect-platform.mjs
 const isRunningInBrowser = () => {
 	return typeof window !== "undefined" && typeof window.document !== "undefined" && typeof navigator !== "undefined";
 };
@@ -314,7 +479,7 @@ const getPlatformHeaders = () => {
 	return _platformHeaders ?? (_platformHeaders = getPlatformProperties());
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/shims.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/shims.mjs
 function getDefaultFetch() {
 	if (typeof fetch !== "undefined") return fetch;
 	throw new Error("`fetch` is not defined as a global; Either pass `fetch` to the client, `new OpenAI({ fetch })` or polyfill the global, `globalThis.fetch = fetch`");
@@ -388,7 +553,7 @@ async function CancelReadableStream(stream) {
 	await cancelPromise;
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/request-options.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/request-options.mjs
 const FallbackEncoder = ({ headers, body }) => {
 	return {
 		bodyHeaders: { "content-type": "application/json" },
@@ -396,7 +561,7 @@ const FallbackEncoder = ({ headers, body }) => {
 	};
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/qs/formats.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/qs/formats.mjs
 const default_format = "RFC3986";
 const default_formatter = (v) => String(v);
 const formatters = {
@@ -404,7 +569,7 @@ const formatters = {
 	RFC3986: default_formatter
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/qs/utils.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/qs/utils.mjs
 let has = (obj, key) => (has = Object.hasOwn ?? Function.prototype.call.bind(Object.prototype.hasOwnProperty), has(obj, key));
 const hex_table = /* @__PURE__ */ (() => {
 	const array = [];
@@ -463,7 +628,7 @@ function maybe_map(val, fn) {
 	return fn(val);
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/qs/stringify.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/qs/stringify.mjs
 const array_prefix_generators = {
 	brackets(prefix) {
 		return String(prefix) + "[]";
@@ -634,12 +799,12 @@ function stringify(object, opts = {}) {
 	return joined.length > 0 ? prefix + joined : "";
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/utils/query.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/utils/query.mjs
 function stringifyQuery(query) {
 	return stringify(query, { arrayFormat: "brackets" });
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/utils/bytes.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/utils/bytes.mjs
 function concatBytes(buffers) {
 	let length = 0;
 	for (const buffer of buffers) length += buffer.length;
@@ -662,7 +827,7 @@ function decodeUTF8(bytes) {
 	return (decodeUTF8_ ?? (decoder = new globalThis.TextDecoder(), decodeUTF8_ = decoder.decode.bind(decoder)))(bytes);
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/decoders/line.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/decoders/line.mjs
 var _LineDecoder_buffer, _LineDecoder_carriageReturnIndex;
 /**
 * A re-implementation of httpx's `LineDecoder` in Python that handles incrementally
@@ -747,7 +912,7 @@ function findDoubleNewlineIndex(buffer) {
 	return -1;
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/utils/log.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/utils/log.mjs
 const levelNumbers = {
 	off: 0,
 	error: 200,
@@ -800,7 +965,7 @@ const formatRequestDetails = (details) => {
 	return details;
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/core/streaming.mjs
+//#region extensions/memory-lancedb/node_modules/openai/core/streaming.mjs
 var _Stream_client;
 var Stream = class Stream {
 	constructor(iterator, controller, client) {
@@ -1027,7 +1192,7 @@ function partition(str, delimiter) {
 	];
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/parse.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/parse.mjs
 async function defaultParseResponse(client, props) {
 	const { response, requestLogID, retryOfRequestLogID, startTime } = props;
 	const body = await (async () => {
@@ -1062,7 +1227,7 @@ function addRequestID(value, response) {
 	});
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/core/api-promise.mjs
+//#region extensions/memory-lancedb/node_modules/openai/core/api-promise.mjs
 var _APIPromise_client;
 /**
 * A subclass of `Promise` providing additional helper methods
@@ -1131,7 +1296,7 @@ var APIPromise = class APIPromise extends Promise {
 };
 _APIPromise_client = /* @__PURE__ */ new WeakMap();
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/core/pagination.mjs
+//#region extensions/memory-lancedb/node_modules/openai/core/pagination.mjs
 var _AbstractPage_client;
 var AbstractPage = class {
 	constructor(client, response, body, options) {
@@ -1256,7 +1421,7 @@ var ConversationCursorPage = class extends AbstractPage {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/uploads.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/uploads.mjs
 const checkFileSupport = () => {
 	if (typeof File === "undefined") {
 		const { process } = globalThis;
@@ -1345,7 +1510,7 @@ const addFormValue = async (form, key, value) => {
 	else throw new TypeError(`Invalid value given to form, expected a string, number, boolean, object, Array, File or Blob but got ${value} instead`);
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/to-file.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/to-file.mjs
 /**
 * This check adds the arrayBuffer() method type because it is available and used at runtime
 */
@@ -1403,14 +1568,14 @@ function propsForError(value) {
 	return `; props: [${Object.getOwnPropertyNames(value).map((p) => `"${p}"`).join(", ")}]`;
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/core/resource.mjs
+//#region extensions/memory-lancedb/node_modules/openai/core/resource.mjs
 var APIResource = class {
 	constructor(client) {
 		this._client = client;
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/utils/path.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/utils/path.mjs
 /**
 * Percent-encode everything that isn't safe to have in a path without encoding safe chars.
 *
@@ -1465,9 +1630,9 @@ const createPathTagFunction = (pathEncoder = encodeURIPath) => function path(sta
 /**
 * URI-encodes path params and ensures no unsafe /./ or /../ path segments are introduced.
 */
-const path$1 = /* @__PURE__ */ createPathTagFunction(encodeURIPath);
+const path = /* @__PURE__ */ createPathTagFunction(encodeURIPath);
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/chat/completions/messages.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/chat/completions/messages.mjs
 /**
 * Given a list of messages comprising a conversation, the model will return a response.
 */
@@ -1487,14 +1652,14 @@ var Messages$1 = class extends APIResource {
 	* ```
 	*/
 	list(completionID, query = {}, options) {
-		return this._client.getAPIList(path$1`/chat/completions/${completionID}/messages`, CursorPage, {
+		return this._client.getAPIList(path`/chat/completions/${completionID}/messages`, CursorPage, {
 			query,
 			...options
 		});
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/lib/parser.mjs
+//#region extensions/memory-lancedb/node_modules/openai/lib/parser.mjs
 function isChatCompletionFunctionTool(tool) {
 	return tool !== void 0 && "function" in tool && tool.function !== void 0;
 }
@@ -1577,7 +1742,7 @@ function validateInputTools(tools) {
 	}
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/lib/chatCompletionUtils.mjs
+//#region extensions/memory-lancedb/node_modules/openai/lib/chatCompletionUtils.mjs
 const isAssistantMessage = (message) => {
 	return message?.role === "assistant";
 };
@@ -1585,7 +1750,7 @@ const isToolMessage = (message) => {
 	return message?.role === "tool";
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/lib/EventStream.mjs
+//#region extensions/memory-lancedb/node_modules/openai/lib/EventStream.mjs
 var _EventStream_instances, _EventStream_connectedPromise, _EventStream_resolveConnectedPromise, _EventStream_rejectConnectedPromise, _EventStream_endPromise, _EventStream_resolveEndPromise, _EventStream_rejectEndPromise, _EventStream_listeners, _EventStream_ended, _EventStream_errored, _EventStream_aborted, _EventStream_catchingPromiseCreated, _EventStream_handleError;
 var EventStream = class {
 	constructor() {
@@ -1742,12 +1907,12 @@ _EventStream_connectedPromise = /* @__PURE__ */ new WeakMap(), _EventStream_reso
 	return this._emit("error", new OpenAIError(String(error)));
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/lib/RunnableFunction.mjs
+//#region extensions/memory-lancedb/node_modules/openai/lib/RunnableFunction.mjs
 function isRunnableFunctionWithParse(fn) {
 	return typeof fn.parse === "function";
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/lib/AbstractChatCompletionRunner.mjs
+//#region extensions/memory-lancedb/node_modules/openai/lib/AbstractChatCompletionRunner.mjs
 var _AbstractChatCompletionRunner_instances, _AbstractChatCompletionRunner_getFinalContent, _AbstractChatCompletionRunner_getFinalMessage, _AbstractChatCompletionRunner_getFinalFunctionToolCall, _AbstractChatCompletionRunner_getFinalFunctionToolCallResult, _AbstractChatCompletionRunner_calculateTotalUsage, _AbstractChatCompletionRunner_validateParams, _AbstractChatCompletionRunner_stringifyFunctionCallResult;
 const DEFAULT_MAX_CHAT_COMPLETIONS = 10;
 var AbstractChatCompletionRunner = class extends EventStream {
@@ -1984,7 +2149,7 @@ _AbstractChatCompletionRunner_instances = /* @__PURE__ */ new WeakSet(), _Abstra
 	return typeof rawContent === "string" ? rawContent : rawContent === void 0 ? "undefined" : JSON.stringify(rawContent);
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/lib/ChatCompletionRunner.mjs
+//#region extensions/memory-lancedb/node_modules/openai/lib/ChatCompletionRunner.mjs
 var ChatCompletionRunner = class ChatCompletionRunner extends AbstractChatCompletionRunner {
 	static runTools(client, params, options) {
 		const runner = new ChatCompletionRunner();
@@ -2004,7 +2169,7 @@ var ChatCompletionRunner = class ChatCompletionRunner extends AbstractChatComple
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/_vendor/partial-json-parser/parser.mjs
+//#region extensions/memory-lancedb/node_modules/openai/_vendor/partial-json-parser/parser.mjs
 const STR = 1;
 const NUM = 2;
 const ARR = 4;
@@ -2194,7 +2359,7 @@ const _parseJSON = (jsonString, allow) => {
 };
 const partialParse = (input) => parseJSON(input, Allow.ALL ^ Allow.NUM);
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/lib/ChatCompletionStream.mjs
+//#region extensions/memory-lancedb/node_modules/openai/lib/ChatCompletionStream.mjs
 var _ChatCompletionStream_instances, _ChatCompletionStream_params, _ChatCompletionStream_choiceEventStates, _ChatCompletionStream_currentChatCompletionSnapshot, _ChatCompletionStream_beginRequest, _ChatCompletionStream_getChoiceEventState, _ChatCompletionStream_addChunk, _ChatCompletionStream_emitToolCallDoneEvent, _ChatCompletionStream_emitContentDoneEvents, _ChatCompletionStream_endRequest, _ChatCompletionStream_getAutoParseableResponseFormat, _ChatCompletionStream_accumulateChatCompletion;
 var ChatCompletionStream = class ChatCompletionStream extends AbstractChatCompletionRunner {
 	constructor(params) {
@@ -2615,7 +2780,7 @@ function str(x) {
 function assertIsEmpty(obj) {}
 function assertNever$1(_x) {}
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/lib/ChatCompletionStreamingRunner.mjs
+//#region extensions/memory-lancedb/node_modules/openai/lib/ChatCompletionStreamingRunner.mjs
 var ChatCompletionStreamingRunner = class ChatCompletionStreamingRunner extends ChatCompletionStream {
 	static fromReadableStream(stream) {
 		const runner = new ChatCompletionStreamingRunner(null);
@@ -2636,7 +2801,7 @@ var ChatCompletionStreamingRunner = class ChatCompletionStreamingRunner extends 
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/chat/completions/completions.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/chat/completions/completions.mjs
 /**
 * Given a list of messages comprising a conversation, the model will return a response.
 */
@@ -2663,7 +2828,7 @@ var Completions$1 = class extends APIResource {
 	* ```
 	*/
 	retrieve(completionID, options) {
-		return this._client.get(path$1`/chat/completions/${completionID}`, options);
+		return this._client.get(path`/chat/completions/${completionID}`, options);
 	}
 	/**
 	* Modify a stored chat completion. Only Chat Completions that have been created
@@ -2679,7 +2844,7 @@ var Completions$1 = class extends APIResource {
 	* ```
 	*/
 	update(completionID, body, options) {
-		return this._client.post(path$1`/chat/completions/${completionID}`, {
+		return this._client.post(path`/chat/completions/${completionID}`, {
 			body,
 			...options
 		});
@@ -2713,7 +2878,7 @@ var Completions$1 = class extends APIResource {
 	* ```
 	*/
 	delete(completionID, options) {
-		return this._client.delete(path$1`/chat/completions/${completionID}`, options);
+		return this._client.delete(path`/chat/completions/${completionID}`, options);
 	}
 	parse(body, options) {
 		validateInputTools(body.tools);
@@ -2738,7 +2903,7 @@ var Completions$1 = class extends APIResource {
 };
 Completions$1.Messages = Messages$1;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/chat/chat.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/chat/chat.mjs
 var Chat = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -2747,7 +2912,7 @@ var Chat = class extends APIResource {
 };
 Chat.Completions = Completions$1;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/headers.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/headers.mjs
 const brand_privateNullableHeaders = /* @__PURE__ */ Symbol("brand.privateNullableHeaders");
 function* iterateHeaders(headers) {
 	if (!headers) return;
@@ -2807,7 +2972,7 @@ const buildHeaders = (newHeaders) => {
 	};
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/audio/speech.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/audio/speech.mjs
 /**
 * Turn audio into text or text into audio.
 */
@@ -2839,7 +3004,7 @@ var Speech = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/audio/transcriptions.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/audio/transcriptions.mjs
 /**
 * Turn audio into text or text into audio.
 */
@@ -2854,7 +3019,7 @@ var Transcriptions = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/audio/translations.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/audio/translations.mjs
 /**
 * Turn audio into text or text into audio.
 */
@@ -2868,7 +3033,7 @@ var Translations = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/audio/audio.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/audio/audio.mjs
 var Audio = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -2881,7 +3046,7 @@ Audio.Transcriptions = Transcriptions;
 Audio.Translations = Translations;
 Audio.Speech = Speech;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/batches.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/batches.mjs
 /**
 * Create large batches of API requests to run asynchronously.
 */
@@ -2899,7 +3064,7 @@ var Batches = class extends APIResource {
 	* Retrieves a batch.
 	*/
 	retrieve(batchID, options) {
-		return this._client.get(path$1`/batches/${batchID}`, options);
+		return this._client.get(path`/batches/${batchID}`, options);
 	}
 	/**
 	* List your organization's batches.
@@ -2916,11 +3081,11 @@ var Batches = class extends APIResource {
 	* (if any) available in the output file.
 	*/
 	cancel(batchID, options) {
-		return this._client.post(path$1`/batches/${batchID}/cancel`, options);
+		return this._client.post(path`/batches/${batchID}/cancel`, options);
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/beta/assistants.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/beta/assistants.mjs
 /**
 * Build Assistants that can call models and use tools.
 */
@@ -2943,7 +3108,7 @@ var Assistants = class extends APIResource {
 	* @deprecated
 	*/
 	retrieve(assistantID, options) {
-		return this._client.get(path$1`/assistants/${assistantID}`, {
+		return this._client.get(path`/assistants/${assistantID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
@@ -2954,7 +3119,7 @@ var Assistants = class extends APIResource {
 	* @deprecated
 	*/
 	update(assistantID, body, options) {
-		return this._client.post(path$1`/assistants/${assistantID}`, {
+		return this._client.post(path`/assistants/${assistantID}`, {
 			body,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -2978,14 +3143,14 @@ var Assistants = class extends APIResource {
 	* @deprecated
 	*/
 	delete(assistantID, options) {
-		return this._client.delete(path$1`/assistants/${assistantID}`, {
+		return this._client.delete(path`/assistants/${assistantID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/beta/realtime/sessions.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/beta/realtime/sessions.mjs
 var Sessions$1 = class extends APIResource {
 	/**
 	* Create an ephemeral API token for use in client-side applications with the
@@ -3011,7 +3176,7 @@ var Sessions$1 = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/beta/realtime/transcription-sessions.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/beta/realtime/transcription-sessions.mjs
 var TranscriptionSessions = class extends APIResource {
 	/**
 	* Create an ephemeral API token for use in client-side applications with the
@@ -3037,7 +3202,7 @@ var TranscriptionSessions = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/beta/realtime/realtime.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/beta/realtime/realtime.mjs
 /**
 * @deprecated Realtime has now launched and is generally available. The old beta API is now deprecated.
 */
@@ -3051,7 +3216,7 @@ var Realtime$1 = class extends APIResource {
 Realtime$1.Sessions = Sessions$1;
 Realtime$1.TranscriptionSessions = TranscriptionSessions;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/beta/chatkit/sessions.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/beta/chatkit/sessions.mjs
 var Sessions = class extends APIResource {
 	/**
 	* Create a ChatKit session.
@@ -3084,14 +3249,14 @@ var Sessions = class extends APIResource {
 	* ```
 	*/
 	cancel(sessionID, options) {
-		return this._client.post(path$1`/chatkit/sessions/${sessionID}/cancel`, {
+		return this._client.post(path`/chatkit/sessions/${sessionID}/cancel`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "chatkit_beta=v1" }, options?.headers])
 		});
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/beta/chatkit/threads.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/beta/chatkit/threads.mjs
 var Threads$1 = class extends APIResource {
 	/**
 	* Retrieve a ChatKit thread by its identifier.
@@ -3103,7 +3268,7 @@ var Threads$1 = class extends APIResource {
 	* ```
 	*/
 	retrieve(threadID, options) {
-		return this._client.get(path$1`/chatkit/threads/${threadID}`, {
+		return this._client.get(path`/chatkit/threads/${threadID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "chatkit_beta=v1" }, options?.headers])
 		});
@@ -3137,7 +3302,7 @@ var Threads$1 = class extends APIResource {
 	* ```
 	*/
 	delete(threadID, options) {
-		return this._client.delete(path$1`/chatkit/threads/${threadID}`, {
+		return this._client.delete(path`/chatkit/threads/${threadID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "chatkit_beta=v1" }, options?.headers])
 		});
@@ -3156,7 +3321,7 @@ var Threads$1 = class extends APIResource {
 	* ```
 	*/
 	listItems(threadID, query = {}, options) {
-		return this._client.getAPIList(path$1`/chatkit/threads/${threadID}/items`, ConversationCursorPage, {
+		return this._client.getAPIList(path`/chatkit/threads/${threadID}/items`, ConversationCursorPage, {
 			query,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "chatkit_beta=v1" }, options?.headers])
@@ -3164,7 +3329,7 @@ var Threads$1 = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/beta/chatkit/chatkit.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/beta/chatkit/chatkit.mjs
 var ChatKit = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -3175,7 +3340,7 @@ var ChatKit = class extends APIResource {
 ChatKit.Sessions = Sessions;
 ChatKit.Threads = Threads$1;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/beta/threads/messages.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/beta/threads/messages.mjs
 /**
 * Build Assistants that can call models and use tools.
 *
@@ -3188,7 +3353,7 @@ var Messages = class extends APIResource {
 	* @deprecated The Assistants API is deprecated in favor of the Responses API
 	*/
 	create(threadID, body, options) {
-		return this._client.post(path$1`/threads/${threadID}/messages`, {
+		return this._client.post(path`/threads/${threadID}/messages`, {
 			body,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -3201,7 +3366,7 @@ var Messages = class extends APIResource {
 	*/
 	retrieve(messageID, params, options) {
 		const { thread_id } = params;
-		return this._client.get(path$1`/threads/${thread_id}/messages/${messageID}`, {
+		return this._client.get(path`/threads/${thread_id}/messages/${messageID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
@@ -3213,7 +3378,7 @@ var Messages = class extends APIResource {
 	*/
 	update(messageID, params, options) {
 		const { thread_id, ...body } = params;
-		return this._client.post(path$1`/threads/${thread_id}/messages/${messageID}`, {
+		return this._client.post(path`/threads/${thread_id}/messages/${messageID}`, {
 			body,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -3225,7 +3390,7 @@ var Messages = class extends APIResource {
 	* @deprecated The Assistants API is deprecated in favor of the Responses API
 	*/
 	list(threadID, query = {}, options) {
-		return this._client.getAPIList(path$1`/threads/${threadID}/messages`, CursorPage, {
+		return this._client.getAPIList(path`/threads/${threadID}/messages`, CursorPage, {
 			query,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -3238,14 +3403,14 @@ var Messages = class extends APIResource {
 	*/
 	delete(messageID, params, options) {
 		const { thread_id } = params;
-		return this._client.delete(path$1`/threads/${thread_id}/messages/${messageID}`, {
+		return this._client.delete(path`/threads/${thread_id}/messages/${messageID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/beta/threads/runs/steps.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/beta/threads/runs/steps.mjs
 /**
 * Build Assistants that can call models and use tools.
 *
@@ -3259,7 +3424,7 @@ var Steps = class extends APIResource {
 	*/
 	retrieve(stepID, params, options) {
 		const { thread_id, run_id, ...query } = params;
-		return this._client.get(path$1`/threads/${thread_id}/runs/${run_id}/steps/${stepID}`, {
+		return this._client.get(path`/threads/${thread_id}/runs/${run_id}/steps/${stepID}`, {
 			query,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -3272,7 +3437,7 @@ var Steps = class extends APIResource {
 	*/
 	list(runID, params, options) {
 		const { thread_id, ...query } = params;
-		return this._client.getAPIList(path$1`/threads/${thread_id}/runs/${runID}/steps`, CursorPage, {
+		return this._client.getAPIList(path`/threads/${thread_id}/runs/${runID}/steps`, CursorPage, {
 			query,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -3280,7 +3445,7 @@ var Steps = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/utils/base64.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/utils/base64.mjs
 /**
 * Converts a Base64 encoded string to a Float32Array.
 * @param base64Str - The Base64 encoded string.
@@ -3299,7 +3464,7 @@ const toFloat32Array = (base64Str) => {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/internal/utils/env.mjs
+//#region extensions/memory-lancedb/node_modules/openai/internal/utils/env.mjs
 /**
 * Read an environment variable.
 *
@@ -3312,7 +3477,7 @@ const readEnv = (env) => {
 	if (typeof globalThis.Deno !== "undefined") return globalThis.Deno.env?.get?.(env)?.trim();
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/lib/AssistantStream.mjs
+//#region extensions/memory-lancedb/node_modules/openai/lib/AssistantStream.mjs
 var _AssistantStream_instances, _a$1, _AssistantStream_events, _AssistantStream_runStepSnapshots, _AssistantStream_messageSnapshots, _AssistantStream_messageSnapshot, _AssistantStream_finalRun, _AssistantStream_currentContentIndex, _AssistantStream_currentContent, _AssistantStream_currentToolCallIndex, _AssistantStream_currentToolCall, _AssistantStream_currentEvent, _AssistantStream_currentRunSnapshot, _AssistantStream_currentRunStepSnapshot, _AssistantStream_addEvent, _AssistantStream_endRequest, _AssistantStream_handleMessage, _AssistantStream_handleRunStep, _AssistantStream_handleEvent, _AssistantStream_accumulateRunStep, _AssistantStream_accumulateMessage, _AssistantStream_accumulateContent, _AssistantStream_handleRun;
 var AssistantStream = class extends EventStream {
 	constructor() {
@@ -3775,7 +3940,7 @@ _a$1 = AssistantStream, _AssistantStream_addEvent = function _AssistantStream_ad
 };
 function assertNever(_x) {}
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/beta/threads/runs/runs.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/beta/threads/runs/runs.mjs
 /**
 * Build Assistants that can call models and use tools.
 *
@@ -3788,7 +3953,7 @@ var Runs$1 = class extends APIResource {
 	}
 	create(threadID, params, options) {
 		const { include, ...body } = params;
-		return this._client.post(path$1`/threads/${threadID}/runs`, {
+		return this._client.post(path`/threads/${threadID}/runs`, {
 			query: { include },
 			body,
 			...options,
@@ -3804,7 +3969,7 @@ var Runs$1 = class extends APIResource {
 	*/
 	retrieve(runID, params, options) {
 		const { thread_id } = params;
-		return this._client.get(path$1`/threads/${thread_id}/runs/${runID}`, {
+		return this._client.get(path`/threads/${thread_id}/runs/${runID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
@@ -3816,7 +3981,7 @@ var Runs$1 = class extends APIResource {
 	*/
 	update(runID, params, options) {
 		const { thread_id, ...body } = params;
-		return this._client.post(path$1`/threads/${thread_id}/runs/${runID}`, {
+		return this._client.post(path`/threads/${thread_id}/runs/${runID}`, {
 			body,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -3828,7 +3993,7 @@ var Runs$1 = class extends APIResource {
 	* @deprecated The Assistants API is deprecated in favor of the Responses API
 	*/
 	list(threadID, query = {}, options) {
-		return this._client.getAPIList(path$1`/threads/${threadID}/runs`, CursorPage, {
+		return this._client.getAPIList(path`/threads/${threadID}/runs`, CursorPage, {
 			query,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -3841,7 +4006,7 @@ var Runs$1 = class extends APIResource {
 	*/
 	cancel(runID, params, options) {
 		const { thread_id } = params;
-		return this._client.post(path$1`/threads/${thread_id}/runs/${runID}/cancel`, {
+		return this._client.post(path`/threads/${thread_id}/runs/${runID}/cancel`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
@@ -3913,7 +4078,7 @@ var Runs$1 = class extends APIResource {
 	}
 	submitToolOutputs(runID, params, options) {
 		const { thread_id, ...body } = params;
-		return this._client.post(path$1`/threads/${thread_id}/runs/${runID}/submit_tool_outputs`, {
+		return this._client.post(path`/threads/${thread_id}/runs/${runID}/submit_tool_outputs`, {
 			body,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers]),
@@ -3941,7 +4106,7 @@ var Runs$1 = class extends APIResource {
 };
 Runs$1.Steps = Steps;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/beta/threads/threads.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/beta/threads/threads.mjs
 /**
 * Build Assistants that can call models and use tools.
 *
@@ -3971,7 +4136,7 @@ var Threads = class extends APIResource {
 	* @deprecated The Assistants API is deprecated in favor of the Responses API
 	*/
 	retrieve(threadID, options) {
-		return this._client.get(path$1`/threads/${threadID}`, {
+		return this._client.get(path`/threads/${threadID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
@@ -3982,7 +4147,7 @@ var Threads = class extends APIResource {
 	* @deprecated The Assistants API is deprecated in favor of the Responses API
 	*/
 	update(threadID, body, options) {
-		return this._client.post(path$1`/threads/${threadID}`, {
+		return this._client.post(path`/threads/${threadID}`, {
 			body,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -3994,7 +4159,7 @@ var Threads = class extends APIResource {
 	* @deprecated The Assistants API is deprecated in favor of the Responses API
 	*/
 	delete(threadID, options) {
-		return this._client.delete(path$1`/threads/${threadID}`, {
+		return this._client.delete(path`/threads/${threadID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
@@ -4027,7 +4192,7 @@ var Threads = class extends APIResource {
 Threads.Runs = Runs$1;
 Threads.Messages = Messages;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/beta/beta.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/beta/beta.mjs
 var Beta = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -4042,7 +4207,7 @@ Beta.ChatKit = ChatKit;
 Beta.Assistants = Assistants;
 Beta.Threads = Threads;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/completions.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/completions.mjs
 /**
 * Given a prompt, the model will return one or more predicted completions, and can also return the probabilities of alternative tokens at each position.
 */
@@ -4056,14 +4221,14 @@ var Completions = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/containers/files/content.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/containers/files/content.mjs
 var Content$2 = class extends APIResource {
 	/**
 	* Retrieve Container File Content
 	*/
 	retrieve(fileID, params, options) {
 		const { container_id } = params;
-		return this._client.get(path$1`/containers/${container_id}/files/${fileID}/content`, {
+		return this._client.get(path`/containers/${container_id}/files/${fileID}/content`, {
 			...options,
 			headers: buildHeaders([{ Accept: "application/binary" }, options?.headers]),
 			__binaryResponse: true
@@ -4071,7 +4236,7 @@ var Content$2 = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/containers/files/files.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/containers/files/files.mjs
 var Files$2 = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -4084,7 +4249,7 @@ var Files$2 = class extends APIResource {
 	* a JSON request with a file ID.
 	*/
 	create(containerID, body, options) {
-		return this._client.post(path$1`/containers/${containerID}/files`, maybeMultipartFormRequestOptions({
+		return this._client.post(path`/containers/${containerID}/files`, maybeMultipartFormRequestOptions({
 			body,
 			...options
 		}, this._client));
@@ -4094,13 +4259,13 @@ var Files$2 = class extends APIResource {
 	*/
 	retrieve(fileID, params, options) {
 		const { container_id } = params;
-		return this._client.get(path$1`/containers/${container_id}/files/${fileID}`, options);
+		return this._client.get(path`/containers/${container_id}/files/${fileID}`, options);
 	}
 	/**
 	* List Container files
 	*/
 	list(containerID, query = {}, options) {
-		return this._client.getAPIList(path$1`/containers/${containerID}/files`, CursorPage, {
+		return this._client.getAPIList(path`/containers/${containerID}/files`, CursorPage, {
 			query,
 			...options
 		});
@@ -4110,7 +4275,7 @@ var Files$2 = class extends APIResource {
 	*/
 	delete(fileID, params, options) {
 		const { container_id } = params;
-		return this._client.delete(path$1`/containers/${container_id}/files/${fileID}`, {
+		return this._client.delete(path`/containers/${container_id}/files/${fileID}`, {
 			...options,
 			headers: buildHeaders([{ Accept: "*/*" }, options?.headers])
 		});
@@ -4118,7 +4283,7 @@ var Files$2 = class extends APIResource {
 };
 Files$2.Content = Content$2;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/containers/containers.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/containers/containers.mjs
 var Containers = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -4137,7 +4302,7 @@ var Containers = class extends APIResource {
 	* Retrieve Container
 	*/
 	retrieve(containerID, options) {
-		return this._client.get(path$1`/containers/${containerID}`, options);
+		return this._client.get(path`/containers/${containerID}`, options);
 	}
 	/**
 	* List Containers
@@ -4152,7 +4317,7 @@ var Containers = class extends APIResource {
 	* Delete Container
 	*/
 	delete(containerID, options) {
-		return this._client.delete(path$1`/containers/${containerID}`, {
+		return this._client.delete(path`/containers/${containerID}`, {
 			...options,
 			headers: buildHeaders([{ Accept: "*/*" }, options?.headers])
 		});
@@ -4160,7 +4325,7 @@ var Containers = class extends APIResource {
 };
 Containers.Files = Files$2;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/conversations/items.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/conversations/items.mjs
 /**
 * Manage conversations and conversation items.
 */
@@ -4170,7 +4335,7 @@ var Items = class extends APIResource {
 	*/
 	create(conversationID, params, options) {
 		const { include, ...body } = params;
-		return this._client.post(path$1`/conversations/${conversationID}/items`, {
+		return this._client.post(path`/conversations/${conversationID}/items`, {
 			query: { include },
 			body,
 			...options
@@ -4181,7 +4346,7 @@ var Items = class extends APIResource {
 	*/
 	retrieve(itemID, params, options) {
 		const { conversation_id, ...query } = params;
-		return this._client.get(path$1`/conversations/${conversation_id}/items/${itemID}`, {
+		return this._client.get(path`/conversations/${conversation_id}/items/${itemID}`, {
 			query,
 			...options
 		});
@@ -4190,7 +4355,7 @@ var Items = class extends APIResource {
 	* List all items for a conversation with the given ID.
 	*/
 	list(conversationID, query = {}, options) {
-		return this._client.getAPIList(path$1`/conversations/${conversationID}/items`, ConversationCursorPage, {
+		return this._client.getAPIList(path`/conversations/${conversationID}/items`, ConversationCursorPage, {
 			query,
 			...options
 		});
@@ -4200,11 +4365,11 @@ var Items = class extends APIResource {
 	*/
 	delete(itemID, params, options) {
 		const { conversation_id } = params;
-		return this._client.delete(path$1`/conversations/${conversation_id}/items/${itemID}`, options);
+		return this._client.delete(path`/conversations/${conversation_id}/items/${itemID}`, options);
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/conversations/conversations.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/conversations/conversations.mjs
 /**
 * Manage conversations and conversation items.
 */
@@ -4226,13 +4391,13 @@ var Conversations = class extends APIResource {
 	* Get a conversation
 	*/
 	retrieve(conversationID, options) {
-		return this._client.get(path$1`/conversations/${conversationID}`, options);
+		return this._client.get(path`/conversations/${conversationID}`, options);
 	}
 	/**
 	* Update a conversation
 	*/
 	update(conversationID, body, options) {
-		return this._client.post(path$1`/conversations/${conversationID}`, {
+		return this._client.post(path`/conversations/${conversationID}`, {
 			body,
 			...options
 		});
@@ -4241,12 +4406,12 @@ var Conversations = class extends APIResource {
 	* Delete a conversation. Items in the conversation will not be deleted.
 	*/
 	delete(conversationID, options) {
-		return this._client.delete(path$1`/conversations/${conversationID}`, options);
+		return this._client.delete(path`/conversations/${conversationID}`, options);
 	}
 };
 Conversations.Items = Items;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/embeddings.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/embeddings.mjs
 /**
 * Get a vector representation of a given input that can be easily consumed by machine learning models and algorithms.
 */
@@ -4286,7 +4451,7 @@ var Embeddings$1 = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/evals/runs/output-items.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/evals/runs/output-items.mjs
 /**
 * Manage and run evals in the OpenAI platform.
 */
@@ -4296,21 +4461,21 @@ var OutputItems = class extends APIResource {
 	*/
 	retrieve(outputItemID, params, options) {
 		const { eval_id, run_id } = params;
-		return this._client.get(path$1`/evals/${eval_id}/runs/${run_id}/output_items/${outputItemID}`, options);
+		return this._client.get(path`/evals/${eval_id}/runs/${run_id}/output_items/${outputItemID}`, options);
 	}
 	/**
 	* Get a list of output items for an evaluation run.
 	*/
 	list(runID, params, options) {
 		const { eval_id, ...query } = params;
-		return this._client.getAPIList(path$1`/evals/${eval_id}/runs/${runID}/output_items`, CursorPage, {
+		return this._client.getAPIList(path`/evals/${eval_id}/runs/${runID}/output_items`, CursorPage, {
 			query,
 			...options
 		});
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/evals/runs/runs.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/evals/runs/runs.mjs
 /**
 * Manage and run evals in the OpenAI platform.
 */
@@ -4325,7 +4490,7 @@ var Runs = class extends APIResource {
 	* schema specified in the config of the evaluation.
 	*/
 	create(evalID, body, options) {
-		return this._client.post(path$1`/evals/${evalID}/runs`, {
+		return this._client.post(path`/evals/${evalID}/runs`, {
 			body,
 			...options
 		});
@@ -4335,13 +4500,13 @@ var Runs = class extends APIResource {
 	*/
 	retrieve(runID, params, options) {
 		const { eval_id } = params;
-		return this._client.get(path$1`/evals/${eval_id}/runs/${runID}`, options);
+		return this._client.get(path`/evals/${eval_id}/runs/${runID}`, options);
 	}
 	/**
 	* Get a list of runs for an evaluation.
 	*/
 	list(evalID, query = {}, options) {
-		return this._client.getAPIList(path$1`/evals/${evalID}/runs`, CursorPage, {
+		return this._client.getAPIList(path`/evals/${evalID}/runs`, CursorPage, {
 			query,
 			...options
 		});
@@ -4351,19 +4516,19 @@ var Runs = class extends APIResource {
 	*/
 	delete(runID, params, options) {
 		const { eval_id } = params;
-		return this._client.delete(path$1`/evals/${eval_id}/runs/${runID}`, options);
+		return this._client.delete(path`/evals/${eval_id}/runs/${runID}`, options);
 	}
 	/**
 	* Cancel an ongoing evaluation run.
 	*/
 	cancel(runID, params, options) {
 		const { eval_id } = params;
-		return this._client.post(path$1`/evals/${eval_id}/runs/${runID}`, options);
+		return this._client.post(path`/evals/${eval_id}/runs/${runID}`, options);
 	}
 };
 Runs.OutputItems = OutputItems;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/evals/evals.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/evals/evals.mjs
 /**
 * Manage and run evals in the OpenAI platform.
 */
@@ -4390,13 +4555,13 @@ var Evals = class extends APIResource {
 	* Get an evaluation by ID.
 	*/
 	retrieve(evalID, options) {
-		return this._client.get(path$1`/evals/${evalID}`, options);
+		return this._client.get(path`/evals/${evalID}`, options);
 	}
 	/**
 	* Update certain properties of an evaluation.
 	*/
 	update(evalID, body, options) {
-		return this._client.post(path$1`/evals/${evalID}`, {
+		return this._client.post(path`/evals/${evalID}`, {
 			body,
 			...options
 		});
@@ -4414,12 +4579,12 @@ var Evals = class extends APIResource {
 	* Delete an evaluation.
 	*/
 	delete(evalID, options) {
-		return this._client.delete(path$1`/evals/${evalID}`, options);
+		return this._client.delete(path`/evals/${evalID}`, options);
 	}
 };
 Evals.Runs = Runs;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/files.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/files.mjs
 /**
 * Files are used to upload documents that can be used with features like Assistants and Fine-tuning.
 */
@@ -4456,7 +4621,7 @@ var Files$1 = class extends APIResource {
 	* Returns information about a specific file.
 	*/
 	retrieve(fileID, options) {
-		return this._client.get(path$1`/files/${fileID}`, options);
+		return this._client.get(path`/files/${fileID}`, options);
 	}
 	/**
 	* Returns a list of files.
@@ -4471,13 +4636,13 @@ var Files$1 = class extends APIResource {
 	* Delete a file and remove it from all vector stores.
 	*/
 	delete(fileID, options) {
-		return this._client.delete(path$1`/files/${fileID}`, options);
+		return this._client.delete(path`/files/${fileID}`, options);
 	}
 	/**
 	* Returns the contents of the specified file.
 	*/
 	content(fileID, options) {
-		return this._client.get(path$1`/files/${fileID}/content`, {
+		return this._client.get(path`/files/${fileID}/content`, {
 			...options,
 			headers: buildHeaders([{ Accept: "application/binary" }, options?.headers]),
 			__binaryResponse: true
@@ -4503,10 +4668,10 @@ var Files$1 = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/fine-tuning/methods.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/fine-tuning/methods.mjs
 var Methods = class extends APIResource {};
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/fine-tuning/alpha/graders.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/fine-tuning/alpha/graders.mjs
 /**
 * Manage fine-tuning jobs to tailor a model to your specific training data.
 */
@@ -4559,7 +4724,7 @@ var Graders$1 = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/fine-tuning/alpha/alpha.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/fine-tuning/alpha/alpha.mjs
 var Alpha = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -4568,7 +4733,7 @@ var Alpha = class extends APIResource {
 };
 Alpha.Graders = Graders$1;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/fine-tuning/checkpoints/permissions.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/fine-tuning/checkpoints/permissions.mjs
 /**
 * Manage fine-tuning jobs to tailor a model to your specific training data.
 */
@@ -4591,7 +4756,7 @@ var Permissions = class extends APIResource {
 	* ```
 	*/
 	create(fineTunedModelCheckpoint, body, options) {
-		return this._client.getAPIList(path$1`/fine_tuning/checkpoints/${fineTunedModelCheckpoint}/permissions`, Page, {
+		return this._client.getAPIList(path`/fine_tuning/checkpoints/${fineTunedModelCheckpoint}/permissions`, Page, {
 			body,
 			method: "post",
 			...options
@@ -4606,7 +4771,7 @@ var Permissions = class extends APIResource {
 	* @deprecated Retrieve is deprecated. Please swap to the paginated list method instead.
 	*/
 	retrieve(fineTunedModelCheckpoint, query = {}, options) {
-		return this._client.get(path$1`/fine_tuning/checkpoints/${fineTunedModelCheckpoint}/permissions`, {
+		return this._client.get(path`/fine_tuning/checkpoints/${fineTunedModelCheckpoint}/permissions`, {
 			query,
 			...options
 		});
@@ -4628,7 +4793,7 @@ var Permissions = class extends APIResource {
 	* ```
 	*/
 	list(fineTunedModelCheckpoint, query = {}, options) {
-		return this._client.getAPIList(path$1`/fine_tuning/checkpoints/${fineTunedModelCheckpoint}/permissions`, ConversationCursorPage, {
+		return this._client.getAPIList(path`/fine_tuning/checkpoints/${fineTunedModelCheckpoint}/permissions`, ConversationCursorPage, {
 			query,
 			...options
 		});
@@ -4653,11 +4818,11 @@ var Permissions = class extends APIResource {
 	*/
 	delete(permissionID, params, options) {
 		const { fine_tuned_model_checkpoint } = params;
-		return this._client.delete(path$1`/fine_tuning/checkpoints/${fine_tuned_model_checkpoint}/permissions/${permissionID}`, options);
+		return this._client.delete(path`/fine_tuning/checkpoints/${fine_tuned_model_checkpoint}/permissions/${permissionID}`, options);
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/fine-tuning/checkpoints/checkpoints.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/fine-tuning/checkpoints/checkpoints.mjs
 var Checkpoints$1 = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -4666,7 +4831,7 @@ var Checkpoints$1 = class extends APIResource {
 };
 Checkpoints$1.Permissions = Permissions;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/fine-tuning/jobs/checkpoints.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/fine-tuning/jobs/checkpoints.mjs
 /**
 * Manage fine-tuning jobs to tailor a model to your specific training data.
 */
@@ -4685,14 +4850,14 @@ var Checkpoints = class extends APIResource {
 	* ```
 	*/
 	list(fineTuningJobID, query = {}, options) {
-		return this._client.getAPIList(path$1`/fine_tuning/jobs/${fineTuningJobID}/checkpoints`, CursorPage, {
+		return this._client.getAPIList(path`/fine_tuning/jobs/${fineTuningJobID}/checkpoints`, CursorPage, {
 			query,
 			...options
 		});
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/fine-tuning/jobs/jobs.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/fine-tuning/jobs/jobs.mjs
 /**
 * Manage fine-tuning jobs to tailor a model to your specific training data.
 */
@@ -4737,7 +4902,7 @@ var Jobs = class extends APIResource {
 	* ```
 	*/
 	retrieve(fineTuningJobID, options) {
-		return this._client.get(path$1`/fine_tuning/jobs/${fineTuningJobID}`, options);
+		return this._client.get(path`/fine_tuning/jobs/${fineTuningJobID}`, options);
 	}
 	/**
 	* List your organization's fine-tuning jobs
@@ -4767,7 +4932,7 @@ var Jobs = class extends APIResource {
 	* ```
 	*/
 	cancel(fineTuningJobID, options) {
-		return this._client.post(path$1`/fine_tuning/jobs/${fineTuningJobID}/cancel`, options);
+		return this._client.post(path`/fine_tuning/jobs/${fineTuningJobID}/cancel`, options);
 	}
 	/**
 	* Get status updates for a fine-tuning job.
@@ -4783,7 +4948,7 @@ var Jobs = class extends APIResource {
 	* ```
 	*/
 	listEvents(fineTuningJobID, query = {}, options) {
-		return this._client.getAPIList(path$1`/fine_tuning/jobs/${fineTuningJobID}/events`, CursorPage, {
+		return this._client.getAPIList(path`/fine_tuning/jobs/${fineTuningJobID}/events`, CursorPage, {
 			query,
 			...options
 		});
@@ -4799,7 +4964,7 @@ var Jobs = class extends APIResource {
 	* ```
 	*/
 	pause(fineTuningJobID, options) {
-		return this._client.post(path$1`/fine_tuning/jobs/${fineTuningJobID}/pause`, options);
+		return this._client.post(path`/fine_tuning/jobs/${fineTuningJobID}/pause`, options);
 	}
 	/**
 	* Resume a fine-tune job.
@@ -4812,12 +4977,12 @@ var Jobs = class extends APIResource {
 	* ```
 	*/
 	resume(fineTuningJobID, options) {
-		return this._client.post(path$1`/fine_tuning/jobs/${fineTuningJobID}/resume`, options);
+		return this._client.post(path`/fine_tuning/jobs/${fineTuningJobID}/resume`, options);
 	}
 };
 Jobs.Checkpoints = Checkpoints;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/fine-tuning/fine-tuning.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/fine-tuning/fine-tuning.mjs
 var FineTuning = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -4832,10 +4997,10 @@ FineTuning.Jobs = Jobs;
 FineTuning.Checkpoints = Checkpoints$1;
 FineTuning.Alpha = Alpha;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/graders/grader-models.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/graders/grader-models.mjs
 var GraderModels = class extends APIResource {};
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/graders/graders.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/graders/graders.mjs
 var Graders = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -4844,7 +5009,7 @@ var Graders = class extends APIResource {
 };
 Graders.GraderModels = GraderModels;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/images.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/images.mjs
 /**
 * Given a prompt and/or an input image, the model will generate a new image.
 */
@@ -4881,7 +5046,7 @@ var Images = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/models.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/models.mjs
 /**
 * List and describe the various models available in the API.
 */
@@ -4891,7 +5056,7 @@ var Models = class extends APIResource {
 	* the owner and permissioning.
 	*/
 	retrieve(model, options) {
-		return this._client.get(path$1`/models/${model}`, options);
+		return this._client.get(path`/models/${model}`, options);
 	}
 	/**
 	* Lists the currently available models, and provides basic information about each
@@ -4905,11 +5070,11 @@ var Models = class extends APIResource {
 	* delete a model.
 	*/
 	delete(model, options) {
-		return this._client.delete(path$1`/models/${model}`, options);
+		return this._client.delete(path`/models/${model}`, options);
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/moderations.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/moderations.mjs
 /**
 * Given text and/or image inputs, classifies if those inputs are potentially harmful.
 */
@@ -4926,7 +5091,7 @@ var Moderations = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/realtime/calls.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/realtime/calls.mjs
 var Calls = class extends APIResource {
 	/**
 	* Accept an incoming SIP call and configure the realtime session that will handle
@@ -4940,7 +5105,7 @@ var Calls = class extends APIResource {
 	* ```
 	*/
 	accept(callID, body, options) {
-		return this._client.post(path$1`/realtime/calls/${callID}/accept`, {
+		return this._client.post(path`/realtime/calls/${callID}/accept`, {
 			body,
 			...options,
 			headers: buildHeaders([{ Accept: "*/*" }, options?.headers])
@@ -4955,7 +5120,7 @@ var Calls = class extends APIResource {
 	* ```
 	*/
 	hangup(callID, options) {
-		return this._client.post(path$1`/realtime/calls/${callID}/hangup`, {
+		return this._client.post(path`/realtime/calls/${callID}/hangup`, {
 			...options,
 			headers: buildHeaders([{ Accept: "*/*" }, options?.headers])
 		});
@@ -4971,7 +5136,7 @@ var Calls = class extends APIResource {
 	* ```
 	*/
 	refer(callID, body, options) {
-		return this._client.post(path$1`/realtime/calls/${callID}/refer`, {
+		return this._client.post(path`/realtime/calls/${callID}/refer`, {
 			body,
 			...options,
 			headers: buildHeaders([{ Accept: "*/*" }, options?.headers])
@@ -4986,7 +5151,7 @@ var Calls = class extends APIResource {
 	* ```
 	*/
 	reject(callID, body = {}, options) {
-		return this._client.post(path$1`/realtime/calls/${callID}/reject`, {
+		return this._client.post(path`/realtime/calls/${callID}/reject`, {
 			body,
 			...options,
 			headers: buildHeaders([{ Accept: "*/*" }, options?.headers])
@@ -4994,7 +5159,7 @@ var Calls = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/realtime/client-secrets.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/realtime/client-secrets.mjs
 var ClientSecrets = class extends APIResource {
 	/**
 	* Create a Realtime client secret with an associated session configuration.
@@ -5027,7 +5192,7 @@ var ClientSecrets = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/realtime/realtime.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/realtime/realtime.mjs
 var Realtime = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -5038,7 +5203,7 @@ var Realtime = class extends APIResource {
 Realtime.ClientSecrets = ClientSecrets;
 Realtime.Calls = Calls;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/lib/ResponsesParser.mjs
+//#region extensions/memory-lancedb/node_modules/openai/lib/ResponsesParser.mjs
 function maybeParseResponse(response, params) {
 	if (!params || !hasAutoParseableInput(params)) return {
 		...response,
@@ -5127,7 +5292,7 @@ function addOutputText(rsp) {
 	rsp.output_text = texts.join("");
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/lib/responses/ResponseStream.mjs
+//#region extensions/memory-lancedb/node_modules/openai/lib/responses/ResponseStream.mjs
 var _ResponseStream_instances, _ResponseStream_params, _ResponseStream_currentResponseSnapshot, _ResponseStream_finalResponse, _ResponseStream_beginRequest, _ResponseStream_addEvent, _ResponseStream_endRequest, _ResponseStream_accumulateResponse;
 var ResponseStream = class ResponseStream extends EventStream {
 	constructor(params) {
@@ -5350,7 +5515,7 @@ function finalizeResponse(snapshot, params) {
 	return maybeParseResponse(snapshot, params);
 }
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/responses/input-items.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/responses/input-items.mjs
 var InputItems = class extends APIResource {
 	/**
 	* Returns a list of input items for a given response.
@@ -5366,14 +5531,14 @@ var InputItems = class extends APIResource {
 	* ```
 	*/
 	list(responseID, query = {}, options) {
-		return this._client.getAPIList(path$1`/responses/${responseID}/input_items`, CursorPage, {
+		return this._client.getAPIList(path`/responses/${responseID}/input_items`, CursorPage, {
 			query,
 			...options
 		});
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/responses/input-tokens.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/responses/input-tokens.mjs
 var InputTokens = class extends APIResource {
 	/**
 	* Returns input token counts of the request.
@@ -5394,7 +5559,7 @@ var InputTokens = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/responses/responses.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/responses/responses.mjs
 var Responses = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -5412,7 +5577,7 @@ var Responses = class extends APIResource {
 		});
 	}
 	retrieve(responseID, query = {}, options) {
-		return this._client.get(path$1`/responses/${responseID}`, {
+		return this._client.get(path`/responses/${responseID}`, {
 			query,
 			...options,
 			stream: query?.stream ?? false
@@ -5432,7 +5597,7 @@ var Responses = class extends APIResource {
 	* ```
 	*/
 	delete(responseID, options) {
-		return this._client.delete(path$1`/responses/${responseID}`, {
+		return this._client.delete(path`/responses/${responseID}`, {
 			...options,
 			headers: buildHeaders([{ Accept: "*/*" }, options?.headers])
 		});
@@ -5459,7 +5624,7 @@ var Responses = class extends APIResource {
 	* ```
 	*/
 	cancel(responseID, options) {
-		return this._client.post(path$1`/responses/${responseID}/cancel`, options);
+		return this._client.post(path`/responses/${responseID}/cancel`, options);
 	}
 	/**
 	* Compact a conversation. Returns a compacted response object.
@@ -5486,13 +5651,13 @@ var Responses = class extends APIResource {
 Responses.InputItems = InputItems;
 Responses.InputTokens = InputTokens;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/skills/content.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/skills/content.mjs
 var Content$1 = class extends APIResource {
 	/**
 	* Download a skill zip bundle by its ID.
 	*/
 	retrieve(skillID, options) {
-		return this._client.get(path$1`/skills/${skillID}/content`, {
+		return this._client.get(path`/skills/${skillID}/content`, {
 			...options,
 			headers: buildHeaders([{ Accept: "application/binary" }, options?.headers]),
 			__binaryResponse: true
@@ -5500,14 +5665,14 @@ var Content$1 = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/skills/versions/content.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/skills/versions/content.mjs
 var Content = class extends APIResource {
 	/**
 	* Download a skill version zip bundle.
 	*/
 	retrieve(version, params, options) {
 		const { skill_id } = params;
-		return this._client.get(path$1`/skills/${skill_id}/versions/${version}/content`, {
+		return this._client.get(path`/skills/${skill_id}/versions/${version}/content`, {
 			...options,
 			headers: buildHeaders([{ Accept: "application/binary" }, options?.headers]),
 			__binaryResponse: true
@@ -5515,7 +5680,7 @@ var Content = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/skills/versions/versions.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/skills/versions/versions.mjs
 var Versions = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -5525,7 +5690,7 @@ var Versions = class extends APIResource {
 	* Create a new immutable skill version.
 	*/
 	create(skillID, body = {}, options) {
-		return this._client.post(path$1`/skills/${skillID}/versions`, maybeMultipartFormRequestOptions({
+		return this._client.post(path`/skills/${skillID}/versions`, maybeMultipartFormRequestOptions({
 			body,
 			...options
 		}, this._client));
@@ -5535,13 +5700,13 @@ var Versions = class extends APIResource {
 	*/
 	retrieve(version, params, options) {
 		const { skill_id } = params;
-		return this._client.get(path$1`/skills/${skill_id}/versions/${version}`, options);
+		return this._client.get(path`/skills/${skill_id}/versions/${version}`, options);
 	}
 	/**
 	* List skill versions for a skill.
 	*/
 	list(skillID, query = {}, options) {
-		return this._client.getAPIList(path$1`/skills/${skillID}/versions`, CursorPage, {
+		return this._client.getAPIList(path`/skills/${skillID}/versions`, CursorPage, {
 			query,
 			...options
 		});
@@ -5551,12 +5716,12 @@ var Versions = class extends APIResource {
 	*/
 	delete(version, params, options) {
 		const { skill_id } = params;
-		return this._client.delete(path$1`/skills/${skill_id}/versions/${version}`, options);
+		return this._client.delete(path`/skills/${skill_id}/versions/${version}`, options);
 	}
 };
 Versions.Content = Content;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/skills/skills.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/skills/skills.mjs
 var Skills = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -5576,13 +5741,13 @@ var Skills = class extends APIResource {
 	* Get a skill by its ID.
 	*/
 	retrieve(skillID, options) {
-		return this._client.get(path$1`/skills/${skillID}`, options);
+		return this._client.get(path`/skills/${skillID}`, options);
 	}
 	/**
 	* Update the default version pointer for a skill.
 	*/
 	update(skillID, body, options) {
-		return this._client.post(path$1`/skills/${skillID}`, {
+		return this._client.post(path`/skills/${skillID}`, {
 			body,
 			...options
 		});
@@ -5600,13 +5765,13 @@ var Skills = class extends APIResource {
 	* Delete a skill by its ID.
 	*/
 	delete(skillID, options) {
-		return this._client.delete(path$1`/skills/${skillID}`, options);
+		return this._client.delete(path`/skills/${skillID}`, options);
 	}
 };
 Skills.Content = Content$1;
 Skills.Versions = Versions;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/uploads/parts.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/uploads/parts.mjs
 /**
 * Use Uploads to upload large files in multiple parts.
 */
@@ -5625,14 +5790,14 @@ var Parts = class extends APIResource {
 	* [complete the Upload](https://platform.openai.com/docs/api-reference/uploads/complete).
 	*/
 	create(uploadID, body, options) {
-		return this._client.post(path$1`/uploads/${uploadID}/parts`, multipartFormRequestOptions({
+		return this._client.post(path`/uploads/${uploadID}/parts`, multipartFormRequestOptions({
 			body,
 			...options
 		}, this._client));
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/uploads/uploads.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/uploads/uploads.mjs
 /**
 * Use Uploads to upload large files in multiple parts.
 */
@@ -5676,7 +5841,7 @@ var Uploads = class extends APIResource {
 	* Returns the Upload object with status `cancelled`.
 	*/
 	cancel(uploadID, options) {
-		return this._client.post(path$1`/uploads/${uploadID}/cancel`, options);
+		return this._client.post(path`/uploads/${uploadID}/cancel`, options);
 	}
 	/**
 	* Completes the
@@ -5696,7 +5861,7 @@ var Uploads = class extends APIResource {
 	* object.
 	*/
 	complete(uploadID, body, options) {
-		return this._client.post(path$1`/uploads/${uploadID}/complete`, {
+		return this._client.post(path`/uploads/${uploadID}/complete`, {
 			body,
 			...options
 		});
@@ -5704,7 +5869,7 @@ var Uploads = class extends APIResource {
 };
 Uploads.Parts = Parts;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/lib/Util.mjs
+//#region extensions/memory-lancedb/node_modules/openai/lib/Util.mjs
 /**
 * Like `Promise.allSettled()` but throws an error if any promises are rejected.
 */
@@ -5720,13 +5885,13 @@ const allSettledWithThrow = async (promises) => {
 	return values;
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/vector-stores/file-batches.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/vector-stores/file-batches.mjs
 var FileBatches = class extends APIResource {
 	/**
 	* Create a vector store file batch.
 	*/
 	create(vectorStoreID, body, options) {
-		return this._client.post(path$1`/vector_stores/${vectorStoreID}/file_batches`, {
+		return this._client.post(path`/vector_stores/${vectorStoreID}/file_batches`, {
 			body,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -5737,7 +5902,7 @@ var FileBatches = class extends APIResource {
 	*/
 	retrieve(batchID, params, options) {
 		const { vector_store_id } = params;
-		return this._client.get(path$1`/vector_stores/${vector_store_id}/file_batches/${batchID}`, {
+		return this._client.get(path`/vector_stores/${vector_store_id}/file_batches/${batchID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
@@ -5748,7 +5913,7 @@ var FileBatches = class extends APIResource {
 	*/
 	cancel(batchID, params, options) {
 		const { vector_store_id } = params;
-		return this._client.post(path$1`/vector_stores/${vector_store_id}/file_batches/${batchID}/cancel`, {
+		return this._client.post(path`/vector_stores/${vector_store_id}/file_batches/${batchID}/cancel`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
@@ -5765,7 +5930,7 @@ var FileBatches = class extends APIResource {
 	*/
 	listFiles(batchID, params, options) {
 		const { vector_store_id, ...query } = params;
-		return this._client.getAPIList(path$1`/vector_stores/${vector_store_id}/file_batches/${batchID}/files`, CursorPage, {
+		return this._client.getAPIList(path`/vector_stores/${vector_store_id}/file_batches/${batchID}/files`, CursorPage, {
 			query,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -5832,7 +5997,7 @@ var FileBatches = class extends APIResource {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/vector-stores/files.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/vector-stores/files.mjs
 var Files = class extends APIResource {
 	/**
 	* Create a vector store file by attaching a
@@ -5840,7 +6005,7 @@ var Files = class extends APIResource {
 	* [vector store](https://platform.openai.com/docs/api-reference/vector-stores/object).
 	*/
 	create(vectorStoreID, body, options) {
-		return this._client.post(path$1`/vector_stores/${vectorStoreID}/files`, {
+		return this._client.post(path`/vector_stores/${vectorStoreID}/files`, {
 			body,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -5851,7 +6016,7 @@ var Files = class extends APIResource {
 	*/
 	retrieve(fileID, params, options) {
 		const { vector_store_id } = params;
-		return this._client.get(path$1`/vector_stores/${vector_store_id}/files/${fileID}`, {
+		return this._client.get(path`/vector_stores/${vector_store_id}/files/${fileID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
@@ -5861,7 +6026,7 @@ var Files = class extends APIResource {
 	*/
 	update(fileID, params, options) {
 		const { vector_store_id, ...body } = params;
-		return this._client.post(path$1`/vector_stores/${vector_store_id}/files/${fileID}`, {
+		return this._client.post(path`/vector_stores/${vector_store_id}/files/${fileID}`, {
 			body,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -5871,7 +6036,7 @@ var Files = class extends APIResource {
 	* Returns a list of vector store files.
 	*/
 	list(vectorStoreID, query = {}, options) {
-		return this._client.getAPIList(path$1`/vector_stores/${vectorStoreID}/files`, CursorPage, {
+		return this._client.getAPIList(path`/vector_stores/${vectorStoreID}/files`, CursorPage, {
 			query,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -5885,7 +6050,7 @@ var Files = class extends APIResource {
 	*/
 	delete(fileID, params, options) {
 		const { vector_store_id } = params;
-		return this._client.delete(path$1`/vector_stores/${vector_store_id}/files/${fileID}`, {
+		return this._client.delete(path`/vector_stores/${vector_store_id}/files/${fileID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
@@ -5957,14 +6122,14 @@ var Files = class extends APIResource {
 	*/
 	content(fileID, params, options) {
 		const { vector_store_id } = params;
-		return this._client.getAPIList(path$1`/vector_stores/${vector_store_id}/files/${fileID}/content`, Page, {
+		return this._client.getAPIList(path`/vector_stores/${vector_store_id}/files/${fileID}/content`, Page, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/vector-stores/vector-stores.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/vector-stores/vector-stores.mjs
 var VectorStores = class extends APIResource {
 	constructor() {
 		super(...arguments);
@@ -5985,7 +6150,7 @@ var VectorStores = class extends APIResource {
 	* Retrieves a vector store.
 	*/
 	retrieve(vectorStoreID, options) {
-		return this._client.get(path$1`/vector_stores/${vectorStoreID}`, {
+		return this._client.get(path`/vector_stores/${vectorStoreID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
@@ -5994,7 +6159,7 @@ var VectorStores = class extends APIResource {
 	* Modifies a vector store.
 	*/
 	update(vectorStoreID, body, options) {
-		return this._client.post(path$1`/vector_stores/${vectorStoreID}`, {
+		return this._client.post(path`/vector_stores/${vectorStoreID}`, {
 			body,
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
@@ -6014,7 +6179,7 @@ var VectorStores = class extends APIResource {
 	* Delete a vector store.
 	*/
 	delete(vectorStoreID, options) {
-		return this._client.delete(path$1`/vector_stores/${vectorStoreID}`, {
+		return this._client.delete(path`/vector_stores/${vectorStoreID}`, {
 			...options,
 			headers: buildHeaders([{ "OpenAI-Beta": "assistants=v2" }, options?.headers])
 		});
@@ -6024,7 +6189,7 @@ var VectorStores = class extends APIResource {
 	* filter.
 	*/
 	search(vectorStoreID, body, options) {
-		return this._client.getAPIList(path$1`/vector_stores/${vectorStoreID}/search`, Page, {
+		return this._client.getAPIList(path`/vector_stores/${vectorStoreID}/search`, Page, {
 			body,
 			method: "post",
 			...options,
@@ -6035,7 +6200,7 @@ var VectorStores = class extends APIResource {
 VectorStores.Files = Files;
 VectorStores.FileBatches = FileBatches;
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/videos.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/videos.mjs
 var Videos = class extends APIResource {
 	/**
 	* Create a new video generation job from a prompt and optional reference assets.
@@ -6050,7 +6215,7 @@ var Videos = class extends APIResource {
 	* Fetch the latest metadata for a generated video.
 	*/
 	retrieve(videoID, options) {
-		return this._client.get(path$1`/videos/${videoID}`, options);
+		return this._client.get(path`/videos/${videoID}`, options);
 	}
 	/**
 	* List recently generated videos for the current project.
@@ -6065,7 +6230,7 @@ var Videos = class extends APIResource {
 	* Permanently delete a completed or failed video and its stored assets.
 	*/
 	delete(videoID, options) {
-		return this._client.delete(path$1`/videos/${videoID}`, options);
+		return this._client.delete(path`/videos/${videoID}`, options);
 	}
 	/**
 	* Create a character from an uploaded video.
@@ -6082,7 +6247,7 @@ var Videos = class extends APIResource {
 	* Streams the rendered video content for the specified video job.
 	*/
 	downloadContent(videoID, query = {}, options) {
-		return this._client.get(path$1`/videos/${videoID}/content`, {
+		return this._client.get(path`/videos/${videoID}/content`, {
 			query,
 			...options,
 			headers: buildHeaders([{ Accept: "application/binary" }, options?.headers]),
@@ -6112,20 +6277,20 @@ var Videos = class extends APIResource {
 	* Fetch a character.
 	*/
 	getCharacter(characterID, options) {
-		return this._client.get(path$1`/videos/characters/${characterID}`, options);
+		return this._client.get(path`/videos/characters/${characterID}`, options);
 	}
 	/**
 	* Create a remix of a completed video using a refreshed prompt.
 	*/
 	remix(videoID, body, options) {
-		return this._client.post(path$1`/videos/${videoID}/remix`, maybeMultipartFormRequestOptions({
+		return this._client.post(path`/videos/${videoID}/remix`, maybeMultipartFormRequestOptions({
 			body,
 			...options
 		}, this._client));
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/resources/webhooks/webhooks.mjs
+//#region extensions/memory-lancedb/node_modules/openai/resources/webhooks/webhooks.mjs
 var _Webhooks_instances, _Webhooks_validateSecret, _Webhooks_getRequiredHeader;
 var Webhooks = class extends APIResource {
 	constructor() {
@@ -6186,7 +6351,7 @@ _Webhooks_instances = /* @__PURE__ */ new WeakSet(), _Webhooks_validateSecret = 
 	return value;
 };
 //#endregion
-//#region node_modules/.pnpm/openai@6.32.0_ws@8.19.0_zod@4.3.6/node_modules/openai/client.mjs
+//#region extensions/memory-lancedb/node_modules/openai/client.mjs
 var _OpenAI_instances, _a, _OpenAI_encoder, _OpenAI_baseURLOverridden;
 /**
 * API Client for interfacing with the OpenAI API.
@@ -6683,139 +6848,6 @@ OpenAI.Containers = Containers;
 OpenAI.Skills = Skills;
 OpenAI.Videos = Videos;
 //#endregion
-//#region extensions/memory-lancedb/config.ts
-const MEMORY_CATEGORIES = [
-	"preference",
-	"fact",
-	"decision",
-	"entity",
-	"other"
-];
-const DEFAULT_MODEL = "text-embedding-3-small";
-const LEGACY_STATE_DIRS = [];
-function resolveDefaultDbPath() {
-	const home = homedir();
-	const preferred = join(home, ".openclaw", "memory", "lancedb");
-	try {
-		if (fs.existsSync(preferred)) return preferred;
-	} catch {}
-	for (const legacy of LEGACY_STATE_DIRS) {
-		const candidate = join(home, legacy, "memory", "lancedb");
-		try {
-			if (fs.existsSync(candidate)) return candidate;
-		} catch {}
-	}
-	return preferred;
-}
-const DEFAULT_DB_PATH = resolveDefaultDbPath();
-const EMBEDDING_DIMENSIONS = {
-	"text-embedding-3-small": 1536,
-	"text-embedding-3-large": 3072
-};
-function assertAllowedKeys(value, allowed, label) {
-	const unknown = Object.keys(value).filter((key) => !allowed.includes(key));
-	if (unknown.length === 0) return;
-	throw new Error(`${label} has unknown keys: ${unknown.join(", ")}`);
-}
-function vectorDimsForModel(model) {
-	const dims = EMBEDDING_DIMENSIONS[model];
-	if (!dims) throw new Error(`Unsupported embedding model: ${model}`);
-	return dims;
-}
-function resolveEnvVars(value) {
-	return value.replace(/\$\{([^}]+)\}/g, (_, envVar) => {
-		const envValue = process.env[envVar];
-		if (!envValue) throw new Error(`Environment variable ${envVar} is not set`);
-		return envValue;
-	});
-}
-function resolveEmbeddingModel(embedding) {
-	const model = typeof embedding.model === "string" ? embedding.model : DEFAULT_MODEL;
-	if (typeof embedding.dimensions !== "number") vectorDimsForModel(model);
-	return model;
-}
-const memoryConfigSchema = {
-	parse(value) {
-		if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("memory config required");
-		const cfg = value;
-		assertAllowedKeys(cfg, [
-			"embedding",
-			"dbPath",
-			"autoCapture",
-			"autoRecall",
-			"captureMaxChars"
-		], "memory config");
-		const embedding = cfg.embedding;
-		if (!embedding || typeof embedding.apiKey !== "string") throw new Error("embedding.apiKey is required");
-		assertAllowedKeys(embedding, [
-			"apiKey",
-			"model",
-			"baseUrl",
-			"dimensions"
-		], "embedding config");
-		const model = resolveEmbeddingModel(embedding);
-		const captureMaxChars = typeof cfg.captureMaxChars === "number" ? Math.floor(cfg.captureMaxChars) : void 0;
-		if (typeof captureMaxChars === "number" && (captureMaxChars < 100 || captureMaxChars > 1e4)) throw new Error("captureMaxChars must be between 100 and 10000");
-		return {
-			embedding: {
-				provider: "openai",
-				model,
-				apiKey: resolveEnvVars(embedding.apiKey),
-				baseUrl: typeof embedding.baseUrl === "string" ? resolveEnvVars(embedding.baseUrl) : void 0,
-				dimensions: typeof embedding.dimensions === "number" ? embedding.dimensions : void 0
-			},
-			dbPath: typeof cfg.dbPath === "string" ? cfg.dbPath : DEFAULT_DB_PATH,
-			autoCapture: cfg.autoCapture === true,
-			autoRecall: cfg.autoRecall !== false,
-			captureMaxChars: captureMaxChars ?? 500
-		};
-	},
-	uiHints: {
-		"embedding.apiKey": {
-			label: "OpenAI API Key",
-			sensitive: true,
-			placeholder: "sk-proj-...",
-			help: "API key for OpenAI embeddings (or use ${OPENAI_API_KEY})"
-		},
-		"embedding.baseUrl": {
-			label: "Base URL",
-			placeholder: "https://api.openai.com/v1",
-			help: "Base URL for compatible providers (e.g. http://localhost:11434/v1)",
-			advanced: true
-		},
-		"embedding.dimensions": {
-			label: "Dimensions",
-			placeholder: "1536",
-			help: "Vector dimensions for custom models (required for non-standard models)",
-			advanced: true
-		},
-		"embedding.model": {
-			label: "Embedding Model",
-			placeholder: DEFAULT_MODEL,
-			help: "OpenAI embedding model to use"
-		},
-		dbPath: {
-			label: "Database Path",
-			placeholder: "~/.openclaw/memory/lancedb",
-			advanced: true
-		},
-		autoCapture: {
-			label: "Auto-Capture",
-			help: "Automatically capture important information from conversations"
-		},
-		autoRecall: {
-			label: "Auto-Recall",
-			help: "Automatically inject relevant memories into context"
-		},
-		captureMaxChars: {
-			label: "Capture Max Chars",
-			help: "Maximum message length eligible for auto-capture",
-			advanced: true,
-			placeholder: String(500)
-		}
-	}
-};
-//#endregion
 //#region extensions/memory-lancedb/index.ts
 /**
 * OpenClaw Memory (LanceDB) Plugin
@@ -6824,15 +6856,6 @@ const memoryConfigSchema = {
 * Uses LanceDB for storage and OpenAI for embeddings.
 * Provides seamless auto-recall and auto-capture via lifecycle hooks.
 */
-let lancedbImportPromise = null;
-const loadLanceDB = async () => {
-	if (!lancedbImportPromise) lancedbImportPromise = import("@lancedb/lancedb");
-	try {
-		return await lancedbImportPromise;
-	} catch (err) {
-		throw new Error(`memory-lancedb: failed to load LanceDB. ${String(err)}`, { cause: err });
-	}
-};
 const TABLE_NAME = "memories";
 var MemoryDB = class {
 	constructor(dbPath, vectorDim) {
@@ -6849,7 +6872,7 @@ var MemoryDB = class {
 		return this.initPromise;
 	}
 	async doInitialize() {
-		this.db = await (await loadLanceDB()).connect(this.dbPath);
+		this.db = await (await loadLanceDbModule()).connect(this.dbPath);
 		if ((await this.db.tableNames()).includes(TABLE_NAME)) this.table = await this.db.openTable(TABLE_NAME);
 		else {
 			this.table = await this.db.createTable(TABLE_NAME, [{
@@ -6916,6 +6939,7 @@ var Embeddings = class {
 			input: text
 		};
 		if (this.dimensions) params.dimensions = this.dimensions;
+		ensureGlobalUndiciEnvProxyDispatcher();
 		return (await this.client.embeddings.create(params)).data[0].embedding;
 	}
 };

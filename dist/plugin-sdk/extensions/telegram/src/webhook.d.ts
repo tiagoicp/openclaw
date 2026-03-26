@@ -1,3 +1,4 @@
+import * as grammy from "grammy";
 import type { OpenClawConfig } from "openclaw/plugin-sdk/config-runtime";
 import type { RuntimeEnv } from "openclaw/plugin-sdk/runtime-env";
 export declare function startTelegramWebhook(opts: {
@@ -16,6 +17,6 @@ export declare function startTelegramWebhook(opts: {
     webhookCertPath?: string;
 }): Promise<{
     server: import("node:http").Server<typeof import("node:http").IncomingMessage, typeof import("node:http").ServerResponse>;
-    bot: import("grammy").Bot<import("grammy").Context, import("grammy").Api<import("grammy").RawApi>>;
+    bot: grammy.Bot<grammy.Context, grammy.Api<grammy.RawApi>>;
     stop: () => void;
 }>;

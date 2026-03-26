@@ -1,5 +1,5 @@
-import { resolveThreadBindingIdleTimeoutMs, resolveThreadBindingMaxAgeMs, resolveThreadBindingsEnabled } from "openclaw/plugin-sdk/channel-runtime";
 import type { OpenClawConfig } from "openclaw/plugin-sdk/config-runtime";
+import { resolveThreadBindingIdleTimeoutMs, resolveThreadBindingMaxAgeMs, resolveThreadBindingsEnabled } from "openclaw/plugin-sdk/conversation-runtime";
 export { resolveThreadBindingIdleTimeoutMs, resolveThreadBindingMaxAgeMs, resolveThreadBindingsEnabled, };
 export declare function resolveDiscordThreadBindingIdleTimeoutMs(params: {
     cfg: OpenClawConfig;

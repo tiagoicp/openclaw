@@ -1,5 +1,4 @@
-import { firstDefined } from "openclaw/plugin-sdk/channel-runtime";
-import type { AllowlistMatch } from "openclaw/plugin-sdk/channel-runtime";
+import { firstDefined, type AllowlistMatch } from "openclaw/plugin-sdk/allow-from";
 export type NormalizedAllowFrom = {
     entries: string[];
     hasWildcard: boolean;

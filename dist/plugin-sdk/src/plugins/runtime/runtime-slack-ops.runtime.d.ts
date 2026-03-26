@@ -1,10 +1,4 @@
-import { listSlackDirectoryGroupsLive as listSlackDirectoryGroupsLiveImpl, listSlackDirectoryPeersLive as listSlackDirectoryPeersLiveImpl } from "../../../extensions/slack/runtime-api.js";
-import { monitorSlackProvider as monitorSlackProviderImpl } from "../../../extensions/slack/runtime-api.js";
-import { probeSlack as probeSlackImpl } from "../../../extensions/slack/runtime-api.js";
-import { resolveSlackChannelAllowlist as resolveSlackChannelAllowlistImpl } from "../../../extensions/slack/runtime-api.js";
-import { resolveSlackUserAllowlist as resolveSlackUserAllowlistImpl } from "../../../extensions/slack/runtime-api.js";
-import { sendMessageSlack as sendMessageSlackImpl } from "../../../extensions/slack/runtime-api.js";
-import { handleSlackAction as handleSlackActionImpl } from "../../../extensions/slack/runtime-api.js";
+import { listSlackDirectoryGroupsLive as listSlackDirectoryGroupsLiveImpl, listSlackDirectoryPeersLive as listSlackDirectoryPeersLiveImpl, monitorSlackProvider as monitorSlackProviderImpl, probeSlack as probeSlackImpl, resolveSlackChannelAllowlist as resolveSlackChannelAllowlistImpl, resolveSlackUserAllowlist as resolveSlackUserAllowlistImpl, sendMessageSlack as sendMessageSlackImpl, handleSlackAction as handleSlackActionImpl } from "../../plugin-sdk/slack.js";
 export declare const runtimeSlackOps: {
     listDirectoryGroupsLive: typeof listSlackDirectoryGroupsLiveImpl;
     listDirectoryPeersLive: typeof listSlackDirectoryPeersLiveImpl;

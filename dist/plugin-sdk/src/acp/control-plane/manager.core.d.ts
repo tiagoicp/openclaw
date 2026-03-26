@@ -51,6 +51,10 @@ export declare class AcpSessionManager {
         sessionKey: string;
     }): Promise<AcpSessionRuntimeOptions>;
     runTurn(input: AcpRunTurnInput): Promise<void>;
+    private resolveTurnTimeoutMs;
+    private awaitTurnWithTimeout;
+    private cleanupTimedOutTurn;
+    private awaitCleanupWithGrace;
     cancelSession(params: {
         cfg: OpenClawConfig;
         sessionKey: string;
@@ -77,4 +81,6 @@ export declare class AcpSessionManager {
     private getCachedRuntimeState;
     private setCachedRuntimeState;
     private clearCachedRuntimeState;
+    private clearCachedRuntimeStateIfHandleMatches;
+    private runtimeHandlesMatch;
 }

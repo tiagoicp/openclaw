@@ -1,6 +1,6 @@
 import { type SkillCommandSpec } from "../agents/skills.js";
 import type { OpenClawConfig } from "../config/config.js";
-export declare function listReservedChatSlashCommandNames(extraNames?: string[]): Set<string>;
+export { listReservedChatSlashCommandNames, resolveSkillCommandInvocation, } from "./skill-commands-base.js";
 export declare function listSkillCommandsForWorkspace(params: {
     workspaceDir: string;
     cfg: OpenClawConfig;
@@ -14,11 +14,3 @@ export declare function listSkillCommandsForAgents(params: {
 export declare const __testing: {
     dedupeBySkillName: typeof dedupeBySkillName;
 };
-export declare function resolveSkillCommandInvocation(params: {
-    commandBodyNormalized: string;
-    skillCommands: SkillCommandSpec[];
-}): {
-    command: SkillCommandSpec;
-    args?: string;
-} | null;
-export {};

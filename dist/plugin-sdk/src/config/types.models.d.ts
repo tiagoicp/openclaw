@@ -3,7 +3,7 @@ import type { SecretInput } from "./types.secrets.js";
 export declare const MODEL_APIS: readonly ["openai-completions", "openai-responses", "openai-codex-responses", "anthropic-messages", "google-generative-ai", "github-copilot", "bedrock-converse-stream", "ollama"];
 export type ModelApi = (typeof MODEL_APIS)[number];
 type SupportedOpenAICompatFields = Pick<OpenAICompletionsCompat, "supportsStore" | "supportsDeveloperRole" | "supportsReasoningEffort" | "supportsUsageInStreaming" | "supportsStrictMode" | "maxTokensField" | "requiresToolResultName" | "requiresAssistantAfterToolResult" | "requiresThinkingAsText">;
-type SupportedThinkingFormat = NonNullable<OpenAICompletionsCompat["thinkingFormat"]> | "qwen-chat-template";
+type SupportedThinkingFormat = NonNullable<OpenAICompletionsCompat["thinkingFormat"]> | "openrouter" | "qwen-chat-template";
 export type ModelCompatConfig = SupportedOpenAICompatFields & {
     thinkingFormat?: SupportedThinkingFormat;
     supportsTools?: boolean;

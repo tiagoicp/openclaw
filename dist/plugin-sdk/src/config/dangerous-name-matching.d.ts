@@ -8,5 +8,10 @@ export type ProviderDangerousNameMatchingScope = {
     dangerousNameMatchingEnabled: boolean;
     dangerousFlagPath: string;
 };
+export type DangerousNameMatchingResolverInput = {
+    providerConfig?: DangerousNameMatchingConfig | null | undefined;
+    accountConfig?: DangerousNameMatchingConfig | null | undefined;
+};
 export declare function isDangerousNameMatchingEnabled(config: DangerousNameMatchingConfig | null | undefined): boolean;
+export declare function resolveDangerousNameMatchingEnabled(input: DangerousNameMatchingResolverInput): boolean;
 export declare function collectProviderDangerousNameMatchingScopes(cfg: OpenClawConfig, provider: string): ProviderDangerousNameMatchingScope[];

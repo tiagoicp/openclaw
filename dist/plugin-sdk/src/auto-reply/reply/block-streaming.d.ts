@@ -4,7 +4,7 @@ export type BlockStreamingCoalescing = {
     maxChars: number;
     idleMs: number;
     joiner: string;
-    /** When true, the coalescer flushes the buffer on each enqueue (paragraph-boundary flush). */
+    /** Internal escape hatch for transports that truly need per-enqueue flushing. */
     flushOnEnqueue?: boolean;
 };
 export type BlockStreamingChunking = {
@@ -35,6 +35,4 @@ export declare function resolveBlockStreamingCoalescing(cfg: OpenClawConfig | un
     minChars: number;
     maxChars: number;
     breakPreference: "paragraph" | "newline" | "sentence";
-}, opts?: {
-    chunkMode?: "length" | "newline";
 }): BlockStreamingCoalescing | undefined;

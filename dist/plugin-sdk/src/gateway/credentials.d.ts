@@ -22,7 +22,6 @@ export declare function resolveGatewayCredentialsFromValues(params: {
     configToken?: unknown;
     configPassword?: unknown;
     env?: NodeJS.ProcessEnv;
-    includeLegacyEnv?: boolean;
     tokenPrecedence?: GatewayCredentialPrecedence;
     passwordPrecedence?: GatewayCredentialPrecedence;
 }): ResolvedGatewayCredentials;
@@ -33,7 +32,6 @@ export declare function resolveGatewayCredentialsFromConfig(params: {
     urlOverride?: string;
     urlOverrideSource?: "cli" | "env";
     modeOverride?: GatewayCredentialMode;
-    includeLegacyEnv?: boolean;
     localTokenPrecedence?: GatewayCredentialPrecedence;
     localPasswordPrecedence?: GatewayCredentialPrecedence;
     remoteTokenPrecedence?: GatewayRemoteCredentialPrecedence;

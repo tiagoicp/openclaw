@@ -1,7 +1,7 @@
-import { type NormalizedLocation } from "openclaw/plugin-sdk/channel-runtime";
+import { type NormalizedLocation } from "openclaw/plugin-sdk/channel-inbound";
 import type { OpenClawConfig } from "openclaw/plugin-sdk/config-runtime";
 import type { TelegramDirectConfig, TelegramGroupConfig, TelegramTopicConfig } from "openclaw/plugin-sdk/config-runtime";
-import { type HistoryEntry } from "openclaw/plugin-sdk/reply-runtime";
+import { type HistoryEntry } from "openclaw/plugin-sdk/reply-history";
 import type { NormalizedAllowFrom } from "./bot-access.js";
 import type { TelegramLogger, TelegramMediaRef, TelegramMessageContextOptions } from "./bot-message-context.types.js";
 import type { TelegramContext } from "./bot/types.js";

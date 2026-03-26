@@ -8,12 +8,4 @@ export declare const formatAuthLabel: (auth: {
     label: string;
     source: string;
 }) => string;
-export declare const resolveProfileOverride: (params: {
-    rawProfile?: string;
-    provider: string;
-    cfg: OpenClawConfig;
-    agentDir?: string;
-}) => {
-    profileId?: string;
-    error?: string;
-};
+export { resolveProfileOverride } from "./directive-handling.auth-profile.js";

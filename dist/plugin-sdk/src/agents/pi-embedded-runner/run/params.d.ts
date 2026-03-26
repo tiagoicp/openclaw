@@ -17,6 +17,7 @@ export type ClientToolDefinition = {
         parameters?: Record<string, unknown>;
     };
 };
+export type EmbeddedRunTrigger = "cron" | "heartbeat" | "manual" | "memory" | "overflow" | "user";
 export type RunEmbeddedPiAgentParams = {
     sessionId: string;
     sessionKey?: string;
@@ -24,8 +25,8 @@ export type RunEmbeddedPiAgentParams = {
     messageChannel?: string;
     messageProvider?: string;
     agentAccountId?: string;
-    /** What initiated this agent run: "user", "heartbeat", "cron", or "memory". */
-    trigger?: string;
+    /** What initiated this agent run: "user", "heartbeat", "cron", "memory", "overflow", or "manual". */
+    trigger?: EmbeddedRunTrigger;
     /** Relative workspace path that memory-triggered writes are allowed to append to. */
     memoryFlushWritePath?: string;
     /** Delivery target (e.g. telegram:group:123:topic:456) for topic/thread routing. */

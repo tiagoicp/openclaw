@@ -1,5 +1,8 @@
 import type { OpenClawConfig } from "../config/config.js";
+import { loadConfig, resolveConfigPath, resolveGatewayPort, resolveStateDir } from "../config/config.js";
+import { loadGatewayTlsRuntime } from "../infra/tls/gateway.js";
 import { type GatewayClientMode, type GatewayClientName } from "../utils/message-channel.js";
+import { GatewayClient, type GatewayClientOptions } from "./client.js";
 import { type GatewayCredentialMode, type GatewayCredentialPrecedence, type GatewayRemoteCredentialFallback, type GatewayRemoteCredentialPrecedence } from "./credentials.js";
 import { type OperatorScope } from "./method-scopes.js";
 type CallGatewayBaseOptions = {
@@ -43,6 +46,20 @@ export type GatewayConnectionDetails = {
     remoteFallbackNote?: string;
     message: string;
 };
+declare const defaultCreateGatewayClient: (opts: GatewayClientOptions) => GatewayClient;
+declare const defaultGatewayCallDeps: {
+    createGatewayClient: (opts: GatewayClientOptions) => GatewayClient;
+    loadConfig: typeof loadConfig;
+    resolveGatewayPort: typeof resolveGatewayPort;
+    resolveConfigPath: typeof resolveConfigPath;
+    resolveStateDir: typeof resolveStateDir;
+    loadGatewayTlsRuntime: typeof loadGatewayTlsRuntime;
+};
+export declare const __testing: {
+    setDepsForTests(deps: Partial<typeof defaultGatewayCallDeps> | undefined): void;
+    setCreateGatewayClientForTests(createGatewayClient?: typeof defaultCreateGatewayClient): void;
+    resetDepsForTests(): void;
+};
 export type ExplicitGatewayAuth = {
     token?: string;
     password?: string;
@@ -69,7 +86,6 @@ export declare function resolveGatewayCredentialsWithSecretInputs(params: {
     urlOverrideSource?: "cli" | "env";
     env?: NodeJS.ProcessEnv;
     modeOverride?: GatewayCredentialMode;
-    includeLegacyEnv?: boolean;
     localTokenPrecedence?: GatewayCredentialPrecedence;
     localPasswordPrecedence?: GatewayCredentialPrecedence;
     remoteTokenPrecedence?: GatewayRemoteCredentialPrecedence;

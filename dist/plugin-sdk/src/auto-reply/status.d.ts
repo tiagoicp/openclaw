@@ -1,4 +1,5 @@
 import type { SkillCommandSpec } from "../agents/skills.js";
+import type { EffectiveToolInventoryResult } from "../agents/tools-effective-inventory.js";
 import type { OpenClawConfig } from "../config/config.js";
 import { type SessionEntry, type SessionScope } from "../config/sessions.js";
 import type { MediaUnderstandingDecision } from "../media-understanding/types.js";
@@ -21,6 +22,8 @@ type StatusArgs = {
     config?: OpenClawConfig;
     agent: AgentConfig;
     agentId?: string;
+    runtimeContextTokens?: number;
+    explicitConfiguredContextTokens?: number;
     sessionEntry?: SessionEntry;
     sessionKey?: string;
     parentSessionKey?: string;
@@ -56,6 +59,9 @@ export type CommandsMessageResult = {
     hasNext: boolean;
     hasPrev: boolean;
 };
+export declare function buildToolsMessage(result: EffectiveToolInventoryResult, options?: {
+    verbose?: boolean;
+}): string;
 export declare function buildCommandsMessage(cfg?: OpenClawConfig, skillCommands?: SkillCommandSpec[], options?: CommandsMessageOptions): string;
 export declare function buildCommandsMessagePaginated(cfg?: OpenClawConfig, skillCommands?: SkillCommandSpec[], options?: CommandsMessageOptions): CommandsMessageResult;
 export {};

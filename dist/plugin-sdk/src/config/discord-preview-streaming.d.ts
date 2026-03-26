@@ -6,7 +6,7 @@ export declare function parseStreamingMode(value: unknown): StreamingMode | null
 export declare function parseDiscordPreviewStreamMode(value: unknown): DiscordPreviewStreamMode | null;
 export declare function parseSlackLegacyDraftStreamMode(value: unknown): SlackLegacyDraftStreamMode | null;
 export declare function mapSlackLegacyDraftStreamModeToStreaming(mode: SlackLegacyDraftStreamMode): StreamingMode;
-export declare function mapStreamingModeToSlackLegacyDraftStreamMode(mode: StreamingMode): "replace" | "status_final" | "append";
+export declare function mapStreamingModeToSlackLegacyDraftStreamMode(mode: StreamingMode): "replace" | "append" | "status_final";
 export declare function resolveTelegramPreviewStreamMode(params?: {
     streamMode?: unknown;
     streaming?: unknown;

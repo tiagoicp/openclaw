@@ -14,6 +14,9 @@ export type BoundaryFileOpenResult = {
     reason: BoundaryFileOpenFailureReason;
     error?: unknown;
 };
+export type BoundaryFileOpenFailure = Extract<BoundaryFileOpenResult, {
+    ok: false;
+}>;
 export type OpenBoundaryFileSyncParams = {
     absolutePath: string;
     rootPath: string;
@@ -30,5 +33,11 @@ export type OpenBoundaryFileParams = OpenBoundaryFileSyncParams & {
 };
 export declare function canUseBoundaryFileOpen(ioFs: typeof fs): boolean;
 export declare function openBoundaryFileSync(params: OpenBoundaryFileSyncParams): BoundaryFileOpenResult;
+export declare function matchBoundaryFileOpenFailure<T>(failure: BoundaryFileOpenFailure, handlers: {
+    path?: (failure: BoundaryFileOpenFailure) => T;
+    validation?: (failure: BoundaryFileOpenFailure) => T;
+    io?: (failure: BoundaryFileOpenFailure) => T;
+    fallback: (failure: BoundaryFileOpenFailure) => T;
+}): T;
 export declare function openBoundaryFile(params: OpenBoundaryFileParams): Promise<BoundaryFileOpenResult>;
 export {};

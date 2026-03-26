@@ -9,6 +9,7 @@ type DiscordSendOpts = {
     token?: string;
     accountId?: string;
     mediaUrl?: string;
+    filename?: string;
     mediaLocalRoots?: readonly string[];
     verbose?: boolean;
     rest?: RequestClient;

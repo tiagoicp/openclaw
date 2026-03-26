@@ -10,10 +10,12 @@ export type ChannelConfigUiHint = {
     placeholder?: string;
     itemTemplate?: unknown;
 };
+/** JSON-schema-like config description published by a channel plugin. */
 export type ChannelConfigSchema = {
     schema: Record<string, unknown>;
     uiHints?: Record<string, ChannelConfigUiHint>;
 };
+/** Full capability contract for a native channel plugin. */
 export type ChannelPlugin<ResolvedAccount = any, Probe = unknown, Audit = unknown> = {
     id: ChannelId;
     meta: ChannelMeta;

@@ -1,8 +1,8 @@
 import { z } from "zod";
-export declare const InstallSourceSchema: z.ZodUnion<readonly [z.ZodLiteral<"npm">, z.ZodLiteral<"archive">, z.ZodLiteral<"path">]>;
-export declare const PluginInstallSourceSchema: z.ZodUnion<readonly [z.ZodUnion<readonly [z.ZodLiteral<"npm">, z.ZodLiteral<"archive">, z.ZodLiteral<"path">]>, z.ZodLiteral<"marketplace">]>;
+export declare const InstallSourceSchema: z.ZodUnion<readonly [z.ZodLiteral<"npm">, z.ZodLiteral<"archive">, z.ZodLiteral<"path">, z.ZodLiteral<"clawhub">]>;
+export declare const PluginInstallSourceSchema: z.ZodUnion<readonly [z.ZodUnion<readonly [z.ZodLiteral<"npm">, z.ZodLiteral<"archive">, z.ZodLiteral<"path">, z.ZodLiteral<"clawhub">]>, z.ZodLiteral<"marketplace">]>;
 export declare const InstallRecordShape: {
-    readonly source: z.ZodUnion<readonly [z.ZodLiteral<"npm">, z.ZodLiteral<"archive">, z.ZodLiteral<"path">]>;
+    readonly source: z.ZodUnion<readonly [z.ZodLiteral<"npm">, z.ZodLiteral<"archive">, z.ZodLiteral<"path">, z.ZodLiteral<"clawhub">]>;
     readonly spec: z.ZodOptional<z.ZodString>;
     readonly sourcePath: z.ZodOptional<z.ZodString>;
     readonly installPath: z.ZodOptional<z.ZodString>;
@@ -14,9 +14,13 @@ export declare const InstallRecordShape: {
     readonly shasum: z.ZodOptional<z.ZodString>;
     readonly resolvedAt: z.ZodOptional<z.ZodString>;
     readonly installedAt: z.ZodOptional<z.ZodString>;
+    readonly clawhubUrl: z.ZodOptional<z.ZodString>;
+    readonly clawhubPackage: z.ZodOptional<z.ZodString>;
+    readonly clawhubFamily: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"code-plugin">, z.ZodLiteral<"bundle-plugin">]>>;
+    readonly clawhubChannel: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"official">, z.ZodLiteral<"community">, z.ZodLiteral<"private">]>>;
 };
 export declare const PluginInstallRecordShape: {
-    readonly source: z.ZodUnion<readonly [z.ZodUnion<readonly [z.ZodLiteral<"npm">, z.ZodLiteral<"archive">, z.ZodLiteral<"path">]>, z.ZodLiteral<"marketplace">]>;
+    readonly source: z.ZodUnion<readonly [z.ZodUnion<readonly [z.ZodLiteral<"npm">, z.ZodLiteral<"archive">, z.ZodLiteral<"path">, z.ZodLiteral<"clawhub">]>, z.ZodLiteral<"marketplace">]>;
     readonly marketplaceName: z.ZodOptional<z.ZodString>;
     readonly marketplaceSource: z.ZodOptional<z.ZodString>;
     readonly marketplacePlugin: z.ZodOptional<z.ZodString>;
@@ -31,4 +35,8 @@ export declare const PluginInstallRecordShape: {
     readonly shasum: z.ZodOptional<z.ZodString>;
     readonly resolvedAt: z.ZodOptional<z.ZodString>;
     readonly installedAt: z.ZodOptional<z.ZodString>;
+    readonly clawhubUrl: z.ZodOptional<z.ZodString>;
+    readonly clawhubPackage: z.ZodOptional<z.ZodString>;
+    readonly clawhubFamily: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"code-plugin">, z.ZodLiteral<"bundle-plugin">]>>;
+    readonly clawhubChannel: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"official">, z.ZodLiteral<"community">, z.ZodLiteral<"private">]>>;
 };

@@ -1,6 +1,25 @@
-import { i as resolveWindowsSpawnProgramCandidate, n as materializeWindowsSpawnProgram, t as applyWindowsSpawnProgramPolicy } from "../../windows-spawn-BYBEEc_q.js";
-import { f as listKnownProviderAuthEnvVarNames, i as unregisterAcpRuntimeBackend, m as omitEnvKeysCaseInsensitive, n as registerAcpRuntimeBackend, o as AcpRuntimeError } from "../../registry-D0H7k4Rl.js";
-import "../../acpx-BEcy4jfC.js";
+import "../../env-D1ktUnAV.js";
+import "../../paths-CjuwkA2v.js";
+import "../../safe-text-K2Nonoo3.js";
+import "../../tmp-openclaw-dir-DzRxfh9a.js";
+import "../../theme-BH5F9mlg.js";
+import "../../version-DGzLsBG-.js";
+import "../../zod-schema.agent-runtime-DNndkpI8.js";
+import "../../runtime-BF_KUcJM.js";
+import "../../registry-bOiEdffE.js";
+import "../../ip-ByO4-_4f.js";
+import "../../message-channel-ZzTqBBLH.js";
+import "../../sessions-uRDRs4f-.js";
+import "../../plugins-h0t63KQW.js";
+import "../../paths-BEHCHyAI.js";
+import "../../delivery-context-oynQ_N5k.js";
+import "../../session-write-lock-B7nwE7de.js";
+import { a as omitEnvKeysCaseInsensitive, r as listKnownProviderAuthEnvVarNames } from "../../provider-env-vars-BZwz5sMG.js";
+import { a as registerAcpRuntimeBackend, s as unregisterAcpRuntimeBackend, v as AcpRuntimeError } from "../../manager-BFi-xqLj.js";
+import { a as resolveWindowsSpawnProgramCandidate, n as materializeWindowsSpawnProgram, t as applyWindowsSpawnProgramPolicy } from "../../windows-spawn-Bq0Zcz4F.js";
+import "../../acp-runtime-CRrXx1ZI.js";
+import "../../provider-env-vars-CVFU8toa.js";
+import "../../runtime-api-B-h9FYa8.js";
 import { fileURLToPath } from "node:url";
 import fs, { accessSync, constants, existsSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
@@ -13,7 +32,7 @@ const ACPX_PERMISSION_MODES = [
 	"deny-all"
 ];
 const ACPX_NON_INTERACTIVE_POLICIES = ["deny", "fail"];
-const ACPX_PINNED_VERSION = "0.1.16";
+const ACPX_PINNED_VERSION = "0.3.1";
 const ACPX_BIN_NAME = process.platform === "win32" ? "acpx.cmd" : "acpx";
 function isAcpxPluginRoot(dir) {
 	return fs.existsSync(path.join(dir, "openclaw.plugin.json")) && fs.existsSync(path.join(dir, "package.json"));
@@ -254,13 +273,13 @@ function resolveAcpxPluginConfig(params) {
 	const allowPluginLocalInstall = command === ACPX_BUNDLED_BIN;
 	const stripProviderAuthEnvVars = command === ACPX_BUNDLED_BIN;
 	const configuredExpectedVersion = normalized.expectedVersion;
-	const expectedVersion = configuredExpectedVersion === "any" ? void 0 : configuredExpectedVersion ?? (allowPluginLocalInstall ? "0.1.16" : void 0);
+	const expectedVersion = configuredExpectedVersion === "any" ? void 0 : configuredExpectedVersion ?? (allowPluginLocalInstall ? "0.3.1" : void 0);
 	return {
 		command,
 		expectedVersion,
 		allowPluginLocalInstall,
 		stripProviderAuthEnvVars,
-		installCommand: buildAcpxLocalInstallCommand(expectedVersion ?? "0.1.16"),
+		installCommand: buildAcpxLocalInstallCommand(expectedVersion ?? "0.3.1"),
 		cwd,
 		permissionMode: normalized.permissionMode ?? DEFAULT_PERMISSION_MODE,
 		nonInteractivePermissions: normalized.nonInteractivePermissions ?? DEFAULT_NON_INTERACTIVE_POLICY,
@@ -533,7 +552,7 @@ function resolveVersionCheckResult(params) {
 }
 async function checkAcpxVersion(params) {
 	const expectedVersion = params.expectedVersion?.trim() || void 0;
-	const installCommand = buildAcpxLocalInstallCommand(expectedVersion ?? "0.1.16");
+	const installCommand = buildAcpxLocalInstallCommand(expectedVersion ?? "0.3.1");
 	const cwd = params.cwd ?? ACPX_PLUGIN_ROOT;
 	const hasExpectedVersion = isExpectedVersionConfigured(expectedVersion);
 	const probeArgs = hasExpectedVersion ? ["--version"] : ["--help"];
@@ -613,7 +632,7 @@ async function ensureAcpx(params) {
 	pendingEnsure = (async () => {
 		const pluginRoot = params.pluginRoot ?? ACPX_PLUGIN_ROOT;
 		const expectedVersion = params.expectedVersion?.trim() || void 0;
-		const installVersion = expectedVersion ?? "0.1.16";
+		const installVersion = expectedVersion ?? "0.3.1";
 		const allowInstall = params.allowInstall ?? true;
 		const precheck = await checkAcpxVersion({
 			command: params.command,

@@ -26,7 +26,10 @@ export declare const DEFAULT_MAX_EXTRACTED_BYTES: number;
 /** @internal */
 export declare const DEFAULT_MAX_ENTRY_BYTES: number;
 export declare function resolveArchiveKind(filePath: string): ArchiveKind | null;
-export declare function resolvePackedRootDir(extractDir: string): Promise<string>;
+type ResolvePackedRootDirOptions = {
+    rootMarkers?: string[];
+};
+export declare function resolvePackedRootDir(extractDir: string, options?: ResolvePackedRootDirOptions): Promise<string>;
 export declare function withTimeout<T>(promise: Promise<T>, timeoutMs: number, label: string): Promise<T>;
 export type TarEntryInfo = {
     path: string;

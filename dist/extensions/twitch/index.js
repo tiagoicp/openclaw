@@ -2,141 +2,274 @@ import { o as __toESM, t as __commonJSMin } from "../../chunk-DORXReHP.js";
 import "../../redact-BDinS1q9.js";
 import "../../errors-BxyFnvP3.js";
 import "../../unhandled-rejections-CDJ8dOVP.js";
-import "../../logger-Bisu6sgz.js";
-import "../../paths-D_QmduAc.js";
-import "../../tmp-openclaw-dir-CEAo8CGE.js";
-import "../../theme-Bnch_o1K.js";
-import "../../globals-CnsLPQis.js";
-import "../../subsystem-Dm-AQqmI.js";
-import "../../ansi-BMqrB9En.js";
-import "../../boolean-BgLJTske.js";
-import "../../env-mHZMLTjc.js";
-import "../../warning-filter-m2BbicIr.js";
-import "../../utils-CIAfMgvq.js";
-import "../../links-DtUd3CJi.js";
-import "../../models-config.providers.discovery-CBSen190.js";
-import "../../auth-profiles-C1V2x6_A.js";
-import "../../model-selection-BvgYPMZN.js";
-import "../../agent-scope-BvOTVsJZ.js";
-import "../../boundary-path-BVHzCDEE.js";
-import "../../boundary-file-read-1knRHcS0.js";
-import "../../logger-DcSg74GU.js";
-import "../../exec-Bwz57vWc.js";
-import "../../workspace-C3BQkKrq.js";
-import "../../io-BLrYinYw.js";
-import "../../host-env-security-DRYydSLp.js";
-import "../../safe-text-Bls0e7eh.js";
-import "../../version-BXFMfrjE.js";
-import "../../env-substitution-CCbMWMw3.js";
-import "../../config-state-DxIr_ZFp.js";
-import "../../includes-Babm_gOl.js";
-import "../../zod-schema.providers-core-JSZEvSLs.js";
-import "../../registry-DHFXbGRB.js";
-import "../../manifest-registry-BN97WD1N.js";
-import "../../ip-COVlKUC6.js";
-import "../../zod-schema.channels-CLt0EoyM.js";
-import { m as MarkdownConfigSchema } from "../../zod-schema.core-2nNLrIvV.js";
-import "../../zod-schema.providers-whatsapp-HQNdy-Lo.js";
-import "../../config-BuXmKtbA.js";
-import "../../file-lock-BCRwTnvL.js";
-import "../../audit-fs-CKHUnnaF.js";
-import "../../resolve-OpLtNdHa.js";
-import "../../plugins-allowlist-Dx3qwwff.js";
-import "../../tool-policy-match-DO-I18kG.js";
-import "../../config-DDXUFMD9.js";
-import "../../tailnet-CYknm7bK.js";
-import "../../net-BDAb36NC.js";
-import "../../credentials-Dlg2fw8S.js";
-import "../../routes-D_PnVmld.js";
-import "../../frontmatter-cz9vUzch.js";
-import "../../env-overrides-BvSheZZr.js";
-import "../../path-alias-guards-pxSwQROL.js";
-import "../../sandbox-paths-C2oLsWMS.js";
-import "../../skills-C9qTCwzA.js";
-import "../../ports-DbHCZ217.js";
-import "../../ports-lsof--GPZ_QnB.js";
-import "../../ssh-tunnel-E6I5wsVD.js";
-import "../../proxy-env-TLeMux0w.js";
-import "../../fs-safe-DNTBHVlm.js";
-import "../../mime-BZfENK18.js";
-import "../../image-ops-DsrR0jfa.js";
-import "../../server-middleware-uG2Nzt3c.js";
-import "../../message-channel-YbR1kGoD.js";
-import "../../resolve-route-BKJ_gx17.js";
-import "../../registry-u4-bSC0t.js";
-import "../../plugins-CrRqO64r.js";
-import "../../paths-DkI03UGW.js";
-import { r as buildChannelConfigSchema } from "../../config-schema-SbU9iMOP.js";
-import "../../channel-plugin-common-lL08nJSM.js";
-import "../../directory-runtime-4Kx3Gvfd.js";
-import "../../read-only-account-inspect-BzQtVN0P.js";
-import "../../common-BSZuydpj.js";
-import "../../discord-core-D_7rg7Bl.js";
-import "../../channel-config-helpers-DgtPbGwx.js";
-import "../../channel-policy-DpLpqCrB.js";
-import "../../commands-Ccb6jko6.js";
-import "../../method-scopes-CIPmQDuC.js";
-import "../../session-cost-usage-4I5dS4fe.js";
-import "../../logging-VTZm8jB6.js";
-import "../../runtime-env-C8UxrL-i.js";
-import "../../send-BCFA3Awg.js";
-import "../../state-paths-QS0axAl1.js";
-import "../../cli-runtime-BoYcLS-9.js";
-import "../../routing-CM1q67VT.js";
-import "../../diagnostic-DtQOjD7p.js";
-import "../../text-runtime-DD-uemN_.js";
-import "../../dm-policy-shared-DR-r8JQl.js";
-import { r as defineChannelPluginEntry } from "../../core-DoWJeX1b.js";
-import "../../registry-D0H7k4Rl.js";
-import "../../pairing-store-BqbEmTVQ.js";
-import "../../json-store-BlJH8v0x.js";
-import "../../fetch-guard-r6nhKyr7.js";
-import "../../whatsapp-core-CDBsOcJv.js";
-import "../../hook-runtime-M4GviJQN.js";
-import "../../internal-hooks-jmovcAUX.js";
-import "../../provider-models-mqi97xJa.js";
-import "../../provider-onboard-YZwyyz0l.js";
-import "../../model-definitions-CPk0fx2x.js";
-import "../../call-CuSVmxO6.js";
-import "../../delegate-DZgF1n1_.js";
-import "../../with-timeout-6Mk1JecS.js";
-import "../../multimodal-BZ5nSU8_.js";
-import "../../memory-search-BEee7lTM.js";
-import "../../query-expansion-C5OcnmBU.js";
-import "../../search-manager-B73xZeLt.js";
-import "../../setup-binary-BRNtxkNZ.js";
-import "../../signal-cli-install-CazITAFo.js";
-import "../../identity-file-L2phPATJ.js";
-import "../../command-secret-targets-DoLf7afU.js";
-import "../../pairing-token-D5GBjAVE.js";
-import "../../delivery-queue-B2kD8cNZ.js";
-import "../../external-content-DohesiX3.js";
-import "../../security-runtime-DVVSOOlu.js";
-import "../../telegram-core-BZ7aS5CA.js";
-import "../../audit-HKoXXKMO.js";
-import "../../gateway-runtime-Btluew0E.js";
-import "../../connection-auth-BCwdTkvS.js";
-import "../../config-value-C42C4nMV.js";
-import "../../exec-approvals-CZGtkt6y.js";
-import "../../nodes-screen-DWWnCUAS.js";
-import "../../system-run-command-BnhKEiGR.js";
-import "../../stagger-Ds3EfozT.js";
-import "../../restart-stale-pids-D84WQQ67.js";
-import "../../provider-usage.fetch-Cilv-_i6.js";
-import "../../history-CZuN-T_-.js";
-import "../../channel-summary-DavcDlJH.js";
-import "../../secret-file-C6VA1we_.js";
-import "../../accounts-B1tM8Jyc.js";
-import "../../pairing-labels-CC5WpLtU.js";
-import "../../process-runtime-UwxhzAyo.js";
-import "../../cli-utils-CreDWcAs.js";
-import "../../help-format-zSqk-GrQ.js";
-import "../../progress-D69d44Ic.js";
-import "../../shared-TeMeV5_s.js";
-import { a as missingTargetError, c as DEFAULT_ACCOUNT_ID, i as isAccountConfigured, l as getAccountConfig, n as twitchSetupWizard, o as normalizeToken, r as generateMessageId, s as normalizeTwitchChannel, t as twitchSetupAdapter, u as listAccountIds } from "../../twitch-Dzsnjenm.js";
-import { n as buildPassiveProbedChannelStatusSummary } from "../../channel-status-summary-CbgtDyC-.js";
-import { A as DataObject, B as Enumerable, C as transformTwitchApiResponse, D as HellFreezesOverError, E as extractUserName, F as mapOptional, I as arrayToObject, L as __decorate, M as accessTokenIsExpired, N as promiseWithResolvers, O as rtfm, P as mapNullable, R as __read, S as handleTwitchApiResponseError, T as extractUserId, _ as EventEmitter, a as getClientManager, b as callTwitchApi, c as ChatClient, d as PartitionedTimeBasedRateLimiter, f as RateLimitReachedError, g as StaticAuthProvider, h as require_detect_node, i as stripMarkdownForTwitch, j as rawDataSymbol, k as CustomError, l as CachedGetter, m as createLogger$1, n as setTwitchRuntime, o as removeClientManager, p as CustomError$1, r as chunkTextForTwitch, s as resolveTwitchToken, t as monitorTwitchProvider, u as Cacheable, v as TokenInfo, w as HttpStatusCodeError, x as callTwitchApiRaw, y as InvalidTokenError, z as __spreadArray } from "../../monitor-DRgA4c0O.js";
+import "../../env-D1ktUnAV.js";
+import "../../paths-CjuwkA2v.js";
+import "../../safe-text-K2Nonoo3.js";
+import "../../tmp-openclaw-dir-DzRxfh9a.js";
+import "../../theme-BH5F9mlg.js";
+import "../../version-DGzLsBG-.js";
+import { b as MarkdownConfigSchema } from "../../zod-schema.agent-runtime-DNndkpI8.js";
+import "../../runtime-BF_KUcJM.js";
+import "../../registry-bOiEdffE.js";
+import "../../ip-ByO4-_4f.js";
+import "../../warning-filter-C_BEyyvc.js";
+import { t as formatDocsLink } from "../../links-DaR1j_Bv.js";
+import "../../paths-DJBuCoRE.js";
+import "../../auth-profiles-z_oM_y_O.js";
+import "../../provider-runtime.runtime-BokSGTHt.js";
+import "../../file-lock-Cm3HPowf.js";
+import "../../audit-fs-7IxnGQxG.js";
+import "../../resolve-DqJVzTVp.js";
+import "../../profiles-CRvutsjq.js";
+import "../../tailscale-FHZADwLL.js";
+import "../../tailnet-BPCtbdja.js";
+import "../../net-1LAzWzJc.js";
+import "../../auth-BC0t_CEl.js";
+import "../../credentials-6hokf6e3.js";
+import "../../message-channel-ZzTqBBLH.js";
+import "../../sessions-uRDRs4f-.js";
+import "../../plugins-h0t63KQW.js";
+import "../../paths-BEHCHyAI.js";
+import "../../delivery-context-oynQ_N5k.js";
+import "../../session-write-lock-B7nwE7de.js";
+import "../../method-scopes-DtJfTstv.js";
+import "../../call-CFi2qbI2.js";
+import "../../detect-binary-78pS71eg.js";
+import "../../prompt-style-qxNRcnm3.js";
+import "../../ports-lsof-qBGFcQvX.js";
+import "../../restart-stale-pids-ciXEfnyN.js";
+import "../../ports-DF41F7NN.js";
+import "../../logging-CS4wyI-j.js";
+import "../../commands-AceByDw5.js";
+import "../../issue-format-Cj39YIRp.js";
+import "../../provider-env-vars-BZwz5sMG.js";
+import "../../model-auth-env-BWzx2-YC.js";
+import "../../anthropic-vertex-provider-Cik2BDhe.js";
+import "../../pi-model-discovery-hz4apXP-.js";
+import "../../identity-xGthCqY8.js";
+import "../../heartbeat-DqtPOAC0.js";
+import { ax as defineChannelPluginEntry, ix as createChatChannelPlugin } from "../../pi-embedded-DFNOKLyy.js";
+import "../../internal-hooks-CVdBfFMw.js";
+import "../../multimodal-CDYWira8.js";
+import "../../memory-search-B5CuuJZB.js";
+import { n as describeAccountSnapshot, r as listCombinedAccountIds } from "../../account-helpers-BWWnSyvz.js";
+import "../../secret-input-x2By3bJy.js";
+import "../../bindings-KL-4Efmw.js";
+import "../../resolve-route-C5Xj9lGN.js";
+import "../../routing-DA_79T-X.js";
+import "../../identity-file-ClDAlI0t.js";
+import "../../outbound-runtime-BAxohuIf.js";
+import "../../provider-model-definitions-CrItEa-O.js";
+import "../../provider-models-GbpUTgQg.js";
+import "../../provider-catalog-hDyZGQ8R.js";
+import "../../provider-catalog-0WIhy6f_.js";
+import "../../provider-catalog-CdCrQ7UP.js";
+import "../../provider-catalog-DzIvFdfj.js";
+import "../../provider-catalog-COMYNKV2.js";
+import "../../provider-catalog-Bce8iOMh.js";
+import "../../provider-catalog-CPx35FBq.js";
+import "../../provider-catalog-Czll7Q5-.js";
+import "../../provider-catalog-BFvOY2Dt.js";
+import "../../provider-catalog-VZaye2Ib.js";
+import "../../models-config.providers.discovery-oJl_MWQT.js";
+import "../../text-runtime-B-kOpuLv.js";
+import "../../docker-BrzH-NvE.js";
+import "../../tool-catalog-BQWPAtTb.js";
+import "../../common-CMCEg0LE.js";
+import "../../image-ops-xftchR8Z.js";
+import "../../thinking-Me2S38se.js";
+import "../../path-alias-guards-BfUEa8Z8.js";
+import "../../sandbox-paths-DM85ql27.js";
+import "../../channel-actions-M8UJU-J1.js";
+import "../../mime-Bwp1UQ_8.js";
+import "../../ssrf-BdAu1_OT.js";
+import "../../fetch-guard-BiSGgjb-.js";
+import "../../provider-web-search-B2TRQt7q.js";
+import "../../manager-BFi-xqLj.js";
+import { r as buildChannelConfigSchema } from "../../config-schema-BoeEl_gh.js";
+import "../../channel-plugin-common-Bw5e9GHM.js";
+import { l as createComputedAccountStatusAdapter, u as createDefaultChannelRuntimeState } from "../../status-helpers-DTFg68Zs.js";
+import "../../conversation-runtime-BfLWHgdb.js";
+import "../../runtime-whatsapp-boundary-C0sTsAVN.js";
+import "../../pairing-store-Ci8ZfuL6.js";
+import "../../json-store-Dizz4Rhx.js";
+import { i as createPairingPrefixStripper, r as createLoggedPairingApprovalNotifier } from "../../channel-pairing-C9CFV9DC.js";
+import "../../secret-file-BzdoxKYZ.js";
+import "../../channel-config-schema-DOQ4q6a_.js";
+import "../../setup-binary-Tg8N6z5q.js";
+import "../../archive-Oi0PB5pw.js";
+import "../../fs-safe-DpC9pe80.js";
+import "../../signal-cli-install-pAmdy64m.js";
+import "../../setup-wizard-proxy-3tbzVvIf.js";
+import "../../setup-Cuh8Qocv.js";
+import "../../dm-policy-shared-3Jdbvvlm.js";
+import "../../runtime-env-pWTJLxVn.js";
+import "../../temp-path-DvwSkpQg.js";
+import "../../diagnostic-Dx7wnQab.js";
+import "../../logging-B3tLYQAZ.js";
+import "../../config-runtime-BMqUsOKJ.js";
+import "../../level-overrides-CaIdz1Y2.js";
+import "../../exec-approvals-CoUFlPSg.js";
+import "../../webhook-ingress-CwnvXQ9i.js";
+import "../../system-events-D_U3rn_H.js";
+import "../../ssrf-policy-Cve-f-IZ.js";
+import "../../hook-runtime-C0FQ8mwc.js";
+import "../../templating-BpbUbFSs.js";
+import "../../channel-reply-pipeline-BQ2GND11.js";
+import "../../reply-history-CYr7j6cE.js";
+import "../../commands-registry.data-C-Zb7sHo.js";
+import "../../commands-registry-kALONq2A.js";
+import "../../frontmatter-C_CWb6f1.js";
+import "../../env-overrides-CilRbuhU.js";
+import "../../skills-Xrdxpo0d.js";
+import "../../skills-remote-D055n83h.js";
+import "../../workspace-dirs-BooYyzLb.js";
+import "../../pairing-token-BhzPXbCy.js";
+import "../../skill-commands-X9DVN0CB.js";
+import "../../exec-inline-eval-CAjjj6oR.js";
+import "../../sandbox-DSgCBor-.js";
+import "../../target-registry-CUzd3r6R.js";
+import "../../external-content-BtOAY1jC.js";
+import "../../brave-iyc-zT4j.js";
+import "../../duckduckgo-RnKnjVjk.js";
+import "../../exa-B_PEobTF.js";
+import "../../security-runtime-DuEgVcd_.js";
+import "../../provider-auth-ref-CkjXioxW.js";
+import "../../provider-auth-input-DY2h0M4n.js";
+import "../../provider-auth-helpers-CfaQ5Xn6.js";
+import "../../provider-api-key-auth-Uu86HoCQ.js";
+import "../../provider-usage-D_y-rSPa.js";
+import "../../provider-models-BlbL1wnJ.js";
+import "../../media-understanding-Bo9B_E3l.js";
+import "../../media-understanding-provider-C5e8GFRO.js";
+import "../../provider-entry-Dh6ETIXa.js";
+import "../../media-understanding-provider-Cvthuw62.js";
+import "../../provider-onboard-DmLoftpN.js";
+import "../../onboard-p6odcf1a.js";
+import "../../perplexity-web-search-provider-CBvej2u9.js";
+import "../../perplexity-DVSMCtcT.js";
+import "../../model-definitions-CLlu-y8L.js";
+import "../../onboard-CQyz1Xh9.js";
+import "../../provider-catalog-BbgD0Blc.js";
+import "../../provider-models-CPWTfv6u.js";
+import "../../stream-WNyIq00o.js";
+import "../../web-search-C2bCgEzC.js";
+import "../../client-fetch-DG9t9440.js";
+import "../../config-B6bjVdCF.js";
+import "../../web-media-B7RZCKik.js";
+import "../../stagger-C20Z_jRQ.js";
+import "../../command-secret-targets-CiFc3JN3.js";
+import "../../delivery-queue-iwWmpCz9.js";
+import "../../pairing-labels-PxfGoTvk.js";
+import "../../directory-runtime-D9Y42mW-.js";
+import "../../read-only-account-inspect-f6OlttkD.js";
+import "../../src-hV2aBDoy.js";
+import "../../web-media-C0RRMmtv.js";
+import "../../state-paths-CG7b-A_-.js";
+import "../../axios-zS_oAKS1.js";
+import "../../channel-summary-BE3kiFA7.js";
+import "../../session-system-events-Bkb0fc95.js";
+import "../../ssh-tunnel-Ca8F0wnz.js";
+import "../../server-middleware-DUIlEnG_.js";
+import "../../llm-task-D_W5GYK4.js";
+import "../../tool-policy-match-DgTjuJ-l.js";
+import "../../runtime-DAr9Q1gF.js";
+import "../../channel-status-DxDpNj1k.js";
+import "../../discord-core-CTFa_tPG.js";
+import "../../cli-runtime-CivyfPOe.js";
+import "../../config-presence-Bo4-9YVM.js";
+import "../../query-expansion-CeNhqo71.js";
+import "../../search-manager-BH4BTUaa.js";
+import "../../acp-runtime-CRrXx1ZI.js";
+import "../../telegram-core-n7uYzMlP.js";
+import "../../audit-D7armGfs.js";
+import "../../gateway-runtime-_5BLwTPa.js";
+import "../../connection-auth-DQ6Wy_i-.js";
+import "../../mcp-config-vaYGkUmW.js";
+import "../../channel-setup-CEnQaWOx.js";
+import { n as buildPassiveProbedChannelStatusSummary } from "../../extension-shared-B13Fr8Ps.js";
+import "../../twitch-DVOinvTH.js";
+import "../../runtime-api-BQntM9lj.js";
+import "../../api-BS-yDANX.js";
+import { A as rawDataSymbol, B as generateMessageId, C as HttpStatusCodeError, D as rtfm, E as HellFreezesOverError, F as arrayToObject, G as resolveTwitchToken, H as missingTargetError, I as __decorate, L as __read, M as promiseWithResolvers, N as mapNullable, O as CustomError, P as mapOptional, R as __spreadArray, S as transformTwitchApiResponse, T as extractUserName, U as normalizeToken, V as isAccountConfigured, W as normalizeTwitchChannel, _ as TokenInfo, a as getClientManager, b as callTwitchApiRaw, c as CachedGetter, d as RateLimitReachedError, f as CustomError$1, g as EventEmitter, h as StaticAuthProvider, i as stripMarkdownForTwitch, j as accessTokenIsExpired, k as DataObject, l as Cacheable, m as require_detect_node, n as setTwitchRuntime, o as removeClientManager, p as createLogger$1, r as chunkTextForTwitch, s as ChatClient, t as monitorTwitchProvider, u as PartitionedTimeBasedRateLimiter, v as InvalidTokenError, w as extractUserId, x as handleTwitchApiResponseError, y as callTwitchApi, z as Enumerable } from "../../monitor-n2pFxKX3.js";
 import { z } from "zod";
+//#region extensions/twitch/src/config.ts
+/**
+* Default account ID for Twitch
+*/
+const DEFAULT_ACCOUNT_ID = "default";
+/**
+* Get account config from core config
+*
+* Handles two patterns:
+* 1. Simplified single-account: base-level properties create implicit "default" account
+* 2. Multi-account: explicit accounts object
+*
+* For "default" account, base-level properties take precedence over accounts.default
+* For other accounts, only the accounts object is checked
+*/
+function getAccountConfig(coreConfig, accountId) {
+	if (!coreConfig || typeof coreConfig !== "object") return null;
+	const twitchRaw = coreConfig.channels?.twitch;
+	const accounts = twitchRaw?.accounts;
+	if (accountId === "default") {
+		const accountFromAccounts = accounts?.[DEFAULT_ACCOUNT_ID];
+		const baseLevel = {
+			username: typeof twitchRaw?.username === "string" ? twitchRaw.username : void 0,
+			accessToken: typeof twitchRaw?.accessToken === "string" ? twitchRaw.accessToken : void 0,
+			clientId: typeof twitchRaw?.clientId === "string" ? twitchRaw.clientId : void 0,
+			channel: typeof twitchRaw?.channel === "string" ? twitchRaw.channel : void 0,
+			enabled: typeof twitchRaw?.enabled === "boolean" ? twitchRaw.enabled : void 0,
+			allowFrom: Array.isArray(twitchRaw?.allowFrom) ? twitchRaw.allowFrom : void 0,
+			allowedRoles: Array.isArray(twitchRaw?.allowedRoles) ? twitchRaw.allowedRoles : void 0,
+			requireMention: typeof twitchRaw?.requireMention === "boolean" ? twitchRaw.requireMention : void 0,
+			clientSecret: typeof twitchRaw?.clientSecret === "string" ? twitchRaw.clientSecret : void 0,
+			refreshToken: typeof twitchRaw?.refreshToken === "string" ? twitchRaw.refreshToken : void 0,
+			expiresIn: typeof twitchRaw?.expiresIn === "number" ? twitchRaw.expiresIn : void 0,
+			obtainmentTimestamp: typeof twitchRaw?.obtainmentTimestamp === "number" ? twitchRaw.obtainmentTimestamp : void 0
+		};
+		const merged = {
+			...accountFromAccounts,
+			...baseLevel
+		};
+		if (merged.username) return merged;
+		if (accountFromAccounts) return accountFromAccounts;
+		return null;
+	}
+	if (!accounts || !accounts[accountId]) return null;
+	return accounts[accountId];
+}
+/**
+* List all configured account IDs
+*
+* Includes both explicit accounts and implicit "default" from base-level config
+*/
+function listAccountIds(cfg) {
+	const twitchRaw = cfg.channels?.twitch;
+	const accountMap = twitchRaw?.accounts;
+	const hasBaseLevelConfig = twitchRaw && (typeof twitchRaw.username === "string" || typeof twitchRaw.accessToken === "string" || typeof twitchRaw.channel === "string");
+	return listCombinedAccountIds({
+		configuredAccountIds: Object.keys(accountMap ?? {}),
+		implicitAccountId: hasBaseLevelConfig ? DEFAULT_ACCOUNT_ID : void 0
+	});
+}
+function resolveTwitchAccountContext(cfg, accountId) {
+	const resolvedAccountId = accountId?.trim() || "default";
+	const account = getAccountConfig(cfg, resolvedAccountId);
+	const tokenResolution = resolveTwitchToken(cfg, { accountId: resolvedAccountId });
+	return {
+		accountId: resolvedAccountId,
+		account,
+		tokenResolution,
+		configured: account ? isAccountConfigured(account, tokenResolution.token) : false,
+		availableAccountIds: listAccountIds(cfg)
+	};
+}
+function resolveTwitchSnapshotAccountId(cfg, account) {
+	const accountMap = (cfg.channels?.twitch)?.accounts ?? {};
+	return Object.entries(accountMap).find(([, value]) => value === account)?.[0] ?? "default";
+}
+//#endregion
 //#region node_modules/.pnpm/@d-fischer+shared-utils@3.6.4/node_modules/@d-fischer/shared-utils/es/functions/array/flatten.mjs
 function flatten(arr) {
 	var _a;
@@ -696,16 +829,13 @@ var PartitionedRateLimiter = class {
 * );
 */
 async function sendMessageTwitchInternal(channel, text, cfg, accountId = DEFAULT_ACCOUNT_ID, stripMarkdown = true, logger = console) {
-	const account = getAccountConfig(cfg, accountId);
-	if (!account) {
-		const availableIds = Object.keys(cfg.channels?.twitch?.accounts ?? {});
-		return {
-			ok: false,
-			messageId: generateMessageId(),
-			error: `Account not found: ${accountId}. Available accounts: ${availableIds.join(", ") || "none"}`
-		};
-	}
-	if (!isAccountConfigured(account, resolveTwitchToken(cfg, { accountId }).token)) return {
+	const { account, configured, availableAccountIds } = resolveTwitchAccountContext(cfg, accountId);
+	if (!account) return {
+		ok: false,
+		messageId: generateMessageId(),
+		error: `Account not found: ${accountId}. Available accounts: ${availableAccountIds.join(", ") || "none"}`
+	};
+	if (!configured) return {
 		ok: false,
 		messageId: generateMessageId(),
 		error: `Account ${accountId} is not properly configured. Required: username, clientId, and token (config or env for default account).`
@@ -805,11 +935,8 @@ const twitchOutbound = {
 		const { cfg, to, text, accountId } = params;
 		if (params.signal?.aborted) throw new Error("Outbound delivery aborted");
 		const resolvedAccountId = accountId ?? "default";
-		const account = getAccountConfig(cfg, resolvedAccountId);
-		if (!account) {
-			const availableIds = Object.keys(cfg.channels?.twitch?.accounts ?? {});
-			throw new Error(`Twitch account not found: ${resolvedAccountId}. Available accounts: ${availableIds.join(", ") || "none"}`);
-		}
+		const { account, availableAccountIds } = resolveTwitchAccountContext(cfg, resolvedAccountId);
+		if (!account) throw new Error(`Twitch account not found: ${resolvedAccountId}. Available accounts: ${availableAccountIds.join(", ") || "none"}`);
 		const channel = to || account.channel;
 		if (!channel) throw new Error("No channel specified and no default channel in account config");
 		const result = await sendMessageTwitchInternal(normalizeTwitchChannel(channel), text, cfg, resolvedAccountId, true, console);
@@ -909,8 +1036,8 @@ const twitchMessageActions = {
 		const message = readStringParam(ctx.params, "message", { required: true });
 		const to = readStringParam(ctx.params, "to", { required: false });
 		const accountId = ctx.accountId ?? "default";
-		const account = getAccountConfig(ctx.cfg, accountId);
-		if (!account) return errorResponse(`Account not found: ${accountId}. Available accounts: ${Object.keys(ctx.cfg.channels?.twitch?.accounts ?? {}).join(", ") || "none"}`);
+		const { account, availableAccountIds } = resolveTwitchAccountContext(ctx.cfg, accountId);
+		if (!account) return errorResponse(`Account not found: ${accountId}. Available accounts: ${availableAccountIds.join(", ") || "none"}`);
 		const targetChannel = to || account.channel;
 		if (!targetChannel) return errorResponse("No channel specified and no default channel in account config");
 		if (!twitchOutbound.sendText) return errorResponse("sendText not implemented");
@@ -11955,6 +12082,257 @@ async function resolveTwitchTargets(inputs, account, kind, logger) {
 	return results;
 }
 //#endregion
+//#region extensions/twitch/src/setup-surface.ts
+/**
+* Twitch setup wizard surface for CLI setup.
+*/
+const channel = "twitch";
+function setTwitchAccount(cfg, account) {
+	const existing = getAccountConfig(cfg, DEFAULT_ACCOUNT_ID);
+	const merged = {
+		username: account.username ?? existing?.username ?? "",
+		accessToken: account.accessToken ?? existing?.accessToken ?? "",
+		clientId: account.clientId ?? existing?.clientId ?? "",
+		channel: account.channel ?? existing?.channel ?? "",
+		enabled: account.enabled ?? existing?.enabled ?? true,
+		allowFrom: account.allowFrom ?? existing?.allowFrom,
+		allowedRoles: account.allowedRoles ?? existing?.allowedRoles,
+		requireMention: account.requireMention ?? existing?.requireMention,
+		clientSecret: account.clientSecret ?? existing?.clientSecret,
+		refreshToken: account.refreshToken ?? existing?.refreshToken,
+		expiresIn: account.expiresIn ?? existing?.expiresIn,
+		obtainmentTimestamp: account.obtainmentTimestamp ?? existing?.obtainmentTimestamp
+	};
+	return {
+		...cfg,
+		channels: {
+			...cfg.channels,
+			twitch: {
+				...cfg.channels?.twitch,
+				enabled: true,
+				accounts: {
+					...(cfg.channels?.twitch)?.accounts,
+					[DEFAULT_ACCOUNT_ID]: merged
+				}
+			}
+		}
+	};
+}
+async function noteTwitchSetupHelp(prompter) {
+	await prompter.note([
+		"Twitch requires a bot account with OAuth token.",
+		"1. Create a Twitch application at https://dev.twitch.tv/console",
+		"2. Generate a token with scopes: chat:read and chat:write",
+		"   Use https://twitchtokengenerator.com/ or https://twitchapps.com/tmi/",
+		"3. Copy the token (starts with 'oauth:') and Client ID",
+		"Env vars supported: OPENCLAW_TWITCH_ACCESS_TOKEN",
+		`Docs: ${formatDocsLink("/channels/twitch", "channels/twitch")}`
+	].join("\n"), "Twitch setup");
+}
+async function promptToken(prompter, account, envToken) {
+	const existingToken = account?.accessToken ?? "";
+	if (existingToken && !envToken) {
+		if (await prompter.confirm({
+			message: "Access token already configured. Keep it?",
+			initialValue: true
+		})) return existingToken;
+	}
+	return String(await prompter.text({
+		message: "Twitch OAuth token (oauth:...)",
+		initialValue: envToken ?? "",
+		validate: (value) => {
+			const raw = String(value ?? "").trim();
+			if (!raw) return "Required";
+			if (!raw.startsWith("oauth:")) return "Token should start with 'oauth:'";
+		}
+	})).trim();
+}
+async function promptUsername(prompter, account) {
+	return String(await prompter.text({
+		message: "Twitch bot username",
+		initialValue: account?.username ?? "",
+		validate: (value) => value?.trim() ? void 0 : "Required"
+	})).trim();
+}
+async function promptClientId(prompter, account) {
+	return String(await prompter.text({
+		message: "Twitch Client ID",
+		initialValue: account?.clientId ?? "",
+		validate: (value) => value?.trim() ? void 0 : "Required"
+	})).trim();
+}
+async function promptChannelName(prompter, account) {
+	return String(await prompter.text({
+		message: "Channel to join",
+		initialValue: account?.channel ?? "",
+		validate: (value) => value?.trim() ? void 0 : "Required"
+	})).trim();
+}
+async function promptRefreshTokenSetup(prompter, account) {
+	if (!await prompter.confirm({
+		message: "Enable automatic token refresh (requires client secret and refresh token)?",
+		initialValue: Boolean(account?.clientSecret && account?.refreshToken)
+	})) return {};
+	return {
+		clientSecret: String(await prompter.text({
+			message: "Twitch Client Secret (for token refresh)",
+			initialValue: account?.clientSecret ?? "",
+			validate: (value) => value?.trim() ? void 0 : "Required"
+		})).trim() || void 0,
+		refreshToken: String(await prompter.text({
+			message: "Twitch Refresh Token",
+			initialValue: account?.refreshToken ?? "",
+			validate: (value) => value?.trim() ? void 0 : "Required"
+		})).trim() || void 0
+	};
+}
+async function configureWithEnvToken(cfg, prompter, account, envToken, forceAllowFrom, dmPolicy) {
+	if (!await prompter.confirm({
+		message: "Twitch env var OPENCLAW_TWITCH_ACCESS_TOKEN detected. Use env token?",
+		initialValue: true
+	})) return null;
+	const cfgWithAccount = setTwitchAccount(cfg, {
+		username: await promptUsername(prompter, account),
+		clientId: await promptClientId(prompter, account),
+		accessToken: "",
+		enabled: true
+	});
+	if (forceAllowFrom && dmPolicy.promptAllowFrom) return { cfg: await dmPolicy.promptAllowFrom({
+		cfg: cfgWithAccount,
+		prompter
+	}) };
+	return { cfg: cfgWithAccount };
+}
+function setTwitchAccessControl(cfg, allowedRoles, requireMention) {
+	const account = getAccountConfig(cfg, DEFAULT_ACCOUNT_ID);
+	if (!account) return cfg;
+	return setTwitchAccount(cfg, {
+		...account,
+		allowedRoles,
+		requireMention
+	});
+}
+function resolveTwitchGroupPolicy(cfg) {
+	const account = getAccountConfig(cfg, DEFAULT_ACCOUNT_ID);
+	if (account?.allowedRoles?.includes("all")) return "open";
+	if (account?.allowedRoles?.includes("moderator")) return "allowlist";
+	return "disabled";
+}
+function setTwitchGroupPolicy(cfg, policy) {
+	return setTwitchAccessControl(cfg, policy === "open" ? ["all"] : policy === "allowlist" ? ["moderator", "vip"] : [], true);
+}
+const twitchDmPolicy = {
+	label: "Twitch",
+	channel,
+	policyKey: "channels.twitch.allowedRoles",
+	allowFromKey: "channels.twitch.accounts.default.allowFrom",
+	getCurrent: (cfg) => {
+		const account = getAccountConfig(cfg, DEFAULT_ACCOUNT_ID);
+		if (account?.allowedRoles?.includes("all")) return "open";
+		if (account?.allowFrom && account.allowFrom.length > 0) return "allowlist";
+		return "disabled";
+	},
+	setPolicy: (cfg, policy) => {
+		return setTwitchAccessControl(cfg, policy === "open" ? ["all"] : policy === "allowlist" ? [] : ["moderator"], true);
+	},
+	promptAllowFrom: async ({ cfg, prompter }) => {
+		const account = getAccountConfig(cfg, DEFAULT_ACCOUNT_ID);
+		const existingAllowFrom = account?.allowFrom ?? [];
+		const entry = await prompter.text({
+			message: "Twitch allowFrom (user IDs, one per line, recommended for security)",
+			placeholder: "123456789",
+			initialValue: existingAllowFrom[0] ? String(existingAllowFrom[0]) : void 0
+		});
+		const allowFrom = String(entry ?? "").split(/[\n,;]+/g).map((s) => s.trim()).filter(Boolean);
+		return setTwitchAccount(cfg, {
+			...account ?? void 0,
+			allowFrom
+		});
+	}
+};
+const twitchGroupAccess = {
+	label: "Twitch chat",
+	placeholder: "",
+	skipAllowlistEntries: true,
+	currentPolicy: ({ cfg }) => resolveTwitchGroupPolicy(cfg),
+	currentEntries: ({ cfg }) => {
+		return getAccountConfig(cfg, "default")?.allowFrom ?? [];
+	},
+	updatePrompt: ({ cfg }) => {
+		const account = getAccountConfig(cfg, DEFAULT_ACCOUNT_ID);
+		return Boolean(account?.allowedRoles?.length || account?.allowFrom?.length);
+	},
+	setPolicy: ({ cfg, policy }) => setTwitchGroupPolicy(cfg, policy),
+	resolveAllowlist: async () => [],
+	applyAllowlist: ({ cfg }) => cfg
+};
+const twitchSetupAdapter = {
+	resolveAccountId: () => DEFAULT_ACCOUNT_ID,
+	applyAccountConfig: ({ cfg }) => setTwitchAccount(cfg, { enabled: true })
+};
+const twitchSetupWizard = {
+	channel,
+	resolveAccountIdForConfigure: () => DEFAULT_ACCOUNT_ID,
+	resolveShouldPromptAccountIds: () => false,
+	status: {
+		configuredLabel: "configured",
+		unconfiguredLabel: "needs username, token, and clientId",
+		configuredHint: "configured",
+		unconfiguredHint: "needs setup",
+		resolveConfigured: ({ cfg }) => {
+			const account = getAccountConfig(cfg, DEFAULT_ACCOUNT_ID);
+			return account ? isAccountConfigured(account) : false;
+		},
+		resolveStatusLines: ({ cfg }) => {
+			const account = getAccountConfig(cfg, DEFAULT_ACCOUNT_ID);
+			return [`Twitch: ${(account ? isAccountConfigured(account) : false) ? "configured" : "needs username, token, and clientId"}`];
+		}
+	},
+	credentials: [],
+	finalize: async ({ cfg, prompter, forceAllowFrom }) => {
+		const account = getAccountConfig(cfg, DEFAULT_ACCOUNT_ID);
+		if (!account || !isAccountConfigured(account)) await noteTwitchSetupHelp(prompter);
+		const envToken = process.env.OPENCLAW_TWITCH_ACCESS_TOKEN?.trim();
+		if (envToken && !account?.accessToken) {
+			const envResult = await configureWithEnvToken(cfg, prompter, account, envToken, forceAllowFrom, twitchDmPolicy);
+			if (envResult) return envResult;
+		}
+		const username = await promptUsername(prompter, account);
+		const token = await promptToken(prompter, account, envToken);
+		const clientId = await promptClientId(prompter, account);
+		const channelName = await promptChannelName(prompter, account);
+		const { clientSecret, refreshToken } = await promptRefreshTokenSetup(prompter, account);
+		const cfgWithAccount = setTwitchAccount(cfg, {
+			username,
+			accessToken: token,
+			clientId,
+			channel: channelName,
+			clientSecret,
+			refreshToken,
+			enabled: true
+		});
+		return { cfg: forceAllowFrom && twitchDmPolicy.promptAllowFrom ? await twitchDmPolicy.promptAllowFrom({
+			cfg: cfgWithAccount,
+			prompter
+		}) : cfgWithAccount };
+	},
+	dmPolicy: twitchDmPolicy,
+	groupAccess: twitchGroupAccess,
+	disable: (cfg) => {
+		const twitch = cfg.channels?.twitch;
+		return {
+			...cfg,
+			channels: {
+				...cfg.channels,
+				twitch: {
+					...twitch,
+					enabled: false
+				}
+			}
+		};
+	}
+};
+//#endregion
 //#region extensions/twitch/src/status.ts
 /**
 * Collect status issues for Twitch accounts.
@@ -12078,132 +12456,121 @@ var twitch_default = defineChannelPluginEntry({
 	id: "twitch",
 	name: "Twitch",
 	description: "Twitch chat channel plugin",
-	plugin: {
-		id: "twitch",
-		meta: {
-			id: "twitch",
-			label: "Twitch",
-			selectionLabel: "Twitch (Chat)",
-			docsPath: "/channels/twitch",
-			blurb: "Twitch chat integration",
-			aliases: ["twitch-chat"]
-		},
-		setup: twitchSetupAdapter,
-		setupWizard: twitchSetupWizard,
+	plugin: createChatChannelPlugin({
 		pairing: {
 			idLabel: "twitchUserId",
-			normalizeAllowEntry: (entry) => entry.replace(/^(twitch:)?user:?/i, ""),
-			notifyApproval: async ({ id }) => {
-				console.warn(`Pairing approved for user ${id} (notification sent via chat if possible)`);
-			}
-		},
-		capabilities: { chatTypes: ["group"] },
-		configSchema: buildChannelConfigSchema(TwitchConfigSchema),
-		config: {
-			listAccountIds: (cfg) => listAccountIds(cfg),
-			resolveAccount: (cfg, accountId) => {
-				const account = getAccountConfig(cfg, accountId ?? "default");
-				if (!account) return {
-					username: "",
-					accessToken: "",
-					clientId: "",
-					enabled: false
-				};
-				return account;
-			},
-			defaultAccountId: () => DEFAULT_ACCOUNT_ID,
-			isConfigured: (_account, cfg) => {
-				const account = getAccountConfig(cfg, DEFAULT_ACCOUNT_ID);
-				const tokenResolution = resolveTwitchToken(cfg, { accountId: DEFAULT_ACCOUNT_ID });
-				return account ? isAccountConfigured(account, tokenResolution.token) : false;
-			},
-			isEnabled: (account) => account?.enabled !== false,
-			describeAccount: (account) => {
-				return {
-					accountId: DEFAULT_ACCOUNT_ID,
-					enabled: account?.enabled !== false,
-					configured: account ? isAccountConfigured(account, account?.accessToken) : false
-				};
-			}
+			normalizeAllowEntry: createPairingPrefixStripper(/^(twitch:)?user:?/i),
+			notifyApproval: createLoggedPairingApprovalNotifier(({ id }) => `Pairing approved for user ${id} (notification sent via chat if possible)`, console.warn)
 		},
 		outbound: twitchOutbound,
-		actions: twitchMessageActions,
-		resolver: { resolveTargets: async ({ cfg, accountId, inputs, kind, runtime }) => {
-			const account = getAccountConfig(cfg, accountId ?? "default");
-			if (!account) return inputs.map((input) => ({
-				input,
-				resolved: false,
-				note: "account not configured"
-			}));
-			return await resolveTwitchTargets(inputs, account, kind, {
-				info: (msg) => runtime.log(msg),
-				warn: (msg) => runtime.log(msg),
-				error: (msg) => runtime.error(msg),
-				debug: (msg) => runtime.log(msg)
-			});
-		} },
-		status: {
-			defaultRuntime: {
-				accountId: DEFAULT_ACCOUNT_ID,
-				running: false,
-				lastStartAt: null,
-				lastStopAt: null,
-				lastError: null
+		base: {
+			id: "twitch",
+			meta: {
+				id: "twitch",
+				label: "Twitch",
+				selectionLabel: "Twitch (Chat)",
+				docsPath: "/channels/twitch",
+				blurb: "Twitch chat integration",
+				aliases: ["twitch-chat"]
 			},
-			buildChannelSummary: ({ snapshot }) => buildPassiveProbedChannelStatusSummary(snapshot),
-			probeAccount: async ({ account, timeoutMs }) => {
-				return await probeTwitch(account, timeoutMs);
-			},
-			buildAccountSnapshot: ({ account, cfg, runtime, probe }) => {
-				const accountMap = (cfg.channels?.twitch)?.accounts ?? {};
-				const resolvedAccountId = Object.entries(accountMap).find(([, value]) => value === account)?.[0] ?? "default";
-				const tokenResolution = resolveTwitchToken(cfg, { accountId: resolvedAccountId });
-				return {
-					accountId: resolvedAccountId,
-					enabled: account?.enabled !== false,
-					configured: isAccountConfigured(account, tokenResolution.token),
-					running: runtime?.running ?? false,
-					lastStartAt: runtime?.lastStartAt ?? null,
-					lastStopAt: runtime?.lastStopAt ?? null,
-					lastError: runtime?.lastError ?? null,
-					probe
-				};
-			},
-			collectStatusIssues: collectTwitchStatusIssues
-		},
-		gateway: {
-			startAccount: async (ctx) => {
-				const account = ctx.account;
-				const accountId = ctx.accountId;
-				ctx.setStatus?.({
-					accountId,
-					running: true,
-					lastStartAt: Date.now(),
-					lastError: null
-				});
-				ctx.log?.info(`Starting Twitch connection for ${account.username}`);
-				const { monitorTwitchProvider } = await import("../../monitor-Spza_S04.js");
-				await monitorTwitchProvider({
+			setup: twitchSetupAdapter,
+			setupWizard: twitchSetupWizard,
+			capabilities: { chatTypes: ["group"] },
+			configSchema: buildChannelConfigSchema(TwitchConfigSchema),
+			config: {
+				listAccountIds: (cfg) => listAccountIds(cfg),
+				resolveAccount: (cfg, accountId) => {
+					const resolvedAccountId = accountId ?? "default";
+					const account = getAccountConfig(cfg, resolvedAccountId);
+					if (!account) return {
+						accountId: resolvedAccountId,
+						channel: "",
+						username: "",
+						accessToken: "",
+						clientId: "",
+						enabled: false
+					};
+					return {
+						accountId: resolvedAccountId,
+						...account
+					};
+				},
+				defaultAccountId: () => DEFAULT_ACCOUNT_ID,
+				isConfigured: (_account, cfg) => resolveTwitchAccountContext(cfg, DEFAULT_ACCOUNT_ID).configured,
+				isEnabled: (account) => account?.enabled !== false,
+				describeAccount: (account) => account ? describeAccountSnapshot({
 					account,
-					accountId,
-					config: ctx.cfg,
-					runtime: ctx.runtime,
-					abortSignal: ctx.abortSignal
-				});
+					configured: isAccountConfigured(account, account.accessToken)
+				}) : {
+					accountId: DEFAULT_ACCOUNT_ID,
+					enabled: false,
+					configured: false
+				}
 			},
-			stopAccount: async (ctx) => {
-				const account = ctx.account;
-				const accountId = ctx.accountId;
-				await removeClientManager(accountId);
-				ctx.setStatus?.({
-					accountId,
-					running: false,
-					lastStopAt: Date.now()
+			actions: twitchMessageActions,
+			resolver: { resolveTargets: async ({ cfg, accountId, inputs, kind, runtime }) => {
+				const account = getAccountConfig(cfg, accountId ?? "default");
+				if (!account) return inputs.map((input) => ({
+					input,
+					resolved: false,
+					note: "account not configured"
+				}));
+				return await resolveTwitchTargets(inputs, account, kind, {
+					info: (msg) => runtime.log(msg),
+					warn: (msg) => runtime.log(msg),
+					error: (msg) => runtime.error(msg),
+					debug: (msg) => runtime.log(msg)
 				});
-				ctx.log?.info(`Stopped Twitch connection for ${account.username}`);
+			} },
+			status: createComputedAccountStatusAdapter({
+				defaultRuntime: createDefaultChannelRuntimeState(DEFAULT_ACCOUNT_ID),
+				buildChannelSummary: ({ snapshot }) => buildPassiveProbedChannelStatusSummary(snapshot),
+				probeAccount: async ({ account, timeoutMs }) => await probeTwitch(account, timeoutMs),
+				collectStatusIssues: collectTwitchStatusIssues,
+				resolveAccountSnapshot: ({ account, cfg }) => {
+					const resolvedAccountId = account.accountId || resolveTwitchSnapshotAccountId(cfg, account);
+					const { configured } = resolveTwitchAccountContext(cfg, resolvedAccountId);
+					return {
+						accountId: resolvedAccountId,
+						enabled: account.enabled !== false,
+						configured
+					};
+				}
+			}),
+			gateway: {
+				startAccount: async (ctx) => {
+					const account = ctx.account;
+					const accountId = ctx.accountId;
+					ctx.setStatus?.({
+						accountId,
+						running: true,
+						lastStartAt: Date.now(),
+						lastError: null
+					});
+					ctx.log?.info(`Starting Twitch connection for ${account.username}`);
+					const { monitorTwitchProvider } = await import("../../monitor-CLtzN53X.js");
+					await monitorTwitchProvider({
+						account,
+						accountId,
+						config: ctx.cfg,
+						runtime: ctx.runtime,
+						abortSignal: ctx.abortSignal
+					});
+				},
+				stopAccount: async (ctx) => {
+					const account = ctx.account;
+					const accountId = ctx.accountId;
+					await removeClientManager(accountId);
+					ctx.setStatus?.({
+						accountId,
+						running: false,
+						lastStopAt: Date.now()
+					});
+					ctx.log?.info(`Stopped Twitch connection for ${account.username}`);
+				}
 			}
 		}
-	},
+	}),
 	setRuntime: setTwitchRuntime
 });
 //#endregion

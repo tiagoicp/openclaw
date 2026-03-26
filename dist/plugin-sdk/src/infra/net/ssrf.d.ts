@@ -1,6 +1,6 @@
 import { lookup as dnsLookupCb } from "node:dns";
 import { lookup as dnsLookup } from "node:dns/promises";
-import { type Dispatcher } from "undici";
+import type { Dispatcher } from "undici";
 export declare class SsrFBlockedError extends Error {
     constructor(message: string);
 }

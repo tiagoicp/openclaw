@@ -68,14 +68,20 @@ export type TtsDirectiveOverrides = {
     openai?: {
         voice?: string;
         model?: string;
+        speed?: number;
     };
     elevenlabs?: {
         voiceId?: string;
         modelId?: string;
+        outputFormat?: string;
         seed?: number;
         applyTextNormalization?: "auto" | "on" | "off";
         languageCode?: string;
         voiceSettings?: Partial<ResolvedTtsConfig["elevenlabs"]["voiceSettings"]>;
+    };
+    microsoft?: {
+        voice?: string;
+        outputFormat?: string;
     };
 };
 export type TtsDirectiveParseResult = {
@@ -93,6 +99,16 @@ export type TtsResult = {
     provider?: string;
     outputFormat?: string;
     voiceCompatible?: boolean;
+};
+export type TtsSynthesisResult = {
+    success: boolean;
+    audioBuffer?: Buffer;
+    error?: string;
+    latencyMs?: number;
+    provider?: string;
+    outputFormat?: string;
+    voiceCompatible?: boolean;
+    fileExtension?: string;
 };
 export type TtsTelephonyResult = {
     success: boolean;
@@ -155,7 +171,16 @@ export declare function textToSpeech(params: {
     prefsPath?: string;
     channel?: string;
     overrides?: TtsDirectiveOverrides;
+    disableFallback?: boolean;
 }): Promise<TtsResult>;
+export declare function synthesizeSpeech(params: {
+    text: string;
+    cfg: OpenClawConfig;
+    prefsPath?: string;
+    channel?: string;
+    overrides?: TtsDirectiveOverrides;
+    disableFallback?: boolean;
+}): Promise<TtsSynthesisResult>;
 export declare function textToSpeechTelephony(params: {
     text: string;
     cfg: OpenClawConfig;

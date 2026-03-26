@@ -1,4 +1,4 @@
-export declare function sanitizeForConsole(text: string | undefined, maxChars?: number): string | undefined;
+export { sanitizeForConsole } from "./console-sanitize.js";
 export declare function buildApiErrorObservationFields(rawError?: string): {
     rawErrorPreview?: string;
     rawErrorHash?: string;

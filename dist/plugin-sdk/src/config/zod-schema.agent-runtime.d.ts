@@ -559,18 +559,19 @@ export declare const AgentToolsSchema: z.ZodOptional<z.ZodObject<{
             node: "node";
         }>>;
         security: z.ZodOptional<z.ZodEnum<{
-            full: "full";
             allowlist: "allowlist";
             deny: "deny";
+            full: "full";
         }>>;
         ask: z.ZodOptional<z.ZodEnum<{
             off: "off";
-            always: "always";
             "on-miss": "on-miss";
+            always: "always";
         }>>;
         node: z.ZodOptional<z.ZodString>;
         pathPrepend: z.ZodOptional<z.ZodArray<z.ZodString>>;
         safeBins: z.ZodOptional<z.ZodArray<z.ZodString>>;
+        strictInlineEval: z.ZodOptional<z.ZodBoolean>;
         safeBinTrustedDirs: z.ZodOptional<z.ZodArray<z.ZodString>>;
         safeBinProfiles: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodObject<{
             minPositional: z.ZodOptional<z.ZodNumber>;
@@ -724,6 +725,21 @@ export declare const AgentEntrySchema: z.ZodObject<{
         primary: z.ZodOptional<z.ZodString>;
         fallbacks: z.ZodOptional<z.ZodArray<z.ZodString>>;
     }, z.core.$strict>]>>;
+    thinkingDefault: z.ZodOptional<z.ZodEnum<{
+        off: "off";
+        minimal: "minimal";
+        low: "low";
+        medium: "medium";
+        high: "high";
+        xhigh: "xhigh";
+        adaptive: "adaptive";
+    }>>;
+    reasoningDefault: z.ZodOptional<z.ZodEnum<{
+        off: "off";
+        on: "on";
+        stream: "stream";
+    }>>;
+    fastModeDefault: z.ZodOptional<z.ZodBoolean>;
     skills: z.ZodOptional<z.ZodArray<z.ZodString>>;
     memorySearch: z.ZodOptional<z.ZodObject<{
         enabled: z.ZodOptional<z.ZodBoolean>;
@@ -979,18 +995,19 @@ export declare const AgentEntrySchema: z.ZodObject<{
                 node: "node";
             }>>;
             security: z.ZodOptional<z.ZodEnum<{
-                full: "full";
                 allowlist: "allowlist";
                 deny: "deny";
+                full: "full";
             }>>;
             ask: z.ZodOptional<z.ZodEnum<{
                 off: "off";
-                always: "always";
                 "on-miss": "on-miss";
+                always: "always";
             }>>;
             node: z.ZodOptional<z.ZodString>;
             pathPrepend: z.ZodOptional<z.ZodArray<z.ZodString>>;
             safeBins: z.ZodOptional<z.ZodArray<z.ZodString>>;
+            strictInlineEval: z.ZodOptional<z.ZodBoolean>;
             safeBinTrustedDirs: z.ZodOptional<z.ZodArray<z.ZodString>>;
             safeBinProfiles: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodObject<{
                 minPositional: z.ZodOptional<z.ZodNumber>;
@@ -1487,18 +1504,19 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
             node: "node";
         }>>;
         security: z.ZodOptional<z.ZodEnum<{
-            full: "full";
             allowlist: "allowlist";
             deny: "deny";
+            full: "full";
         }>>;
         ask: z.ZodOptional<z.ZodEnum<{
             off: "off";
-            always: "always";
             "on-miss": "on-miss";
+            always: "always";
         }>>;
         node: z.ZodOptional<z.ZodString>;
         pathPrepend: z.ZodOptional<z.ZodArray<z.ZodString>>;
         safeBins: z.ZodOptional<z.ZodArray<z.ZodString>>;
+        strictInlineEval: z.ZodOptional<z.ZodBoolean>;
         safeBinTrustedDirs: z.ZodOptional<z.ZodArray<z.ZodString>>;
         safeBinProfiles: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodObject<{
             minPositional: z.ZodOptional<z.ZodNumber>;

@@ -11,5 +11,7 @@ export declare function getChatChannelMeta(id: ChatChannelId): ChatChannelMeta;
 export declare function normalizeChatChannelId(raw?: string | null): ChatChannelId | null;
 export declare function normalizeChannelId(raw?: string | null): ChatChannelId | null;
 export declare function normalizeAnyChannelId(raw?: string | null): ChannelId | null;
+export declare function listRegisteredChannelPluginIds(): ChannelId[];
+export declare function listRegisteredChannelPluginAliases(): string[];
 export declare function formatChannelPrimerLine(meta: ChatChannelMeta): string;
 export declare function formatChannelSelectionLine(meta: ChatChannelMeta, docsLink: (path: string, label?: string) => string): string;

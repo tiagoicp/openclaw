@@ -1,5 +1,5 @@
 import type { AgentToolResult } from "@mariozechner/pi-agent-core";
-import type { ChannelMessageActionContext } from "openclaw/plugin-sdk/channel-runtime";
+import type { ChannelMessageActionContext } from "openclaw/plugin-sdk/channel-contract";
 type Ctx = Pick<ChannelMessageActionContext, "action" | "params" | "cfg" | "accountId" | "requesterSenderId">;
 export declare function tryHandleDiscordMessageActionGuildAdmin(params: {
     ctx: Ctx;

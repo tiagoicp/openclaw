@@ -16,6 +16,7 @@ export declare function tryDispatchAcpReply(params: {
     cfg: OpenClawConfig;
     dispatcher: ReplyDispatcher;
     sessionKey?: string;
+    abortSignal?: AbortSignal;
     inboundAudio: boolean;
     sessionTtsAuto?: TtsAutoMode;
     ttsChannel?: string;

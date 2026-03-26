@@ -2,7 +2,7 @@ export type BlockReplyChunking = {
     minChars: number;
     maxChars: number;
     breakPreference?: "paragraph" | "newline" | "sentence";
-    /** When true, flush eagerly on \n\n paragraph boundaries regardless of minChars. */
+    /** When true, prefer \n\n paragraph boundaries once minChars has been satisfied. */
     flushOnParagraph?: boolean;
 };
 export declare class EmbeddedBlockChunker {

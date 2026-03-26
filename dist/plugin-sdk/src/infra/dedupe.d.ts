@@ -5,9 +5,9 @@ export type DedupeCache = {
     clear: () => void;
     size: () => number;
 };
-type DedupeCacheOptions = {
+export type DedupeCacheOptions = {
     ttlMs: number;
     maxSize: number;
 };
 export declare function createDedupeCache(options: DedupeCacheOptions): DedupeCache;
-export {};
+export declare function resolveGlobalDedupeCache(key: symbol, options: DedupeCacheOptions): DedupeCache;

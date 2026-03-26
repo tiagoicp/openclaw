@@ -1,9 +1,11 @@
+import { type DeviceBootstrapProfile, type DeviceBootstrapProfileInput } from "../shared/device-bootstrap-profile.js";
 export declare const DEVICE_BOOTSTRAP_TOKEN_TTL_MS: number;
 export type DeviceBootstrapTokenRecord = {
     token: string;
     ts: number;
     deviceId?: string;
     publicKey?: string;
+    profile?: DeviceBootstrapProfile;
     roles?: string[];
     scopes?: string[];
     issuedAtMs: number;
@@ -11,9 +13,23 @@ export type DeviceBootstrapTokenRecord = {
 };
 export declare function issueDeviceBootstrapToken(params?: {
     baseDir?: string;
+    profile?: DeviceBootstrapProfileInput;
+    roles?: readonly string[];
+    scopes?: readonly string[];
 }): Promise<{
     token: string;
     expiresAtMs: number;
+}>;
+export declare function clearDeviceBootstrapTokens(params?: {
+    baseDir?: string;
+}): Promise<{
+    removed: number;
+}>;
+export declare function revokeDeviceBootstrapToken(params: {
+    token: string;
+    baseDir?: string;
+}): Promise<{
+    removed: boolean;
 }>;
 export declare function verifyDeviceBootstrapToken(params: {
     token: string;

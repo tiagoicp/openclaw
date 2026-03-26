@@ -1,4 +1,4 @@
-import type { BaseProbeResult } from "openclaw/plugin-sdk/channel-runtime";
+import type { BaseProbeResult } from "openclaw/plugin-sdk/channel-contract";
 import type { RuntimeEnv } from "openclaw/plugin-sdk/runtime-env";
 export { DEFAULT_IMESSAGE_PROBE_TIMEOUT_MS } from "./constants.js";
 export type IMessageProbe = BaseProbeResult & {

@@ -1,4 +1,4 @@
-import { type OpenClawConfig, type DiscordAccountConfig, type DiscordActionConfig } from "./runtime-api.js";
+import type { DiscordAccountConfig, DiscordActionConfig, OpenClawConfig } from "./runtime-api.js";
 export type ResolvedDiscordAccount = {
     accountId: string;
     enabled: boolean;

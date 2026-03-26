@@ -14,6 +14,7 @@ export type ProcessGatewayAllowlistParams = {
     ask: ExecAsk;
     safeBins: Set<string>;
     safeBinProfiles: Readonly<Record<string, SafeBinProfile>>;
+    strictInlineEval?: boolean;
     agentId?: string;
     sessionKey?: string;
     turnSourceChannel?: string;

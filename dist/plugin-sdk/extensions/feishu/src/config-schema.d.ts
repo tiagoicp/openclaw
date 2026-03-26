@@ -121,8 +121,8 @@ export declare const FeishuAccountConfigSchema: z.ZodObject<{
         intervalMs: z.ZodOptional<z.ZodNumber>;
     }, z.core.$strict>>;
     renderMode: z.ZodOptional<z.ZodEnum<{
-        raw: "raw";
         auto: "auto";
+        raw: "raw";
         card: "card";
     }>>;
     streaming: z.ZodOptional<z.ZodBoolean>;
@@ -216,7 +216,7 @@ export declare const FeishuConfigSchema: z.ZodObject<{
         disabled: "disabled";
         allowlist: "allowlist";
     }>, z.ZodPipe<z.ZodLiteral<"allowall">, z.ZodTransform<"open", "allowall">>]>>>;
-    requireMention: z.ZodDefault<z.ZodOptional<z.ZodBoolean>>;
+    requireMention: z.ZodOptional<z.ZodBoolean>;
     groupSessionScope: z.ZodOptional<z.ZodEnum<{
         group: "group";
         group_sender: "group_sender";
@@ -327,8 +327,8 @@ export declare const FeishuConfigSchema: z.ZodObject<{
             intervalMs: z.ZodOptional<z.ZodNumber>;
         }, z.core.$strict>>;
         renderMode: z.ZodOptional<z.ZodEnum<{
-            raw: "raw";
             auto: "auto";
+            raw: "raw";
             card: "card";
         }>>;
         streaming: z.ZodOptional<z.ZodBoolean>;
@@ -476,8 +476,8 @@ export declare const FeishuConfigSchema: z.ZodObject<{
         intervalMs: z.ZodOptional<z.ZodNumber>;
     }, z.core.$strict>>;
     renderMode: z.ZodOptional<z.ZodEnum<{
-        raw: "raw";
         auto: "auto";
+        raw: "raw";
         card: "card";
     }>>;
     streaming: z.ZodOptional<z.ZodBoolean>;

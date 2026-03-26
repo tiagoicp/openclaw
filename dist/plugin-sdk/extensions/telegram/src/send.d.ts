@@ -5,7 +5,7 @@ import type { RetryConfig } from "openclaw/plugin-sdk/infra-runtime";
 import { type PollInput } from "openclaw/plugin-sdk/media-runtime";
 import type { TelegramInlineButtons } from "./button-types.js";
 type TelegramApi = Bot["api"];
-type TelegramApiOverride = Partial<TelegramApi>;
+export type TelegramApiOverride = Partial<TelegramApi>;
 type TelegramSendOpts = {
     cfg?: ReturnType<typeof loadConfig>;
     token?: string;
@@ -18,9 +18,9 @@ type TelegramSendOpts = {
     retry?: RetryConfig;
     textMode?: "markdown" | "html";
     plainText?: string;
-    /** Send audio as voice message (voice bubble) instead of audio file. Defaults to false. */
+    /** Send audio as voice message instead of audio file. Defaults to false. */
     asVoice?: boolean;
-    /** Send video as video note (voice bubble) instead of regular video. Defaults to false. */
+    /** Send video as video note instead of regular video. Defaults to false. */
     asVideoNote?: boolean;
     /** Send message silently (no notification). Defaults to false. */
     silent?: boolean;

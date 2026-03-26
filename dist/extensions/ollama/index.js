@@ -1,28 +1,18 @@
-import "../../logger-Bisu6sgz.js";
-import "../../paths-D_QmduAc.js";
-import "../../tmp-openclaw-dir-CEAo8CGE.js";
-import "../../theme-Bnch_o1K.js";
-import "../../globals-CnsLPQis.js";
-import "../../subsystem-Dm-AQqmI.js";
-import "../../ansi-BMqrB9En.js";
-import "../../utils-CIAfMgvq.js";
-import "../../model-selection-BvgYPMZN.js";
-import "../../agent-scope-BvOTVsJZ.js";
-import "../../boundary-path-BVHzCDEE.js";
-import "../../boundary-file-read-1knRHcS0.js";
-import "../../logger-DcSg74GU.js";
-import "../../exec-Bwz57vWc.js";
-import "../../workspace-C3BQkKrq.js";
-import "../../registry-DHFXbGRB.js";
-import "../../zod-schema.core-2nNLrIvV.js";
-import "../../resolve-route-BKJ_gx17.js";
-import "../../config-schema-SbU9iMOP.js";
-import { i as definePluginEntry } from "../../core-DoWJeX1b.js";
-import { et as resolveOllamaApiBase, in as OLLAMA_DEFAULT_BASE_URL } from "../../provider-models-mqi97xJa.js";
-import "../../provider-onboard-YZwyyz0l.js";
-import "../../model-definitions-CPk0fx2x.js";
-import "../../delegate-DZgF1n1_.js";
-import "../../secret-file-C6VA1we_.js";
+import "../../env-D1ktUnAV.js";
+import "../../paths-CjuwkA2v.js";
+import "../../safe-text-K2Nonoo3.js";
+import "../../tmp-openclaw-dir-DzRxfh9a.js";
+import "../../theme-BH5F9mlg.js";
+import "../../version-DGzLsBG-.js";
+import "../../zod-schema.agent-runtime-DNndkpI8.js";
+import "../../runtime-BF_KUcJM.js";
+import "../../registry-bOiEdffE.js";
+import "../../ip-ByO4-_4f.js";
+import "../../anthropic-vertex-provider-Cik2BDhe.js";
+import "../../provider-model-definitions-CrItEa-O.js";
+import { rt as resolveOllamaApiBase } from "../../provider-models-GbpUTgQg.js";
+import { t as OLLAMA_DEFAULT_BASE_URL } from "../../ollama-defaults-BH8D2agd.js";
+import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
 //#region extensions/ollama/index.ts
 const PROVIDER_ID = "ollama";
 const DEFAULT_API_KEY = "ollama-local";
@@ -58,8 +48,7 @@ var ollama_default = definePluginEntry({
 								key: DEFAULT_API_KEY
 							}
 						}],
-						configPatch: result.config,
-						defaultModel: `ollama/${result.defaultModelId}`
+						configPatch: result.config
 					};
 				},
 				runNonInteractive: async (ctx) => {
@@ -110,6 +99,7 @@ var ollama_default = definePluginEntry({
 				if (!model.startsWith("ollama/")) return;
 				await (await loadProviderSetup()).ensureOllamaModelPulled({
 					config,
+					model,
 					prompter
 				});
 			}

@@ -18,3 +18,9 @@ export declare const FOLLOWUP_QUEUES: Map<string, FollowupQueueState>;
 export declare function getExistingFollowupQueue(key: string): FollowupQueueState | undefined;
 export declare function getFollowupQueue(key: string, settings: QueueSettings): FollowupQueueState;
 export declare function clearFollowupQueue(key: string): number;
+export declare function refreshQueuedFollowupSession(params: {
+    key: string;
+    previousSessionId?: string;
+    nextSessionId?: string;
+    nextSessionFile?: string;
+}): void;

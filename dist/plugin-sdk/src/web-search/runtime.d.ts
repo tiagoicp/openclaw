@@ -22,6 +22,9 @@ export declare function resolveWebSearchEnabled(params: {
 export declare function listWebSearchProviders(params?: {
     config?: OpenClawConfig;
 }): PluginWebSearchProviderEntry[];
+export declare function listConfiguredWebSearchProviders(params?: {
+    config?: OpenClawConfig;
+}): PluginWebSearchProviderEntry[];
 export declare function resolveWebSearchProviderId(params: {
     search?: WebSearchConfig;
     config?: OpenClawConfig;

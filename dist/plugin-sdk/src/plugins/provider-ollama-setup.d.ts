@@ -17,7 +17,6 @@ export declare function promptAndConfigureOllama(params: {
     prompter: WizardPrompter;
 }): Promise<{
     config: OpenClawConfig;
-    defaultModelId: string;
 }>;
 /** Non-interactive: auto-discover models and configure provider. */
 export declare function configureOllamaNonInteractive(params: {
@@ -28,5 +27,6 @@ export declare function configureOllamaNonInteractive(params: {
 /** Pull the configured default Ollama model if it isn't already available locally. */
 export declare function ensureOllamaModelPulled(params: {
     config: OpenClawConfig;
+    model: string;
     prompter: WizardPrompter;
 }): Promise<void>;

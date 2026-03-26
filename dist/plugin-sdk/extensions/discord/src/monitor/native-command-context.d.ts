@@ -1,4 +1,4 @@
-import type { CommandArgs } from "openclaw/plugin-sdk/reply-runtime";
+import type { CommandArgs } from "openclaw/plugin-sdk/command-auth";
 import { type DiscordChannelConfigResolved, type DiscordGuildEntryResolved } from "./allow-list.js";
 export type BuildDiscordNativeCommandContextParams = {
     prompt: string;

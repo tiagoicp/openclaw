@@ -27,6 +27,7 @@ export type AuditTelegramGroupMembershipParams = {
     groupIds: string[];
     proxyUrl?: string;
     network?: TelegramNetworkConfig;
+    apiRoot?: string;
     timeoutMs: number;
 };
 export declare function auditTelegramGroupMembership(params: AuditTelegramGroupMembershipParams): Promise<TelegramGroupMembershipAudit>;

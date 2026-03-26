@@ -1,4 +1,6 @@
+import { callGateway } from "../../gateway/call.js";
 import type { GatewayMessageChannel } from "../../utils/message-channel.js";
+type GatewayCaller = typeof callGateway;
 export declare function runSessionsSendA2AFlow(params: {
     targetSessionKey: string;
     displayKey: string;
@@ -10,3 +12,9 @@ export declare function runSessionsSendA2AFlow(params: {
     roundOneReply?: string;
     waitRunId?: string;
 }): Promise<void>;
+export declare const __testing: {
+    setDepsForTest(overrides?: Partial<{
+        callGateway: GatewayCaller;
+    }>): void;
+};
+export {};

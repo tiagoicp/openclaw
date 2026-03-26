@@ -1,13 +1,38 @@
+import { authorizeConfigWrite, canBypassConfigWritePolicy, formatConfigWriteDeniedMessage, resolveChannelConfigWrites, type ConfigWriteAuthorizationResult, type ConfigWriteScope, type ConfigWriteTarget } from "../channels/plugins/config-writes.js";
 import { collectAllowlistProviderGroupPolicyWarnings, collectAllowlistProviderRestrictSendersWarnings, collectOpenGroupPolicyConfiguredRouteWarnings, collectOpenGroupPolicyRouteAllowlistWarnings, collectOpenProviderGroupPolicyWarnings } from "../channels/plugins/group-policy-warnings.js";
 import { buildAccountScopedDmSecurityPolicy } from "../channels/plugins/helpers.js";
 import type { ChannelConfigAdapter } from "../channels/plugins/types.adapters.js";
 import type { OpenClawConfig } from "../config/config.js";
+export { authorizeConfigWrite, canBypassConfigWritePolicy, formatConfigWriteDeniedMessage, resolveChannelConfigWrites, };
+export type { ConfigWriteAuthorizationResult, ConfigWriteScope, ConfigWriteTarget };
+type ChannelConfigAdapterWithAccessors<ResolvedAccount> = Pick<ChannelConfigAdapter<ResolvedAccount>, "listAccountIds" | "resolveAccount" | "inspectAccount" | "defaultAccountId" | "setAccountEnabled" | "deleteAccount" | "resolveAllowFrom" | "formatAllowFrom" | "resolveDefaultTo">;
+type ChannelConfigAccessorParams<Config extends OpenClawConfig = OpenClawConfig> = {
+    cfg: Config;
+    accountId?: string | null;
+};
+type MultiAccountChannelConfigAdapterParams<ResolvedAccount, AccessorAccount = ResolvedAccount, Config extends OpenClawConfig = OpenClawConfig> = {
+    sectionKey: string;
+    listAccountIds: (cfg: Config) => string[];
+    resolveAccount: (cfg: Config, accountId?: string | null) => ResolvedAccount;
+    resolveAccessorAccount?: (params: ChannelConfigAccessorParams<Config>) => AccessorAccount;
+    defaultAccountId: (cfg: Config) => string;
+    inspectAccount?: (cfg: Config, accountId?: string | null) => unknown;
+    clearBaseFields: string[];
+    resolveAllowFrom: (account: AccessorAccount) => Array<string | number> | null | undefined;
+    formatAllowFrom: (allowFrom: Array<string | number>) => string[];
+    resolveDefaultTo?: (account: AccessorAccount) => string | number | null | undefined;
+};
 /** Coerce mixed allowlist config values into plain strings without trimming or deduping. */
 export declare function mapAllowFromEntries(allowFrom: Array<string | number> | null | undefined): string[];
 /** Normalize user-facing allowlist entries the same way config and doctor flows expect. */
 export declare function formatTrimmedAllowFromEntries(allowFrom: Array<string | number>): string[];
 /** Collapse nullable config scalars into a trimmed optional string. */
 export declare function resolveOptionalConfigString(value: string | number | null | undefined): string | undefined;
+/** Adapt `{ cfg, accountId }` accessors to callback sites that pass positional args. */
+export declare function adaptScopedAccountAccessor<Result, Config extends OpenClawConfig = OpenClawConfig>(accessor: (params: {
+    cfg: Config;
+    accountId?: string | null;
+}) => Result): (cfg: Config, accountId?: string | null) => Result;
 /** Build the shared allowlist/default target adapter surface for account-scoped channel configs. */
 export declare function createScopedAccountConfigAccessors<ResolvedAccount, Config extends OpenClawConfig = OpenClawConfig>(params: {
     resolveAccount: (params: {
@@ -29,22 +54,9 @@ export declare function createScopedChannelConfigBase<ResolvedAccount, Config ex
     allowTopLevel?: boolean;
 }): Pick<ChannelConfigAdapter<ResolvedAccount>, "listAccountIds" | "resolveAccount" | "inspectAccount" | "defaultAccountId" | "setAccountEnabled" | "deleteAccount">;
 /** Build the full shared config adapter for account-scoped channels with allowlist/default target accessors. */
-export declare function createScopedChannelConfigAdapter<ResolvedAccount, AccessorAccount = ResolvedAccount, Config extends OpenClawConfig = OpenClawConfig>(params: {
-    sectionKey: string;
-    listAccountIds: (cfg: Config) => string[];
-    resolveAccount: (cfg: Config, accountId?: string | null) => ResolvedAccount;
-    resolveAccessorAccount?: (params: {
-        cfg: Config;
-        accountId?: string | null;
-    }) => AccessorAccount;
-    defaultAccountId: (cfg: Config) => string;
-    inspectAccount?: (cfg: Config, accountId?: string | null) => unknown;
-    clearBaseFields: string[];
+export declare function createScopedChannelConfigAdapter<ResolvedAccount, AccessorAccount = ResolvedAccount, Config extends OpenClawConfig = OpenClawConfig>(params: MultiAccountChannelConfigAdapterParams<ResolvedAccount, AccessorAccount, Config> & {
     allowTopLevel?: boolean;
-    resolveAllowFrom: (account: AccessorAccount) => Array<string | number> | null | undefined;
-    formatAllowFrom: (allowFrom: Array<string | number>) => string[];
-    resolveDefaultTo?: (account: AccessorAccount) => string | number | null | undefined;
-}): Pick<ChannelConfigAdapter<ResolvedAccount>, "listAccountIds" | "resolveAccount" | "inspectAccount" | "defaultAccountId" | "setAccountEnabled" | "deleteAccount" | "resolveAllowFrom" | "formatAllowFrom" | "resolveDefaultTo">;
+}): ChannelConfigAdapterWithAccessors<ResolvedAccount>;
 /** Build CRUD/config helpers for top-level single-account channels. */
 export declare function createTopLevelChannelConfigBase<ResolvedAccount, Config extends OpenClawConfig = OpenClawConfig>(params: {
     sectionKey: string;
@@ -71,7 +83,7 @@ export declare function createTopLevelChannelConfigAdapter<ResolvedAccount, Acce
     resolveAllowFrom: (account: AccessorAccount) => Array<string | number> | null | undefined;
     formatAllowFrom: (allowFrom: Array<string | number>) => string[];
     resolveDefaultTo?: (account: AccessorAccount) => string | number | null | undefined;
-}): Pick<ChannelConfigAdapter<ResolvedAccount>, "listAccountIds" | "resolveAccount" | "inspectAccount" | "defaultAccountId" | "setAccountEnabled" | "deleteAccount" | "resolveAllowFrom" | "formatAllowFrom" | "resolveDefaultTo">;
+}): ChannelConfigAdapterWithAccessors<ResolvedAccount>;
 /** Build CRUD/config helpers for channels where the default account lives at channel root and named accounts live under `accounts`. */
 export declare function createHybridChannelConfigBase<ResolvedAccount, Config extends OpenClawConfig = OpenClawConfig>(params: {
     sectionKey: string;
@@ -83,22 +95,9 @@ export declare function createHybridChannelConfigBase<ResolvedAccount, Config ex
     preserveSectionOnDefaultDelete?: boolean;
 }): Pick<ChannelConfigAdapter<ResolvedAccount>, "listAccountIds" | "resolveAccount" | "inspectAccount" | "defaultAccountId" | "setAccountEnabled" | "deleteAccount">;
 /** Build the full shared config adapter for hybrid channels with allowlist/default target accessors. */
-export declare function createHybridChannelConfigAdapter<ResolvedAccount, AccessorAccount = ResolvedAccount, Config extends OpenClawConfig = OpenClawConfig>(params: {
-    sectionKey: string;
-    listAccountIds: (cfg: Config) => string[];
-    resolveAccount: (cfg: Config, accountId?: string | null) => ResolvedAccount;
-    resolveAccessorAccount?: (params: {
-        cfg: Config;
-        accountId?: string | null;
-    }) => AccessorAccount;
-    defaultAccountId: (cfg: Config) => string;
-    inspectAccount?: (cfg: Config, accountId?: string | null) => unknown;
-    clearBaseFields: string[];
+export declare function createHybridChannelConfigAdapter<ResolvedAccount, AccessorAccount = ResolvedAccount, Config extends OpenClawConfig = OpenClawConfig>(params: MultiAccountChannelConfigAdapterParams<ResolvedAccount, AccessorAccount, Config> & {
     preserveSectionOnDefaultDelete?: boolean;
-    resolveAllowFrom: (account: AccessorAccount) => Array<string | number> | null | undefined;
-    formatAllowFrom: (allowFrom: Array<string | number>) => string[];
-    resolveDefaultTo?: (account: AccessorAccount) => string | number | null | undefined;
-}): Pick<ChannelConfigAdapter<ResolvedAccount>, "listAccountIds" | "resolveAccount" | "inspectAccount" | "defaultAccountId" | "setAccountEnabled" | "deleteAccount" | "resolveAllowFrom" | "formatAllowFrom" | "resolveDefaultTo">;
+}): ChannelConfigAdapterWithAccessors<ResolvedAccount>;
 /** Convert account-specific DM security fields into the shared runtime policy resolver shape. */
 export declare function createScopedDmSecurityResolver<ResolvedAccount extends {
     accountId?: string | null;

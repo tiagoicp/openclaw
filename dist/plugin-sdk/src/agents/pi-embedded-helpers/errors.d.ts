@@ -1,5 +1,6 @@
 import type { AssistantMessage } from "@mariozechner/pi-ai";
 import type { OpenClawConfig } from "../../config/config.js";
+export { extractLeadingHttpStatus, formatRawAssistantErrorForUi, isCloudflareOrHtmlErrorPage, parseApiErrorInfo, } from "../../shared/assistant-error-format.js";
 import type { FailoverReason } from "./types.js";
 export { isAuthErrorMessage, isAuthPermanentErrorMessage, isBillingErrorMessage, isOverloadedErrorMessage, isRateLimitErrorMessage, isTimeoutErrorMessage, } from "./failover-matches.js";
 export declare function formatBillingErrorMessage(provider?: string, model?: string): string;
@@ -8,19 +9,10 @@ export declare function isContextOverflowError(errorMessage?: string): boolean;
 export declare function isLikelyContextOverflowError(errorMessage?: string): boolean;
 export declare function isCompactionFailureError(errorMessage?: string): boolean;
 export declare function extractObservedOverflowTokenCount(errorMessage?: string): number | undefined;
-export declare function isCloudflareOrHtmlErrorPage(raw: string): boolean;
 export declare function isTransientHttpError(raw: string): boolean;
 export declare function classifyFailoverReasonFromHttpStatus(status: number | undefined, message?: string): FailoverReason | null;
 export declare function getApiErrorPayloadFingerprint(raw?: string): string | null;
 export declare function isRawApiErrorPayload(raw?: string): boolean;
-export type ApiErrorInfo = {
-    httpCode?: string;
-    type?: string;
-    message?: string;
-    requestId?: string;
-};
-export declare function parseApiErrorInfo(raw?: string): ApiErrorInfo | null;
-export declare function formatRawAssistantErrorForUi(raw?: string): string;
 export declare function formatAssistantErrorText(msg: AssistantMessage, opts?: {
     cfg?: OpenClawConfig;
     sessionKey?: string;

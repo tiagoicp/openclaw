@@ -1,4 +1,4 @@
-import { type OpenClawConfig, type DiscordAccountConfig } from "./runtime-api.js";
+import type { DiscordAccountConfig, OpenClawConfig } from "./runtime-api.js";
 export type DiscordCredentialStatus = "available" | "configured_unavailable" | "missing";
 export type InspectedDiscordAccount = {
     accountId: string;

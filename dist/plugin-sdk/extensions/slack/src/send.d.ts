@@ -20,5 +20,6 @@ export type SlackSendResult = {
     messageId: string;
     channelId: string;
 };
+export declare function clearSlackDmChannelCache(): void;
 export declare function sendMessageSlack(to: string, message: string, opts?: SlackSendOpts): Promise<SlackSendResult>;
 export {};

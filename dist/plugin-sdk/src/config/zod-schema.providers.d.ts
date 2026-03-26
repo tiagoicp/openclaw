@@ -184,10 +184,10 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
         name: z.ZodOptional<z.ZodString>;
         capabilities: z.ZodOptional<z.ZodUnion<readonly [z.ZodArray<z.ZodString>, z.ZodObject<{
             inlineButtons: z.ZodOptional<z.ZodEnum<{
-                group: "group";
-                dm: "dm";
                 off: "off";
                 all: "all";
+                group: "group";
+                dm: "dm";
                 allowlist: "allowlist";
             }>>;
         }, z.core.$strict>]>>;
@@ -326,6 +326,10 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
                 agentId: z.ZodOptional<z.ZodString>;
             }, z.core.$strict>>>>;
             requireTopic: z.ZodOptional<z.ZodBoolean>;
+            autoTopicLabel: z.ZodOptional<z.ZodUnion<readonly [z.ZodBoolean, z.ZodObject<{
+                enabled: z.ZodOptional<z.ZodBoolean>;
+                prompt: z.ZodOptional<z.ZodString>;
+            }, z.core.$strict>]>>;
         }, z.core.$strict>>>>;
         textChunkLimit: z.ZodOptional<z.ZodNumber>;
         chunkMode: z.ZodOptional<z.ZodEnum<{
@@ -334,9 +338,9 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
         }>>;
         streaming: z.ZodOptional<z.ZodUnion<readonly [z.ZodBoolean, z.ZodEnum<{
             off: "off";
-            progress: "progress";
-            partial: "partial";
             block: "block";
+            partial: "partial";
+            progress: "progress";
         }>]>>;
         blockStreaming: z.ZodOptional<z.ZodBoolean>;
         draftChunk: z.ZodOptional<z.ZodObject<{
@@ -351,8 +355,8 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
         }, z.core.$strict>>;
         streamMode: z.ZodOptional<z.ZodEnum<{
             off: "off";
-            partial: "partial";
             block: "block";
+            partial: "partial";
         }>>;
         mediaMaxMb: z.ZodOptional<z.ZodNumber>;
         timeoutSeconds: z.ZodOptional<z.ZodNumber>;
@@ -428,14 +432,19 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
         silentErrorReplies: z.ZodOptional<z.ZodBoolean>;
         responsePrefix: z.ZodOptional<z.ZodString>;
         ackReaction: z.ZodOptional<z.ZodString>;
+        apiRoot: z.ZodOptional<z.ZodString>;
+        autoTopicLabel: z.ZodOptional<z.ZodUnion<readonly [z.ZodBoolean, z.ZodObject<{
+            enabled: z.ZodOptional<z.ZodBoolean>;
+            prompt: z.ZodOptional<z.ZodString>;
+        }, z.core.$strict>]>>;
         accounts: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodOptional<z.ZodObject<{
             name: z.ZodOptional<z.ZodString>;
             capabilities: z.ZodOptional<z.ZodUnion<readonly [z.ZodArray<z.ZodString>, z.ZodObject<{
                 inlineButtons: z.ZodOptional<z.ZodEnum<{
-                    group: "group";
-                    dm: "dm";
                     off: "off";
                     all: "all";
+                    group: "group";
+                    dm: "dm";
                     allowlist: "allowlist";
                 }>>;
             }, z.core.$strict>]>>;
@@ -574,6 +583,10 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
                     agentId: z.ZodOptional<z.ZodString>;
                 }, z.core.$strict>>>>;
                 requireTopic: z.ZodOptional<z.ZodBoolean>;
+                autoTopicLabel: z.ZodOptional<z.ZodUnion<readonly [z.ZodBoolean, z.ZodObject<{
+                    enabled: z.ZodOptional<z.ZodBoolean>;
+                    prompt: z.ZodOptional<z.ZodString>;
+                }, z.core.$strict>]>>;
             }, z.core.$strict>>>>;
             textChunkLimit: z.ZodOptional<z.ZodNumber>;
             chunkMode: z.ZodOptional<z.ZodEnum<{
@@ -582,9 +595,9 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
             }>>;
             streaming: z.ZodOptional<z.ZodUnion<readonly [z.ZodBoolean, z.ZodEnum<{
                 off: "off";
-                progress: "progress";
-                partial: "partial";
                 block: "block";
+                partial: "partial";
+                progress: "progress";
             }>]>>;
             blockStreaming: z.ZodOptional<z.ZodBoolean>;
             draftChunk: z.ZodOptional<z.ZodObject<{
@@ -599,8 +612,8 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
             }, z.core.$strict>>;
             streamMode: z.ZodOptional<z.ZodEnum<{
                 off: "off";
-                partial: "partial";
                 block: "block";
+                partial: "partial";
             }>>;
             mediaMaxMb: z.ZodOptional<z.ZodNumber>;
             timeoutSeconds: z.ZodOptional<z.ZodNumber>;
@@ -676,6 +689,11 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
             silentErrorReplies: z.ZodOptional<z.ZodBoolean>;
             responsePrefix: z.ZodOptional<z.ZodString>;
             ackReaction: z.ZodOptional<z.ZodString>;
+            apiRoot: z.ZodOptional<z.ZodString>;
+            autoTopicLabel: z.ZodOptional<z.ZodUnion<readonly [z.ZodBoolean, z.ZodObject<{
+                enabled: z.ZodOptional<z.ZodBoolean>;
+                prompt: z.ZodOptional<z.ZodString>;
+            }, z.core.$strict>]>>;
         }, z.core.$strict>>>>;
         defaultAccount: z.ZodOptional<z.ZodString>;
     }, z.core.$strict>>;
@@ -734,14 +752,14 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
         }, z.core.$strict>>;
         streaming: z.ZodOptional<z.ZodUnion<readonly [z.ZodBoolean, z.ZodEnum<{
             off: "off";
-            progress: "progress";
-            partial: "partial";
             block: "block";
+            partial: "partial";
+            progress: "progress";
         }>]>>;
         streamMode: z.ZodOptional<z.ZodEnum<{
             off: "off";
-            partial: "partial";
             block: "block";
+            partial: "partial";
         }>>;
         draftChunk: z.ZodOptional<z.ZodObject<{
             minChars: z.ZodOptional<z.ZodNumber>;
@@ -841,6 +859,10 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
                 systemPrompt: z.ZodOptional<z.ZodString>;
                 includeThreadStarter: z.ZodOptional<z.ZodBoolean>;
                 autoThread: z.ZodOptional<z.ZodBoolean>;
+                autoThreadName: z.ZodOptional<z.ZodEnum<{
+                    message: "message";
+                    generated: "generated";
+                }>>;
                 autoArchiveDuration: z.ZodOptional<z.ZodUnion<readonly [z.ZodEnum<{
                     60: "60";
                     1440: "1440";
@@ -942,8 +964,8 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
                     modelId: z.ZodOptional<z.ZodString>;
                     seed: z.ZodOptional<z.ZodNumber>;
                     applyTextNormalization: z.ZodOptional<z.ZodEnum<{
-                        auto: "auto";
                         off: "off";
+                        auto: "auto";
                         on: "on";
                     }>>;
                     languageCode: z.ZodOptional<z.ZodString>;
@@ -1023,10 +1045,10 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
         responsePrefix: z.ZodOptional<z.ZodString>;
         ackReaction: z.ZodOptional<z.ZodString>;
         ackReactionScope: z.ZodOptional<z.ZodEnum<{
-            direct: "direct";
             off: "off";
             all: "all";
             none: "none";
+            direct: "direct";
             "group-mentions": "group-mentions";
             "group-all": "group-all";
         }>>;
@@ -1110,14 +1132,14 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
             }, z.core.$strict>>;
             streaming: z.ZodOptional<z.ZodUnion<readonly [z.ZodBoolean, z.ZodEnum<{
                 off: "off";
-                progress: "progress";
-                partial: "partial";
                 block: "block";
+                partial: "partial";
+                progress: "progress";
             }>]>>;
             streamMode: z.ZodOptional<z.ZodEnum<{
                 off: "off";
-                partial: "partial";
                 block: "block";
+                partial: "partial";
             }>>;
             draftChunk: z.ZodOptional<z.ZodObject<{
                 minChars: z.ZodOptional<z.ZodNumber>;
@@ -1217,6 +1239,10 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
                     systemPrompt: z.ZodOptional<z.ZodString>;
                     includeThreadStarter: z.ZodOptional<z.ZodBoolean>;
                     autoThread: z.ZodOptional<z.ZodBoolean>;
+                    autoThreadName: z.ZodOptional<z.ZodEnum<{
+                        message: "message";
+                        generated: "generated";
+                    }>>;
                     autoArchiveDuration: z.ZodOptional<z.ZodUnion<readonly [z.ZodEnum<{
                         60: "60";
                         1440: "1440";
@@ -1318,8 +1344,8 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
                         modelId: z.ZodOptional<z.ZodString>;
                         seed: z.ZodOptional<z.ZodNumber>;
                         applyTextNormalization: z.ZodOptional<z.ZodEnum<{
-                            auto: "auto";
                             off: "off";
+                            auto: "auto";
                             on: "on";
                         }>>;
                         languageCode: z.ZodOptional<z.ZodString>;
@@ -1399,10 +1425,10 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
             responsePrefix: z.ZodOptional<z.ZodString>;
             ackReaction: z.ZodOptional<z.ZodString>;
             ackReactionScope: z.ZodOptional<z.ZodEnum<{
-                direct: "direct";
                 off: "off";
                 all: "all";
                 none: "none";
+                direct: "direct";
                 "group-mentions": "group-mentions";
                 "group-all": "group-all";
             }>>;
@@ -1735,8 +1761,8 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
         }, z.core.$strict>>;
         streamMode: z.ZodDefault<z.ZodOptional<z.ZodEnum<{
             replace: "replace";
-            status_final: "status_final";
             append: "append";
+            status_final: "status_final";
         }>>>;
         mediaMaxMb: z.ZodOptional<z.ZodNumber>;
         replyToMode: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"off">, z.ZodLiteral<"first">, z.ZodLiteral<"all">]>>;
@@ -1838,8 +1864,8 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
             }, z.core.$strict>>;
             streamMode: z.ZodDefault<z.ZodOptional<z.ZodEnum<{
                 replace: "replace";
-                status_final: "status_final";
                 append: "append";
+                status_final: "status_final";
             }>>>;
             mediaMaxMb: z.ZodOptional<z.ZodNumber>;
             replyToMode: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"off">, z.ZodLiteral<"first">, z.ZodLiteral<"all">]>>;
@@ -1947,15 +1973,15 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
         }, z.core.$strict>>;
         streaming: z.ZodOptional<z.ZodUnion<readonly [z.ZodBoolean, z.ZodEnum<{
             off: "off";
-            progress: "progress";
-            partial: "partial";
             block: "block";
+            partial: "partial";
+            progress: "progress";
         }>]>>;
         nativeStreaming: z.ZodOptional<z.ZodBoolean>;
         streamMode: z.ZodOptional<z.ZodEnum<{
             replace: "replace";
-            status_final: "status_final";
             append: "append";
+            status_final: "status_final";
         }>>;
         mediaMaxMb: z.ZodOptional<z.ZodNumber>;
         reactionNotifications: z.ZodOptional<z.ZodEnum<{
@@ -2171,15 +2197,15 @@ export declare const ChannelsSchema: z.ZodOptional<z.ZodObject<{
             }, z.core.$strict>>;
             streaming: z.ZodOptional<z.ZodUnion<readonly [z.ZodBoolean, z.ZodEnum<{
                 off: "off";
-                progress: "progress";
-                partial: "partial";
                 block: "block";
+                partial: "partial";
+                progress: "progress";
             }>]>>;
             nativeStreaming: z.ZodOptional<z.ZodBoolean>;
             streamMode: z.ZodOptional<z.ZodEnum<{
                 replace: "replace";
-                status_final: "status_final";
                 append: "append";
+                status_final: "status_final";
             }>>;
             mediaMaxMb: z.ZodOptional<z.ZodNumber>;
             reactionNotifications: z.ZodOptional<z.ZodEnum<{

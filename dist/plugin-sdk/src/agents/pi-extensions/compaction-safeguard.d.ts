@@ -1,6 +1,7 @@
 import type { AgentMessage } from "@mariozechner/pi-agent-core";
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
-import { type CompactionSummarizationInstructions, computeAdaptiveChunkRatio, isOversizedForSummary } from "../compaction.js";
+import { hasMeaningfulConversationContent, isRealConversationMessage } from "../compaction-real-conversation.js";
+import { type CompactionSummarizationInstructions, computeAdaptiveChunkRatio, isOversizedForSummary, summarizeInStages } from "../compaction.js";
 type ToolFailure = {
     toolCallId: string;
     toolName: string;
@@ -11,6 +12,9 @@ declare function resolveRecentTurnsPreserve(value: unknown): number;
 declare function resolveQualityGuardMaxRetries(value: unknown): number;
 declare function collectToolFailures(messages: AgentMessage[]): ToolFailure[];
 declare function formatToolFailuresSection(failures: ToolFailure[]): string;
+declare function formatFileOperations(readFiles: string[], modifiedFiles: string[]): string;
+declare function capCompactionSummary(summary: string, maxChars?: number): string;
+declare function capCompactionSummaryPreservingSuffix(summaryBody: string, suffix: string, maxChars?: number): string;
 declare function splitPreservedRecentTurns(params: {
     messages: AgentMessage[];
     recentTurnsPreserve: number;
@@ -41,6 +45,7 @@ declare function auditSummaryQuality(params: {
 declare function readWorkspaceContextForSummary(): Promise<string>;
 export default function compactionSafeguardExtension(api: ExtensionAPI): void;
 export declare const __testing: {
+    readonly setSummarizeInStagesForTest: (next?: typeof summarizeInStages) => void;
     readonly collectToolFailures: typeof collectToolFailures;
     readonly formatToolFailuresSection: typeof formatToolFailuresSection;
     readonly splitPreservedRecentTurns: typeof splitPreservedRecentTurns;
@@ -52,11 +57,20 @@ export declare const __testing: {
     readonly resolveQualityGuardMaxRetries: typeof resolveQualityGuardMaxRetries;
     readonly extractOpaqueIdentifiers: typeof extractOpaqueIdentifiers;
     readonly auditSummaryQuality: typeof auditSummaryQuality;
+    readonly capCompactionSummary: typeof capCompactionSummary;
+    readonly capCompactionSummaryPreservingSuffix: typeof capCompactionSummaryPreservingSuffix;
+    readonly formatFileOperations: typeof formatFileOperations;
     readonly computeAdaptiveChunkRatio: typeof computeAdaptiveChunkRatio;
     readonly isOversizedForSummary: typeof isOversizedForSummary;
     readonly readWorkspaceContextForSummary: typeof readWorkspaceContextForSummary;
+    readonly hasMeaningfulConversationContent: typeof hasMeaningfulConversationContent;
+    readonly isRealConversationMessage: typeof isRealConversationMessage;
     readonly BASE_CHUNK_RATIO: 0.4;
     readonly MIN_CHUNK_RATIO: 0.15;
     readonly SAFETY_MARGIN: 1.2;
+    readonly MAX_COMPACTION_SUMMARY_CHARS: 16000;
+    readonly MAX_FILE_OPS_SECTION_CHARS: 2000;
+    readonly MAX_FILE_OPS_LIST_CHARS: 900;
+    readonly SUMMARY_TRUNCATED_MARKER: "\n\n[Compaction summary truncated to fit budget]";
 };
 export {};

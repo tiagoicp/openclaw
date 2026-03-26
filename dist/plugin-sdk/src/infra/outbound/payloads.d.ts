@@ -3,6 +3,7 @@ import { type InteractiveReply } from "../../interactive/payload.js";
 export type NormalizedOutboundPayload = {
     text: string;
     mediaUrls: string[];
+    audioAsVoice?: boolean;
     interactive?: InteractiveReply;
     channelData?: Record<string, unknown>;
 };
@@ -10,6 +11,7 @@ export type OutboundPayloadJson = {
     text: string;
     mediaUrl: string | null;
     mediaUrls?: string[];
+    audioAsVoice?: boolean;
     interactive?: InteractiveReply;
     channelData?: Record<string, unknown>;
 };

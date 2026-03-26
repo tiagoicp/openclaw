@@ -1,4 +1,4 @@
-import { type ChannelMatchSource } from "openclaw/plugin-sdk/channel-runtime";
+import { type ChannelMatchSource } from "openclaw/plugin-sdk/channel-targets";
 import type { SlackReactionNotificationMode } from "openclaw/plugin-sdk/config-runtime";
 import type { SlackMessageEvent } from "../types.js";
 export type SlackChannelConfigResolved = {

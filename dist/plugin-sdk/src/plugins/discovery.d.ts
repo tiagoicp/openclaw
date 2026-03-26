@@ -1,4 +1,4 @@
-import { type OpenClawPackageManifest } from "./manifest.js";
+import { type PluginManifest, type OpenClawPackageManifest } from "./manifest.js";
 import type { PluginBundleFormat, PluginDiagnostic, PluginFormat, PluginOrigin } from "./types.js";
 export type PluginCandidate = {
     idHint: string;
@@ -14,6 +14,8 @@ export type PluginCandidate = {
     packageDescription?: string;
     packageDir?: string;
     packageManifest?: OpenClawPackageManifest;
+    bundledManifest?: PluginManifest;
+    bundledManifestPath?: string;
 };
 export type PluginDiscoveryResult = {
     candidates: PluginCandidate[];

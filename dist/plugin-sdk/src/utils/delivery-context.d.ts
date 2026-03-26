@@ -13,6 +13,19 @@ export type DeliveryContextSessionSource = {
     deliveryContext?: DeliveryContext;
 };
 export declare function normalizeDeliveryContext(context?: DeliveryContext): DeliveryContext | undefined;
+export declare function formatConversationTarget(params: {
+    channel?: string;
+    conversationId?: string | number;
+    parentConversationId?: string | number;
+}): string | undefined;
+export declare function resolveConversationDeliveryTarget(params: {
+    channel?: string;
+    conversationId?: string | number;
+    parentConversationId?: string | number;
+}): {
+    to?: string;
+    threadId?: string;
+};
 export declare function normalizeSessionDeliveryFields(source?: DeliveryContextSessionSource): {
     deliveryContext?: DeliveryContext;
     lastChannel?: string;

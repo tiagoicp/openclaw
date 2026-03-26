@@ -1,4 +1,4 @@
-import { type AllowlistMatch } from "openclaw/plugin-sdk/channel-runtime";
+import { type AllowlistMatch } from "openclaw/plugin-sdk/allow-from";
 export declare function normalizeSlackSlug(raw?: string): string;
 export declare function normalizeAllowList(list?: Array<string | number>): string[];
 export declare function normalizeAllowListLower(list?: Array<string | number>): string[];

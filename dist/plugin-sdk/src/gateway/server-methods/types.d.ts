@@ -56,6 +56,7 @@ export type GatewayRequestContext = {
     chatAbortedRuns: Map<string, number>;
     chatRunBuffers: Map<string, string>;
     chatDeltaSentAt: Map<string, number>;
+    chatDeltaLastBroadcastLen: Map<string, number>;
     addChatRun: (sessionId: string, entry: {
         sessionKey: string;
         clientRunId: string;
@@ -64,6 +65,12 @@ export type GatewayRequestContext = {
         sessionKey: string;
         clientRunId: string;
     } | undefined;
+    subscribeSessionEvents: (connId: string) => void;
+    unsubscribeSessionEvents: (connId: string) => void;
+    subscribeSessionMessageEvents: (connId: string, sessionKey: string) => void;
+    unsubscribeSessionMessageEvents: (connId: string, sessionKey: string) => void;
+    unsubscribeAllSessionEvents: (connId: string) => void;
+    getSessionEventSubscriberConnIds: () => ReadonlySet<string>;
     registerToolEventRecipient: (runId: string, connId: string) => void;
     dedupe: Map<string, DedupeEntry>;
     wizardSessions: Map<string, WizardSession>;

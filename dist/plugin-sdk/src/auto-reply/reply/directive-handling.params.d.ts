@@ -36,6 +36,7 @@ export type HandleDirectiveOnlyParams = HandleDirectiveOnlyCoreParams & {
     currentReasoningLevel?: ReasoningLevel;
     currentElevatedLevel?: ElevatedLevel;
     surface?: string;
+    gatewayClientScopes?: string[];
 };
 export type ApplyInlineDirectivesFastLaneParams = HandleDirectiveOnlyCoreParams & {
     commandAuthorized: boolean;

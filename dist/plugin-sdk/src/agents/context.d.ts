@@ -22,12 +22,16 @@ export declare function applyConfiguredContextWindows(params: {
     cache: Map<string, number>;
     modelsConfig: ModelsConfig | undefined;
 }): void;
-export declare function lookupContextTokens(modelId?: string): number | undefined;
+export declare function resetContextWindowCacheForTest(): void;
+export declare function lookupContextTokens(modelId?: string, options?: {
+    allowAsyncLoad?: boolean;
+}): number | undefined;
 export declare function resolveContextTokensForModel(params: {
     cfg?: OpenClawConfig;
     provider?: string;
     model?: string;
     contextTokensOverride?: number;
     fallbackContextTokens?: number;
+    allowAsyncLoad?: boolean;
 }): number | undefined;
 export {};

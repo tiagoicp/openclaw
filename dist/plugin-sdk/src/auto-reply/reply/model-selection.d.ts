@@ -1,7 +1,7 @@
-import { loadModelCatalog } from "../../agents/model-catalog.js";
+import type { ModelCatalogEntry } from "../../agents/model-catalog.js";
 import { type ModelAliasIndex } from "../../agents/model-selection.js";
 import type { OpenClawConfig } from "../../config/config.js";
-import { type SessionEntry } from "../../config/sessions.js";
+import type { SessionEntry } from "../../config/sessions/types.js";
 import type { ThinkLevel } from "./directives.js";
 export type ModelDirectiveSelection = {
     provider: string;
@@ -9,7 +9,7 @@ export type ModelDirectiveSelection = {
     isDefault: boolean;
     alias?: string;
 };
-type ModelCatalog = Awaited<ReturnType<typeof loadModelCatalog>>;
+type ModelCatalog = ModelCatalogEntry[];
 type ModelSelectionState = {
     provider: string;
     model: string;

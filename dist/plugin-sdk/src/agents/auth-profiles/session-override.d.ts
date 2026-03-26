@@ -1,5 +1,5 @@
 import type { OpenClawConfig } from "../../config/config.js";
-import { type SessionEntry } from "../../config/sessions.js";
+import type { SessionEntry } from "../../config/sessions/types.js";
 export declare function clearSessionAuthProfileOverride(params: {
     sessionEntry: SessionEntry;
     sessionStore: Record<string, SessionEntry>;

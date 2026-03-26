@@ -17,6 +17,9 @@
       "groupId": "fal",
       "groupLabel": "fal",
       "groupHint": "Image generation",
+      "onboardingScopes": [
+        "image-generation"
+      ],
       "optionKey": "falApiKey",
       "cliFlag": "--fal-api-key",
       "cliOption": "--fal-api-key <key>",

@@ -1,6 +1,7 @@
 import type { AuthProfileCredential, OAuthCredential } from "../agents/auth-profiles/types.js";
 import type { OpenClawConfig } from "../config/config.js";
 import type { ProviderAuthDoctorHintContext, ProviderAugmentModelCatalogContext, ProviderBuildMissingAuthMessageContext, ProviderBuiltInModelSuppressionContext, ProviderCacheTtlEligibilityContext, ProviderDefaultThinkingPolicyContext, ProviderFetchUsageSnapshotContext, ProviderModernModelPolicyContext, ProviderPrepareExtraParamsContext, ProviderPrepareDynamicModelContext, ProviderPrepareRuntimeAuthContext, ProviderResolveUsageAuthContext, ProviderPlugin, ProviderResolveDynamicModelContext, ProviderRuntimeModel, ProviderThinkingPolicyContext, ProviderWrapStreamFnContext } from "./types.js";
+export declare function clearProviderRuntimeHookCache(): void;
 export declare function resetProviderRuntimeHookCacheForTest(): void;
 export declare function resolveProviderRuntimePlugin(params: {
     provider: string;

@@ -1,5 +1,6 @@
 import type { OpenClawConfig } from "openclaw/plugin-sdk/config-runtime";
 import type { BackoffPolicy } from "openclaw/plugin-sdk/infra-runtime";
+import { waitForTransportReady } from "openclaw/plugin-sdk/infra-runtime";
 import { type RuntimeEnv } from "openclaw/plugin-sdk/runtime-env";
 export type MonitorSignalOpts = {
     runtime?: RuntimeEnv;
@@ -21,5 +22,6 @@ export type MonitorSignalOpts = {
     groupAllowFrom?: Array<string | number>;
     mediaMaxMb?: number;
     reconnectPolicy?: Partial<BackoffPolicy>;
+    waitForTransportReady?: typeof waitForTransportReady;
 };
 export declare function monitorSignalProvider(opts?: MonitorSignalOpts): Promise<void>;

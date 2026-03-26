@@ -3,5 +3,11 @@ export type RuntimeEnv = {
     error: (...args: unknown[]) => void;
     exit: (code: number) => void;
 };
-export declare const defaultRuntime: RuntimeEnv;
-export declare function createNonExitingRuntime(): RuntimeEnv;
+export type OutputRuntimeEnv = RuntimeEnv & {
+    writeStdout: (value: string) => void;
+    writeJson: (value: unknown, space?: number) => void;
+};
+export declare const defaultRuntime: OutputRuntimeEnv;
+export declare function createNonExitingRuntime(): OutputRuntimeEnv;
+export declare function writeRuntimeStdout(runtime: RuntimeEnv | OutputRuntimeEnv, value: string): void;
+export declare function writeRuntimeJson(runtime: RuntimeEnv | OutputRuntimeEnv, value: unknown, space?: number): void;

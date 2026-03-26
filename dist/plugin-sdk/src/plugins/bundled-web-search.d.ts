@@ -1,7 +1,10 @@
 import type { PluginLoadOptions } from "./loader.js";
-export declare const BUNDLED_WEB_SEARCH_PLUGIN_IDS: readonly ["brave", "firecrawl", "google", "moonshot", "perplexity", "xai"];
+import type { PluginWebSearchProviderEntry } from "./types.js";
 export declare function resolveBundledWebSearchPluginIds(params: {
     config?: PluginLoadOptions["config"];
     workspaceDir?: string;
     env?: PluginLoadOptions["env"];
 }): string[];
+export declare function listBundledWebSearchPluginIds(): string[];
+export declare function listBundledWebSearchProviders(): PluginWebSearchProviderEntry[];
+export declare function resolveBundledWebSearchPluginId(providerId: string | undefined): string | undefined;

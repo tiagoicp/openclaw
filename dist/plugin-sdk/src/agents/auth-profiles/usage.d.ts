@@ -1,5 +1,12 @@
 import type { OpenClawConfig } from "../../config/config.js";
+import { saveAuthProfileStore, updateAuthProfileStoreWithLock } from "./store.js";
 import type { AuthProfileFailureReason, AuthProfileStore, ProfileUsageStats } from "./types.js";
+export declare const __testing: {
+    setDepsForTest(overrides: Partial<{
+        saveAuthProfileStore: typeof saveAuthProfileStore;
+        updateAuthProfileStoreWithLock: typeof updateAuthProfileStoreWithLock;
+    }> | null): void;
+};
 export declare function resolveProfileUnusableUntil(stats: Pick<ProfileUsageStats, "cooldownUntil" | "disabledUntil">): number | null;
 /**
  * Check if a profile is currently in cooldown (due to rate limits, overload, or other transient failures).

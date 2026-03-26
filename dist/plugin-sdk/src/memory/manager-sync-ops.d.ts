@@ -16,6 +16,7 @@ type MemoryIndexMeta = {
     chunkOverlap: number;
     vectorDims?: number;
 };
+export declare function runDetachedMemorySync(sync: () => Promise<void>, reason: "interval" | "watch"): void;
 export declare abstract class MemoryManagerSyncOps {
     protected abstract readonly cfg: OpenClawConfig;
     protected abstract readonly agentId: string;

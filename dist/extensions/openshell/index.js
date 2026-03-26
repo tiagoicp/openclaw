@@ -1,145 +1,69 @@
 import "../../redact-BDinS1q9.js";
 import "../../errors-BxyFnvP3.js";
-import "../../unhandled-rejections-CDJ8dOVP.js";
-import "../../logger-Bisu6sgz.js";
-import "../../paths-D_QmduAc.js";
-import { n as resolvePreferredOpenClawTmpDir } from "../../tmp-openclaw-dir-CEAo8CGE.js";
-import "../../theme-Bnch_o1K.js";
-import "../../globals-CnsLPQis.js";
-import "../../subsystem-Dm-AQqmI.js";
-import "../../ansi-BMqrB9En.js";
-import "../../boolean-BgLJTske.js";
-import "../../env-mHZMLTjc.js";
-import "../../warning-filter-m2BbicIr.js";
-import "../../utils-CIAfMgvq.js";
-import "../../links-DtUd3CJi.js";
-import "../../models-config.providers.discovery-CBSen190.js";
-import { Cx as createRemoteShellSandboxFsBridge, _x as createSshSandboxSessionFromConfigText, bx as runSshSandboxCommand, fx as registerSandboxBackend, mx as buildExecRemoteCommand, xx as shellEscape, yx as disposeSshSandboxSession } from "../../auth-profiles-C1V2x6_A.js";
-import "../../model-selection-BvgYPMZN.js";
-import "../../agent-scope-BvOTVsJZ.js";
-import "../../boundary-path-BVHzCDEE.js";
-import "../../boundary-file-read-1knRHcS0.js";
-import "../../logger-DcSg74GU.js";
-import "../../exec-Bwz57vWc.js";
-import "../../workspace-C3BQkKrq.js";
-import "../../io-BLrYinYw.js";
-import "../../host-env-security-DRYydSLp.js";
-import "../../safe-text-Bls0e7eh.js";
-import "../../version-BXFMfrjE.js";
-import "../../env-substitution-CCbMWMw3.js";
-import "../../config-state-DxIr_ZFp.js";
-import "../../includes-Babm_gOl.js";
-import "../../zod-schema.providers-core-JSZEvSLs.js";
-import "../../registry-DHFXbGRB.js";
-import "../../manifest-registry-BN97WD1N.js";
-import "../../ip-COVlKUC6.js";
-import "../../zod-schema.channels-CLt0EoyM.js";
-import "../../zod-schema.core-2nNLrIvV.js";
-import "../../zod-schema.providers-whatsapp-HQNdy-Lo.js";
-import "../../config-BuXmKtbA.js";
-import "../../file-lock-BCRwTnvL.js";
-import "../../audit-fs-CKHUnnaF.js";
-import "../../resolve-OpLtNdHa.js";
-import "../../plugins-allowlist-Dx3qwwff.js";
-import "../../tool-policy-match-DO-I18kG.js";
-import "../../config-DDXUFMD9.js";
-import "../../tailnet-CYknm7bK.js";
-import "../../net-BDAb36NC.js";
-import "../../credentials-Dlg2fw8S.js";
-import "../../routes-D_PnVmld.js";
-import "../../frontmatter-cz9vUzch.js";
-import "../../env-overrides-BvSheZZr.js";
-import "../../path-alias-guards-pxSwQROL.js";
-import "../../sandbox-paths-C2oLsWMS.js";
-import "../../skills-C9qTCwzA.js";
-import "../../ports-DbHCZ217.js";
-import "../../ports-lsof--GPZ_QnB.js";
-import "../../ssh-tunnel-E6I5wsVD.js";
-import "../../proxy-env-TLeMux0w.js";
-import "../../fs-safe-DNTBHVlm.js";
-import "../../mime-BZfENK18.js";
-import "../../image-ops-DsrR0jfa.js";
-import "../../server-middleware-uG2Nzt3c.js";
-import "../../message-channel-YbR1kGoD.js";
-import "../../resolve-route-BKJ_gx17.js";
-import "../../registry-u4-bSC0t.js";
-import "../../plugins-CrRqO64r.js";
-import "../../paths-DkI03UGW.js";
-import "../../config-schema-SbU9iMOP.js";
-import "../../channel-plugin-common-lL08nJSM.js";
-import "../../directory-runtime-4Kx3Gvfd.js";
-import "../../read-only-account-inspect-BzQtVN0P.js";
-import "../../common-BSZuydpj.js";
-import "../../discord-core-D_7rg7Bl.js";
-import "../../channel-config-helpers-DgtPbGwx.js";
-import "../../channel-policy-DpLpqCrB.js";
-import "../../commands-Ccb6jko6.js";
-import "../../method-scopes-CIPmQDuC.js";
-import "../../session-cost-usage-4I5dS4fe.js";
-import "../../logging-VTZm8jB6.js";
-import "../../runtime-env-C8UxrL-i.js";
-import "../../send-BCFA3Awg.js";
-import "../../state-paths-QS0axAl1.js";
-import "../../cli-runtime-BoYcLS-9.js";
-import "../../routing-CM1q67VT.js";
-import "../../diagnostic-DtQOjD7p.js";
-import "../../text-runtime-DD-uemN_.js";
-import "../../dm-policy-shared-DR-r8JQl.js";
-import "../../core-DoWJeX1b.js";
-import "../../registry-D0H7k4Rl.js";
-import "../../pairing-store-BqbEmTVQ.js";
-import "../../json-store-BlJH8v0x.js";
-import "../../fetch-guard-r6nhKyr7.js";
-import "../../whatsapp-core-CDBsOcJv.js";
-import "../../hook-runtime-M4GviJQN.js";
-import "../../internal-hooks-jmovcAUX.js";
-import "../../provider-models-mqi97xJa.js";
-import "../../provider-onboard-YZwyyz0l.js";
-import "../../model-definitions-CPk0fx2x.js";
-import "../../call-CuSVmxO6.js";
-import "../../delegate-DZgF1n1_.js";
-import "../../with-timeout-6Mk1JecS.js";
-import "../../multimodal-BZ5nSU8_.js";
-import "../../memory-search-BEee7lTM.js";
-import "../../query-expansion-C5OcnmBU.js";
-import "../../search-manager-B73xZeLt.js";
-import "../../setup-binary-BRNtxkNZ.js";
-import "../../signal-cli-install-CazITAFo.js";
-import "../../identity-file-L2phPATJ.js";
-import "../../command-secret-targets-DoLf7afU.js";
-import "../../pairing-token-D5GBjAVE.js";
-import "../../delivery-queue-B2kD8cNZ.js";
-import "../../external-content-DohesiX3.js";
-import "../../security-runtime-DVVSOOlu.js";
-import "../../telegram-core-BZ7aS5CA.js";
-import "../../audit-HKoXXKMO.js";
-import "../../gateway-runtime-Btluew0E.js";
-import "../../connection-auth-BCwdTkvS.js";
-import "../../config-value-C42C4nMV.js";
-import "../../exec-approvals-CZGtkt6y.js";
-import "../../nodes-screen-DWWnCUAS.js";
-import "../../system-run-command-BnhKEiGR.js";
-import "../../stagger-Ds3EfozT.js";
-import "../../restart-stale-pids-D84WQQ67.js";
-import "../../provider-usage.fetch-Cilv-_i6.js";
-import "../../history-CZuN-T_-.js";
-import "../../channel-summary-DavcDlJH.js";
-import "../../secret-file-C6VA1we_.js";
-import "../../accounts-B1tM8Jyc.js";
-import "../../pairing-labels-CC5WpLtU.js";
-import "../../process-runtime-UwxhzAyo.js";
-import "../../cli-utils-CreDWcAs.js";
-import "../../help-format-zSqk-GrQ.js";
-import "../../progress-D69d44Ic.js";
-import "../../shared-TeMeV5_s.js";
-import { t as runPluginCommandWithTimeout } from "../../run-command-DzWtU6EE.js";
-import "../../sandbox-CJPm3MZa.js";
+import "../../env-D1ktUnAV.js";
+import "../../paths-CjuwkA2v.js";
+import "../../safe-text-K2Nonoo3.js";
+import { n as resolvePreferredOpenClawTmpDir } from "../../tmp-openclaw-dir-DzRxfh9a.js";
+import "../../theme-BH5F9mlg.js";
+import "../../version-DGzLsBG-.js";
+import "../../zod-schema.agent-runtime-DNndkpI8.js";
+import "../../runtime-BF_KUcJM.js";
+import "../../registry-bOiEdffE.js";
+import "../../ip-ByO4-_4f.js";
+import "../../audit-fs-7IxnGQxG.js";
+import "../../resolve-DqJVzTVp.js";
+import "../../tailscale-FHZADwLL.js";
+import "../../tailnet-BPCtbdja.js";
+import "../../net-1LAzWzJc.js";
+import "../../auth-BC0t_CEl.js";
+import "../../credentials-6hokf6e3.js";
+import "../../session-write-lock-B7nwE7de.js";
+import "../../ports-lsof-qBGFcQvX.js";
+import "../../ports-DF41F7NN.js";
+import "../../docker-BrzH-NvE.js";
+import "../../tool-catalog-BQWPAtTb.js";
+import "../../image-ops-xftchR8Z.js";
+import "../../path-alias-guards-BfUEa8Z8.js";
+import "../../sandbox-paths-DM85ql27.js";
+import "../../mime-Bwp1UQ_8.js";
+import "../../ssrf-BdAu1_OT.js";
+import "../../fs-safe-DpC9pe80.js";
+import "../../frontmatter-C_CWb6f1.js";
+import "../../env-overrides-CilRbuhU.js";
+import "../../skills-Xrdxpo0d.js";
+import { S as resolveWritableRenameTargetsForBridge, _ as runSshSandboxCommand, b as createRemoteShellSandboxFsBridge, d as buildExecRemoteCommand, g as disposeSshSandboxSession, l as registerSandboxBackend, m as createSshSandboxSessionFromConfigText, v as shellEscape } from "../../sandbox-DSgCBor-.js";
+import "../../client-fetch-DG9t9440.js";
+import "../../config-B6bjVdCF.js";
+import "../../ssh-tunnel-Ca8F0wnz.js";
+import "../../server-middleware-DUIlEnG_.js";
+import { t as runPluginCommandWithTimeout } from "../../run-command-PEm1zDRW.js";
+import "../../sandbox-B7u6SD2e.js";
+import { createRequire } from "node:module";
+import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
-import fs from "node:fs/promises";
+import fs$1 from "node:fs/promises";
 //#region extensions/openshell/src/cli.ts
+const require = createRequire(import.meta.url);
+let cachedBundledOpenShellCommand;
+function resolveBundledOpenShellCommand() {
+	if (cachedBundledOpenShellCommand !== void 0) return cachedBundledOpenShellCommand;
+	try {
+		const packageJsonPath = require.resolve("openshell/package.json");
+		const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
+		const relativeBin = typeof packageJson.bin === "string" ? packageJson.bin : packageJson.bin?.openshell;
+		cachedBundledOpenShellCommand = relativeBin ? path.resolve(path.dirname(packageJsonPath), relativeBin) : null;
+	} catch {
+		cachedBundledOpenShellCommand = null;
+	}
+	return cachedBundledOpenShellCommand;
+}
+function resolveOpenShellCommand(command) {
+	if (command !== "openshell") return command;
+	return resolveBundledOpenShellCommand() ?? command;
+}
 function buildOpenShellBaseArgv(config) {
-	const argv = [config.command];
+	const argv = [resolveOpenShellCommand(config.command)];
 	if (config.gateway) argv.push("--gateway", config.gateway);
 	if (config.gatewayEndpoint) argv.push("--gateway-endpoint", config.gatewayEndpoint);
 	return argv;
@@ -338,14 +262,14 @@ function resolveOpenShellPluginConfig(value) {
 //#endregion
 //#region extensions/openshell/src/mirror.ts
 async function replaceDirectoryContents(params) {
-	await fs.mkdir(params.targetDir, { recursive: true });
-	const existing = await fs.readdir(params.targetDir);
-	await Promise.all(existing.map((entry) => fs.rm(path.join(params.targetDir, entry), {
+	await fs$1.mkdir(params.targetDir, { recursive: true });
+	const existing = await fs$1.readdir(params.targetDir);
+	await Promise.all(existing.map((entry) => fs$1.rm(path.join(params.targetDir, entry), {
 		recursive: true,
 		force: true
 	})));
-	const sourceEntries = await fs.readdir(params.sourceDir);
-	for (const entry of sourceEntries) await fs.cp(path.join(params.sourceDir, entry), path.join(params.targetDir, entry), {
+	const sourceEntries = await fs$1.readdir(params.sourceDir);
+	for (const entry of sourceEntries) await fs$1.cp(path.join(params.sourceDir, entry), path.join(params.targetDir, entry), {
 		recursive: true,
 		force: true,
 		dereference: false
@@ -353,17 +277,17 @@ async function replaceDirectoryContents(params) {
 }
 async function movePathWithCopyFallback(params) {
 	try {
-		await fs.rename(params.from, params.to);
+		await fs$1.rename(params.from, params.to);
 		return;
 	} catch (error) {
 		if (error?.code !== "EXDEV") throw error;
 	}
-	await fs.cp(params.from, params.to, {
+	await fs$1.cp(params.from, params.to, {
 		recursive: true,
 		force: true,
 		dereference: false
 	});
-	await fs.rm(params.from, {
+	await fs$1.rm(params.from, {
 		recursive: true,
 		force: true
 	});
@@ -377,6 +301,9 @@ var OpenShellFsBridge = class {
 	constructor(sandbox, backend) {
 		this.sandbox = sandbox;
 		this.backend = backend;
+	}
+	resolveRenameTargets(params) {
+		return resolveWritableRenameTargetsForBridge(params, (target) => this.resolveTarget(target), (target, action) => this.ensureWritable(target, action));
 	}
 	resolvePath(params) {
 		const target = this.resolveTarget(params);
@@ -395,7 +322,7 @@ var OpenShellFsBridge = class {
 			allowMissingLeaf: false,
 			allowFinalSymlinkForUnlink: false
 		});
-		return await fs.readFile(hostPath);
+		return await fs$1.readFile(hostPath);
 	}
 	async writeFile(params) {
 		const target = this.resolveTarget(params);
@@ -409,10 +336,10 @@ var OpenShellFsBridge = class {
 		});
 		const buffer = Buffer.isBuffer(params.data) ? params.data : Buffer.from(params.data, params.encoding ?? "utf8");
 		const parentDir = path.dirname(hostPath);
-		if (params.mkdir !== false) await fs.mkdir(parentDir, { recursive: true });
+		if (params.mkdir !== false) await fs$1.mkdir(parentDir, { recursive: true });
 		const tempPath = path.join(parentDir, `.openclaw-openshell-write-${path.basename(hostPath)}-${process.pid}-${Date.now()}`);
-		await fs.writeFile(tempPath, buffer);
-		await fs.rename(tempPath, hostPath);
+		await fs$1.writeFile(tempPath, buffer);
+		await fs$1.rename(tempPath, hostPath);
 		await this.backend.syncLocalPathToRemote(hostPath, target.containerPath);
 	}
 	async mkdirp(params) {
@@ -425,7 +352,7 @@ var OpenShellFsBridge = class {
 			allowMissingLeaf: true,
 			allowFinalSymlinkForUnlink: false
 		});
-		await fs.mkdir(hostPath, { recursive: true });
+		await fs$1.mkdir(hostPath, { recursive: true });
 		await this.backend.runRemoteShellScript({
 			script: "mkdir -p -- \"$1\"",
 			args: [target.containerPath],
@@ -442,7 +369,7 @@ var OpenShellFsBridge = class {
 			allowMissingLeaf: params.force !== false,
 			allowFinalSymlinkForUnlink: true
 		});
-		await fs.rm(hostPath, {
+		await fs$1.rm(hostPath, {
 			recursive: params.recursive ?? false,
 			force: params.force !== false
 		});
@@ -454,18 +381,9 @@ var OpenShellFsBridge = class {
 		});
 	}
 	async rename(params) {
-		const from = this.resolveTarget({
-			filePath: params.from,
-			cwd: params.cwd
-		});
-		const to = this.resolveTarget({
-			filePath: params.to,
-			cwd: params.cwd
-		});
+		const { from, to } = this.resolveRenameTargets(params);
 		const fromHostPath = this.requireHostPath(from);
 		const toHostPath = this.requireHostPath(to);
-		this.ensureWritable(from, "rename files");
-		this.ensureWritable(to, "rename files");
 		await assertLocalPathSafety({
 			target: from,
 			root: from.mountHostRoot,
@@ -478,7 +396,7 @@ var OpenShellFsBridge = class {
 			allowMissingLeaf: true,
 			allowFinalSymlinkForUnlink: false
 		});
-		await fs.mkdir(path.dirname(toHostPath), { recursive: true });
+		await fs$1.mkdir(path.dirname(toHostPath), { recursive: true });
 		await movePathWithCopyFallback({
 			from: fromHostPath,
 			to: toHostPath
@@ -492,7 +410,7 @@ var OpenShellFsBridge = class {
 	async stat(params) {
 		const target = this.resolveTarget(params);
 		const hostPath = this.requireHostPath(target);
-		const stats = await fs.lstat(hostPath).catch(() => null);
+		const stats = await fs$1.lstat(hostPath).catch(() => null);
 		if (!stats) return null;
 		await assertLocalPathSafety({
 			target,
@@ -575,13 +493,13 @@ function isPathInside(root, target) {
 }
 async function assertLocalPathSafety(params) {
 	if (!params.target.hostPath) throw new Error(`Missing local host path for ${params.target.containerPath}`);
-	if (!isPathInside(await fs.realpath(params.root).catch(() => path.resolve(params.root)), await resolveCanonicalCandidate(params.target.hostPath))) throw new Error(`Sandbox path escapes allowed mounts; cannot access: ${params.target.containerPath}`);
+	if (!isPathInside(await fs$1.realpath(params.root).catch(() => path.resolve(params.root)), await resolveCanonicalCandidate(params.target.hostPath))) throw new Error(`Sandbox path escapes allowed mounts; cannot access: ${params.target.containerPath}`);
 	const relative = path.relative(params.root, params.target.hostPath);
 	const segments = relative.split(path.sep).filter(Boolean).slice(0, Math.max(0, relative.split(path.sep).filter(Boolean).length));
 	let cursor = params.root;
 	for (let index = 0; index < segments.length; index += 1) {
 		cursor = path.join(cursor, segments[index]);
-		const stats = await fs.lstat(cursor).catch(() => null);
+		const stats = await fs$1.lstat(cursor).catch(() => null);
 		if (!stats) {
 			if (index === segments.length - 1 && params.allowMissingLeaf) return;
 			continue;
@@ -594,8 +512,8 @@ async function resolveCanonicalCandidate(targetPath) {
 	const missing = [];
 	let cursor = path.resolve(targetPath);
 	while (true) {
-		if (await fs.lstat(cursor).then(() => true).catch(() => false)) {
-			const canonical = await fs.realpath(cursor).catch(() => cursor);
+		if (await fs$1.lstat(cursor).then(() => true).catch(() => false)) {
+			const canonical = await fs$1.realpath(cursor).catch(() => cursor);
 			return path.resolve(canonical, ...missing);
 		}
 		const parent = path.dirname(cursor);
@@ -817,7 +735,7 @@ var OpenShellSandboxBackendImpl = class {
 	async syncLocalPathToRemote(localPath, remotePath) {
 		await this.ensureSandboxExists();
 		await this.maybeSeedRemoteWorkspace();
-		const stats = await fs.lstat(localPath).catch(() => null);
+		const stats = await fs$1.lstat(localPath).catch(() => null);
 		if (!stats) {
 			await this.runRemoteShellScript({
 				script: "rm -rf -- \"$1\"",
@@ -909,7 +827,7 @@ var OpenShellSandboxBackendImpl = class {
 		}
 	}
 	async syncWorkspaceFromRemote() {
-		const tmpDir = await fs.mkdtemp(path.join(resolveOpenShellTmpRoot(), "openclaw-openshell-sync-"));
+		const tmpDir = await fs$1.mkdtemp(path.join(resolveOpenShellTmpRoot(), "openclaw-openshell-sync-"));
 		try {
 			const result = await runOpenShellCli({
 				context: this.params.execContext,
@@ -928,7 +846,7 @@ var OpenShellSandboxBackendImpl = class {
 				targetDir: this.params.createParams.workspaceDir
 			});
 		} finally {
-			await fs.rm(tmpDir, {
+			await fs$1.rm(tmpDir, {
 				recursive: true,
 				force: true
 			});

@@ -22,7 +22,9 @@ export type NormalizedPluginsConfig = {
     }>;
 };
 export declare const BUNDLED_ENABLED_BY_DEFAULT: Set<string>;
+export declare function normalizePluginId(id: string): string;
 export declare const normalizePluginsConfig: (config?: OpenClawConfig["plugins"]) => NormalizedPluginsConfig;
+export declare const hasExplicitPluginConfig: (plugins?: OpenClawConfig["plugins"]) => boolean;
 export declare function applyTestPluginDefaults(cfg: OpenClawConfig, env?: NodeJS.ProcessEnv): OpenClawConfig;
 export declare function isTestDefaultMemorySlotDisabled(cfg: OpenClawConfig, env?: NodeJS.ProcessEnv): boolean;
 export declare function resolveEnableState(id: string, origin: PluginRecord["origin"], config: NormalizedPluginsConfig, enabledByDefault?: boolean): {

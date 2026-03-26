@@ -1,4 +1,4 @@
-import type { ChannelSetupAdapter } from "openclaw/plugin-sdk/channel-runtime";
+import type { ChannelSetupAdapter } from "openclaw/plugin-sdk/channel-setup";
 import type { DmPolicy } from "openclaw/plugin-sdk/config-runtime";
 import type { CoreConfig, IrcAccountConfig, IrcNickServConfig } from "./types.js";
 export declare function parsePort(raw: string, fallback: number): number;

@@ -28,8 +28,8 @@ export declare function createFeishuReplyDispatcher(params: CreateFeishuReplyDis
         onReasoningStream: ((payload: ReplyPayload) => void) | undefined;
         onReasoningEnd: (() => void) | undefined;
         onReplyStart?: (() => Promise<void> | void) | undefined;
-        onTypingController?: ((typing: import("../../../src/auto-reply/reply/typing.ts").TypingController) => void) | undefined;
         onTypingCleanup?: (() => void) | undefined;
+        onTypingController?: ((typing: import("../../../src/auto-reply/reply/typing.ts").TypingController) => void) | undefined;
     };
     markDispatchIdle: () => void;
 };

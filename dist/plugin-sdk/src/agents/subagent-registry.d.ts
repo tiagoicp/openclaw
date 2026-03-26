@@ -1,8 +1,12 @@
+import { type SessionEntry } from "../config/sessions.js";
 import { type DeliveryContext } from "../utils/delivery-context.js";
 import type { SubagentRunRecord } from "./subagent-registry.types.js";
 export type { SubagentRunRecord } from "./subagent-registry.types.js";
+export declare function resolveSubagentSessionStatus(entry: Pick<SubagentRunRecord, "endedAt" | "endedReason" | "outcome"> | null | undefined): SessionEntry["status"];
 export declare function markSubagentRunForSteerRestart(runId: string): boolean;
 export declare function clearSubagentRunSteerRestart(runId: string): boolean;
+export declare function getSubagentSessionStartedAt(entry: Pick<SubagentRunRecord, "sessionStartedAt" | "startedAt" | "createdAt"> | null | undefined): number | undefined;
+export declare function getSubagentSessionRuntimeMs(entry: Pick<SubagentRunRecord, "startedAt" | "endedAt" | "accumulatedRuntimeMs"> | null | undefined, now?: number): number | undefined;
 export declare function replaceSubagentRunAfterSteer(params: {
     previousRunId: string;
     nextRunId: string;
@@ -54,4 +58,6 @@ export declare function countActiveDescendantRuns(rootSessionKey: string): numbe
 export declare function countPendingDescendantRuns(rootSessionKey: string): number;
 export declare function countPendingDescendantRunsExcludingRun(rootSessionKey: string, excludeRunId: string): number;
 export declare function listDescendantRunsForRequester(rootSessionKey: string): SubagentRunRecord[];
+export declare function getSubagentRunByChildSessionKey(childSessionKey: string): SubagentRunRecord | null;
+export declare function getLatestSubagentRunByChildSessionKey(childSessionKey: string): SubagentRunRecord | null;
 export declare function initSubagentRegistry(): void;

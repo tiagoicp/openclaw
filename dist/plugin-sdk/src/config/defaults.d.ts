@@ -2,6 +2,12 @@ import type { OpenClawConfig } from "./types.js";
 type WarnState = {
     warned: boolean;
 };
+export declare function resolveNormalizedProviderModelMaxTokens(params: {
+    providerId: string;
+    modelId: string;
+    contextWindow: number;
+    rawMaxTokens: number;
+}): number;
 export type SessionDefaultsOptions = {
     warn?: (message: string) => void;
     warnState?: WarnState;

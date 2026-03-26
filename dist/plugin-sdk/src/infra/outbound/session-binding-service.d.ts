@@ -81,6 +81,7 @@ export declare function registerSessionBindingAdapter(adapter: SessionBindingAda
 export declare function unregisterSessionBindingAdapter(params: {
     channel: string;
     accountId: string;
+    adapter?: SessionBindingAdapter;
 }): void;
 export declare function getSessionBindingService(): SessionBindingService;
 export declare const __testing: {

@@ -1,12 +1,4 @@
 import type { Command } from "commander";
-type MemoryCommandOptions = {
-    agent?: string;
-    json?: boolean;
-    deep?: boolean;
-    index?: boolean;
-    force?: boolean;
-    verbose?: boolean;
-};
+import type { MemoryCommandOptions } from "./memory-cli.types.js";
 export declare function runMemoryStatus(opts: MemoryCommandOptions): Promise<void>;
 export declare function registerMemoryCli(program: Command): void;
-export {};

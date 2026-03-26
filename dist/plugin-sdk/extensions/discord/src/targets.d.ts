@@ -1,5 +1,5 @@
-import type { DirectoryConfigParams } from "openclaw/plugin-sdk/channel-runtime";
-import { type MessagingTarget, type MessagingTargetKind, type MessagingTargetParseOptions } from "openclaw/plugin-sdk/channel-runtime";
+import { type MessagingTarget, type MessagingTargetKind, type MessagingTargetParseOptions } from "openclaw/plugin-sdk/channel-targets";
+import type { DirectoryConfigParams } from "openclaw/plugin-sdk/directory-runtime";
 export type DiscordTargetKind = MessagingTargetKind;
 export type DiscordTarget = MessagingTarget;
 type DiscordTargetParseOptions = MessagingTargetParseOptions;

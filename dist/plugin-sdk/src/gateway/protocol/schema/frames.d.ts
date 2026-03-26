@@ -9,13 +9,13 @@ export declare const ConnectParamsSchema: import("@sinclair/typebox").TObject<{
     minProtocol: import("@sinclair/typebox").TInteger;
     maxProtocol: import("@sinclair/typebox").TInteger;
     client: import("@sinclair/typebox").TObject<{
-        id: import("@sinclair/typebox").TUnion<import("@sinclair/typebox").TLiteral<"cli" | "webchat-ui" | "openclaw-control-ui" | "webchat" | "gateway-client" | "openclaw-macos" | "openclaw-ios" | "openclaw-android" | "node-host" | "test" | "fingerprint" | "openclaw-probe">[]>;
+        id: import("@sinclair/typebox").TUnion<import("@sinclair/typebox").TLiteral<"cli" | "test" | "webchat-ui" | "openclaw-control-ui" | "webchat" | "gateway-client" | "openclaw-macos" | "openclaw-ios" | "openclaw-android" | "node-host" | "fingerprint" | "openclaw-probe">[]>;
         displayName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
         version: import("@sinclair/typebox").TString;
         platform: import("@sinclair/typebox").TString;
         deviceFamily: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
         modelIdentifier: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-        mode: import("@sinclair/typebox").TUnion<import("@sinclair/typebox").TLiteral<"node" | "cli" | "webchat" | "test" | "ui" | "backend" | "probe">[]>;
+        mode: import("@sinclair/typebox").TUnion<import("@sinclair/typebox").TLiteral<"node" | "cli" | "test" | "ui" | "webchat" | "backend" | "probe">[]>;
         instanceId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     }>;
     caps: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>>;

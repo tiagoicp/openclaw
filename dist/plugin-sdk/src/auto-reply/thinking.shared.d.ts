@@ -12,6 +12,7 @@ export type ThinkingCatalogEntry = {
 };
 export declare function normalizeProviderId(provider?: string | null): string;
 export declare function isBinaryThinkingProvider(provider?: string | null): boolean;
+export declare function supportsBuiltInXHighThinking(provider?: string | null, model?: string | null): boolean;
 export declare function normalizeThinkLevel(raw?: string | null): ThinkLevel | undefined;
 export declare function listThinkingLevels(_provider?: string | null, _model?: string | null): ThinkLevel[];
 export declare function listThinkingLevelLabels(provider?: string | null, model?: string | null): string[];

@@ -1,6 +1,8 @@
 import type { SsrFPolicy } from "openclaw/plugin-sdk/infra-runtime";
-import { type MediaKind } from "openclaw/plugin-sdk/media-runtime";
+import { getDefaultLocalRoots, LocalMediaAccessError, type LocalMediaAccessErrorCode, type MediaKind } from "openclaw/plugin-sdk/media-runtime";
 import { optimizeImageToPng } from "openclaw/plugin-sdk/media-runtime";
+export { getDefaultLocalRoots, LocalMediaAccessError };
+export type { LocalMediaAccessErrorCode };
 export type WebMediaResult = {
     buffer: Buffer;
     contentType?: string;
@@ -17,12 +19,6 @@ type WebMediaOptions = {
     sandboxValidated?: boolean;
     readFile?: (filePath: string) => Promise<Buffer>;
 };
-export type LocalMediaAccessErrorCode = "path-not-allowed" | "invalid-root" | "invalid-file-url" | "unsafe-bypass" | "not-found" | "invalid-path" | "not-file";
-export declare class LocalMediaAccessError extends Error {
-    code: LocalMediaAccessErrorCode;
-    constructor(code: LocalMediaAccessErrorCode, message: string, options?: ErrorOptions);
-}
-export declare function getDefaultLocalRoots(): readonly string[];
 export declare function loadWebMedia(mediaUrl: string, maxBytesOrOptions?: number | WebMediaOptions, options?: {
     ssrfPolicy?: SsrFPolicy;
     localRoots?: readonly string[] | "any";

@@ -3,12 +3,12 @@ import type { ChunkMode } from "openclaw/plugin-sdk/reply-runtime";
 import type { ReplyPayload } from "openclaw/plugin-sdk/reply-runtime";
 import type { RuntimeEnv } from "openclaw/plugin-sdk/runtime-env";
 import { type SlackSendIdentity } from "../send.js";
-export declare function readSlackReplyBlocks(payload: ReplyPayload): (import("@slack/web-api").Block | import("@slack/web-api").KnownBlock)[] | undefined;
+export declare function readSlackReplyBlocks(payload: ReplyPayload): (import("@slack/types").Block | import("@slack/types").KnownBlock)[] | undefined;
 /**
  * Resolve all Slack blocks for delivery by merging pre-formatted channelData.slack.blocks
  * with blocks rendered from the generic interactive payload (e.g. [[slack_buttons:]] directives).
  */
-export declare function resolveSlackReplyBlocks(payload: ReplyPayload): import("@slack/web-api").Block[] | undefined;
+export declare function resolveSlackReplyBlocks(payload: ReplyPayload): import("@slack/types").Block[] | undefined;
 export declare function deliverReplies(params: {
     replies: ReplyPayload[];
     target: string;

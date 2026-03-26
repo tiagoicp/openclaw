@@ -1,7 +1,5 @@
-import { auditTelegramGroupMembership as auditTelegramGroupMembershipImpl } from "../../../extensions/telegram/runtime-api.js";
-import { monitorTelegramProvider as monitorTelegramProviderImpl } from "../../../extensions/telegram/runtime-api.js";
-import { probeTelegram as probeTelegramImpl } from "../../../extensions/telegram/runtime-api.js";
-import { deleteMessageTelegram as deleteMessageTelegramImpl, editMessageReplyMarkupTelegram as editMessageReplyMarkupTelegramImpl, editMessageTelegram as editMessageTelegramImpl, pinMessageTelegram as pinMessageTelegramImpl, renameForumTopicTelegram as renameForumTopicTelegramImpl, sendMessageTelegram as sendMessageTelegramImpl, sendPollTelegram as sendPollTelegramImpl, sendTypingTelegram as sendTypingTelegramImpl, unpinMessageTelegram as unpinMessageTelegramImpl } from "../../../extensions/telegram/runtime-api.js";
+import { auditTelegramGroupMembership as auditTelegramGroupMembershipImpl, monitorTelegramProvider as monitorTelegramProviderImpl, probeTelegram as probeTelegramImpl } from "../../plugin-sdk/telegram.js";
+import { deleteMessageTelegram as deleteMessageTelegramImpl, editMessageReplyMarkupTelegram as editMessageReplyMarkupTelegramImpl, editMessageTelegram as editMessageTelegramImpl, pinMessageTelegram as pinMessageTelegramImpl, renameForumTopicTelegram as renameForumTopicTelegramImpl, sendMessageTelegram as sendMessageTelegramImpl, sendPollTelegram as sendPollTelegramImpl, sendTypingTelegram as sendTypingTelegramImpl, unpinMessageTelegram as unpinMessageTelegramImpl } from "../../plugin-sdk/telegram.js";
 export declare const runtimeTelegramOps: {
     auditGroupMembership: typeof auditTelegramGroupMembershipImpl;
     probeTelegram: typeof probeTelegramImpl;

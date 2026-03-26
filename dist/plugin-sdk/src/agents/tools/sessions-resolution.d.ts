@@ -1,5 +1,7 @@
 import type { OpenClawConfig } from "../../config/config.js";
+import { callGateway } from "../../gateway/call.js";
 import { looksLikeSessionId } from "../../sessions/session-id.js";
+type GatewayCaller = typeof callGateway;
 export declare function resolveMainSessionAlias(cfg: OpenClawConfig): {
     mainKey: string;
     alias: string;
@@ -14,6 +16,7 @@ export declare function resolveInternalSessionKey(params: {
     key: string;
     alias: string;
     mainKey: string;
+    requesterInternalKey?: string;
 }): string;
 export declare function listSpawnedSessionKeys(params: {
     requesterSessionKey: string;
@@ -76,3 +79,8 @@ export declare function resolveVisibleSessionReference(params: {
     visibilitySessionKey: string;
 }): Promise<VisibleSessionReferenceResolution>;
 export declare function normalizeOptionalKey(value?: string): string | undefined;
+export declare const __testing: {
+    setDepsForTest(overrides?: Partial<{
+        callGateway: GatewayCaller;
+    }>): void;
+};

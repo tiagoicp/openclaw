@@ -1,12 +1,23 @@
 import type { Chat, Message } from "@grammyjs/types";
-import { type NormalizedLocation } from "openclaw/plugin-sdk/channel-runtime";
+import { type NormalizedLocation } from "openclaw/plugin-sdk/channel-inbound";
 import type { TelegramDirectConfig, TelegramGroupConfig, TelegramTopicConfig } from "openclaw/plugin-sdk/config-runtime";
+import { readChannelAllowFromStore } from "openclaw/plugin-sdk/conversation-runtime";
 import { type NormalizedAllowFrom } from "../bot-access.js";
 import type { TelegramStreamMode } from "./types.js";
 export type TelegramThreadSpec = {
     id?: number;
     scope: "dm" | "forum" | "none";
 };
+export declare function resolveTelegramForumFlag(params: {
+    chatId: string | number;
+    chatType?: Chat["type"];
+    isGroup: boolean;
+    isForum?: boolean;
+    getChat?: (chatId: string | number) => Promise<unknown>;
+}): Promise<boolean>;
+export declare function withResolvedTelegramForumFlag<T extends {
+    chat: object;
+}>(message: T, isForum: boolean): T;
 export declare function resolveTelegramGroupAllowFromContext(params: {
     chatId: string | number;
     accountId?: string;
@@ -14,6 +25,7 @@ export declare function resolveTelegramGroupAllowFromContext(params: {
     isForum?: boolean;
     messageThreadId?: number | null;
     groupAllowFrom?: Array<string | number>;
+    readChannelAllowFromStore?: typeof readChannelAllowFromStore;
     resolveTelegramGroupConfig: (chatId: string | number, messageThreadId?: number) => {
         groupConfig?: TelegramGroupConfig | TelegramDirectConfig;
         topicConfig?: TelegramTopicConfig;

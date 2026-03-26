@@ -20,4 +20,5 @@ export declare function getAgentRunContext(runId: string): AgentRunContext | und
 export declare function clearAgentRunContext(runId: string): void;
 export declare function resetAgentRunContextForTest(): void;
 export declare function emitAgentEvent(event: Omit<AgentEventPayload, "seq" | "ts">): void;
-export declare function onAgentEvent(listener: (evt: AgentEventPayload) => void): () => boolean;
+export declare function onAgentEvent(listener: (evt: AgentEventPayload) => void): () => void;
+export declare function resetAgentEventsForTest(): void;

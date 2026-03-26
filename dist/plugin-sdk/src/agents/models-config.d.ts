@@ -3,3 +3,4 @@ export declare function ensureOpenClawModelsJson(config?: OpenClawConfig, agentD
     agentDir: string;
     wrote: boolean;
 }>;
+export declare function resetModelsJsonReadyCacheForTest(): void;

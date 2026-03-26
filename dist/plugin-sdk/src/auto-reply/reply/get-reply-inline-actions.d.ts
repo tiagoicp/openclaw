@@ -5,8 +5,8 @@ import type { SessionEntry } from "../../config/sessions.js";
 import type { MsgContext, TemplateContext } from "../templating.js";
 import type { ElevatedLevel, ReasoningLevel, ThinkLevel, VerboseLevel } from "../thinking.js";
 import type { GetReplyOptions, ReplyPayload } from "../types.js";
-import { buildStatusReply, handleCommands } from "./commands.js";
-import type { InlineDirectives } from "./directive-handling.js";
+import type { buildStatusReply, handleCommands } from "./commands.runtime.js";
+import type { InlineDirectives } from "./directive-handling.parse.js";
 import type { createModelSelectionState } from "./model-selection.js";
 import type { TypingController } from "./typing.js";
 export type InlineActionResult = {

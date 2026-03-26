@@ -7,9 +7,9 @@ export { DEFAULT_ACCOUNT_ID, PAIRING_APPROVED_MESSAGE, applyAccountNameToChannel
 export { formatDocsLink } from "../terminal/links.js";
 export { projectCredentialSnapshotFields, resolveConfiguredFromCredentialStatuses, resolveConfiguredFromRequiredCredentialStatuses, } from "../channels/account-snapshot-fields.js";
 export { looksLikeSlackTargetId, normalizeSlackMessagingTarget, } from "../channels/plugins/normalize/slack.js";
-export { listSlackDirectoryGroupsFromConfig, listSlackDirectoryPeersFromConfig, } from "../../extensions/slack/src/directory-config.js";
+export { listSlackDirectoryGroupsFromConfig, listSlackDirectoryPeersFromConfig, } from "../../extensions/slack/api.js";
 export { resolveDefaultGroupPolicy, resolveOpenProviderRuntimeGroupPolicy, } from "../config/runtime-group-policy.js";
-export { resolveSlackGroupRequireMention, resolveSlackGroupToolPolicy, } from "../../extensions/slack/src/group-policy.js";
+export { resolveSlackGroupRequireMention, resolveSlackGroupToolPolicy, } from "../../extensions/slack/api.js";
 export { SlackConfigSchema } from "../config/zod-schema.providers-core.js";
 export { buildComputedAccountStatusSnapshot } from "./status-helpers.js";
 export { listEnabledSlackAccounts, listSlackAccountIds, resolveDefaultSlackAccountId, resolveSlackReplyToMode, } from "../../extensions/slack/api.js";
@@ -20,7 +20,9 @@ export { extractSlackToolSend, listSlackMessageActions } from "../../extensions/
 export { buildSlackThreadingToolContext } from "../../extensions/slack/api.js";
 export { parseSlackBlocksInput } from "../../extensions/slack/api.js";
 export { handleSlackHttpRequest } from "../../extensions/slack/api.js";
-export { sendMessageSlack } from "../../extensions/slack/runtime-api.js";
+export { createSlackWebClient } from "../../extensions/slack/src/client.js";
+export { normalizeAllowListLower } from "../../extensions/slack/src/monitor/allow-list.js";
+export { handleSlackAction, listSlackDirectoryGroupsLive, listSlackDirectoryPeersLive, monitorSlackProvider, probeSlack, resolveSlackChannelAllowlist, resolveSlackUserAllowlist, sendMessageSlack, } from "../../extensions/slack/runtime-api.js";
 export { deleteSlackMessage, downloadSlackFile, editSlackMessage, getSlackMemberInfo, listSlackEmojis, listSlackPins, listSlackReactions, pinSlackMessage, reactSlackMessage, readSlackMessages, removeOwnSlackReactions, removeSlackReaction, sendSlackMessage, unpinSlackMessage, } from "../../extensions/slack/api.js";
 export { recordSlackThreadParticipation } from "../../extensions/slack/api.js";
 export type { SlackActionContext } from "../../extensions/slack/runtime-api.js";

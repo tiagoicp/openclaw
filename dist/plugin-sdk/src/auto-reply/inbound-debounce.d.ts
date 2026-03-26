@@ -6,6 +6,7 @@ export declare function resolveInboundDebounceMs(params: {
 }): number;
 export type InboundDebounceCreateParams<T> = {
     debounceMs: number;
+    maxTrackedKeys?: number;
     buildKey: (item: T) => string | null | undefined;
     shouldDebounce?: (item: T) => boolean;
     resolveDebounceMs?: (item: T) => number | undefined;

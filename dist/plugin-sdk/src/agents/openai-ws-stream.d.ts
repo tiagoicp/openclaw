@@ -21,8 +21,13 @@
  * @see src/agents/openai-ws-connection.ts for the connection manager
  */
 import type { StreamFn } from "@mariozechner/pi-agent-core";
+import * as piAi from "@mariozechner/pi-ai";
 import type { AssistantMessage, Context, Message } from "@mariozechner/pi-ai";
-import { type FunctionToolDefinition, type InputItem, type OpenAIWebSocketManagerOptions, type ResponseObject } from "./openai-ws-connection.js";
+import { OpenAIWebSocketManager, type FunctionToolDefinition, type InputItem, type OpenAIWebSocketManagerOptions, type ResponseObject } from "./openai-ws-connection.js";
+type OpenAIWsStreamDeps = {
+    createManager: (options?: OpenAIWebSocketManagerOptions) => OpenAIWebSocketManager;
+    streamSimple: typeof piAi.streamSimple;
+};
 /**
  * Release and close the WebSocket session for the given sessionId.
  * Call this after the agent run completes to free the connection.
@@ -67,4 +72,7 @@ export interface OpenAIWebSocketStreamOptions {
  * @param opts       Optional manager + abort signal overrides
  */
 export declare function createOpenAIWebSocketStreamFn(apiKey: string, sessionId: string, opts?: OpenAIWebSocketStreamOptions): StreamFn;
+export declare const __testing: {
+    setDepsForTest(overrides?: Partial<OpenAIWsStreamDeps>): void;
+};
 export {};

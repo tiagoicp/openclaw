@@ -1,149 +1,203 @@
 import "../../redact-BDinS1q9.js";
 import "../../errors-BxyFnvP3.js";
 import "../../unhandled-rejections-CDJ8dOVP.js";
-import "../../logger-Bisu6sgz.js";
-import "../../paths-D_QmduAc.js";
-import "../../tmp-openclaw-dir-CEAo8CGE.js";
-import "../../theme-Bnch_o1K.js";
-import "../../globals-CnsLPQis.js";
-import "../../subsystem-Dm-AQqmI.js";
-import "../../ansi-BMqrB9En.js";
-import "../../boolean-BgLJTske.js";
-import "../../env-mHZMLTjc.js";
-import "../../warning-filter-m2BbicIr.js";
-import { C as sleep } from "../../utils-CIAfMgvq.js";
-import "../../links-DtUd3CJi.js";
-import "../../models-config.providers.discovery-CBSen190.js";
-import { Cs as isRequestBodyLimitError, Es as requestBodyErrorToText, Ts as readRequestBodyWithLimit } from "../../auth-profiles-C1V2x6_A.js";
-import "../../model-selection-BvgYPMZN.js";
-import "../../agent-scope-BvOTVsJZ.js";
-import "../../boundary-path-BVHzCDEE.js";
-import "../../boundary-file-read-1knRHcS0.js";
-import "../../logger-DcSg74GU.js";
-import "../../exec-Bwz57vWc.js";
-import "../../workspace-C3BQkKrq.js";
-import "../../io-BLrYinYw.js";
-import "../../host-env-security-DRYydSLp.js";
-import "../../safe-text-Bls0e7eh.js";
-import "../../version-BXFMfrjE.js";
-import "../../env-substitution-CCbMWMw3.js";
-import "../../config-state-DxIr_ZFp.js";
-import "../../includes-Babm_gOl.js";
-import "../../zod-schema.providers-core-JSZEvSLs.js";
-import "../../registry-DHFXbGRB.js";
-import "../../manifest-registry-BN97WD1N.js";
-import "../../ip-COVlKUC6.js";
-import "../../zod-schema.channels-CLt0EoyM.js";
-import { A as TtsConfigSchema } from "../../zod-schema.core-2nNLrIvV.js";
-import "../../zod-schema.providers-whatsapp-HQNdy-Lo.js";
-import "../../config-BuXmKtbA.js";
-import "../../file-lock-BCRwTnvL.js";
-import "../../audit-fs-CKHUnnaF.js";
-import "../../resolve-OpLtNdHa.js";
-import "../../plugins-allowlist-Dx3qwwff.js";
-import "../../tool-policy-match-DO-I18kG.js";
-import "../../config-DDXUFMD9.js";
-import "../../tailnet-CYknm7bK.js";
-import "../../net-BDAb36NC.js";
-import "../../credentials-Dlg2fw8S.js";
-import "../../routes-D_PnVmld.js";
-import "../../frontmatter-cz9vUzch.js";
-import "../../env-overrides-BvSheZZr.js";
-import "../../path-alias-guards-pxSwQROL.js";
-import "../../sandbox-paths-C2oLsWMS.js";
-import "../../skills-C9qTCwzA.js";
-import "../../ports-DbHCZ217.js";
-import "../../ports-lsof--GPZ_QnB.js";
-import "../../ssh-tunnel-E6I5wsVD.js";
-import "../../proxy-env-TLeMux0w.js";
-import "../../fs-safe-DNTBHVlm.js";
-import "../../mime-BZfENK18.js";
-import "../../image-ops-DsrR0jfa.js";
-import "../../server-middleware-uG2Nzt3c.js";
-import "../../message-channel-YbR1kGoD.js";
-import "../../resolve-route-BKJ_gx17.js";
-import "../../registry-u4-bSC0t.js";
-import "../../plugins-CrRqO64r.js";
-import "../../paths-DkI03UGW.js";
-import "../../config-schema-SbU9iMOP.js";
-import "../../channel-plugin-common-lL08nJSM.js";
-import "../../directory-runtime-4Kx3Gvfd.js";
-import "../../read-only-account-inspect-BzQtVN0P.js";
-import "../../common-BSZuydpj.js";
-import "../../discord-core-D_7rg7Bl.js";
-import "../../channel-config-helpers-DgtPbGwx.js";
-import "../../channel-policy-DpLpqCrB.js";
-import "../../commands-Ccb6jko6.js";
-import "../../method-scopes-CIPmQDuC.js";
-import "../../session-cost-usage-4I5dS4fe.js";
-import "../../logging-VTZm8jB6.js";
-import "../../runtime-env-C8UxrL-i.js";
-import "../../send-BCFA3Awg.js";
-import "../../state-paths-QS0axAl1.js";
-import "../../cli-runtime-BoYcLS-9.js";
-import "../../routing-CM1q67VT.js";
-import "../../diagnostic-DtQOjD7p.js";
-import "../../text-runtime-DD-uemN_.js";
-import "../../dm-policy-shared-DR-r8JQl.js";
-import { i as definePluginEntry } from "../../core-DoWJeX1b.js";
-import "../../registry-D0H7k4Rl.js";
-import "../../pairing-store-BqbEmTVQ.js";
-import "../../json-store-BlJH8v0x.js";
-import { n as fetchWithSsrFGuard } from "../../fetch-guard-r6nhKyr7.js";
-import "../../whatsapp-core-CDBsOcJv.js";
-import "../../hook-runtime-M4GviJQN.js";
-import "../../internal-hooks-jmovcAUX.js";
-import "../../provider-models-mqi97xJa.js";
-import "../../provider-onboard-YZwyyz0l.js";
-import "../../model-definitions-CPk0fx2x.js";
-import "../../call-CuSVmxO6.js";
-import "../../delegate-DZgF1n1_.js";
-import "../../with-timeout-6Mk1JecS.js";
-import "../../multimodal-BZ5nSU8_.js";
-import "../../memory-search-BEee7lTM.js";
-import "../../query-expansion-C5OcnmBU.js";
-import "../../search-manager-B73xZeLt.js";
-import "../../setup-binary-BRNtxkNZ.js";
-import "../../signal-cli-install-CazITAFo.js";
-import "../../identity-file-L2phPATJ.js";
-import "../../command-secret-targets-DoLf7afU.js";
-import "../../pairing-token-D5GBjAVE.js";
-import "../../delivery-queue-B2kD8cNZ.js";
-import "../../external-content-DohesiX3.js";
-import "../../security-runtime-DVVSOOlu.js";
-import "../../telegram-core-BZ7aS5CA.js";
-import "../../audit-HKoXXKMO.js";
-import "../../gateway-runtime-Btluew0E.js";
-import "../../connection-auth-BCwdTkvS.js";
-import "../../config-value-C42C4nMV.js";
-import "../../exec-approvals-CZGtkt6y.js";
-import "../../nodes-screen-DWWnCUAS.js";
-import "../../system-run-command-BnhKEiGR.js";
-import "../../stagger-Ds3EfozT.js";
-import "../../restart-stale-pids-D84WQQ67.js";
-import "../../provider-usage.fetch-Cilv-_i6.js";
-import "../../history-CZuN-T_-.js";
-import "../../channel-summary-DavcDlJH.js";
-import "../../secret-file-C6VA1we_.js";
-import "../../accounts-B1tM8Jyc.js";
-import "../../pairing-labels-CC5WpLtU.js";
-import "../../process-runtime-UwxhzAyo.js";
-import "../../cli-utils-CreDWcAs.js";
-import "../../help-format-zSqk-GrQ.js";
-import "../../progress-D69d44Ic.js";
-import "../../shared-TeMeV5_s.js";
-import "../../voice-call-DsEaciQp.js";
+import { Ya as sleep } from "../../env-D1ktUnAV.js";
+import "../../paths-CjuwkA2v.js";
+import "../../safe-text-K2Nonoo3.js";
+import "../../tmp-openclaw-dir-DzRxfh9a.js";
+import "../../theme-BH5F9mlg.js";
+import "../../version-DGzLsBG-.js";
+import { P as TtsConfigSchema } from "../../zod-schema.agent-runtime-DNndkpI8.js";
+import "../../runtime-BF_KUcJM.js";
+import "../../registry-bOiEdffE.js";
+import "../../ip-ByO4-_4f.js";
+import "../../warning-filter-C_BEyyvc.js";
+import "../../links-DaR1j_Bv.js";
+import "../../paths-DJBuCoRE.js";
+import "../../auth-profiles-z_oM_y_O.js";
+import "../../provider-runtime.runtime-BokSGTHt.js";
+import "../../file-lock-Cm3HPowf.js";
+import "../../audit-fs-7IxnGQxG.js";
+import "../../resolve-DqJVzTVp.js";
+import "../../profiles-CRvutsjq.js";
+import "../../tailscale-FHZADwLL.js";
+import "../../tailnet-BPCtbdja.js";
+import "../../net-1LAzWzJc.js";
+import "../../auth-BC0t_CEl.js";
+import "../../credentials-6hokf6e3.js";
+import "../../message-channel-ZzTqBBLH.js";
+import "../../sessions-uRDRs4f-.js";
+import "../../plugins-h0t63KQW.js";
+import "../../paths-BEHCHyAI.js";
+import "../../delivery-context-oynQ_N5k.js";
+import "../../session-write-lock-B7nwE7de.js";
+import "../../method-scopes-DtJfTstv.js";
+import "../../call-CFi2qbI2.js";
+import "../../detect-binary-78pS71eg.js";
+import "../../prompt-style-qxNRcnm3.js";
+import "../../ports-lsof-qBGFcQvX.js";
+import "../../restart-stale-pids-ciXEfnyN.js";
+import "../../ports-DF41F7NN.js";
+import "../../logging-CS4wyI-j.js";
+import "../../commands-AceByDw5.js";
+import "../../issue-format-Cj39YIRp.js";
+import "../../provider-env-vars-BZwz5sMG.js";
+import "../../model-auth-env-BWzx2-YC.js";
+import "../../anthropic-vertex-provider-Cik2BDhe.js";
+import "../../pi-model-discovery-hz4apXP-.js";
+import "../../identity-xGthCqY8.js";
+import "../../heartbeat-DqtPOAC0.js";
+import "../../pi-embedded-DFNOKLyy.js";
+import "../../internal-hooks-CVdBfFMw.js";
+import "../../multimodal-CDYWira8.js";
+import "../../memory-search-B5CuuJZB.js";
+import "../../secret-input-x2By3bJy.js";
+import "../../bindings-KL-4Efmw.js";
+import "../../resolve-route-C5Xj9lGN.js";
+import "../../routing-DA_79T-X.js";
+import "../../identity-file-ClDAlI0t.js";
+import "../../outbound-runtime-BAxohuIf.js";
+import "../../provider-model-definitions-CrItEa-O.js";
+import "../../provider-models-GbpUTgQg.js";
+import "../../provider-catalog-hDyZGQ8R.js";
+import "../../provider-catalog-0WIhy6f_.js";
+import "../../provider-catalog-CdCrQ7UP.js";
+import "../../provider-catalog-DzIvFdfj.js";
+import "../../provider-catalog-COMYNKV2.js";
+import "../../provider-catalog-Bce8iOMh.js";
+import "../../provider-catalog-CPx35FBq.js";
+import "../../provider-catalog-Czll7Q5-.js";
+import "../../provider-catalog-BFvOY2Dt.js";
+import "../../provider-catalog-VZaye2Ib.js";
+import "../../models-config.providers.discovery-oJl_MWQT.js";
+import "../../text-runtime-B-kOpuLv.js";
+import "../../docker-BrzH-NvE.js";
+import "../../tool-catalog-BQWPAtTb.js";
+import "../../common-CMCEg0LE.js";
+import "../../image-ops-xftchR8Z.js";
+import "../../thinking-Me2S38se.js";
+import "../../path-alias-guards-BfUEa8Z8.js";
+import "../../sandbox-paths-DM85ql27.js";
+import "../../channel-actions-M8UJU-J1.js";
+import "../../mime-Bwp1UQ_8.js";
+import "../../ssrf-BdAu1_OT.js";
+import { n as fetchWithSsrFGuard } from "../../fetch-guard-BiSGgjb-.js";
+import "../../provider-web-search-B2TRQt7q.js";
+import "../../manager-BFi-xqLj.js";
+import "../../config-schema-BoeEl_gh.js";
+import "../../channel-plugin-common-Bw5e9GHM.js";
+import "../../status-helpers-DTFg68Zs.js";
+import "../../conversation-runtime-BfLWHgdb.js";
+import "../../runtime-whatsapp-boundary-C0sTsAVN.js";
+import "../../pairing-store-Ci8ZfuL6.js";
+import "../../json-store-Dizz4Rhx.js";
+import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
+import "../../secret-file-BzdoxKYZ.js";
+import "../../channel-config-schema-DOQ4q6a_.js";
+import "../../setup-binary-Tg8N6z5q.js";
+import "../../archive-Oi0PB5pw.js";
+import "../../fs-safe-DpC9pe80.js";
+import "../../signal-cli-install-pAmdy64m.js";
+import "../../setup-wizard-proxy-3tbzVvIf.js";
+import "../../setup-Cuh8Qocv.js";
+import "../../dm-policy-shared-3Jdbvvlm.js";
+import "../../runtime-env-pWTJLxVn.js";
+import "../../temp-path-DvwSkpQg.js";
+import "../../diagnostic-Dx7wnQab.js";
+import "../../logging-B3tLYQAZ.js";
+import "../../config-runtime-BMqUsOKJ.js";
+import "../../level-overrides-CaIdz1Y2.js";
+import "../../exec-approvals-CoUFlPSg.js";
+import { F as readRequestBodyWithLimit, I as requestBodyErrorToText, N as isRequestBodyLimitError, h as WEBHOOK_BODY_READ_DEFAULTS, y as createWebhookInFlightLimiter } from "../../webhook-ingress-CwnvXQ9i.js";
+import "../../system-events-D_U3rn_H.js";
+import "../../ssrf-policy-Cve-f-IZ.js";
+import "../../hook-runtime-C0FQ8mwc.js";
+import "../../templating-BpbUbFSs.js";
+import "../../channel-reply-pipeline-BQ2GND11.js";
+import "../../reply-history-CYr7j6cE.js";
+import "../../commands-registry.data-C-Zb7sHo.js";
+import "../../commands-registry-kALONq2A.js";
+import "../../frontmatter-C_CWb6f1.js";
+import "../../env-overrides-CilRbuhU.js";
+import "../../skills-Xrdxpo0d.js";
+import "../../skills-remote-D055n83h.js";
+import "../../workspace-dirs-BooYyzLb.js";
+import "../../pairing-token-BhzPXbCy.js";
+import "../../skill-commands-X9DVN0CB.js";
+import "../../exec-inline-eval-CAjjj6oR.js";
+import "../../sandbox-DSgCBor-.js";
+import "../../target-registry-CUzd3r6R.js";
+import "../../external-content-BtOAY1jC.js";
+import "../../brave-iyc-zT4j.js";
+import "../../duckduckgo-RnKnjVjk.js";
+import "../../exa-B_PEobTF.js";
+import "../../security-runtime-DuEgVcd_.js";
+import "../../provider-auth-ref-CkjXioxW.js";
+import "../../provider-auth-input-DY2h0M4n.js";
+import "../../provider-auth-helpers-CfaQ5Xn6.js";
+import "../../provider-api-key-auth-Uu86HoCQ.js";
+import "../../provider-usage-D_y-rSPa.js";
+import "../../provider-models-BlbL1wnJ.js";
+import "../../media-understanding-Bo9B_E3l.js";
+import "../../media-understanding-provider-C5e8GFRO.js";
+import "../../provider-entry-Dh6ETIXa.js";
+import "../../media-understanding-provider-Cvthuw62.js";
+import "../../provider-onboard-DmLoftpN.js";
+import "../../onboard-p6odcf1a.js";
+import "../../perplexity-web-search-provider-CBvej2u9.js";
+import "../../perplexity-DVSMCtcT.js";
+import "../../model-definitions-CLlu-y8L.js";
+import "../../onboard-CQyz1Xh9.js";
+import "../../provider-catalog-BbgD0Blc.js";
+import "../../provider-models-CPWTfv6u.js";
+import "../../stream-WNyIq00o.js";
+import "../../web-search-C2bCgEzC.js";
+import "../../client-fetch-DG9t9440.js";
+import "../../config-B6bjVdCF.js";
+import "../../web-media-B7RZCKik.js";
+import "../../stagger-C20Z_jRQ.js";
+import "../../command-secret-targets-CiFc3JN3.js";
+import "../../delivery-queue-iwWmpCz9.js";
+import "../../pairing-labels-PxfGoTvk.js";
+import "../../directory-runtime-D9Y42mW-.js";
+import "../../read-only-account-inspect-f6OlttkD.js";
+import "../../src-hV2aBDoy.js";
+import "../../web-media-C0RRMmtv.js";
+import "../../state-paths-CG7b-A_-.js";
+import "../../axios-zS_oAKS1.js";
+import "../../channel-summary-BE3kiFA7.js";
+import "../../session-system-events-Bkb0fc95.js";
+import "../../ssh-tunnel-Ca8F0wnz.js";
+import "../../server-middleware-DUIlEnG_.js";
+import "../../llm-task-D_W5GYK4.js";
+import "../../tool-policy-match-DgTjuJ-l.js";
+import "../../runtime-DAr9Q1gF.js";
+import "../../channel-status-DxDpNj1k.js";
+import "../../discord-core-CTFa_tPG.js";
+import "../../cli-runtime-CivyfPOe.js";
+import "../../config-presence-Bo4-9YVM.js";
+import "../../query-expansion-CeNhqo71.js";
+import "../../search-manager-BH4BTUaa.js";
+import "../../acp-runtime-CRrXx1ZI.js";
+import "../../telegram-core-n7uYzMlP.js";
+import "../../audit-D7armGfs.js";
+import "../../gateway-runtime-_5BLwTPa.js";
+import "../../connection-auth-DQ6Wy_i-.js";
+import "../../mcp-config-vaYGkUmW.js";
+import "../../voice-call-CDFlcnWb.js";
+import "../../runtime-api-BetlETLc.js";
+import "../../api-zM0u3PGc.js";
 import { URL as URL$1 } from "node:url";
 import fs from "node:fs";
 import path from "node:path";
 import { spawn } from "node:child_process";
 import os from "node:os";
-import fs$1 from "node:fs/promises";
 import crypto from "node:crypto";
+import fs$1 from "node:fs/promises";
 import { z } from "zod";
-import http from "node:http";
 import WebSocket$1, { WebSocket, WebSocketServer } from "ws";
 import { Type } from "@sinclair/typebox";
+import http from "node:http";
 //#region extensions/voice-call/src/utils.ts
 function resolveUserPath(input) {
 	const trimmed = input.trim();
@@ -1200,7 +1254,6 @@ async function speak(ctx, callId, text) {
 	try {
 		transitionState(call, "speaking");
 		persistCallRecord(ctx.storePath, call);
-		addTranscriptEntry(call, "bot", text);
 		const voice = provider.name === "twilio" ? ctx.config.tts?.openai?.voice : void 0;
 		await provider.playTts({
 			callId,
@@ -1208,8 +1261,12 @@ async function speak(ctx, callId, text) {
 			text,
 			voice
 		});
+		addTranscriptEntry(call, "bot", text);
+		persistCallRecord(ctx.storePath, call);
 		return { success: true };
 	} catch (err) {
+		transitionState(call, "listening");
+		persistCallRecord(ctx.storePath, call);
 		return {
 			success: false,
 			error: err instanceof Error ? err.message : String(err)
@@ -1232,26 +1289,35 @@ async function speakInitialMessage(ctx, providerCallId) {
 		console.log(`[voice-call] speakInitialMessage: no initial message for ${call.callId}`);
 		return;
 	}
-	if (call.metadata) {
-		delete call.metadata.initialMessage;
-		persistCallRecord(ctx.storePath, call);
-	}
-	console.log(`[voice-call] Speaking initial message for call ${call.callId} (mode: ${mode})`);
-	const result = await speak(ctx, call.callId, initialMessage);
-	if (!result.success) {
-		console.warn(`[voice-call] Failed to speak initial message: ${result.error}`);
+	if (ctx.initialMessageInFlight.has(call.callId)) {
+		console.log(`[voice-call] speakInitialMessage: initial message already in flight for ${call.callId}`);
 		return;
 	}
-	if (mode === "notify") {
-		const delaySec = ctx.config.outbound.notifyHangupDelaySec;
-		console.log(`[voice-call] Notify mode: auto-hangup in ${delaySec}s for call ${call.callId}`);
-		setTimeout(async () => {
-			const currentCall = ctx.activeCalls.get(call.callId);
-			if (currentCall && !TerminalStates.has(currentCall.state)) {
-				console.log(`[voice-call] Notify mode: hanging up call ${call.callId}`);
-				await endCall(ctx, call.callId);
-			}
-		}, delaySec * 1e3);
+	ctx.initialMessageInFlight.add(call.callId);
+	try {
+		console.log(`[voice-call] Speaking initial message for call ${call.callId} (mode: ${mode})`);
+		const result = await speak(ctx, call.callId, initialMessage);
+		if (!result.success) {
+			console.warn(`[voice-call] Failed to speak initial message: ${result.error}`);
+			return;
+		}
+		if (call.metadata) {
+			delete call.metadata.initialMessage;
+			persistCallRecord(ctx.storePath, call);
+		}
+		if (mode === "notify") {
+			const delaySec = ctx.config.outbound.notifyHangupDelaySec;
+			console.log(`[voice-call] Notify mode: auto-hangup in ${delaySec}s for call ${call.callId}`);
+			setTimeout(async () => {
+				const currentCall = ctx.activeCalls.get(call.callId);
+				if (currentCall && !TerminalStates.has(currentCall.state)) {
+					console.log(`[voice-call] Notify mode: hanging up call ${call.callId}`);
+					await endCall(ctx, call.callId);
+				}
+			}, delaySec * 1e3);
+		}
+	} finally {
+		ctx.initialMessageInFlight.delete(call.callId);
 	}
 }
 async function continueCall(ctx, callId, prompt) {
@@ -1526,6 +1592,7 @@ var CallManager = class {
 		this.activeTurnCalls = /* @__PURE__ */ new Set();
 		this.transcriptWaiters = /* @__PURE__ */ new Map();
 		this.maxDurationTimers = /* @__PURE__ */ new Map();
+		this.initialMessageInFlight = /* @__PURE__ */ new Set();
 		this.config = config;
 		this.storePath = resolveDefaultStoreBase(config, storePath);
 	}
@@ -1650,6 +1717,7 @@ var CallManager = class {
 			activeTurnCalls: this.activeTurnCalls,
 			transcriptWaiters: this.transcriptWaiters,
 			maxDurationTimers: this.maxDurationTimers,
+			initialMessageInFlight: this.initialMessageInFlight,
 			onCallAnswered: (call) => {
 				this.maybeSpeakInitialMessageOnAnswered(call);
 			}
@@ -1661,8 +1729,18 @@ var CallManager = class {
 	processEvent(event) {
 		processEvent(this.getContext(), event);
 	}
+	shouldDeferConversationInitialMessageUntilStreamConnect() {
+		if (!this.provider || this.provider.name !== "twilio" || !this.config.streaming.enabled) return false;
+		const streamAwareProvider = this.provider;
+		if (typeof streamAwareProvider.isConversationStreamConnectEnabled !== "function") return false;
+		return streamAwareProvider.isConversationStreamConnectEnabled();
+	}
 	maybeSpeakInitialMessageOnAnswered(call) {
 		if (!(typeof call.metadata?.initialMessage === "string" ? call.metadata.initialMessage.trim() : "")) return;
+		const mode = call.metadata?.mode ?? "conversation";
+		if (mode === "conversation") {
+			if (this.shouldDeferConversationInitialMessageUntilStreamConnect()) return;
+		} else if (mode !== "notify") return;
 		if (!this.provider || !call.providerCallId) return;
 		this.speakInitialMessage(call.providerCallId);
 	}
@@ -2234,6 +2312,9 @@ function getBaseUrlNoQuery(url) {
 	const u = new URL(url);
 	return `${u.protocol}//${u.host}${u.pathname}`;
 }
+function createPlivoV2ReplayKey(url, nonce) {
+	return `plivo:v2:${sha256Hex(`${getBaseUrlNoQuery(url)}\n${nonce}`)}`;
+}
 function timingSafeEqualString(a, b) {
 	if (a.length !== b.length) {
 		const dummy = Buffer.from(a);
@@ -2373,7 +2454,7 @@ function verifyPlivoWebhook(ctx, authToken, options) {
 			verificationUrl,
 			reason: "Invalid Plivo V2 signature"
 		};
-		const replayKey = `plivo:v2:${sha256Hex(`${verificationUrl}\n${nonceV2}`)}`;
+		const replayKey = createPlivoV2ReplayKey(verificationUrl, nonceV2);
 		const isReplay = markReplay(plivoReplayCache, replayKey);
 		return {
 			ok: true,
@@ -3038,11 +3119,42 @@ var TelnyxProvider = class {
 //#endregion
 //#region extensions/voice-call/src/telephony-audio.ts
 const TELEPHONY_SAMPLE_RATE = 8e3;
+const RESAMPLE_FILTER_TAPS = 31;
+const RESAMPLE_CUTOFF_GUARD = .94;
 function clamp16(value) {
 	return Math.max(-32768, Math.min(32767, value));
 }
+function sinc(x) {
+	if (x === 0) return 1;
+	return Math.sin(Math.PI * x) / (Math.PI * x);
+}
 /**
-* Resample 16-bit PCM (little-endian mono) to 8kHz using linear interpolation.
+* Build a finite low-pass kernel centered on `srcPos`.
+* The kernel is windowed (Hann) to reduce ringing artifacts.
+*/
+function sampleBandlimited(input, inputSamples, srcPos, cutoffCyclesPerSample) {
+	const half = Math.floor(RESAMPLE_FILTER_TAPS / 2);
+	const center = Math.floor(srcPos);
+	let weighted = 0;
+	let weightSum = 0;
+	for (let tap = -half; tap <= half; tap++) {
+		const sampleIndex = center + tap;
+		if (sampleIndex < 0 || sampleIndex >= inputSamples) continue;
+		const distance = sampleIndex - srcPos;
+		const lowPass = 2 * cutoffCyclesPerSample * sinc(2 * cutoffCyclesPerSample * distance);
+		const tapIndex = tap + half;
+		const coeff = lowPass * (.5 - .5 * Math.cos(2 * Math.PI * tapIndex / (RESAMPLE_FILTER_TAPS - 1)));
+		weighted += input.readInt16LE(sampleIndex * 2) * coeff;
+		weightSum += coeff;
+	}
+	if (weightSum === 0) {
+		const nearest = Math.max(0, Math.min(inputSamples - 1, Math.round(srcPos)));
+		return input.readInt16LE(nearest * 2);
+	}
+	return weighted / weightSum;
+}
+/**
+* Resample 16-bit PCM (little-endian mono) to 8kHz using a windowed low-pass kernel.
 */
 function resamplePcmTo8k(input, inputSampleRate) {
 	if (inputSampleRate === TELEPHONY_SAMPLE_RATE) return input;
@@ -3051,14 +3163,12 @@ function resamplePcmTo8k(input, inputSampleRate) {
 	const ratio = inputSampleRate / TELEPHONY_SAMPLE_RATE;
 	const outputSamples = Math.floor(inputSamples / ratio);
 	const output = Buffer.alloc(outputSamples * 2);
+	const maxCutoff = .5;
+	const downsampleCutoff = ratio > 1 ? maxCutoff / ratio : maxCutoff;
+	const cutoffCyclesPerSample = Math.max(.01, downsampleCutoff * RESAMPLE_CUTOFF_GUARD);
 	for (let i = 0; i < outputSamples; i++) {
 		const srcPos = i * ratio;
-		const srcIndex = Math.floor(srcPos);
-		const frac = srcPos - srcIndex;
-		const s0 = input.readInt16LE(srcIndex * 2);
-		const s1Index = Math.min(srcIndex + 1, inputSamples - 1);
-		const s1 = input.readInt16LE(s1Index * 2);
-		const sample = Math.round(s0 + frac * (s1 - s0));
+		const sample = Math.round(sampleBandlimited(input, inputSamples, srcPos, cutoffCyclesPerSample));
 		output.writeInt16LE(clamp16(sample), i * 2);
 	}
 	return output;
@@ -3214,6 +3324,9 @@ function createTwilioRequestDedupeKey(ctx, verifiedRequestKey) {
 	return `twilio:fallback:${crypto.createHash("sha256").update(`${signature}\n${callSid}\n${callStatus}\n${direction}\n${callId}\n${flow}\n${turnToken}\n${ctx.rawBody}`).digest("hex")}`;
 }
 var TwilioProvider = class TwilioProvider {
+	static {
+		this.TTS_SYNTH_TIMEOUT_MS = 8e3;
+	}
 	/**
 	* Delete stored TwiML for a given `callId`.
 	*
@@ -3271,9 +3384,21 @@ var TwilioProvider = class TwilioProvider {
 	registerCallStream(callSid, streamSid) {
 		this.callStreamMap.set(callSid, streamSid);
 	}
-	unregisterCallStream(callSid) {
+	hasRegisteredStream(callSid) {
+		return this.callStreamMap.has(callSid);
+	}
+	unregisterCallStream(callSid, streamSid) {
+		const currentStreamSid = this.callStreamMap.get(callSid);
+		if (!currentStreamSid) {
+			if (!streamSid) this.activeStreamCalls.delete(callSid);
+			return;
+		}
+		if (streamSid && currentStreamSid !== streamSid) return;
 		this.callStreamMap.delete(callSid);
 		this.activeStreamCalls.delete(callSid);
+	}
+	isConversationStreamConnectEnabled() {
+		return Boolean(this.mediaStreamHandler && this.getStreamUrl());
 	}
 	isValidStreamToken(callSid, token) {
 		const expected = this.streamAuthTokens.get(callSid);
@@ -3289,9 +3414,10 @@ var TwilioProvider = class TwilioProvider {
 	* Clear TTS queue for a call (barge-in).
 	* Used when user starts speaking to interrupt current TTS playback.
 	*/
-	clearTtsQueue(callSid) {
+	clearTtsQueue(callSid, reason = "unspecified") {
 		const streamSid = this.callStreamMap.get(callSid);
-		if (streamSid && this.mediaStreamHandler) this.mediaStreamHandler.clearTtsQueue(streamSid);
+		if (!streamSid || !this.mediaStreamHandler) return;
+		this.mediaStreamHandler.clearTtsQueue(streamSid, reason);
 	}
 	/**
 	* Make an authenticated request to the Twilio API.
@@ -3550,18 +3676,21 @@ var TwilioProvider = class TwilioProvider {
 	* Play TTS audio via Twilio.
 	*
 	* Two modes:
-	* 1. Core TTS + Media Streams: If TTS provider and media stream are available,
-	*    generates audio via core TTS and streams it through WebSocket (preferred).
-	* 2. TwiML <Say>: Falls back to Twilio's native TTS with Polly voices.
-	*    Note: This may not work on all Twilio accounts.
+	* 1. Core TTS + Media Streams: when an active stream exists, stream playback is required.
+	*    If telephony TTS is unavailable in that state, playback fails rather than mixing paths.
+	* 2. TwiML <Say>: fallback only when there is no active stream for the call.
 	*/
 	async playTts(input) {
 		const streamSid = this.callStreamMap.get(input.providerCallId);
-		if (this.ttsProvider && this.mediaStreamHandler && streamSid) try {
-			await this.playTtsViaStream(input.text, streamSid);
-			return;
-		} catch (err) {
-			console.warn(`[voice-call] Telephony TTS failed, falling back to Twilio <Say>:`, err instanceof Error ? err.message : err);
+		if (streamSid) {
+			if (!this.ttsProvider || !this.mediaStreamHandler) throw new Error("Telephony TTS unavailable while media stream is active; refusing TwiML fallback");
+			try {
+				await this.playTtsViaStream(input.text, streamSid);
+				return;
+			} catch (err) {
+				console.warn(`[voice-call] Telephony TTS failed:`, err instanceof Error ? err.message : err);
+				throw err instanceof Error ? err : new Error(String(err));
+			}
 		}
 		const webhookUrl = this.callWebhookUrls.get(input.providerCallId);
 		if (!webhookUrl) throw new Error("Missing webhook URL for this call (provider state not initialized)");
@@ -3584,17 +3713,62 @@ var TwilioProvider = class TwilioProvider {
 		if (!this.ttsProvider || !this.mediaStreamHandler) throw new Error("TTS provider and media stream handler required");
 		const CHUNK_SIZE = 160;
 		const CHUNK_DELAY_MS = 20;
+		const SILENCE_CHUNK = Buffer.alloc(CHUNK_SIZE, 255);
 		const handler = this.mediaStreamHandler;
 		const ttsProvider = this.ttsProvider;
+		const normalizeSendResult = (raw) => {
+			if (!raw || typeof raw !== "object") return { sent: true };
+			const typed = raw;
+			return { sent: typed.sent === void 0 ? true : Boolean(typed.sent) };
+		};
+		const sendAudioChunk = (audio) => {
+			return normalizeSendResult(handler.sendAudio(streamSid, audio));
+		};
+		const sendPlaybackMark = (name) => {
+			return normalizeSendResult(handler.sendMark(streamSid, name));
+		};
 		await handler.queueTts(streamSid, async (signal) => {
-			const muLawAudio = await ttsProvider.synthesizeForTelephony(text);
+			const sendKeepAlive = () => {
+				sendAudioChunk(SILENCE_CHUNK);
+			};
+			sendKeepAlive();
+			const keepAlive = setInterval(() => {
+				if (!signal.aborted) sendKeepAlive();
+			}, CHUNK_DELAY_MS);
+			let muLawAudio;
+			let synthTimeout = null;
+			try {
+				const synthPromise = ttsProvider.synthesizeForTelephony(text);
+				const timeoutPromise = new Promise((_, reject) => {
+					synthTimeout = setTimeout(() => {
+						reject(/* @__PURE__ */ new Error(`Telephony TTS synthesis timed out after ${TwilioProvider.TTS_SYNTH_TIMEOUT_MS}ms`));
+					}, TwilioProvider.TTS_SYNTH_TIMEOUT_MS);
+				});
+				muLawAudio = await Promise.race([synthPromise, timeoutPromise]);
+			} finally {
+				if (synthTimeout) clearTimeout(synthTimeout);
+				clearInterval(keepAlive);
+			}
+			let chunkAttempts = 0;
+			let chunkDelivered = 0;
+			let nextChunkDueAt = Date.now() + CHUNK_DELAY_MS;
 			for (const chunk of chunkAudio(muLawAudio, CHUNK_SIZE)) {
 				if (signal.aborted) break;
-				handler.sendAudio(streamSid, chunk);
-				await new Promise((resolve) => setTimeout(resolve, CHUNK_DELAY_MS));
+				chunkAttempts += 1;
+				if (sendAudioChunk(chunk).sent) chunkDelivered += 1;
+				const waitMs = nextChunkDueAt - Date.now();
+				if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, Math.ceil(waitMs)));
+				nextChunkDueAt += CHUNK_DELAY_MS;
 				if (signal.aborted) break;
 			}
-			if (!signal.aborted) handler.sendMark(streamSid, `tts-${Date.now()}`);
+			let markSent = true;
+			if (!signal.aborted) markSent = sendPlaybackMark(`tts-${Date.now()}`).sent;
+			if (!signal.aborted && chunkAttempts > 0 && (chunkDelivered === 0 || !markSent)) {
+				const failures = [];
+				if (chunkDelivered === 0) failures.push("no audio chunks delivered");
+				if (!markSent) failures.push("completion mark not delivered");
+				throw new Error(`Telephony stream playback failed: ${failures.join("; ")}`);
+			}
 		});
 	}
 	/**
@@ -3897,6 +4071,13 @@ const DEFAULT_PRE_START_TIMEOUT_MS = 5e3;
 const DEFAULT_MAX_PENDING_CONNECTIONS = 32;
 const DEFAULT_MAX_PENDING_CONNECTIONS_PER_IP = 4;
 const DEFAULT_MAX_CONNECTIONS = 128;
+const MAX_WS_BUFFERED_BYTES = 1024 * 1024;
+const CLOSE_REASON_LOG_MAX_CHARS = 120;
+function sanitizeLogText(value, maxChars) {
+	const sanitized = value.replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim();
+	if (sanitized.length <= maxChars) return sanitized;
+	return `${sanitized.slice(0, maxChars)}...`;
+}
 /**
 * Manages WebSocket connections for Twilio media streams.
 */
@@ -3970,7 +4151,9 @@ var MediaStreamHandler = class {
 				console.error("[MediaStream] Error processing message:", error);
 			}
 		});
-		ws.on("close", () => {
+		ws.on("close", (code, reason) => {
+			const reasonText = sanitizeLogText(Buffer.isBuffer(reason) ? reason.toString("utf8") : String(reason || ""), CLOSE_REASON_LOG_MAX_CHARS);
+			console.log(`[MediaStream] WebSocket closed (code: ${code}, reason: ${reasonText || "none"})`);
 			this.clearPendingConnection(ws);
 			if (session) this.handleStop(session);
 		});
@@ -4031,7 +4214,7 @@ var MediaStreamHandler = class {
 		this.clearTtsState(session.streamSid);
 		session.sttSession.close();
 		this.sessions.delete(session.streamSid);
-		this.config.onDisconnect?.(session.callId);
+		this.config.onDisconnect?.(session.callId, session.streamSid);
 	}
 	getStreamToken(request) {
 		if (!request.url || !request.headers.host) return;
@@ -4099,14 +4282,66 @@ Content-Length: ${Buffer.byteLength(body)}\r\n\r
 	* Send a message to a stream's WebSocket if available.
 	*/
 	sendToStream(streamSid, message) {
-		this.getOpenSession(streamSid)?.ws.send(JSON.stringify(message));
+		const session = this.sessions.get(streamSid);
+		if (!session) return {
+			sent: false,
+			bufferedBeforeBytes: 0,
+			bufferedAfterBytes: 0
+		};
+		const readyState = session.ws.readyState;
+		const bufferedBeforeBytes = session.ws.bufferedAmount;
+		if (readyState !== WebSocket.OPEN) return {
+			sent: false,
+			readyState,
+			bufferedBeforeBytes,
+			bufferedAfterBytes: session.ws.bufferedAmount
+		};
+		if (bufferedBeforeBytes > MAX_WS_BUFFERED_BYTES) {
+			try {
+				session.ws.close(1013, "Backpressure: send buffer exceeded");
+			} catch {}
+			return {
+				sent: false,
+				readyState,
+				bufferedBeforeBytes,
+				bufferedAfterBytes: session.ws.bufferedAmount
+			};
+		}
+		try {
+			session.ws.send(JSON.stringify(message));
+			const bufferedAfterBytes = session.ws.bufferedAmount;
+			if (bufferedAfterBytes > MAX_WS_BUFFERED_BYTES) {
+				try {
+					session.ws.close(1013, "Backpressure: send buffer exceeded");
+				} catch {}
+				return {
+					sent: false,
+					readyState,
+					bufferedBeforeBytes,
+					bufferedAfterBytes
+				};
+			}
+			return {
+				sent: true,
+				readyState,
+				bufferedBeforeBytes,
+				bufferedAfterBytes
+			};
+		} catch {
+			return {
+				sent: false,
+				readyState,
+				bufferedBeforeBytes,
+				bufferedAfterBytes: session.ws.bufferedAmount
+			};
+		}
 	}
 	/**
 	* Send audio to a specific stream (for TTS playback).
 	* Audio should be mu-law encoded at 8kHz mono.
 	*/
 	sendAudio(streamSid, muLawAudio) {
-		this.sendToStream(streamSid, {
+		return this.sendToStream(streamSid, {
 			event: "media",
 			streamSid,
 			media: { payload: muLawAudio.toString("base64") }
@@ -4116,7 +4351,7 @@ Content-Length: ${Buffer.byteLength(body)}\r\n\r
 	* Send a mark event to track audio playback position.
 	*/
 	sendMark(streamSid, name) {
-		this.sendToStream(streamSid, {
+		return this.sendToStream(streamSid, {
 			event: "mark",
 			streamSid,
 			mark: { name }
@@ -4126,7 +4361,7 @@ Content-Length: ${Buffer.byteLength(body)}\r\n\r
 	* Clear audio buffer (interrupt playback).
 	*/
 	clearAudio(streamSid) {
-		this.sendToStream(streamSid, {
+		return this.sendToStream(streamSid, {
 			event: "clear",
 			streamSid
 		});
@@ -4155,7 +4390,7 @@ Content-Length: ${Buffer.byteLength(body)}\r\n\r
 	/**
 	* Clear TTS queue and interrupt current playback (barge-in).
 	*/
-	clearTtsQueue(streamSid) {
+	clearTtsQueue(streamSid, _reason = "unspecified") {
 		const queue = this.getTtsQueue(streamSid);
 		queue.length = 0;
 		this.ttsActiveControllers.get(streamSid)?.abort();
@@ -4447,7 +4682,15 @@ function startStaleCallReaper(params) {
 }
 //#endregion
 //#region extensions/voice-call/src/webhook.ts
-const MAX_WEBHOOK_BODY_BYTES = 1024 * 1024;
+const MAX_WEBHOOK_BODY_BYTES = WEBHOOK_BODY_READ_DEFAULTS.preAuth.maxBytes;
+const WEBHOOK_BODY_TIMEOUT_MS = WEBHOOK_BODY_READ_DEFAULTS.preAuth.timeoutMs;
+const STREAM_DISCONNECT_HANGUP_GRACE_MS = 2e3;
+const TRANSCRIPT_LOG_MAX_CHARS = 200;
+function sanitizeTranscriptForLog(value) {
+	const sanitized = value.replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim();
+	if (sanitized.length <= TRANSCRIPT_LOG_MAX_CHARS) return sanitized;
+	return `${sanitized.slice(0, TRANSCRIPT_LOG_MAX_CHARS)}...`;
+}
 function buildRequestUrl(requestUrl, requestHost, fallbackHost = "localhost") {
 	return new URL$1(requestUrl ?? "/", `http://${requestHost ?? fallbackHost}`);
 }
@@ -4467,7 +4710,9 @@ var VoiceCallWebhookServer = class {
 		this.server = null;
 		this.listeningUrl = null;
 		this.stopStaleCallReaper = null;
+		this.webhookInFlightLimiter = createWebhookInFlightLimiter();
 		this.mediaStreamHandler = null;
+		this.pendingDisconnectHangups = /* @__PURE__ */ new Map();
 		this.config = normalizeVoiceCallConfig(config);
 		this.manager = manager;
 		this.provider = provider;
@@ -4480,6 +4725,18 @@ var VoiceCallWebhookServer = class {
 	*/
 	getMediaStreamHandler() {
 		return this.mediaStreamHandler;
+	}
+	clearPendingDisconnectHangup(providerCallId) {
+		const existing = this.pendingDisconnectHangups.get(providerCallId);
+		if (!existing) return;
+		clearTimeout(existing);
+		this.pendingDisconnectHangups.delete(providerCallId);
+	}
+	shouldSuppressBargeInForInitialMessage(call) {
+		if (!call || call.direction !== "outbound") return false;
+		if (call.state !== "speaking") return false;
+		if ((call.metadata?.mode ?? "conversation") !== "conversation") return false;
+		return (typeof call.metadata?.initialMessage === "string" ? call.metadata.initialMessage.trim() : "").length > 0;
 	}
 	/**
 	* Initialize media streaming with OpenAI Realtime STT.
@@ -4513,13 +4770,18 @@ var VoiceCallWebhookServer = class {
 				return true;
 			},
 			onTranscript: (providerCallId, transcript) => {
-				console.log(`[voice-call] Transcript for ${providerCallId}: ${transcript}`);
-				if (this.provider.name === "twilio") this.provider.clearTtsQueue(providerCallId);
+				const safeTranscript = sanitizeTranscriptForLog(transcript);
+				console.log(`[voice-call] Transcript for ${providerCallId}: ${safeTranscript} (chars=${transcript.length})`);
 				const call = this.manager.getCallByProviderCallId(providerCallId);
 				if (!call) {
 					console.warn(`[voice-call] No active call found for provider ID: ${providerCallId}`);
 					return;
 				}
+				if (this.shouldSuppressBargeInForInitialMessage(call)) {
+					console.log(`[voice-call] Ignoring barge transcript while initial message is still playing (${providerCallId})`);
+					return;
+				}
+				if (this.provider.name === "twilio") this.provider.clearTtsQueue(providerCallId);
 				const event = {
 					id: `stream-transcript-${Date.now()}`,
 					type: "call.speech",
@@ -4536,30 +4798,41 @@ var VoiceCallWebhookServer = class {
 				});
 			},
 			onSpeechStart: (providerCallId) => {
-				if (this.provider.name === "twilio") this.provider.clearTtsQueue(providerCallId);
+				if (this.provider.name !== "twilio") return;
+				const call = this.manager.getCallByProviderCallId(providerCallId);
+				if (this.shouldSuppressBargeInForInitialMessage(call)) return;
+				this.provider.clearTtsQueue(providerCallId);
 			},
 			onPartialTranscript: (callId, partial) => {
-				console.log(`[voice-call] Partial for ${callId}: ${partial}`);
+				const safePartial = sanitizeTranscriptForLog(partial);
+				console.log(`[voice-call] Partial for ${callId}: ${safePartial} (chars=${partial.length})`);
 			},
 			onConnect: (callId, streamSid) => {
 				console.log(`[voice-call] Media stream connected: ${callId} -> ${streamSid}`);
+				this.clearPendingDisconnectHangup(callId);
 				if (this.provider.name === "twilio") this.provider.registerCallStream(callId, streamSid);
-				setTimeout(() => {
-					this.manager.speakInitialMessage(callId).catch((err) => {
-						console.warn(`[voice-call] Failed to speak initial message:`, err);
-					});
-				}, 500);
+				this.manager.speakInitialMessage(callId).catch((err) => {
+					console.warn(`[voice-call] Failed to speak initial message:`, err);
+				});
 			},
-			onDisconnect: (callId) => {
-				console.log(`[voice-call] Media stream disconnected: ${callId}`);
-				const disconnectedCall = this.manager.getCallByProviderCallId(callId);
-				if (disconnectedCall) {
-					console.log(`[voice-call] Auto-ending call ${disconnectedCall.callId} on stream disconnect`);
+			onDisconnect: (callId, streamSid) => {
+				console.log(`[voice-call] Media stream disconnected: ${callId} (${streamSid})`);
+				if (this.provider.name === "twilio") this.provider.unregisterCallStream(callId, streamSid);
+				this.clearPendingDisconnectHangup(callId);
+				const timer = setTimeout(() => {
+					this.pendingDisconnectHangups.delete(callId);
+					const disconnectedCall = this.manager.getCallByProviderCallId(callId);
+					if (!disconnectedCall) return;
+					if (this.provider.name === "twilio") {
+						if (this.provider.hasRegisteredStream(callId)) return;
+					}
+					console.log(`[voice-call] Auto-ending call ${disconnectedCall.callId} after stream disconnect grace`);
 					this.manager.endCall(disconnectedCall.callId).catch((err) => {
 						console.warn(`[voice-call] Failed to auto-end call ${disconnectedCall.callId}:`, err);
 					});
-				}
-				if (this.provider.name === "twilio") this.provider.unregisterCallStream(callId);
+				}, STREAM_DISCONNECT_HANGUP_GRACE_MS);
+				timer.unref?.();
+				this.pendingDisconnectHangups.set(callId, timer);
 			}
 		});
 		console.log("[voice-call] Media streaming initialized");
@@ -4608,6 +4881,9 @@ var VoiceCallWebhookServer = class {
 	* Stop the webhook server.
 	*/
 	async stop() {
+		for (const timer of this.pendingDisconnectHangups.values()) clearTimeout(timer);
+		this.pendingDisconnectHangups.clear();
+		this.webhookInFlightLimiter.clear();
 		if (this.stopStaleCallReaper) {
 			this.stopStaleCallReaper();
 			this.stopStaleCallReaper = null;
@@ -4675,47 +4951,97 @@ var VoiceCallWebhookServer = class {
 			statusCode: 405,
 			body: "Method Not Allowed"
 		};
-		let body = "";
+		const headerGate = this.verifyPreAuthWebhookHeaders(req.headers);
+		if (!headerGate.ok) {
+			console.warn(`[voice-call] Webhook rejected before body read: ${headerGate.reason}`);
+			return {
+				statusCode: 401,
+				body: "Unauthorized"
+			};
+		}
+		const inFlightKey = req.socket.remoteAddress ?? "";
+		if (!this.webhookInFlightLimiter.tryAcquire(inFlightKey)) {
+			console.warn(`[voice-call] Webhook rejected before body read: too many in-flight requests`);
+			return {
+				statusCode: 429,
+				body: "Too Many Requests"
+			};
+		}
 		try {
-			body = await this.readBody(req, MAX_WEBHOOK_BODY_BYTES);
-		} catch (err) {
-			if (isRequestBodyLimitError(err, "PAYLOAD_TOO_LARGE")) return {
-				statusCode: 413,
-				body: "Payload Too Large"
+			let body = "";
+			try {
+				body = await this.readBody(req, MAX_WEBHOOK_BODY_BYTES, WEBHOOK_BODY_TIMEOUT_MS);
+			} catch (err) {
+				if (isRequestBodyLimitError(err, "PAYLOAD_TOO_LARGE")) return {
+					statusCode: 413,
+					body: "Payload Too Large"
+				};
+				if (isRequestBodyLimitError(err, "REQUEST_BODY_TIMEOUT")) return {
+					statusCode: 408,
+					body: requestBodyErrorToText("REQUEST_BODY_TIMEOUT")
+				};
+				throw err;
+			}
+			const ctx = {
+				headers: req.headers,
+				rawBody: body,
+				url: url.toString(),
+				method: "POST",
+				query: Object.fromEntries(url.searchParams),
+				remoteAddress: req.socket.remoteAddress ?? void 0
 			};
-			if (isRequestBodyLimitError(err, "REQUEST_BODY_TIMEOUT")) return {
-				statusCode: 408,
-				body: requestBodyErrorToText("REQUEST_BODY_TIMEOUT")
-			};
-			throw err;
+			const verification = this.provider.verifyWebhook(ctx);
+			if (!verification.ok) {
+				console.warn(`[voice-call] Webhook verification failed: ${verification.reason}`);
+				return {
+					statusCode: 401,
+					body: "Unauthorized"
+				};
+			}
+			if (!verification.verifiedRequestKey) {
+				console.warn("[voice-call] Webhook verification succeeded without request identity key");
+				return {
+					statusCode: 401,
+					body: "Unauthorized"
+				};
+			}
+			const parsed = this.provider.parseWebhookEvent(ctx, { verifiedRequestKey: verification.verifiedRequestKey });
+			if (verification.isReplay) console.warn("[voice-call] Replay detected; skipping event side effects");
+			else this.processParsedEvents(parsed.events);
+			return normalizeWebhookResponse(parsed);
+		} finally {
+			this.webhookInFlightLimiter.release(inFlightKey);
 		}
-		const ctx = {
-			headers: req.headers,
-			rawBody: body,
-			url: url.toString(),
-			method: "POST",
-			query: Object.fromEntries(url.searchParams),
-			remoteAddress: req.socket.remoteAddress ?? void 0
-		};
-		const verification = this.provider.verifyWebhook(ctx);
-		if (!verification.ok) {
-			console.warn(`[voice-call] Webhook verification failed: ${verification.reason}`);
-			return {
-				statusCode: 401,
-				body: "Unauthorized"
-			};
+	}
+	verifyPreAuthWebhookHeaders(headers) {
+		if (this.config.skipSignatureVerification) return { ok: true };
+		switch (this.provider.name) {
+			case "telnyx": {
+				const signature = getHeader(headers, "telnyx-signature-ed25519");
+				const timestamp = getHeader(headers, "telnyx-timestamp");
+				if (signature && timestamp) return { ok: true };
+				return {
+					ok: false,
+					reason: "missing Telnyx signature or timestamp header"
+				};
+			}
+			case "twilio":
+				if (getHeader(headers, "x-twilio-signature")) return { ok: true };
+				return {
+					ok: false,
+					reason: "missing X-Twilio-Signature header"
+				};
+			case "plivo": {
+				const hasV3 = Boolean(getHeader(headers, "x-plivo-signature-v3")) && Boolean(getHeader(headers, "x-plivo-signature-v3-nonce"));
+				const hasV2 = Boolean(getHeader(headers, "x-plivo-signature-v2")) && Boolean(getHeader(headers, "x-plivo-signature-v2-nonce"));
+				if (hasV3 || hasV2) return { ok: true };
+				return {
+					ok: false,
+					reason: "missing Plivo signature headers"
+				};
+			}
+			default: return { ok: true };
 		}
-		if (!verification.verifiedRequestKey) {
-			console.warn("[voice-call] Webhook verification succeeded without request identity key");
-			return {
-				statusCode: 401,
-				body: "Unauthorized"
-			};
-		}
-		const parsed = this.provider.parseWebhookEvent(ctx, { verifiedRequestKey: verification.verifiedRequestKey });
-		if (verification.isReplay) console.warn("[voice-call] Replay detected; skipping event side effects");
-		else this.processParsedEvents(parsed.events);
-		return normalizeWebhookResponse(parsed);
 	}
 	processParsedEvents(events) {
 		for (const event of events) try {
@@ -4732,7 +5058,7 @@ var VoiceCallWebhookServer = class {
 	/**
 	* Read request body as string with timeout protection.
 	*/
-	readBody(req, maxBytes, timeoutMs = 3e4) {
+	readBody(req, maxBytes, timeoutMs = WEBHOOK_BODY_TIMEOUT_MS) {
 		return readRequestBodyWithLimit(req, {
 			maxBytes,
 			timeoutMs
@@ -4758,7 +5084,7 @@ var VoiceCallWebhookServer = class {
 			return;
 		}
 		try {
-			const { generateVoiceResponse } = await import("../../response-generator-lH1fgPqo.js");
+			const { generateVoiceResponse } = await import("../../response-generator-4B6vvbwJ.js");
 			const result = await generateVoiceResponse({
 				voiceConfig: this.config,
 				coreConfig: this.coreConfig,

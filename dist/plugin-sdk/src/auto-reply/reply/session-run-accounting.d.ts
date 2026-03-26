@@ -6,6 +6,7 @@ type IncrementRunCompactionCountParams = Omit<Parameters<typeof incrementCompact
     amount?: number;
     lastCallUsage?: NormalizedUsage;
     contextTokensUsed?: number;
+    newSessionId?: string;
 };
 export declare function persistRunSessionUsage(params: PersistRunSessionUsageParams): Promise<void>;
 export declare function incrementRunCompactionCount(params: IncrementRunCompactionCountParams): Promise<number | undefined>;

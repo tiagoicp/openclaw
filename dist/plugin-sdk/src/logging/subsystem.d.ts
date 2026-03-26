@@ -1,4 +1,4 @@
-import { type RuntimeEnv } from "../runtime.js";
+import { type OutputRuntimeEnv, type RuntimeEnv } from "../runtime.js";
 import { type LogLevel } from "./levels.js";
 export type SubsystemLogger = {
     subsystem: string;
@@ -14,5 +14,5 @@ export type SubsystemLogger = {
 };
 export declare function stripRedundantSubsystemPrefixForConsole(message: string, displaySubsystem: string): string;
 export declare function createSubsystemLogger(subsystem: string): SubsystemLogger;
-export declare function runtimeForLogger(logger: SubsystemLogger, exit?: RuntimeEnv["exit"]): RuntimeEnv;
-export declare function createSubsystemRuntime(subsystem: string, exit?: RuntimeEnv["exit"]): RuntimeEnv;
+export declare function runtimeForLogger(logger: SubsystemLogger, exit?: RuntimeEnv["exit"]): OutputRuntimeEnv;
+export declare function createSubsystemRuntime(subsystem: string, exit?: RuntimeEnv["exit"]): OutputRuntimeEnv;

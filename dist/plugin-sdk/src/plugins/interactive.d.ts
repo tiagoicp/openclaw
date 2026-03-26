@@ -39,6 +39,7 @@ export declare function dispatchPluginInteractiveHandler(params: {
         clearButtons: () => Promise<void>;
         deleteMessage: () => Promise<void>;
     };
+    onMatched?: () => Promise<void> | void;
 }): Promise<InteractiveDispatchResult>;
 export declare function dispatchPluginInteractiveHandler(params: {
     channel: "discord";
@@ -46,6 +47,7 @@ export declare function dispatchPluginInteractiveHandler(params: {
     interactionId: string;
     ctx: DiscordInteractiveDispatchContext;
     respond: PluginInteractiveDiscordHandlerContext["respond"];
+    onMatched?: () => Promise<void> | void;
 }): Promise<InteractiveDispatchResult>;
 export declare function dispatchPluginInteractiveHandler(params: {
     channel: "slack";
@@ -53,5 +55,6 @@ export declare function dispatchPluginInteractiveHandler(params: {
     interactionId: string;
     ctx: SlackInteractiveDispatchContext;
     respond: PluginInteractiveSlackHandlerContext["respond"];
+    onMatched?: () => Promise<void> | void;
 }): Promise<InteractiveDispatchResult>;
 export {};

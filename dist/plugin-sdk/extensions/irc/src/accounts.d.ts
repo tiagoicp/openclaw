@@ -14,7 +14,7 @@ export type ResolvedIrcAccount = {
     passwordSource: "env" | "passwordFile" | "config" | "none";
     config: IrcAccountConfig;
 };
-declare const listIrcAccountIds: (cfg: import("openclaw/plugin-sdk/config-runtime").OpenClawConfig) => string[], resolveDefaultIrcAccountId: (cfg: import("openclaw/plugin-sdk/config-runtime").OpenClawConfig) => string;
+declare const listIrcAccountIds: (cfg: import("openclaw/plugin-sdk/account-resolution").OpenClawConfig) => string[], resolveDefaultIrcAccountId: (cfg: import("openclaw/plugin-sdk/account-resolution").OpenClawConfig) => string;
 export { listIrcAccountIds, resolveDefaultIrcAccountId };
 export declare function resolveIrcAccount(params: {
     cfg: CoreConfig;

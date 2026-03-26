@@ -1,2 +1,7 @@
-import type { MsgContext } from "openclaw/plugin-sdk/reply-runtime";
-export declare function normalizeExplicitDiscordSessionKey(sessionKey: string, ctx: Pick<MsgContext, "ChatType" | "From" | "SenderId">): string;
+type DiscordSessionKeyContext = {
+    ChatType?: string;
+    From?: string;
+    SenderId?: string;
+};
+export declare function normalizeExplicitDiscordSessionKey(sessionKey: string, ctx: DiscordSessionKeyContext): string;
+export {};

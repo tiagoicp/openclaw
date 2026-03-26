@@ -1,12 +1,12 @@
-import { type ExecCommandAnalysis, type CommandResolution, type ExecCommandSegment } from "./exec-approvals-analysis.js";
+import { type ExecCommandAnalysis, type ExecCommandSegment, type ExecutableResolution } from "./exec-approvals-analysis.js";
 import type { ExecAllowlistEntry } from "./exec-approvals.js";
 import { type SafeBinProfile } from "./exec-safe-bin-policy.js";
 import { isTrustedSafeBinPath } from "./exec-safe-bin-trust.js";
-export declare function normalizeSafeBins(entries?: string[]): Set<string>;
-export declare function resolveSafeBins(entries?: string[] | null): Set<string>;
+export declare function normalizeSafeBins(entries?: readonly string[]): Set<string>;
+export declare function resolveSafeBins(entries?: readonly string[] | null): Set<string>;
 export declare function isSafeBinUsage(params: {
     argv: string[];
-    resolution: CommandResolution | null;
+    resolution: ExecutableResolution | null;
     safeBins: Set<string>;
     platform?: string | null;
     trustedSafeBinDirs?: ReadonlySet<string>;
@@ -28,6 +28,7 @@ type ExecAllowlistContext = {
     safeBins: Set<string>;
     safeBinProfiles?: Readonly<Record<string, SafeBinProfile>>;
     cwd?: string;
+    env?: NodeJS.ProcessEnv;
     platform?: string | null;
     trustedSafeBinDirs?: ReadonlySet<string>;
     skillBins?: readonly SkillBinTrustEntry[];

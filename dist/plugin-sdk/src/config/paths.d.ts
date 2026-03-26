@@ -19,7 +19,7 @@ export declare function resolveNewStateDir(homedir?: () => string): string;
 export declare function resolveStateDir(env?: NodeJS.ProcessEnv, homedir?: () => string): string;
 export declare const STATE_DIR: string;
 /**
- * Config file path (JSON5).
+ * Config file path (JSON or JSON5).
  * Can be overridden via OPENCLAW_CONFIG_PATH.
  * Default: ~/.openclaw/openclaw.json (or $OPENCLAW_STATE_DIR/openclaw.json)
  */

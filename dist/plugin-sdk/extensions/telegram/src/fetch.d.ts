@@ -15,4 +15,9 @@ export declare function resolveTelegramTransport(proxyFetch?: typeof fetch, opti
 export declare function resolveTelegramFetch(proxyFetch?: typeof fetch, options?: {
     network?: TelegramNetworkConfig;
 }): typeof fetch;
+/**
+ * Resolve the Telegram Bot API base URL from an optional `apiRoot` config value.
+ * Returns a trimmed URL without trailing slash, or the standard default.
+ */
+export declare function resolveTelegramApiBase(apiRoot?: string): string;
 export {};

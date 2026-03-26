@@ -1,6 +1,6 @@
 import type { ChannelId } from "../../channels/plugins/types.js";
 import type { OpenClawConfig } from "../../config/config.js";
-import type { RoutePeer } from "../../routing/resolve-route.js";
+import { type RoutePeer } from "../../routing/resolve-route.js";
 import type { ResolvedMessagingTarget } from "./target-resolver.js";
 export type OutboundSessionRoute = {
     sessionKey: string;

@@ -21,6 +21,7 @@ export declare class LegacyContextEngine implements ContextEngine {
         sessionKey?: string;
         messages: AgentMessage[];
         tokenBudget?: number;
+        model?: string;
     }): Promise<AssembleResult>;
     afterTurn(_params: {
         sessionId: string;

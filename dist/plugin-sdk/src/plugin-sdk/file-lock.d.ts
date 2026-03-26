@@ -12,6 +12,8 @@ export type FileLockHandle = {
     lockPath: string;
     release: () => Promise<void>;
 };
+export declare function resetFileLockStateForTest(): void;
+export declare function drainFileLockStateForTest(): Promise<void>;
 /** Acquire a re-entrant process-local file lock backed by a `.lock` sidecar file. */
 export declare function acquireFileLock(filePath: string, options: FileLockOptions): Promise<FileLockHandle>;
 /** Run an async callback while holding a file lock, always releasing the lock afterward. */

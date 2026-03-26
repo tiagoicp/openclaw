@@ -7,6 +7,10 @@ export declare function resolveCurrentDirectiveLevels(params: {
         reasoningLevel?: unknown;
         elevatedLevel?: unknown;
     };
+    agentEntry?: {
+        fastModeDefault?: unknown;
+        reasoningDefault?: unknown;
+    };
     agentCfg?: {
         thinkingDefault?: unknown;
         verboseDefault?: unknown;

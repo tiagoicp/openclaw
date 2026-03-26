@@ -1,4 +1,4 @@
-export type { ContextEngine, ContextEngineInfo, AssembleResult, CompactResult, IngestResult, } from "./types.js";
+export type { ContextEngine, ContextEngineInfo, AssembleResult, CompactResult, ContextEngineMaintenanceResult, ContextEngineRuntimeContext, IngestResult, TranscriptRewriteReplacement, TranscriptRewriteRequest, TranscriptRewriteResult, } from "./types.js";
 export { registerContextEngine, getContextEngineFactory, listContextEngineIds, resolveContextEngine, } from "./registry.js";
 export type { ContextEngineFactory } from "./registry.js";
 export { LegacyContextEngine, registerLegacyContextEngine } from "./legacy.js";

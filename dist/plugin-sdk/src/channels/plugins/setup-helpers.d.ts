@@ -1,6 +1,11 @@
 import type { OpenClawConfig } from "../../config/config.js";
 import type { ChannelSetupAdapter } from "./types.adapters.js";
 import type { ChannelSetupInput } from "./types.core.js";
+type ChannelSectionBase = {
+    name?: string;
+    defaultAccount?: string;
+    accounts?: Record<string, Record<string, unknown>>;
+};
 export declare function applyAccountNameToChannelSection(params: {
     cfg: OpenClawConfig;
     channelKey: string;
@@ -56,11 +61,21 @@ export declare function patchScopedAccountConfig(params: {
     ensureAccountEnabled?: boolean;
     scopeDefaultToAccounts?: boolean;
 }): OpenClawConfig;
+export declare const MATRIX_SHARED_MULTI_ACCOUNT_DEFAULT_KEYS: Set<string>;
 export declare function shouldMoveSingleAccountChannelKey(params: {
     channelKey: string;
     key: string;
 }): boolean;
+export declare function resolveSingleAccountKeysToMove(params: {
+    channelKey: string;
+    channel: Record<string, unknown>;
+}): string[];
+export declare function resolveSingleAccountPromotionTarget(params: {
+    channelKey: string;
+    channel: ChannelSectionBase;
+}): string;
 export declare function moveSingleAccountChannelSectionToDefaultAccount(params: {
     cfg: OpenClawConfig;
     channelKey: string;
 }): OpenClawConfig;
+export {};

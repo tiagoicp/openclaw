@@ -8,4 +8,4 @@ export type CliDeps = {
 };
 export declare function createDefaultDeps(): CliDeps;
 export declare function createOutboundSendDeps(deps: CliDeps): OutboundSendDeps;
-export { logWebSelfId } from "../plugin-sdk/whatsapp.js";
+export { logWebSelfId } from "../plugins/runtime/runtime-whatsapp-boundary.js";

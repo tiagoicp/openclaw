@@ -2,6 +2,7 @@ import type { OpenClawConfig } from "../config/config.js";
 import type { GatewayRequestHandler } from "../gateway/server-methods/types.js";
 import { type PluginRegistry } from "./registry.js";
 import type { CreatePluginRuntimeOptions } from "./runtime/index.js";
+import { buildPluginLoaderAliasMap, buildPluginLoaderJitiOptions, listPluginSdkAliasCandidates, listPluginSdkExportedSubpaths, resolveExtensionApiAlias, resolvePluginSdkAliasCandidateOrder, resolvePluginSdkAliasFile, resolvePluginRuntimeModulePath, resolvePluginSdkScopedAliasMap, shouldPreferNativeJiti } from "./sdk-alias.js";
 import type { PluginLogger } from "./types.js";
 export type PluginLoadResult = PluginRegistry;
 export type PluginLoadOptions = {
@@ -21,52 +22,26 @@ export type PluginLoadOptions = {
      */
     preferSetupRuntimeForChannelPlugins?: boolean;
     activate?: boolean;
+    throwOnLoadError?: boolean;
 };
+export declare class PluginLoadFailureError extends Error {
+    readonly pluginIds: string[];
+    readonly registry: PluginRegistry;
+    constructor(registry: PluginRegistry);
+}
 export declare function clearPluginLoaderCache(): void;
-type PluginSdkAliasCandidateKind = "dist" | "src";
-type LoaderModuleResolveParams = {
-    modulePath?: string;
-    argv1?: string;
-    cwd?: string;
-    moduleUrl?: string;
-};
-declare function resolvePluginSdkAliasCandidateOrder(params: {
-    modulePath: string;
-    isProduction: boolean;
-}): PluginSdkAliasCandidateKind[];
-declare function listPluginSdkAliasCandidates(params: {
-    srcFile: string;
-    distFile: string;
-    modulePath: string;
-    argv1?: string;
-    cwd?: string;
-    moduleUrl?: string;
-}): string[];
-declare function buildPluginLoaderJitiOptions(aliasMap: Record<string, string>): {
-    alias?: Record<string, string> | undefined;
-    interopDefault: boolean;
-    tryNative: boolean;
-    extensions: string[];
-};
-declare function resolvePluginRuntimeModulePath(params?: LoaderModuleResolveParams): string | null;
-declare function listPluginSdkExportedSubpaths(params?: {
-    modulePath?: string;
-}): string[];
 export declare const __testing: {
     buildPluginLoaderJitiOptions: typeof buildPluginLoaderJitiOptions;
+    buildPluginLoaderAliasMap: typeof buildPluginLoaderAliasMap;
     listPluginSdkAliasCandidates: typeof listPluginSdkAliasCandidates;
     listPluginSdkExportedSubpaths: typeof listPluginSdkExportedSubpaths;
+    resolveExtensionApiAlias: typeof resolveExtensionApiAlias;
+    resolvePluginSdkScopedAliasMap: typeof resolvePluginSdkScopedAliasMap;
     resolvePluginSdkAliasCandidateOrder: typeof resolvePluginSdkAliasCandidateOrder;
-    resolvePluginSdkAliasFile: (params: {
-        srcFile: string;
-        distFile: string;
-        modulePath?: string;
-        argv1?: string;
-        cwd?: string;
-        moduleUrl?: string;
-    }) => string | null;
+    resolvePluginSdkAliasFile: typeof resolvePluginSdkAliasFile;
     resolvePluginRuntimeModulePath: typeof resolvePluginRuntimeModulePath;
-    maxPluginRegistryCacheEntries: number;
+    shouldPreferNativeJiti: typeof shouldPreferNativeJiti;
+    readonly maxPluginRegistryCacheEntries: number;
+    setMaxPluginRegistryCacheEntriesForTest(value?: number): void;
 };
 export declare function loadOpenClawPlugins(options?: PluginLoadOptions): PluginRegistry;
-export {};

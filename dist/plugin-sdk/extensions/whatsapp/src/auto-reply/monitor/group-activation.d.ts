@@ -6,4 +6,4 @@ export declare function resolveGroupActivationFor(params: {
     agentId: string;
     sessionKey: string;
     conversationId: string;
-}): import("openclaw/plugin-sdk/reply-runtime").GroupActivationMode;
+}): import("../../../../../src/auto-reply/group-activation.ts").GroupActivationMode;

@@ -1,4 +1,4 @@
-import type { ChannelOutboundAdapter } from "openclaw/plugin-sdk/channel-runtime";
+import type { ChannelOutboundAdapter } from "openclaw/plugin-sdk/channel-send-result";
 import type { ReplyPayload } from "openclaw/plugin-sdk/reply-runtime";
 import { sendMessageTelegram } from "./send.js";
 export declare const TELEGRAM_TEXT_CHUNK_LIMIT = 4000;

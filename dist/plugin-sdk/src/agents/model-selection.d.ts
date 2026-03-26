@@ -69,6 +69,9 @@ export declare function buildAllowedModelSet(params: {
     allowedCatalog: ModelCatalogEntry[];
     allowedKeys: Set<string>;
 };
+export declare function buildConfiguredModelCatalog(params: {
+    cfg: OpenClawConfig;
+}): ModelCatalogEntry[];
 export type ModelRefStatus = {
     key: string;
     inCatalog: boolean;

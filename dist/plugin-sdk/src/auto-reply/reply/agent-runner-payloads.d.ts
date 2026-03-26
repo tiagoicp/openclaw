@@ -1,8 +1,8 @@
+import type { MessagingToolSend } from "../../agents/pi-embedded-runner.js";
 import type { ReplyToMode } from "../../config/types.js";
 import type { OriginatingChannelType } from "../templating.js";
 import type { ReplyPayload } from "../types.js";
 import { type BlockReplyPipeline } from "./block-reply-pipeline.js";
-import { shouldSuppressMessagingToolReplies } from "./reply-payloads.js";
 export declare function buildReplyPayloads(params: {
     payloads: ReplyPayload[];
     isHeartbeat: boolean;
@@ -17,7 +17,7 @@ export declare function buildReplyPayloads(params: {
     messageProvider?: string;
     messagingToolSentTexts?: string[];
     messagingToolSentMediaUrls?: string[];
-    messagingToolSentTargets?: Parameters<typeof shouldSuppressMessagingToolReplies>[0]["messagingToolSentTargets"];
+    messagingToolSentTargets?: MessagingToolSend[];
     originatingChannel?: OriginatingChannelType;
     originatingTo?: string;
     accountId?: string;

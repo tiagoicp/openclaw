@@ -1,4 +1,4 @@
-import type { BaseTokenResolution } from "openclaw/plugin-sdk/channel-runtime";
+import type { BaseTokenResolution } from "openclaw/plugin-sdk/channel-contract";
 import type { OpenClawConfig } from "openclaw/plugin-sdk/config-runtime";
 export type TelegramTokenSource = "env" | "tokenFile" | "config" | "none";
 export type TelegramTokenResolution = BaseTokenResolution & {

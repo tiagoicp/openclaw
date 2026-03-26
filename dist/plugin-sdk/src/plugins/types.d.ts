@@ -1,5 +1,4 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
-import type { TopLevelComponents } from "@buape/carbon";
 import type { AgentMessage } from "@mariozechner/pi-agent-core";
 import type { StreamFn } from "@mariozechner/pi-agent-core";
 import type { Api, Model } from "@mariozechner/pi-ai";
@@ -11,7 +10,7 @@ import type { ProviderCapabilities } from "../agents/provider-capabilities.js";
 import type { AnyAgentTool } from "../agents/tools/common.js";
 import type { ThinkLevel } from "../auto-reply/thinking.js";
 import type { ReplyPayload } from "../auto-reply/types.js";
-import type { ChannelId, ChannelPlugin } from "../channels/plugins/types.js";
+import type { ChannelId, ChannelPlugin, ChannelStructuredComponents } from "../channels/plugins/types.js";
 import type { OpenClawConfig } from "../config/config.js";
 import type { ModelProviderConfig } from "../config/types.js";
 import type { GatewayRequestHandler } from "../gateway/server-methods/types.js";
@@ -35,6 +34,7 @@ export type ProviderAuthOptionBag = {
     secretInputMode?: SecretInputMode;
     [key: string]: unknown;
 };
+/** Logger passed into plugin registration, services, and CLI surfaces. */
 export type PluginLogger = {
     debug?: (message: string) => void;
     info: (message: string) => void;
@@ -57,6 +57,13 @@ export type PluginConfigValidation = {
     ok: false;
     errors: string[];
 };
+/**
+ * Config schema contract accepted by plugin manifests and runtime registration.
+ *
+ * Plugins can provide a Zod-like parser, a lightweight `validate(...)`
+ * function, or both. `uiHints` and `jsonSchema` are optional extras for docs,
+ * forms, and config UIs.
+ */
 export type OpenClawPluginConfigSchema = {
     safeParse?: (value: unknown) => {
         success: boolean;
@@ -73,6 +80,7 @@ export type OpenClawPluginConfigSchema = {
     uiHints?: Record<string, PluginConfigUiHint>;
     jsonSchema?: Record<string, unknown>;
 };
+/** Trusted execution context passed to plugin-owned agent tool factories. */
 export type OpenClawPluginToolContext = {
     config?: OpenClawConfig;
     workspaceDir?: string;
@@ -102,6 +110,7 @@ export type OpenClawPluginHookOptions = {
     register?: boolean;
 };
 export type ProviderAuthKind = "oauth" | "api_key" | "token" | "device_code" | "custom";
+/** Standard result payload returned by provider auth methods. */
 export type ProviderAuthResult = {
     profiles: Array<{
         profileId: string;
@@ -118,6 +127,7 @@ export type ProviderAuthResult = {
     defaultModel?: string;
     notes?: string[];
 };
+/** Interactive auth context passed to provider login/setup methods. */
 export type ProviderAuthContext = {
     config: OpenClawConfig;
     agentDir?: string;
@@ -527,6 +537,11 @@ export type ProviderPluginWizardSetup = {
     groupHint?: string;
     methodId?: string;
     /**
+     * Interactive onboarding surfaces where this auth choice should appear.
+     * Defaults to `["text-inference"]` when omitted.
+     */
+    onboardingScopes?: Array<"text-inference" | "image-generation">;
+    /**
      * Optional model-allowlist prompt policy applied after this auth choice is
      * selected in configure/onboarding flows.
      *
@@ -539,11 +554,13 @@ export type ProviderPluginWizardSetup = {
         message?: string;
     };
 };
+/** Optional model-picker metadata shown in interactive provider selection flows. */
 export type ProviderPluginWizardModelPicker = {
     label?: string;
     hint?: string;
     methodId?: string;
 };
+/** UI metadata that lets provider plugins appear in onboarding and configure flows. */
 export type ProviderPluginWizard = {
     setup?: ProviderPluginWizardSetup;
     modelPicker?: ProviderPluginWizardModelPicker;
@@ -555,6 +572,7 @@ export type ProviderModelSelectedContext = {
     agentDir?: string;
     workspaceDir?: string;
 };
+/** Text-inference provider capability registered by a plugin. */
 export type ProviderPlugin = {
     id: string;
     pluginId?: string;
@@ -778,6 +796,8 @@ export type WebSearchProviderPlugin = {
     id: WebSearchProviderId;
     label: string;
     hint: string;
+    requiresCredential?: boolean;
+    credentialLabel?: string;
     envVars: string[];
     placeholder: string;
     signupUrl: string;
@@ -796,6 +816,7 @@ export type WebSearchProviderPlugin = {
 export type PluginWebSearchProviderEntry = WebSearchProviderPlugin & {
     pluginId: string;
 };
+/** Speech capability registered by a plugin. */
 export type SpeechProviderPlugin = {
     id: SpeechProviderId;
     label: string;
@@ -828,6 +849,8 @@ export type PluginCommandContext = {
     channelId?: ChannelId;
     /** Whether the sender is on the allowlist */
     isAuthorizedSender: boolean;
+    /** Gateway client scopes for internal control-plane callers */
+    gatewayClientScopes?: string[];
     /** Raw command arguments after the command name */
     args?: string;
     /** The full normalized command body */
@@ -841,7 +864,7 @@ export type PluginCommandContext = {
     /** Account id for multi-account channels */
     accountId?: string;
     /** Thread/topic id if available */
-    messageThreadId?: number;
+    messageThreadId?: string | number;
     requestConversationBinding: (params?: PluginConversationBindingRequestParams) => Promise<PluginConversationBindingRequestResult>;
     detachConversationBinding: () => Promise<{
         removed: boolean;
@@ -1018,7 +1041,7 @@ export type PluginInteractiveDiscordHandlerContext = {
         }) => Promise<void>;
         editMessage: (params: {
             text?: string;
-            components?: TopLevelComponents[];
+            components?: ChannelStructuredComponents;
         }) => Promise<void>;
         clearComponents: (params?: {
             text?: string;
@@ -1114,12 +1137,14 @@ export type OpenClawPluginCliContext = {
     logger: PluginLogger;
 };
 export type OpenClawPluginCliRegistrar = (ctx: OpenClawPluginCliContext) => void | Promise<void>;
+/** Context passed to long-lived plugin services. */
 export type OpenClawPluginServiceContext = {
     config: OpenClawConfig;
     workspaceDir?: string;
     stateDir: string;
     logger: PluginLogger;
 };
+/** Background service registered by a plugin during `register(api)`. */
 export type OpenClawPluginService = {
     id: string;
     start: (ctx: OpenClawPluginServiceContext) => void | Promise<void>;
@@ -1128,6 +1153,7 @@ export type OpenClawPluginService = {
 export type OpenClawPluginChannelRegistration = {
     plugin: ChannelPlugin;
 };
+/** Module-level plugin definition loaded from a native plugin entry file. */
 export type OpenClawPluginDefinition = {
     id?: string;
     name?: string;
@@ -1140,6 +1166,7 @@ export type OpenClawPluginDefinition = {
 };
 export type OpenClawPluginModule = OpenClawPluginDefinition | ((api: OpenClawPluginApi) => void | Promise<void>);
 export type PluginRegistrationMode = "full" | "setup-only" | "setup-runtime";
+/** Main registration API injected into native plugin entry files. */
 export type OpenClawPluginApi = {
     id: string;
     name: string;
@@ -1188,6 +1215,8 @@ export type OpenClawPluginApi = {
     registerCommand: (command: OpenClawPluginCommandDefinition) => void;
     /** Register a context engine implementation (exclusive slot — only one active at a time). */
     registerContextEngine: (id: string, factory: import("../context-engine/registry.js").ContextEngineFactory) => void;
+    /** Register the system prompt section builder for this memory plugin (exclusive slot). */
+    registerMemoryPromptSection: (builder: import("../memory/prompt-section.js").MemoryPromptSectionBuilder) => void;
     resolvePath: (input: string) => string;
     /** Register a lifecycle hook handler */
     on: <K extends PluginHookName>(hookName: K, handler: PluginHookHandlerMap[K], opts?: {
@@ -1203,8 +1232,8 @@ export type PluginDiagnostic = {
     pluginId?: string;
     source?: string;
 };
-export type PluginHookName = "before_model_resolve" | "before_prompt_build" | "before_agent_start" | "llm_input" | "llm_output" | "agent_end" | "before_compaction" | "after_compaction" | "before_reset" | "inbound_claim" | "message_received" | "message_sending" | "message_sent" | "before_tool_call" | "after_tool_call" | "tool_result_persist" | "before_message_write" | "session_start" | "session_end" | "subagent_spawning" | "subagent_delivery_target" | "subagent_spawned" | "subagent_ended" | "gateway_start" | "gateway_stop";
-export declare const PLUGIN_HOOK_NAMES: readonly ["before_model_resolve", "before_prompt_build", "before_agent_start", "llm_input", "llm_output", "agent_end", "before_compaction", "after_compaction", "before_reset", "inbound_claim", "message_received", "message_sending", "message_sent", "before_tool_call", "after_tool_call", "tool_result_persist", "before_message_write", "session_start", "session_end", "subagent_spawning", "subagent_delivery_target", "subagent_spawned", "subagent_ended", "gateway_start", "gateway_stop"];
+export type PluginHookName = "before_model_resolve" | "before_prompt_build" | "before_agent_start" | "llm_input" | "llm_output" | "agent_end" | "before_compaction" | "after_compaction" | "before_reset" | "inbound_claim" | "message_received" | "message_sending" | "message_sent" | "before_tool_call" | "after_tool_call" | "tool_result_persist" | "before_message_write" | "session_start" | "session_end" | "subagent_spawning" | "subagent_delivery_target" | "subagent_spawned" | "subagent_ended" | "gateway_start" | "gateway_stop" | "before_dispatch";
+export declare const PLUGIN_HOOK_NAMES: readonly ["before_model_resolve", "before_prompt_build", "before_agent_start", "llm_input", "llm_output", "agent_end", "before_compaction", "after_compaction", "before_reset", "inbound_claim", "message_received", "message_sending", "message_sent", "before_tool_call", "after_tool_call", "tool_result_persist", "before_message_write", "session_start", "session_end", "subagent_spawning", "subagent_delivery_target", "subagent_spawned", "subagent_ended", "gateway_start", "gateway_stop", "before_dispatch"];
 export declare const isPluginHookName: (hookName: unknown) => hookName is PluginHookName;
 export declare const PROMPT_INJECTION_HOOK_NAMES: readonly ["before_prompt_build", "before_agent_start"];
 export type PromptInjectionHookName = (typeof PROMPT_INJECTION_HOOK_NAMES)[number];
@@ -1347,6 +1376,35 @@ export type PluginHookInboundClaimEvent = {
 };
 export type PluginHookInboundClaimResult = {
     handled: boolean;
+};
+export type PluginHookBeforeDispatchEvent = {
+    /** Message text content. */
+    content: string;
+    /** Body text prepared for agent (after command parsing). */
+    body?: string;
+    /** Channel identifier (e.g. "telegram", "discord"). */
+    channel?: string;
+    /** Session key for this message. */
+    sessionKey?: string;
+    /** Sender identifier. */
+    senderId?: string;
+    /** Whether this is a group message. */
+    isGroup?: boolean;
+    /** Message timestamp. */
+    timestamp?: number;
+};
+export type PluginHookBeforeDispatchContext = {
+    channelId?: string;
+    accountId?: string;
+    conversationId?: string;
+    sessionKey?: string;
+    senderId?: string;
+};
+export type PluginHookBeforeDispatchResult = {
+    /** Whether the plugin handled this message (skips default dispatch). */
+    handled: boolean;
+    /** Plugin-defined reply text (used when handled=true). */
+    text?: string;
 };
 export type PluginHookMessageReceivedEvent = {
     from: string;
@@ -1531,6 +1589,7 @@ export type PluginHookHandlerMap = {
     after_compaction: (event: PluginHookAfterCompactionEvent, ctx: PluginHookAgentContext) => Promise<void> | void;
     before_reset: (event: PluginHookBeforeResetEvent, ctx: PluginHookAgentContext) => Promise<void> | void;
     inbound_claim: (event: PluginHookInboundClaimEvent, ctx: PluginHookInboundClaimContext) => Promise<PluginHookInboundClaimResult | void> | PluginHookInboundClaimResult | void;
+    before_dispatch: (event: PluginHookBeforeDispatchEvent, ctx: PluginHookBeforeDispatchContext) => Promise<PluginHookBeforeDispatchResult | void> | PluginHookBeforeDispatchResult | void;
     message_received: (event: PluginHookMessageReceivedEvent, ctx: PluginHookMessageContext) => Promise<void> | void;
     message_sending: (event: PluginHookMessageSendingEvent, ctx: PluginHookMessageContext) => Promise<PluginHookMessageSendingResult | void> | PluginHookMessageSendingResult | void;
     message_sent: (event: PluginHookMessageSentEvent, ctx: PluginHookMessageContext) => Promise<void> | void;

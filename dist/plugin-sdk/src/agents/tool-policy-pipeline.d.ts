@@ -25,3 +25,4 @@ export declare function applyToolPolicyPipeline(params: {
     warn: (message: string) => void;
     steps: ToolPolicyPipelineStep[];
 }): AnyAgentTool[];
+export declare function resetToolPolicyWarningCacheForTest(): void;

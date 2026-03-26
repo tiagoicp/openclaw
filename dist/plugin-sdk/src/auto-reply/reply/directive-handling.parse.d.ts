@@ -2,7 +2,7 @@ import type { OpenClawConfig } from "../../config/config.js";
 import type { ExecAsk, ExecHost, ExecSecurity } from "../../infra/exec-approvals.js";
 import type { MsgContext } from "../templating.js";
 import type { ElevatedLevel, ReasoningLevel, ThinkLevel, VerboseLevel } from "./directives.js";
-import type { QueueDropPolicy, QueueMode } from "./queue.js";
+import type { QueueDropPolicy, QueueMode } from "./queue/types.js";
 export type InlineDirectives = {
     cleaned: string;
     hasThinkDirective: boolean;

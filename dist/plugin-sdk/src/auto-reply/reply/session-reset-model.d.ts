@@ -1,3 +1,4 @@
+import { type ModelCatalogEntry } from "../../agents/model-catalog.js";
 import { type ModelAliasIndex } from "../../agents/model-selection.js";
 import type { OpenClawConfig } from "../../config/config.js";
 import type { SessionEntry } from "../../config/sessions.js";
@@ -21,5 +22,6 @@ export declare function applyResetModelOverride(params: {
     defaultProvider: string;
     defaultModel: string;
     aliasIndex: ModelAliasIndex;
+    modelCatalog?: ModelCatalogEntry[];
 }): Promise<ResetModelResult>;
 export {};

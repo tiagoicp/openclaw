@@ -36,6 +36,17 @@ export declare function hasReplyContent(params: {
     hasChannelData?: boolean;
     extraContent?: boolean;
 }): boolean;
+export declare function hasReplyPayloadContent(payload: {
+    text?: string | null;
+    mediaUrl?: string | null;
+    mediaUrls?: ReadonlyArray<string | null | undefined>;
+    interactive?: unknown;
+    channelData?: unknown;
+}, options?: {
+    trimText?: boolean;
+    hasChannelData?: boolean;
+    extraContent?: boolean;
+}): boolean;
 export declare function resolveInteractiveTextFallback(params: {
     text?: string;
     interactive?: InteractiveReply;

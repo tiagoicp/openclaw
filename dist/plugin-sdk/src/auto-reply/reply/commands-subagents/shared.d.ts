@@ -2,12 +2,12 @@ import type { ResolvedSubagentController } from "../../../agents/subagent-contro
 import { type SubagentRunRecord } from "../../../agents/subagent-registry.js";
 import { extractAssistantText, stripToolMessages } from "../../../agents/tools/sessions-helpers.js";
 import type { SessionEntry, loadSessionStore as loadSessionStoreFn, resolveStorePath as resolveStorePathFn } from "../../../config/sessions.js";
-import { isDiscordSurface, isTelegramSurface, resolveCommandSurfaceChannel, resolveDiscordAccountId, resolveChannelAccountId } from "../channel-context.js";
+import { isDiscordSurface, isMatrixSurface, isTelegramSurface, resolveCommandSurfaceChannel, resolveDiscordAccountId, resolveChannelAccountId } from "../channel-context.js";
 import type { CommandHandler, CommandHandlerResult } from "../commands-types.js";
 import { type SubagentTargetResolution } from "../subagents-utils.js";
 import { resolveTelegramConversationId } from "../telegram-context.js";
 export { extractAssistantText, stripToolMessages };
-export { isDiscordSurface, isTelegramSurface, resolveCommandSurfaceChannel, resolveDiscordAccountId, resolveChannelAccountId, resolveTelegramConversationId, };
+export { isDiscordSurface, isMatrixSurface, isTelegramSurface, resolveCommandSurfaceChannel, resolveDiscordAccountId, resolveChannelAccountId, resolveTelegramConversationId, };
 export declare const COMMAND = "/subagents";
 export declare const COMMAND_KILL = "/kill";
 export declare const COMMAND_STEER = "/steer";

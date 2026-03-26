@@ -19,6 +19,7 @@ export type ChatAbortOps = {
     chatAbortControllers: Map<string, ChatAbortControllerEntry>;
     chatRunBuffers: Map<string, string>;
     chatDeltaSentAt: Map<string, number>;
+    chatDeltaLastBroadcastLen: Map<string, number>;
     chatAbortedRuns: Map<string, number>;
     removeChatRun: (sessionId: string, clientRunId: string, sessionKey?: string) => {
         sessionKey: string;

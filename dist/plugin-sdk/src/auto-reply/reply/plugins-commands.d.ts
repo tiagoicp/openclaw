@@ -4,6 +4,9 @@ export type PluginsCommand = {
     action: "inspect";
     name?: string;
 } | {
+    action: "install";
+    spec: string;
+} | {
     action: "enable";
     name: string;
 } | {

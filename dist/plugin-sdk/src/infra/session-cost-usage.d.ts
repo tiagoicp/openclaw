@@ -2,6 +2,12 @@ import type { OpenClawConfig } from "../config/config.js";
 import type { SessionEntry } from "../config/sessions/types.js";
 import type { CostUsageSummary, DiscoveredSession, SessionCostSummary, SessionLogEntry, SessionUsageTimeSeries } from "./session-cost-usage.types.js";
 export type { CostUsageDailyEntry, CostUsageSummary, CostUsageTotals, DiscoveredSession, SessionCostSummary, SessionDailyLatency, SessionDailyMessageCounts, SessionDailyModelUsage, SessionDailyUsage, SessionLatencyStats, SessionLogEntry, SessionMessageCounts, SessionModelUsage, SessionToolUsage, SessionUsageTimePoint, SessionUsageTimeSeries, } from "./session-cost-usage.types.js";
+export declare function resolveExistingUsageSessionFile(params: {
+    sessionId?: string;
+    sessionEntry?: SessionEntry;
+    sessionFile?: string;
+    agentId?: string;
+}): string | undefined;
 export declare function loadCostUsageSummary(params?: {
     startMs?: number;
     endMs?: number;

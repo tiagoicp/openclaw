@@ -28,12 +28,9 @@ export declare function resolveApiKeyForProvider(params: {
     store?: AuthProfileStore;
     agentDir?: string;
 }): Promise<ResolvedProviderAuth>;
-export type EnvApiKeyResult = {
-    apiKey: string;
-    source: string;
-};
 export type ModelAuthMode = "api-key" | "oauth" | "token" | "mixed" | "aws-sdk" | "unknown";
-export declare function resolveEnvApiKey(provider: string, env?: NodeJS.ProcessEnv): EnvApiKeyResult | null;
+export { resolveEnvApiKey } from "./model-auth-env.js";
+export type { EnvApiKeyResult } from "./model-auth-env.js";
 export declare function resolveModelAuthMode(provider?: string, cfg?: OpenClawConfig, store?: AuthProfileStore): ModelAuthMode | undefined;
 export declare function hasAvailableAuthForProvider(params: {
     provider: string;

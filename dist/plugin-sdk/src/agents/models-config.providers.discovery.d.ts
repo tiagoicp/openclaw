@@ -1,8 +1,5 @@
 import type { OpenClawConfig } from "../config/config.js";
-export { buildHuggingfaceProvider } from "../../extensions/huggingface/provider-catalog.js";
-export { buildKilocodeProviderWithDiscovery } from "../../extensions/kilocode/provider-catalog.js";
-export { buildVeniceProvider } from "../../extensions/venice/provider-catalog.js";
-export { buildVercelAiGatewayProvider } from "../../extensions/vercel-ai-gateway/provider-catalog.js";
+export { buildHuggingfaceProvider, buildKilocodeProviderWithDiscovery, buildVeniceProvider, buildVercelAiGatewayProvider, } from "../plugin-sdk/provider-catalog.js";
 export { resolveOllamaApiBase } from "./ollama-models.js";
 type ModelsConfig = NonNullable<OpenClawConfig["models"]>;
 type ProviderConfig = NonNullable<ModelsConfig["providers"]>[string];

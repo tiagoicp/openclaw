@@ -6,6 +6,7 @@ import { getChildLogger } from "openclaw/plugin-sdk/runtime-env";
 import type { RuntimeEnv } from "openclaw/plugin-sdk/runtime-env";
 import { type TelegramBotDeps } from "./bot-deps.js";
 import type { TelegramMediaRef } from "./bot-message-context.js";
+import type { TelegramMessageContextOptions } from "./bot-message-context.types.js";
 import { TelegramUpdateKeyContext } from "./bot-updates.js";
 import { TelegramBotOptions } from "./bot.js";
 import type { TelegramContext } from "./bot/types.js";
@@ -28,10 +29,7 @@ export type RegisterTelegramHandlerParams = {
         topicConfig?: TelegramTopicConfig;
     };
     shouldSkipUpdate: (ctx: TelegramUpdateKeyContext) => boolean;
-    processMessage: (ctx: TelegramContext, allMedia: TelegramMediaRef[], storeAllowFrom: string[], options?: {
-        messageIdOverride?: string;
-        forceWasMentioned?: boolean;
-    }, replyMedia?: TelegramMediaRef[]) => Promise<void>;
+    processMessage: (ctx: TelegramContext, allMedia: TelegramMediaRef[], storeAllowFrom: string[], options?: TelegramMessageContextOptions, replyMedia?: TelegramMediaRef[]) => Promise<void>;
     logger: ReturnType<typeof getChildLogger>;
 };
 export type RegisterTelegramNativeCommandsParams = {

@@ -1,6 +1,6 @@
+import { type EnvelopeFormatOptions } from "openclaw/plugin-sdk/channel-inbound";
 import type { OpenClawConfig } from "openclaw/plugin-sdk/config-runtime";
-import { type EnvelopeFormatOptions } from "openclaw/plugin-sdk/reply-runtime";
-import { type HistoryEntry } from "openclaw/plugin-sdk/reply-runtime";
+import { type HistoryEntry } from "openclaw/plugin-sdk/reply-history";
 import { finalizeInboundContext } from "openclaw/plugin-sdk/reply-runtime";
 import { resolveAgentRoute } from "openclaw/plugin-sdk/routing";
 import type { SelfChatCache } from "./self-chat-cache.js";

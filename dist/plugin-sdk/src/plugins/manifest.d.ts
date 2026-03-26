@@ -41,7 +41,13 @@ export type PluginManifestProviderAuthChoice = {
     cliFlag?: string;
     cliOption?: string;
     cliDescription?: string;
+    /**
+     * Interactive onboarding surfaces where this auth choice should appear.
+     * Defaults to `["text-inference"]` when omitted.
+     */
+    onboardingScopes?: PluginManifestOnboardingScope[];
 };
+export type PluginManifestOnboardingScope = "text-inference" | "image-generation";
 export type PluginManifestLoadResult = {
     ok: true;
     manifest: PluginManifest;
@@ -77,6 +83,7 @@ export type PluginPackageInstall = {
     npmSpec?: string;
     localPath?: string;
     defaultChoice?: "npm" | "local";
+    minHostVersion?: string;
 };
 export type OpenClawPackageStartup = {
     /**

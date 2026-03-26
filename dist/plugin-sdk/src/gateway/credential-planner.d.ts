@@ -40,14 +40,13 @@ export declare function trimToUndefined(value: unknown): string | undefined;
  * also be rejected, but this is an extremely unlikely edge case.
  */
 export declare function trimCredentialToUndefined(value: unknown): string | undefined;
-export declare function readGatewayTokenEnv(env?: NodeJS.ProcessEnv, includeLegacyEnv?: boolean): string | undefined;
-export declare function readGatewayPasswordEnv(env?: NodeJS.ProcessEnv, includeLegacyEnv?: boolean): string | undefined;
-export declare function hasGatewayTokenEnvCandidate(env?: NodeJS.ProcessEnv, includeLegacyEnv?: boolean): boolean;
-export declare function hasGatewayPasswordEnvCandidate(env?: NodeJS.ProcessEnv, includeLegacyEnv?: boolean): boolean;
+export declare function readGatewayTokenEnv(env?: NodeJS.ProcessEnv): string | undefined;
+export declare function readGatewayPasswordEnv(env?: NodeJS.ProcessEnv): string | undefined;
+export declare function hasGatewayTokenEnvCandidate(env?: NodeJS.ProcessEnv): boolean;
+export declare function hasGatewayPasswordEnvCandidate(env?: NodeJS.ProcessEnv): boolean;
 export declare function createGatewayCredentialPlan(params: {
     config: OpenClawConfig;
     env?: NodeJS.ProcessEnv;
-    includeLegacyEnv?: boolean;
     defaults?: GatewaySecretDefaults;
 }): GatewayCredentialPlan;
 export {};

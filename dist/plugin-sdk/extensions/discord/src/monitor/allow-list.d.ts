@@ -1,6 +1,6 @@
 import type { Guild, User } from "@buape/carbon";
-import type { AllowlistMatch } from "openclaw/plugin-sdk/channel-runtime";
-import { type ChannelMatchSource } from "openclaw/plugin-sdk/channel-runtime";
+import type { AllowlistMatch } from "openclaw/plugin-sdk/allow-from";
+import { type ChannelMatchSource } from "openclaw/plugin-sdk/channel-targets";
 export type DiscordAllowList = {
     allowAll: boolean;
     ids: Set<string>;
@@ -17,6 +17,7 @@ type DiscordChannelOverrideConfig = {
     systemPrompt?: string;
     includeThreadStarter?: boolean;
     autoThread?: boolean;
+    autoThreadName?: "message" | "generated";
     autoArchiveDuration?: "60" | "1440" | "4320" | "10080" | 60 | 1440 | 4320 | 10080;
 };
 export type DiscordGuildEntryResolved = {

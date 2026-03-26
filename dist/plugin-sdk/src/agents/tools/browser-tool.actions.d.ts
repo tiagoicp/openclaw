@@ -1,5 +1,18 @@
 import type { AgentToolResult } from "@mariozechner/pi-agent-core";
-import { browserAct } from "../../browser/client-actions.js";
+import { browserAct, browserConsoleMessages } from "../../browser/client-actions.js";
+import { browserSnapshot, browserTabs } from "../../browser/client.js";
+import { loadConfig } from "../../config/config.js";
+import { imageResultFromFile } from "./common.js";
+export declare const __testing: {
+    setDepsForTest(overrides: Partial<{
+        browserAct: typeof browserAct;
+        browserConsoleMessages: typeof browserConsoleMessages;
+        browserSnapshot: typeof browserSnapshot;
+        browserTabs: typeof browserTabs;
+        imageResultFromFile: typeof imageResultFromFile;
+        loadConfig: typeof loadConfig;
+    }> | null): void;
+};
 type BrowserProxyRequest = (opts: {
     method: string;
     path: string;

@@ -1,7 +1,13 @@
 import type { AgentMessage } from "@mariozechner/pi-agent-core";
 import type { SessionManager } from "@mariozechner/pi-coding-agent";
 import type { PluginHookBeforeMessageWriteEvent, PluginHookBeforeMessageWriteResult } from "../plugins/types.js";
+/**
+ * Return the unguarded appendMessage implementation for a session manager.
+ */
+export declare function getRawSessionAppendMessage(sessionManager: SessionManager): SessionManager["appendMessage"];
 export declare function installSessionToolResultGuard(sessionManager: SessionManager, opts?: {
+    /** Optional session key for transcript update broadcasts. */
+    sessionKey?: string;
     /**
      * Optional transform applied to any message before persistence.
      */

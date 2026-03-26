@@ -1,47 +1,38 @@
-import "../../logger-Bisu6sgz.js";
-import "../../paths-D_QmduAc.js";
-import "../../tmp-openclaw-dir-CEAo8CGE.js";
-import "../../theme-Bnch_o1K.js";
-import "../../globals-CnsLPQis.js";
-import "../../subsystem-Dm-AQqmI.js";
-import "../../ansi-BMqrB9En.js";
-import "../../utils-CIAfMgvq.js";
-import "../../agent-scope-BvOTVsJZ.js";
-import "../../boundary-path-BVHzCDEE.js";
-import "../../boundary-file-read-1knRHcS0.js";
-import "../../logger-DcSg74GU.js";
-import "../../exec-Bwz57vWc.js";
-import "../../workspace-C3BQkKrq.js";
-import "../../registry-DHFXbGRB.js";
-import "../../zod-schema.core-2nNLrIvV.js";
-import "../../resolve-route-BKJ_gx17.js";
-import "../../config-schema-SbU9iMOP.js";
-import { i as definePluginEntry } from "../../core-DoWJeX1b.js";
-import "../../delegate-DZgF1n1_.js";
-import "../../secret-file-C6VA1we_.js";
+import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
 //#region extensions/memory-core/index.ts
+const buildPromptSection = ({ availableTools, citationsMode }) => {
+	const hasMemorySearch = availableTools.has("memory_search");
+	const hasMemoryGet = availableTools.has("memory_get");
+	if (!hasMemorySearch && !hasMemoryGet) return [];
+	let toolGuidance;
+	if (hasMemorySearch && hasMemoryGet) toolGuidance = "Before answering anything about prior work, decisions, dates, people, preferences, or todos: run memory_search on MEMORY.md + memory/*.md; then use memory_get to pull only the needed lines. If low confidence after search, say you checked.";
+	else if (hasMemorySearch) toolGuidance = "Before answering anything about prior work, decisions, dates, people, preferences, or todos: run memory_search on MEMORY.md + memory/*.md and answer from the matching results. If low confidence after search, say you checked.";
+	else toolGuidance = "Before answering anything about prior work, decisions, dates, people, preferences, or todos that already point to a specific memory file or note: run memory_get to pull only the needed lines. If low confidence after reading them, say you checked.";
+	const lines = ["## Memory Recall", toolGuidance];
+	if (citationsMode === "off") lines.push("Citations are disabled: do not mention file paths or line numbers in replies unless the user explicitly asks.");
+	else lines.push("Citations: include Source: <path#line> when it helps the user verify memory snippets.");
+	lines.push("");
+	return lines;
+};
 var memory_core_default = definePluginEntry({
 	id: "memory-core",
 	name: "Memory (Core)",
 	description: "File-backed memory search tools and CLI",
 	kind: "memory",
 	register(api) {
-		api.registerTool((ctx) => {
-			const memorySearchTool = api.runtime.tools.createMemorySearchTool({
-				config: ctx.config,
-				agentSessionKey: ctx.sessionKey
-			});
-			const memoryGetTool = api.runtime.tools.createMemoryGetTool({
-				config: ctx.config,
-				agentSessionKey: ctx.sessionKey
-			});
-			if (!memorySearchTool || !memoryGetTool) return null;
-			return [memorySearchTool, memoryGetTool];
-		}, { names: ["memory_search", "memory_get"] });
+		api.registerMemoryPromptSection(buildPromptSection);
+		api.registerTool((ctx) => api.runtime.tools.createMemorySearchTool({
+			config: ctx.config,
+			agentSessionKey: ctx.sessionKey
+		}), { names: ["memory_search"] });
+		api.registerTool((ctx) => api.runtime.tools.createMemoryGetTool({
+			config: ctx.config,
+			agentSessionKey: ctx.sessionKey
+		}), { names: ["memory_get"] });
 		api.registerCli(({ program }) => {
 			api.runtime.tools.registerMemoryCli(program);
 		}, { commands: ["memory"] });
 	}
 });
 //#endregion
-export { memory_core_default as default };
+export { buildPromptSection, memory_core_default as default };

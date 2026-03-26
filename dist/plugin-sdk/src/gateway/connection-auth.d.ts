@@ -8,7 +8,6 @@ export type GatewayConnectionAuthOptions = {
     urlOverride?: string;
     urlOverrideSource?: "cli" | "env";
     modeOverride?: GatewayCredentialMode;
-    includeLegacyEnv?: boolean;
     localTokenPrecedence?: GatewayCredentialPrecedence;
     localPasswordPrecedence?: GatewayCredentialPrecedence;
     remoteTokenPrecedence?: GatewayRemoteCredentialPrecedence;

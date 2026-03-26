@@ -5,6 +5,7 @@ export declare function resolvePluginDiscoveryProviders(params: {
     config?: OpenClawConfig;
     workspaceDir?: string;
     env?: NodeJS.ProcessEnv;
+    onlyPluginIds?: string[];
 }): ProviderPlugin[];
 export declare function groupPluginDiscoveryProvidersByOrder(providers: ProviderPlugin[]): Record<ProviderDiscoveryOrder, ProviderPlugin[]>;
 export declare function normalizePluginDiscoveryResult(params: {

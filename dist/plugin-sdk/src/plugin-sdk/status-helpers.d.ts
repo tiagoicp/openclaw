@@ -1,4 +1,9 @@
+import type { ChannelStatusAdapter } from "../channels/plugins/types.adapters.js";
+import type { ChannelAccountSnapshot } from "../channels/plugins/types.core.js";
 import type { ChannelStatusIssue } from "../channels/plugins/types.js";
+import type { OpenClawConfig } from "../config/config.js";
+export { isRecord } from "../channels/plugins/status-issues/shared.js";
+export { appendMatchMetadata, asString, collectIssuesForEnabledAccounts, formatMatchMetadata, resolveEnabledConfiguredAccountId, } from "../channels/plugins/status-issues/shared.js";
 type RuntimeLifecycleSnapshot = {
     running?: boolean | null;
     lastStartAt?: number | null;
@@ -6,6 +11,23 @@ type RuntimeLifecycleSnapshot = {
     lastError?: string | null;
     lastInboundAt?: number | null;
     lastOutboundAt?: number | null;
+};
+type StatusSnapshotExtra = Record<string, unknown>;
+type ComputedAccountStatusBase = {
+    accountId: string;
+    name?: string;
+    enabled?: boolean;
+    configured?: boolean;
+};
+type ComputedAccountStatusAdapterParams<ResolvedAccount, Probe, Audit> = {
+    account: ResolvedAccount;
+    cfg: OpenClawConfig;
+    runtime?: ChannelAccountSnapshot;
+    probe?: Probe;
+    audit?: Audit;
+};
+type ComputedAccountStatusSnapshot<TExtra extends StatusSnapshotExtra = StatusSnapshotExtra> = ComputedAccountStatusBase & {
+    extra?: TExtra;
 };
 /** Create the baseline runtime snapshot shape used by channel/account status stores. */
 export declare function createDefaultChannelRuntimeState<T extends Record<string, unknown>>(accountId: string, extra?: T): {
@@ -16,14 +38,15 @@ export declare function createDefaultChannelRuntimeState<T extends Record<string
     lastError: null;
 } & T;
 /** Normalize a channel-level status summary so missing lifecycle fields become explicit nulls. */
-export declare function buildBaseChannelStatusSummary(snapshot: {
+export declare function buildBaseChannelStatusSummary<TExtra extends StatusSnapshotExtra>(snapshot: {
     configured?: boolean | null;
     running?: boolean | null;
     lastStartAt?: number | null;
     lastStopAt?: number | null;
     lastError?: string | null;
-}): {
+}, extra?: TExtra): {
     configured: boolean;
+} & TExtra & {
     running: boolean;
     lastStartAt: number | null;
     lastStopAt: number | null;
@@ -40,16 +63,16 @@ export declare function buildProbeChannelStatusSummary<TExtra extends Record<str
     lastProbeAt?: number | null;
 }, extra?: TExtra): {
     configured: boolean;
+} & TExtra & {
+    probe: unknown;
+    lastProbeAt: number | null;
     running: boolean;
     lastStartAt: number | null;
     lastStopAt: number | null;
     lastError: string | null;
-} & TExtra & {
-    probe: unknown;
-    lastProbeAt: number | null;
 };
 /** Build the standard per-account status payload from config metadata plus runtime state. */
-export declare function buildBaseAccountStatusSnapshot(params: {
+export declare function buildBaseAccountStatusSnapshot<TExtra extends StatusSnapshotExtra>(params: {
     account: {
         accountId: string;
         name?: string;
@@ -58,7 +81,7 @@ export declare function buildBaseAccountStatusSnapshot(params: {
     };
     runtime?: RuntimeLifecycleSnapshot | null;
     probe?: unknown;
-}): {
+}, extra?: TExtra): {
     lastInboundAt: number | null;
     lastOutboundAt: number | null;
     running: boolean;
@@ -70,16 +93,16 @@ export declare function buildBaseAccountStatusSnapshot(params: {
     name: string | undefined;
     enabled: boolean | undefined;
     configured: boolean | undefined;
-};
+} & TExtra;
 /** Convenience wrapper when the caller already has flattened account fields instead of an account object. */
-export declare function buildComputedAccountStatusSnapshot(params: {
+export declare function buildComputedAccountStatusSnapshot<TExtra extends StatusSnapshotExtra>(params: {
     accountId: string;
     name?: string;
     enabled?: boolean;
     configured?: boolean;
     runtime?: RuntimeLifecycleSnapshot | null;
     probe?: unknown;
-}): {
+}, extra?: TExtra): {
     lastInboundAt: number | null;
     lastOutboundAt: number | null;
     running: boolean;
@@ -91,18 +114,26 @@ export declare function buildComputedAccountStatusSnapshot(params: {
     name: string | undefined;
     enabled: boolean | undefined;
     configured: boolean | undefined;
-};
+} & TExtra;
+/** Build a full status adapter when only configured/extras vary per account. */
+export declare function createComputedAccountStatusAdapter<ResolvedAccount, Probe = unknown, Audit = unknown, TExtra extends StatusSnapshotExtra = StatusSnapshotExtra>(options: Omit<ChannelStatusAdapter<ResolvedAccount, Probe, Audit>, "buildAccountSnapshot"> & {
+    resolveAccountSnapshot: (params: ComputedAccountStatusAdapterParams<ResolvedAccount, Probe, Audit>) => ComputedAccountStatusSnapshot<TExtra>;
+}): ChannelStatusAdapter<ResolvedAccount, Probe, Audit>;
+/** Async variant for channels that compute configured state or snapshot extras from I/O. */
+export declare function createAsyncComputedAccountStatusAdapter<ResolvedAccount, Probe = unknown, Audit = unknown, TExtra extends StatusSnapshotExtra = StatusSnapshotExtra>(options: Omit<ChannelStatusAdapter<ResolvedAccount, Probe, Audit>, "buildAccountSnapshot"> & {
+    resolveAccountSnapshot: (params: ComputedAccountStatusAdapterParams<ResolvedAccount, Probe, Audit>) => Promise<ComputedAccountStatusSnapshot<TExtra>>;
+}): ChannelStatusAdapter<ResolvedAccount, Probe, Audit>;
 /** Normalize runtime-only account state into the shared status snapshot fields. */
-export declare function buildRuntimeAccountStatusSnapshot(params: {
+export declare function buildRuntimeAccountStatusSnapshot<TExtra extends StatusSnapshotExtra>(params: {
     runtime?: RuntimeLifecycleSnapshot | null;
     probe?: unknown;
-}): {
+}, extra?: TExtra): {
     running: boolean;
     lastStartAt: number | null;
     lastStopAt: number | null;
     lastError: string | null;
     probe: unknown;
-};
+} & TExtra;
 /** Build token-based channel status summaries with optional mode reporting. */
 export declare function buildTokenChannelStatusSummary(snapshot: {
     configured?: boolean | null;
@@ -141,4 +172,3 @@ export declare function collectStatusIssuesFromLastError(channel: string, accoun
     accountId: string;
     lastError?: unknown;
 }>): ChannelStatusIssue[];
-export {};

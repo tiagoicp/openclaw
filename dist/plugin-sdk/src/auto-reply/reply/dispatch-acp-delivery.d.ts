@@ -6,12 +6,14 @@ import type { ReplyDispatcher, ReplyDispatchKind } from "./reply-dispatcher.js";
 export type AcpDispatchDeliveryMeta = {
     toolCallId?: string;
     allowEdit?: boolean;
+    skipTts?: boolean;
 };
 export type AcpDispatchDeliveryCoordinator = {
     startReplyLifecycle: () => Promise<void>;
     deliver: (kind: ReplyDispatchKind, payload: ReplyPayload, meta?: AcpDispatchDeliveryMeta) => Promise<boolean>;
     getBlockCount: () => number;
     getAccumulatedBlockText: () => string;
+    hasDeliveredFinalReply: () => boolean;
     getRoutedCounts: () => Record<ReplyDispatchKind, number>;
     applyRoutedCounts: (counts: Record<ReplyDispatchKind, number>) => void;
 };

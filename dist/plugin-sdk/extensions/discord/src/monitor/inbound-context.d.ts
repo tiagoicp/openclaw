@@ -3,6 +3,7 @@ export declare function buildDiscordGroupSystemPrompt(channelConfig?: DiscordCha
 export declare function buildDiscordUntrustedContext(params: {
     isGuild: boolean;
     channelTopic?: string;
+    messageBody?: string;
 }): string[] | undefined;
 export declare function buildDiscordInboundAccessContext(params: {
     channelConfig?: DiscordChannelConfigResolved | null;
@@ -15,6 +16,7 @@ export declare function buildDiscordInboundAccessContext(params: {
     allowNameMatching?: boolean;
     isGuild: boolean;
     channelTopic?: string;
+    messageBody?: string;
 }): {
     groupSystemPrompt: string | undefined;
     untrustedContext: string[] | undefined;

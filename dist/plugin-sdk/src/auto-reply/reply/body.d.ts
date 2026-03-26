@@ -1,4 +1,4 @@
-import type { SessionEntry } from "../../config/sessions.js";
+import type { SessionEntry } from "../../config/sessions/types.js";
 export declare function applySessionHints(params: {
     baseBody: string;
     abortedLastRun: boolean;

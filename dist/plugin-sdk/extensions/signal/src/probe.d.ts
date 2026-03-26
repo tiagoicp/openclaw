@@ -1,4 +1,4 @@
-import type { BaseProbeResult } from "openclaw/plugin-sdk/channel-runtime";
+import type { BaseProbeResult } from "openclaw/plugin-sdk/channel-contract";
 export type SignalProbe = BaseProbeResult & {
     status?: number | null;
     elapsedMs: number;

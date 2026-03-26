@@ -5,6 +5,20 @@ export declare const TalkModeParamsSchema: import("@sinclair/typebox").TObject<{
 export declare const TalkConfigParamsSchema: import("@sinclair/typebox").TObject<{
     includeSecrets: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
 }>;
+export declare const TalkSpeakParamsSchema: import("@sinclair/typebox").TObject<{
+    text: import("@sinclair/typebox").TString;
+    voiceId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    modelId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    outputFormat: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    speed: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
+    stability: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
+    similarity: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
+    style: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
+    speakerBoost: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+    seed: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
+    normalize: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    language: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+}>;
 export declare const TalkConfigResultSchema: import("@sinclair/typebox").TObject<{
     config: import("@sinclair/typebox").TObject<{
         talk: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TObject<{
@@ -98,6 +112,14 @@ export declare const TalkConfigResultSchema: import("@sinclair/typebox").TObject
         }>>;
     }>;
 }>;
+export declare const TalkSpeakResultSchema: import("@sinclair/typebox").TObject<{
+    audioBase64: import("@sinclair/typebox").TString;
+    provider: import("@sinclair/typebox").TString;
+    outputFormat: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    voiceCompatible: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+    mimeType: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    fileExtension: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+}>;
 export declare const ChannelsStatusParamsSchema: import("@sinclair/typebox").TObject<{
     probe: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
     timeoutMs: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
@@ -113,6 +135,7 @@ export declare const ChannelAccountSnapshotSchema: import("@sinclair/typebox").T
     reconnectAttempts: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
     lastConnectedAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
     lastError: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    healthState: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     lastStartAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
     lastStopAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
     lastInboundAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
@@ -166,6 +189,7 @@ export declare const ChannelsStatusResultSchema: import("@sinclair/typebox").TOb
         reconnectAttempts: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
         lastConnectedAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
         lastError: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        healthState: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
         lastStartAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
         lastStopAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
         lastInboundAt: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;

@@ -1,423 +1,198 @@
 import "../../redact-BDinS1q9.js";
 import "../../errors-BxyFnvP3.js";
 import "../../unhandled-rejections-CDJ8dOVP.js";
-import "../../logger-Bisu6sgz.js";
-import "../../paths-D_QmduAc.js";
-import "../../tmp-openclaw-dir-CEAo8CGE.js";
-import "../../theme-Bnch_o1K.js";
-import "../../globals-CnsLPQis.js";
-import "../../subsystem-Dm-AQqmI.js";
-import "../../ansi-BMqrB9En.js";
-import "../../boolean-BgLJTske.js";
-import "../../env-mHZMLTjc.js";
-import "../../warning-filter-m2BbicIr.js";
-import "../../utils-CIAfMgvq.js";
-import "../../links-DtUd3CJi.js";
-import "../../models-config.providers.discovery-CBSen190.js";
-import { Ax as listProfilesForProvider, Ix as ensureAuthProfileStore, Nm as describeImageWithModel, Pm as describeImagesWithModel, Tv as createProviderApiKeyAuthMethod } from "../../auth-profiles-C1V2x6_A.js";
-import "../../model-selection-BvgYPMZN.js";
-import "../../agent-scope-BvOTVsJZ.js";
-import "../../boundary-path-BVHzCDEE.js";
-import "../../boundary-file-read-1knRHcS0.js";
-import "../../logger-DcSg74GU.js";
-import "../../exec-Bwz57vWc.js";
-import "../../workspace-C3BQkKrq.js";
-import "../../io-BLrYinYw.js";
-import "../../host-env-security-DRYydSLp.js";
-import "../../safe-text-Bls0e7eh.js";
-import "../../version-BXFMfrjE.js";
-import "../../env-substitution-CCbMWMw3.js";
-import "../../config-state-DxIr_ZFp.js";
-import "../../includes-Babm_gOl.js";
-import "../../zod-schema.providers-core-JSZEvSLs.js";
-import "../../registry-DHFXbGRB.js";
-import "../../manifest-registry-BN97WD1N.js";
-import "../../ip-COVlKUC6.js";
-import "../../zod-schema.channels-CLt0EoyM.js";
-import "../../zod-schema.core-2nNLrIvV.js";
-import "../../zod-schema.providers-whatsapp-HQNdy-Lo.js";
-import "../../config-BuXmKtbA.js";
-import "../../file-lock-BCRwTnvL.js";
-import "../../audit-fs-CKHUnnaF.js";
-import "../../resolve-OpLtNdHa.js";
-import "../../plugins-allowlist-Dx3qwwff.js";
-import "../../tool-policy-match-DO-I18kG.js";
-import "../../config-DDXUFMD9.js";
-import "../../tailnet-CYknm7bK.js";
-import "../../net-BDAb36NC.js";
-import "../../credentials-Dlg2fw8S.js";
-import "../../routes-D_PnVmld.js";
-import "../../frontmatter-cz9vUzch.js";
-import "../../env-overrides-BvSheZZr.js";
-import "../../path-alias-guards-pxSwQROL.js";
-import "../../sandbox-paths-C2oLsWMS.js";
-import "../../skills-C9qTCwzA.js";
-import "../../ports-DbHCZ217.js";
-import "../../ports-lsof--GPZ_QnB.js";
-import "../../ssh-tunnel-E6I5wsVD.js";
-import "../../proxy-env-TLeMux0w.js";
-import "../../fs-safe-DNTBHVlm.js";
-import "../../mime-BZfENK18.js";
-import "../../image-ops-DsrR0jfa.js";
-import "../../server-middleware-uG2Nzt3c.js";
-import "../../message-channel-YbR1kGoD.js";
-import "../../resolve-route-BKJ_gx17.js";
-import "../../registry-u4-bSC0t.js";
-import "../../plugins-CrRqO64r.js";
-import "../../paths-DkI03UGW.js";
-import "../../config-schema-SbU9iMOP.js";
-import "../../channel-plugin-common-lL08nJSM.js";
-import "../../directory-runtime-4Kx3Gvfd.js";
-import "../../read-only-account-inspect-BzQtVN0P.js";
-import "../../common-BSZuydpj.js";
-import "../../discord-core-D_7rg7Bl.js";
-import "../../channel-config-helpers-DgtPbGwx.js";
-import "../../channel-policy-DpLpqCrB.js";
-import "../../commands-Ccb6jko6.js";
-import "../../method-scopes-CIPmQDuC.js";
-import "../../session-cost-usage-4I5dS4fe.js";
-import "../../logging-VTZm8jB6.js";
-import "../../runtime-env-C8UxrL-i.js";
-import "../../send-BCFA3Awg.js";
-import "../../state-paths-QS0axAl1.js";
-import "../../cli-runtime-BoYcLS-9.js";
-import "../../routing-CM1q67VT.js";
-import "../../diagnostic-DtQOjD7p.js";
-import "../../text-runtime-DD-uemN_.js";
-import "../../dm-policy-shared-DR-r8JQl.js";
-import { i as definePluginEntry, x as buildOauthProviderAuthResult } from "../../core-DoWJeX1b.js";
-import "../../registry-D0H7k4Rl.js";
-import "../../pairing-store-BqbEmTVQ.js";
-import "../../json-store-BlJH8v0x.js";
-import "../../fetch-guard-r6nhKyr7.js";
-import "../../whatsapp-core-CDBsOcJv.js";
-import "../../hook-runtime-M4GviJQN.js";
-import "../../internal-hooks-jmovcAUX.js";
-import { Dt as MINIMAX_API_BASE_URL, Nt as buildMinimaxApiModelDefinition, Ot as MINIMAX_CN_API_BASE_URL } from "../../provider-models-mqi97xJa.js";
-import { n as applyOnboardAuthAgentModelsAndProviders, t as applyAgentDefaultModelPrimary } from "../../provider-onboard-YZwyyz0l.js";
-import "../../model-definitions-CPk0fx2x.js";
-import "../../call-CuSVmxO6.js";
-import "../../delegate-DZgF1n1_.js";
-import "../../with-timeout-6Mk1JecS.js";
-import "../../multimodal-BZ5nSU8_.js";
-import "../../memory-search-BEee7lTM.js";
-import "../../query-expansion-C5OcnmBU.js";
-import "../../search-manager-B73xZeLt.js";
-import "../../setup-binary-BRNtxkNZ.js";
-import "../../signal-cli-install-CazITAFo.js";
-import "../../identity-file-L2phPATJ.js";
-import "../../command-secret-targets-DoLf7afU.js";
-import "../../pairing-token-D5GBjAVE.js";
-import "../../delivery-queue-B2kD8cNZ.js";
-import "../../external-content-DohesiX3.js";
-import "../../security-runtime-DVVSOOlu.js";
-import "../../telegram-core-BZ7aS5CA.js";
-import "../../audit-HKoXXKMO.js";
-import "../../gateway-runtime-Btluew0E.js";
-import "../../connection-auth-BCwdTkvS.js";
-import "../../config-value-C42C4nMV.js";
-import "../../exec-approvals-CZGtkt6y.js";
-import "../../nodes-screen-DWWnCUAS.js";
-import "../../system-run-command-BnhKEiGR.js";
-import "../../stagger-Ds3EfozT.js";
-import "../../restart-stale-pids-D84WQQ67.js";
-import { n as fetchMinimaxUsage } from "../../provider-usage.fetch-Cilv-_i6.js";
-import "../../history-CZuN-T_-.js";
-import "../../channel-summary-DavcDlJH.js";
-import "../../secret-file-C6VA1we_.js";
-import "../../accounts-B1tM8Jyc.js";
-import "../../pairing-labels-CC5WpLtU.js";
-import "../../process-runtime-UwxhzAyo.js";
-import "../../cli-utils-CreDWcAs.js";
-import "../../help-format-zSqk-GrQ.js";
-import "../../progress-D69d44Ic.js";
-import "../../shared-TeMeV5_s.js";
-import { n as toFormUrlEncoded, t as generatePkceVerifierChallenge } from "../../oauth-utils-FpIhLrQR.js";
-import "../../minimax-portal-auth-BxQxK4lE.js";
-import "../../provider-usage-B_JD4wEk.js";
-import "../../media-understanding-BGVBLZxZ.js";
-import { randomBytes, randomUUID } from "node:crypto";
-//#region extensions/minimax/media-understanding-provider.ts
-const minimaxMediaUnderstandingProvider = {
-	id: "minimax",
-	capabilities: ["image"],
-	describeImage: describeImageWithModel,
-	describeImages: describeImagesWithModel
-};
-const minimaxPortalMediaUnderstandingProvider = {
-	id: "minimax-portal",
-	capabilities: ["image"],
-	describeImage: describeImageWithModel,
-	describeImages: describeImagesWithModel
-};
-//#endregion
-//#region extensions/minimax/oauth.ts
-const MINIMAX_OAUTH_CONFIG = {
-	cn: {
-		baseUrl: "https://api.minimaxi.com",
-		clientId: "78257093-7e40-4613-99e0-527b14b39113"
-	},
-	global: {
-		baseUrl: "https://api.minimax.io",
-		clientId: "78257093-7e40-4613-99e0-527b14b39113"
-	}
-};
-const MINIMAX_OAUTH_SCOPE = "group_id profile model.completion";
-const MINIMAX_OAUTH_GRANT_TYPE = "urn:ietf:params:oauth:grant-type:user_code";
-function getOAuthEndpoints(region) {
-	const config = MINIMAX_OAUTH_CONFIG[region];
-	return {
-		codeEndpoint: `${config.baseUrl}/oauth/code`,
-		tokenEndpoint: `${config.baseUrl}/oauth/token`,
-		clientId: config.clientId,
-		baseUrl: config.baseUrl
-	};
-}
-function generatePkce() {
-	const { verifier, challenge } = generatePkceVerifierChallenge();
-	return {
-		verifier,
-		challenge,
-		state: randomBytes(16).toString("base64url")
-	};
-}
-async function requestOAuthCode(params) {
-	const endpoints = getOAuthEndpoints(params.region);
-	const response = await fetch(endpoints.codeEndpoint, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/x-www-form-urlencoded",
-			Accept: "application/json",
-			"x-request-id": randomUUID()
-		},
-		body: toFormUrlEncoded({
-			response_type: "code",
-			client_id: endpoints.clientId,
-			scope: MINIMAX_OAUTH_SCOPE,
-			code_challenge: params.challenge,
-			code_challenge_method: "S256",
-			state: params.state
-		})
-	});
-	if (!response.ok) {
-		const text = await response.text();
-		throw new Error(`MiniMax OAuth authorization failed: ${text || response.statusText}`);
-	}
-	const payload = await response.json();
-	if (!payload.user_code || !payload.verification_uri) throw new Error(payload.error ?? "MiniMax OAuth authorization returned an incomplete payload (missing user_code or verification_uri).");
-	if (payload.state !== params.state) throw new Error("MiniMax OAuth state mismatch: possible CSRF attack or session corruption.");
-	return payload;
-}
-async function pollOAuthToken(params) {
-	const endpoints = getOAuthEndpoints(params.region);
-	const response = await fetch(endpoints.tokenEndpoint, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/x-www-form-urlencoded",
-			Accept: "application/json"
-		},
-		body: toFormUrlEncoded({
-			grant_type: MINIMAX_OAUTH_GRANT_TYPE,
-			client_id: endpoints.clientId,
-			user_code: params.userCode,
-			code_verifier: params.verifier
-		})
-	});
-	const text = await response.text();
-	let payload;
-	if (text) try {
-		payload = JSON.parse(text);
-	} catch {
-		payload = void 0;
-	}
-	if (!response.ok) return {
-		status: "error",
-		message: (payload?.base_resp?.status_msg ?? text) || "MiniMax OAuth failed to parse response."
-	};
-	if (!payload) return {
-		status: "error",
-		message: "MiniMax OAuth failed to parse response."
-	};
-	const tokenPayload = payload;
-	if (tokenPayload.status === "error") return {
-		status: "error",
-		message: "An error occurred. Please try again later"
-	};
-	if (tokenPayload.status !== "success") return {
-		status: "pending",
-		message: "current user code is not authorized"
-	};
-	if (!tokenPayload.access_token || !tokenPayload.refresh_token || !tokenPayload.expired_in) return {
-		status: "error",
-		message: "MiniMax OAuth returned incomplete token payload."
-	};
-	return {
-		status: "success",
-		token: {
-			access: tokenPayload.access_token,
-			refresh: tokenPayload.refresh_token,
-			expires: tokenPayload.expired_in,
-			resourceUrl: tokenPayload.resource_url,
-			notification_message: tokenPayload.notification_message
-		}
-	};
-}
-async function loginMiniMaxPortalOAuth(params) {
-	const region = params.region ?? "global";
-	const { verifier, challenge, state } = generatePkce();
-	const oauth = await requestOAuthCode({
-		challenge,
-		state,
-		region
-	});
-	const verificationUrl = oauth.verification_uri;
-	const noteLines = [
-		`Open ${verificationUrl} to approve access.`,
-		`If prompted, enter the code ${oauth.user_code}.`,
-		`Interval: ${oauth.interval ?? "default (2000ms)"}, Expires at: ${oauth.expired_in} unix timestamp`
-	];
-	await params.note(noteLines.join("\n"), "MiniMax OAuth");
-	try {
-		await params.openUrl(verificationUrl);
-	} catch {}
-	let pollIntervalMs = oauth.interval ? oauth.interval : 2e3;
-	const expireTimeMs = oauth.expired_in;
-	while (Date.now() < expireTimeMs) {
-		params.progress.update("Waiting for MiniMax OAuth approval…");
-		const result = await pollOAuthToken({
-			userCode: oauth.user_code,
-			verifier,
-			region
-		});
-		if (result.status === "success") return result.token;
-		if (result.status === "error") throw new Error(result.message);
-		await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
-		pollIntervalMs = Math.max(pollIntervalMs, 2e3);
-	}
-	throw new Error("MiniMax OAuth timed out before authorization completed.");
-}
-//#endregion
-//#region extensions/minimax/onboard.ts
-function applyMinimaxApiProviderConfigWithBaseUrl(cfg, params) {
-	const providers = { ...cfg.models?.providers };
-	const existingProvider = providers[params.providerId];
-	const existingModels = existingProvider?.models ?? [];
-	const apiModel = buildMinimaxApiModelDefinition(params.modelId);
-	const mergedModels = existingModels.some((model) => model.id === params.modelId) ? existingModels : [...existingModels, apiModel];
-	const { apiKey: existingApiKey, ...existingProviderRest } = existingProvider ?? {
-		baseUrl: params.baseUrl,
-		models: []
-	};
-	const resolvedApiKey = typeof existingApiKey === "string" ? existingApiKey : void 0;
-	const normalizedApiKey = resolvedApiKey?.trim() === "minimax" ? "" : resolvedApiKey;
-	providers[params.providerId] = {
-		...existingProviderRest,
-		baseUrl: params.baseUrl,
-		api: "anthropic-messages",
-		authHeader: true,
-		...normalizedApiKey?.trim() ? { apiKey: normalizedApiKey } : {},
-		models: mergedModels.length > 0 ? mergedModels : [apiModel]
-	};
-	const models = { ...cfg.agents?.defaults?.models };
-	const modelRef = `${params.providerId}/${params.modelId}`;
-	models[modelRef] = {
-		...models[modelRef],
-		alias: "Minimax"
-	};
-	return applyOnboardAuthAgentModelsAndProviders(cfg, {
-		agentModels: models,
-		providers
-	});
-}
-function applyMinimaxApiConfigWithBaseUrl(cfg, params) {
-	return applyAgentDefaultModelPrimary(applyMinimaxApiProviderConfigWithBaseUrl(cfg, params), `${params.providerId}/${params.modelId}`);
-}
-function applyMinimaxApiConfig(cfg, modelId = "MiniMax-M2.5") {
-	return applyMinimaxApiConfigWithBaseUrl(cfg, {
-		providerId: "minimax",
-		modelId,
-		baseUrl: MINIMAX_API_BASE_URL
-	});
-}
-function applyMinimaxApiConfigCn(cfg, modelId = "MiniMax-M2.5") {
-	return applyMinimaxApiConfigWithBaseUrl(cfg, {
-		providerId: "minimax",
-		modelId,
-		baseUrl: MINIMAX_CN_API_BASE_URL
-	});
-}
-//#endregion
-//#region extensions/minimax/provider-catalog.ts
-const MINIMAX_PORTAL_BASE_URL = "https://api.minimax.io/anthropic";
-const MINIMAX_DEFAULT_MODEL_ID = "MiniMax-M2.5";
-const MINIMAX_DEFAULT_VISION_MODEL_ID = "MiniMax-VL-01";
-const MINIMAX_DEFAULT_CONTEXT_WINDOW = 2e5;
-const MINIMAX_DEFAULT_MAX_TOKENS = 8192;
-const MINIMAX_API_COST = {
-	input: .3,
-	output: 1.2,
-	cacheRead: .03,
-	cacheWrite: .12
-};
-function buildMinimaxModel(params) {
-	return {
-		id: params.id,
-		name: params.name,
-		reasoning: params.reasoning,
-		input: params.input,
-		cost: MINIMAX_API_COST,
-		contextWindow: MINIMAX_DEFAULT_CONTEXT_WINDOW,
-		maxTokens: MINIMAX_DEFAULT_MAX_TOKENS
-	};
-}
-function buildMinimaxTextModel(params) {
-	return buildMinimaxModel({
-		...params,
-		input: ["text"]
-	});
-}
-function buildMinimaxCatalog() {
-	return [
-		buildMinimaxModel({
-			id: MINIMAX_DEFAULT_VISION_MODEL_ID,
-			name: "MiniMax VL 01",
-			reasoning: false,
-			input: ["text", "image"]
-		}),
-		buildMinimaxTextModel({
-			id: MINIMAX_DEFAULT_MODEL_ID,
-			name: "MiniMax M2.5",
-			reasoning: true
-		}),
-		buildMinimaxTextModel({
-			id: "MiniMax-M2.5-highspeed",
-			name: "MiniMax M2.5 Highspeed",
-			reasoning: true
-		})
-	];
-}
-function buildMinimaxProvider() {
-	return {
-		baseUrl: MINIMAX_PORTAL_BASE_URL,
-		api: "anthropic-messages",
-		authHeader: true,
-		models: buildMinimaxCatalog()
-	};
-}
-function buildMinimaxPortalProvider() {
-	return {
-		baseUrl: MINIMAX_PORTAL_BASE_URL,
-		api: "anthropic-messages",
-		authHeader: true,
-		models: buildMinimaxCatalog()
-	};
-}
-//#endregion
+import "../../env-D1ktUnAV.js";
+import "../../paths-CjuwkA2v.js";
+import "../../safe-text-K2Nonoo3.js";
+import "../../tmp-openclaw-dir-DzRxfh9a.js";
+import "../../theme-BH5F9mlg.js";
+import "../../version-DGzLsBG-.js";
+import "../../zod-schema.agent-runtime-DNndkpI8.js";
+import "../../runtime-BF_KUcJM.js";
+import "../../registry-bOiEdffE.js";
+import "../../ip-ByO4-_4f.js";
+import "../../warning-filter-C_BEyyvc.js";
+import "../../links-DaR1j_Bv.js";
+import "../../paths-DJBuCoRE.js";
+import "../../auth-profiles-z_oM_y_O.js";
+import "../../provider-runtime.runtime-BokSGTHt.js";
+import "../../file-lock-Cm3HPowf.js";
+import "../../audit-fs-7IxnGQxG.js";
+import "../../resolve-DqJVzTVp.js";
+import { c as ensureAuthProfileStore, n as listProfilesForProvider } from "../../profiles-CRvutsjq.js";
+import "../../tailscale-FHZADwLL.js";
+import "../../tailnet-BPCtbdja.js";
+import "../../net-1LAzWzJc.js";
+import "../../auth-BC0t_CEl.js";
+import "../../credentials-6hokf6e3.js";
+import "../../message-channel-ZzTqBBLH.js";
+import "../../sessions-uRDRs4f-.js";
+import "../../plugins-h0t63KQW.js";
+import "../../paths-BEHCHyAI.js";
+import "../../delivery-context-oynQ_N5k.js";
+import "../../session-write-lock-B7nwE7de.js";
+import "../../method-scopes-DtJfTstv.js";
+import "../../call-CFi2qbI2.js";
+import "../../detect-binary-78pS71eg.js";
+import "../../prompt-style-qxNRcnm3.js";
+import "../../ports-lsof-qBGFcQvX.js";
+import "../../restart-stale-pids-ciXEfnyN.js";
+import "../../ports-DF41F7NN.js";
+import "../../logging-CS4wyI-j.js";
+import "../../commands-AceByDw5.js";
+import "../../issue-format-Cj39YIRp.js";
+import "../../provider-env-vars-BZwz5sMG.js";
+import "../../model-auth-env-BWzx2-YC.js";
+import "../../anthropic-vertex-provider-Cik2BDhe.js";
+import "../../pi-model-discovery-hz4apXP-.js";
+import "../../identity-xGthCqY8.js";
+import "../../heartbeat-DqtPOAC0.js";
+import { H_ as buildOauthProviderAuthResult } from "../../pi-embedded-DFNOKLyy.js";
+import "../../internal-hooks-CVdBfFMw.js";
+import "../../multimodal-CDYWira8.js";
+import "../../memory-search-B5CuuJZB.js";
+import "../../secret-input-x2By3bJy.js";
+import "../../bindings-KL-4Efmw.js";
+import "../../resolve-route-C5Xj9lGN.js";
+import "../../routing-DA_79T-X.js";
+import "../../identity-file-ClDAlI0t.js";
+import "../../outbound-runtime-BAxohuIf.js";
+import { _ as isMiniMaxModernModelId, f as MINIMAX_DEFAULT_MODEL_ID } from "../../provider-model-definitions-CrItEa-O.js";
+import "../../provider-models-GbpUTgQg.js";
+import "../../provider-catalog-hDyZGQ8R.js";
+import "../../provider-catalog-0WIhy6f_.js";
+import "../../provider-catalog-CdCrQ7UP.js";
+import "../../provider-catalog-DzIvFdfj.js";
+import { n as buildMinimaxProvider, t as buildMinimaxPortalProvider } from "../../provider-catalog-COMYNKV2.js";
+import "../../provider-catalog-Bce8iOMh.js";
+import "../../provider-catalog-CPx35FBq.js";
+import "../../provider-catalog-Czll7Q5-.js";
+import "../../provider-catalog-BFvOY2Dt.js";
+import "../../provider-catalog-VZaye2Ib.js";
+import "../../models-config.providers.discovery-oJl_MWQT.js";
+import "../../text-runtime-B-kOpuLv.js";
+import "../../docker-BrzH-NvE.js";
+import "../../tool-catalog-BQWPAtTb.js";
+import "../../common-CMCEg0LE.js";
+import "../../image-ops-xftchR8Z.js";
+import "../../thinking-Me2S38se.js";
+import "../../path-alias-guards-BfUEa8Z8.js";
+import "../../sandbox-paths-DM85ql27.js";
+import "../../channel-actions-M8UJU-J1.js";
+import "../../mime-Bwp1UQ_8.js";
+import "../../ssrf-BdAu1_OT.js";
+import "../../fetch-guard-BiSGgjb-.js";
+import "../../provider-web-search-B2TRQt7q.js";
+import "../../manager-BFi-xqLj.js";
+import "../../config-schema-BoeEl_gh.js";
+import "../../channel-plugin-common-Bw5e9GHM.js";
+import "../../status-helpers-DTFg68Zs.js";
+import "../../conversation-runtime-BfLWHgdb.js";
+import "../../runtime-whatsapp-boundary-C0sTsAVN.js";
+import "../../pairing-store-Ci8ZfuL6.js";
+import "../../json-store-Dizz4Rhx.js";
+import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
+import "../../secret-file-BzdoxKYZ.js";
+import "../../channel-config-schema-DOQ4q6a_.js";
+import "../../setup-binary-Tg8N6z5q.js";
+import "../../archive-Oi0PB5pw.js";
+import "../../fs-safe-DpC9pe80.js";
+import "../../signal-cli-install-pAmdy64m.js";
+import "../../setup-wizard-proxy-3tbzVvIf.js";
+import "../../setup-Cuh8Qocv.js";
+import "../../dm-policy-shared-3Jdbvvlm.js";
+import "../../runtime-env-pWTJLxVn.js";
+import "../../temp-path-DvwSkpQg.js";
+import "../../diagnostic-Dx7wnQab.js";
+import "../../logging-B3tLYQAZ.js";
+import "../../config-runtime-BMqUsOKJ.js";
+import "../../level-overrides-CaIdz1Y2.js";
+import "../../exec-approvals-CoUFlPSg.js";
+import "../../webhook-ingress-CwnvXQ9i.js";
+import "../../system-events-D_U3rn_H.js";
+import "../../ssrf-policy-Cve-f-IZ.js";
+import "../../hook-runtime-C0FQ8mwc.js";
+import "../../templating-BpbUbFSs.js";
+import "../../channel-reply-pipeline-BQ2GND11.js";
+import "../../reply-history-CYr7j6cE.js";
+import "../../commands-registry.data-C-Zb7sHo.js";
+import "../../commands-registry-kALONq2A.js";
+import "../../frontmatter-C_CWb6f1.js";
+import "../../env-overrides-CilRbuhU.js";
+import "../../skills-Xrdxpo0d.js";
+import "../../skills-remote-D055n83h.js";
+import "../../workspace-dirs-BooYyzLb.js";
+import "../../pairing-token-BhzPXbCy.js";
+import "../../skill-commands-X9DVN0CB.js";
+import "../../exec-inline-eval-CAjjj6oR.js";
+import "../../sandbox-DSgCBor-.js";
+import "../../target-registry-CUzd3r6R.js";
+import "../../external-content-BtOAY1jC.js";
+import "../../brave-iyc-zT4j.js";
+import "../../duckduckgo-RnKnjVjk.js";
+import "../../exa-B_PEobTF.js";
+import "../../security-runtime-DuEgVcd_.js";
+import "../../provider-auth-ref-CkjXioxW.js";
+import "../../provider-auth-input-DY2h0M4n.js";
+import "../../provider-auth-helpers-CfaQ5Xn6.js";
+import { t as createProviderApiKeyAuthMethod } from "../../provider-api-key-auth-Uu86HoCQ.js";
+import { n as fetchMinimaxUsage } from "../../provider-usage-D_y-rSPa.js";
+import "../../provider-models-BlbL1wnJ.js";
+import "../../media-understanding-Bo9B_E3l.js";
+import "../../media-understanding-provider-C5e8GFRO.js";
+import "../../provider-entry-Dh6ETIXa.js";
+import "../../media-understanding-provider-Cvthuw62.js";
+import "../../provider-onboard-DmLoftpN.js";
+import "../../onboard-p6odcf1a.js";
+import "../../perplexity-web-search-provider-CBvej2u9.js";
+import "../../perplexity-DVSMCtcT.js";
+import "../../model-definitions-CLlu-y8L.js";
+import "../../onboard-CQyz1Xh9.js";
+import "../../provider-catalog-BbgD0Blc.js";
+import "../../provider-models-CPWTfv6u.js";
+import "../../stream-WNyIq00o.js";
+import "../../web-search-C2bCgEzC.js";
+import "../../client-fetch-DG9t9440.js";
+import "../../config-B6bjVdCF.js";
+import "../../web-media-B7RZCKik.js";
+import "../../stagger-C20Z_jRQ.js";
+import "../../command-secret-targets-CiFc3JN3.js";
+import "../../delivery-queue-iwWmpCz9.js";
+import "../../pairing-labels-PxfGoTvk.js";
+import "../../directory-runtime-D9Y42mW-.js";
+import "../../read-only-account-inspect-f6OlttkD.js";
+import "../../src-hV2aBDoy.js";
+import "../../web-media-C0RRMmtv.js";
+import "../../state-paths-CG7b-A_-.js";
+import "../../axios-zS_oAKS1.js";
+import "../../channel-summary-BE3kiFA7.js";
+import "../../session-system-events-Bkb0fc95.js";
+import "../../ssh-tunnel-Ca8F0wnz.js";
+import "../../server-middleware-DUIlEnG_.js";
+import "../../llm-task-D_W5GYK4.js";
+import "../../tool-policy-match-DgTjuJ-l.js";
+import "../../runtime-DAr9Q1gF.js";
+import "../../channel-status-DxDpNj1k.js";
+import "../../discord-core-CTFa_tPG.js";
+import "../../cli-runtime-CivyfPOe.js";
+import "../../config-presence-Bo4-9YVM.js";
+import "../../query-expansion-CeNhqo71.js";
+import "../../search-manager-BH4BTUaa.js";
+import "../../acp-runtime-CRrXx1ZI.js";
+import "../../telegram-core-n7uYzMlP.js";
+import "../../audit-D7armGfs.js";
+import "../../gateway-runtime-_5BLwTPa.js";
+import "../../connection-auth-DQ6Wy_i-.js";
+import "../../mcp-config-vaYGkUmW.js";
+import { n as buildMinimaxPortalImageGenerationProvider, t as buildMinimaxImageGenerationProvider } from "../../image-generation-provider-Bc0j5wsR.js";
+import { n as minimaxPortalMediaUnderstandingProvider, t as minimaxMediaUnderstandingProvider } from "../../media-understanding-provider-Cft8whSN.js";
+import "../../model-definitions-BL1DQBNY.js";
+import { n as applyMinimaxApiConfigCn, t as applyMinimaxApiConfig } from "../../onboard-SnQpArD8.js";
 //#region extensions/minimax/index.ts
 const API_PROVIDER_ID = "minimax";
 const PORTAL_PROVIDER_ID = "minimax-portal";
 const PROVIDER_LABEL = "MiniMax";
-const DEFAULT_MODEL = "MiniMax-M2.5";
+const DEFAULT_MODEL = MINIMAX_DEFAULT_MODEL_ID;
 const DEFAULT_BASE_URL_CN = "https://api.minimaxi.com/anthropic";
 const DEFAULT_BASE_URL_GLOBAL = "https://api.minimax.io/anthropic";
 function getDefaultBaseUrl(region) {
@@ -428,9 +203,6 @@ function apiModelRef(modelId) {
 }
 function portalModelRef(modelId) {
 	return `${PORTAL_PROVIDER_ID}/${modelId}`;
-}
-function isModernMiniMaxModel(modelId) {
-	return modelId.trim().toLowerCase().startsWith("minimax-m2.5");
 }
 function buildPortalProviderCatalog(params) {
 	return {
@@ -465,6 +237,7 @@ function createOAuthHandler(region) {
 	return async (ctx) => {
 		const progress = ctx.prompter.progress(`Starting MiniMax OAuth (${regionLabel})…`);
 		try {
+			const { loginMiniMaxPortalOAuth } = await import("./oauth.runtime.js");
 			const result = await loginMiniMaxPortalOAuth({
 				openUrl: ctx.openUrl,
 				note: ctx.prompter.note,
@@ -486,9 +259,8 @@ function createOAuthHandler(region) {
 						models: []
 					} } },
 					agents: { defaults: { models: {
-						[portalModelRef("MiniMax-M2.5")]: { alias: "minimax-m2.5" },
-						[portalModelRef("MiniMax-M2.5-highspeed")]: { alias: "minimax-m2.5-highspeed" },
-						[portalModelRef("MiniMax-M2.5-Lightning")]: { alias: "minimax-m2.5-lightning" }
+						[portalModelRef("MiniMax-M2.7")]: { alias: "minimax-m2.7" },
+						[portalModelRef("MiniMax-M2.7-highspeed")]: { alias: "minimax-m2.7-highspeed" }
 					} } }
 				},
 				notes: [
@@ -535,7 +307,7 @@ var minimax_default = definePluginEntry({
 					choiceHint: "Global endpoint - api.minimax.io",
 					groupId: "minimax",
 					groupLabel: "MiniMax",
-					groupHint: "M2.5 (recommended)"
+					groupHint: "M2.7 (recommended)"
 				}
 			}), createProviderApiKeyAuthMethod({
 				providerId: API_PROVIDER_ID,
@@ -557,7 +329,7 @@ var minimax_default = definePluginEntry({
 					choiceHint: "CN endpoint - api.minimaxi.com",
 					groupId: "minimax",
 					groupLabel: "MiniMax",
-					groupHint: "M2.5 (recommended)"
+					groupHint: "M2.7 (recommended)"
 				}
 			})],
 			catalog: {
@@ -568,9 +340,11 @@ var minimax_default = definePluginEntry({
 				const apiKey = ctx.resolveApiKeyFromConfigAndStore({ envDirect: [ctx.env.MINIMAX_CODE_PLAN_KEY, ctx.env.MINIMAX_API_KEY] });
 				return apiKey ? { token: apiKey } : null;
 			},
-			isModernModelRef: ({ modelId }) => isModernMiniMaxModel(modelId),
+			isModernModelRef: ({ modelId }) => isMiniMaxModernModelId(modelId),
 			fetchUsageSnapshot: async (ctx) => await fetchMinimaxUsage(ctx.token, ctx.timeoutMs, ctx.fetchFn)
 		});
+		api.registerMediaUnderstandingProvider(minimaxMediaUnderstandingProvider);
+		api.registerMediaUnderstandingProvider(minimaxPortalMediaUnderstandingProvider);
 		api.registerProvider({
 			id: PORTAL_PROVIDER_ID,
 			label: PROVIDER_LABEL,
@@ -588,7 +362,7 @@ var minimax_default = definePluginEntry({
 					choiceHint: "Global endpoint - api.minimax.io",
 					groupId: "minimax",
 					groupLabel: "MiniMax",
-					groupHint: "M2.5 (recommended)"
+					groupHint: "M2.7 (recommended)"
 				},
 				run: createOAuthHandler("global")
 			}, {
@@ -602,14 +376,14 @@ var minimax_default = definePluginEntry({
 					choiceHint: "CN endpoint - api.minimaxi.com",
 					groupId: "minimax",
 					groupLabel: "MiniMax",
-					groupHint: "M2.5 (recommended)"
+					groupHint: "M2.7 (recommended)"
 				},
 				run: createOAuthHandler("cn")
 			}],
-			isModernModelRef: ({ modelId }) => isModernMiniMaxModel(modelId)
+			isModernModelRef: ({ modelId }) => isMiniMaxModernModelId(modelId)
 		});
-		api.registerMediaUnderstandingProvider(minimaxMediaUnderstandingProvider);
-		api.registerMediaUnderstandingProvider(minimaxPortalMediaUnderstandingProvider);
+		api.registerImageGenerationProvider(buildMinimaxImageGenerationProvider());
+		api.registerImageGenerationProvider(buildMinimaxPortalImageGenerationProvider());
 	}
 });
 //#endregion

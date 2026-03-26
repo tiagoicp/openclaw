@@ -1,5 +1,5 @@
 // Legacy shim for pre-tsdown update-cli imports.
-import * as daemonCli from "../daemon-cli-C7sazXAX.js";
+import * as daemonCli from "../daemon-cli-Cc-GIWze.js";
 export const registerDaemonCli = daemonCli.t;
 export const runDaemonInstall = daemonCli.s;
 export const runDaemonRestart = daemonCli.r;

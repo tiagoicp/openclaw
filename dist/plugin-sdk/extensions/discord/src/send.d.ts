@@ -3,7 +3,7 @@ export { listGuildEmojisDiscord, uploadEmojiDiscord, uploadStickerDiscord, } fro
 export { addRoleDiscord, banMemberDiscord, createScheduledEventDiscord, fetchChannelInfoDiscord, fetchMemberInfoDiscord, fetchRoleInfoDiscord, fetchVoiceStatusDiscord, kickMemberDiscord, listGuildChannelsDiscord, listScheduledEventsDiscord, removeRoleDiscord, timeoutMemberDiscord, } from "./send.guild.js";
 export { createThreadDiscord, deleteMessageDiscord, editMessageDiscord, fetchMessageDiscord, listPinsDiscord, listThreadsDiscord, pinMessageDiscord, readMessagesDiscord, searchMessagesDiscord, unpinMessageDiscord, } from "./send.messages.js";
 export { sendMessageDiscord, sendPollDiscord, sendStickerDiscord, sendWebhookMessageDiscord, sendVoiceMessageDiscord, } from "./send.outbound.js";
-export { sendDiscordComponentMessage } from "./send.components.js";
+export { editDiscordComponentMessage, registerBuiltDiscordComponentMessage, sendDiscordComponentMessage, } from "./send.components.js";
 export { sendTypingDiscord } from "./send.typing.js";
 export { fetchChannelPermissionsDiscord, hasAllGuildPermissionsDiscord, hasAnyGuildPermissionDiscord, fetchMemberGuildPermissionsDiscord, } from "./send.permissions.js";
 export { fetchReactionsDiscord, reactMessageDiscord, removeOwnReactionsDiscord, removeReactionDiscord, } from "./send.reactions.js";
