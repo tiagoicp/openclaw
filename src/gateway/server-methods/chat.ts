@@ -1441,10 +1441,17 @@ export const chatHandlers: GatewayRequestHandlers = {
         sessionKey,
         config: cfg,
       });
+      // When deliver:true routes to an external channel (e.g. "slack"), use that
+      // channel for createChannelReplyPipeline so enableSlackInteractiveReplies
+      // and other channel-specific prefix options are resolved correctly.
+      const prefixChannel =
+        originatingChannel !== INTERNAL_MESSAGE_CHANNEL
+          ? originatingChannel
+          : INTERNAL_MESSAGE_CHANNEL;
       const { onModelSelected, ...replyPipeline } = createChannelReplyPipeline({
         cfg,
         agentId,
-        channel: INTERNAL_MESSAGE_CHANNEL,
+        channel: prefixChannel,
       });
       const deliveredReplies: Array<{ payload: ReplyPayload; kind: "block" | "final" }> = [];
       let userTranscriptUpdateEmitted = false;
