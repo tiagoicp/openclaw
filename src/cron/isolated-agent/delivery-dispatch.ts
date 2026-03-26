@@ -1,6 +1,8 @@
 import { countActiveDescendantRuns } from "../../agents/subagent-registry.js";
+import { normalizeReplyPayload } from "../../auto-reply/reply/normalize-reply.js";
 import { SILENT_REPLY_TOKEN } from "../../auto-reply/tokens.js";
 import type { ReplyPayload } from "../../auto-reply/types.js";
+import { createReplyPrefixContext } from "../../channels/reply-prefix.js";
 import { createOutboundSendDeps, type CliDeps } from "../../cli/outbound-send-deps.js";
 import type { OpenClawConfig } from "../../config/config.js";
 import { resolveAgentMainSessionKey, resolveMainSessionKey } from "../../config/sessions.js";
@@ -436,6 +438,23 @@ export async function dispatchCronDelivery(
         sessionKey: params.agentSessionKey,
       });
 
+      // Normalize payloads for the delivery channel so that channel-specific
+      // directives (e.g. [[slack_buttons:...]]) are parsed before delivery.
+      // The normal reply path runs these transforms via normalizeReplyPayload;
+      // cron direct delivery bypasses that path and must apply them here.
+      const replyPrefix = createReplyPrefixContext({
+        cfg: params.cfgWithAgentDefaults,
+        agentId: params.agentId,
+        channel: delivery.channel,
+        accountId: delivery.accountId,
+      });
+      const normalizedPayloadsForDelivery = payloadsForDelivery.flatMap((p) => {
+        const normalized = normalizeReplyPayload(p, {
+          enableSlackInteractiveReplies: replyPrefix.enableSlackInteractiveReplies,
+        });
+        return normalized ? [normalized] : [];
+      });
+
       // Track bestEffort partial failures so we can log them and avoid
       // marking the job as delivered when payloads were silently dropped.
       let hadPartialFailure = false;
@@ -455,7 +474,7 @@ export async function dispatchCronDelivery(
           to: delivery.to,
           accountId: delivery.accountId,
           threadId: delivery.threadId,
-          payloads: payloadsForDelivery,
+          payloads: normalizedPayloadsForDelivery.length > 0 ? normalizedPayloadsForDelivery : payloadsForDelivery,
           session: deliverySession,
           identity,
           bestEffort: params.deliveryBestEffort,
