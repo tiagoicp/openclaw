@@ -15,8 +15,8 @@ import "../../ip-ByO4-_4f.js";
 import "../../warning-filter-C_BEyyvc.js";
 import "../../links-DaR1j_Bv.js";
 import "../../paths-DJBuCoRE.js";
-import "../../auth-profiles-z_oM_y_O.js";
-import "../../provider-runtime.runtime-BokSGTHt.js";
+import "../../auth-profiles-DWcA6joY.js";
+import "../../provider-runtime.runtime-DwNmuhmD.js";
 import "../../file-lock-Cm3HPowf.js";
 import "../../audit-fs-7IxnGQxG.js";
 import "../../resolve-DqJVzTVp.js";
@@ -48,7 +48,7 @@ import "../../anthropic-vertex-provider-Cik2BDhe.js";
 import "../../pi-model-discovery-hz4apXP-.js";
 import "../../identity-xGthCqY8.js";
 import "../../heartbeat-DqtPOAC0.js";
-import { ax as defineChannelPluginEntry } from "../../pi-embedded-DFNOKLyy.js";
+import { ox as defineChannelPluginEntry } from "../../pi-embedded-BHLc2HPd.js";
 import "../../internal-hooks-CVdBfFMw.js";
 import "../../multimodal-CDYWira8.js";
 import "../../memory-search-B5CuuJZB.js";
@@ -106,7 +106,7 @@ import "../../temp-path-DvwSkpQg.js";
 import "../../diagnostic-Dx7wnQab.js";
 import "../../logging-B3tLYQAZ.js";
 import "../../config-runtime-BMqUsOKJ.js";
-import "../../level-overrides-CaIdz1Y2.js";
+import "../../level-overrides-DxRoq-Vr.js";
 import "../../exec-approvals-CoUFlPSg.js";
 import "../../webhook-ingress-CwnvXQ9i.js";
 import "../../system-events-D_U3rn_H.js";
@@ -139,10 +139,10 @@ import "../../provider-auth-helpers-CfaQ5Xn6.js";
 import "../../provider-api-key-auth-Uu86HoCQ.js";
 import "../../provider-usage-D_y-rSPa.js";
 import "../../provider-models-BlbL1wnJ.js";
-import "../../media-understanding-Bo9B_E3l.js";
-import "../../media-understanding-provider-C5e8GFRO.js";
+import "../../media-understanding-DXKhzmxa.js";
+import "../../media-understanding-provider-mKPWfSgv.js";
 import "../../provider-entry-Dh6ETIXa.js";
-import "../../media-understanding-provider-Cvthuw62.js";
+import "../../media-understanding-provider-Br6AUUTp.js";
 import "../../provider-onboard-DmLoftpN.js";
 import "../../onboard-p6odcf1a.js";
 import "../../perplexity-web-search-provider-CBvej2u9.js";
@@ -161,13 +161,13 @@ import "../../command-secret-targets-CiFc3JN3.js";
 import "../../delivery-queue-iwWmpCz9.js";
 import "../../pairing-labels-PxfGoTvk.js";
 import "../../directory-runtime-D9Y42mW-.js";
-import "../../read-only-account-inspect-f6OlttkD.js";
+import "../../read-only-account-inspect-DL-l3acs.js";
 import "../../src-hV2aBDoy.js";
 import "../../web-media-C0RRMmtv.js";
 import "../../state-paths-CG7b-A_-.js";
 import "../../axios-zS_oAKS1.js";
-import "../../channel-summary-BE3kiFA7.js";
-import "../../session-system-events-Bkb0fc95.js";
+import "../../channel-summary-BXD0QyVg.js";
+import "../../session-system-events-CRFPrG-r.js";
 import "../../ssh-tunnel-Ca8F0wnz.js";
 import "../../server-middleware-DUIlEnG_.js";
 import "../../llm-task-D_W5GYK4.js";
@@ -178,10 +178,10 @@ import "../../discord-core-CTFa_tPG.js";
 import "../../cli-runtime-CivyfPOe.js";
 import "../../config-presence-Bo4-9YVM.js";
 import "../../query-expansion-CeNhqo71.js";
-import "../../search-manager-BH4BTUaa.js";
+import "../../search-manager-CiHiEX8K.js";
 import "../../acp-runtime-CRrXx1ZI.js";
 import "../../telegram-core-n7uYzMlP.js";
-import "../../audit-D7armGfs.js";
+import "../../audit-BszklQB5.js";
 import "../../gateway-runtime-_5BLwTPa.js";
 import "../../connection-auth-DQ6Wy_i-.js";
 import "../../mcp-config-vaYGkUmW.js";
@@ -190,27 +190,27 @@ import "../../channel-setup-CEnQaWOx.js";
 import "../../ssrf-runtime-Dtygnkht.js";
 import "../../backup-create-DCk8zsXK.js";
 import "../../matrix-DJUAmCna.js";
-import "../../helper-api-B-x72re_.js";
+import "../../helper-api-BPfY-0H1.js";
 import "../../setup-group-access-DFPKppPo.js";
 import "../../runtime-api-DpQzADVU.js";
-import "../../matrix-migration-snapshot-Dtxo3Bp6.js";
+import "../../matrix-migration-snapshot-ByJzQPGn.js";
 import "../../matrix-runtime-heavy-DrvpJJ41.js";
 import "../../diagnostics-otel-DpTLxPyf.js";
 import "../../extension-shared-B13Fr8Ps.js";
 import "../../src-ClXgsL9k.js";
-import { a as getMatrixRuntime, o as setMatrixRuntime } from "../../credentials-read-D4kF0cMI.js";
-import { $ as resolveMatrixRoomKeyBackupIssue, L as resolveMatrixAccount, R as resolveMatrixAccountConfig, W as resolveMatrixAuthContext, X as setMatrixSdkLogMode, Y as setMatrixSdkConsoleLogging, c as repairMatrixDirectRooms, nt as updateMatrixAccountConfig, s as inspectMatrixDirectRooms, tt as resolveMatrixConfigPath } from "../../send-p3GP08R2.js";
+import { a as getMatrixRuntime, o as setMatrixRuntime } from "../../credentials-read-BvKKmgUj.js";
+import { $ as resolveMatrixRoomKeyBackupIssue, L as resolveMatrixAccount, R as resolveMatrixAccountConfig, W as resolveMatrixAuthContext, X as setMatrixSdkLogMode, Y as setMatrixSdkConsoleLogging, c as repairMatrixDirectRooms, nt as updateMatrixAccountConfig, s as inspectMatrixDirectRooms, tt as resolveMatrixConfigPath } from "../../send-DNEq_cLA.js";
 import "../../types-BlMCBRyo.js";
-import { t as matrixPlugin } from "../../channel-Dv5dqfg4.js";
+import { t as matrixPlugin } from "../../channel-B1jwEcMV.js";
 import "../../allowlist-zu9TyQuG.js";
-import "../../encryption-guidance-Du1arcm0.js";
+import "../../encryption-guidance-BfXQEU8d.js";
 import "../../lib-CCLJ6FUn.js";
 import "../../BasicParser-BFPFK_A-.js";
-import { c as getMatrixRoomKeyBackupStatus, h as restoreMatrixRoomKeyBackup, m as resetMatrixRoomKeyBackup, n as bootstrapMatrixVerification, u as getMatrixVerificationStatus, v as verifyMatrixRecoveryKey, x as withStartedActionClient, y as withResolvedActionClient } from "../../verification-aqjB9xd0.js";
-import { n as matrixSetupAdapter, r as maybeBootstrapNewEncryptedMatrixAccount } from "../../setup-core-CK1gJ9pf.js";
+import { c as getMatrixRoomKeyBackupStatus, h as restoreMatrixRoomKeyBackup, m as resetMatrixRoomKeyBackup, n as bootstrapMatrixVerification, u as getMatrixVerificationStatus, v as verifyMatrixRecoveryKey, x as withStartedActionClient, y as withResolvedActionClient } from "../../verification-B0mKOKnz.js";
+import { n as matrixSetupAdapter, r as maybeBootstrapNewEncryptedMatrixAccount } from "../../setup-core-Cx5lOMCe.js";
 import { n as summarizeMatrixDeviceHealth, t as isOpenClawManagedMatrixDevice } from "../../device-health-kx2DTaQG.js";
 import "../../profile-CJnMu_SP.js";
-import { n as updateMatrixOwnProfile, t as applyMatrixProfileUpdate } from "../../profile-update-BbcrAhGp.js";
+import { n as updateMatrixOwnProfile, t as applyMatrixProfileUpdate } from "../../profile-update-B7AW3SAG.js";
 //#region extensions/matrix/src/matrix/actions/devices.ts
 async function listMatrixOwnDevices(opts = {}) {
 	return await withStartedActionClient(opts, async (client) => await client.listOwnDevices());
@@ -891,7 +891,7 @@ var matrix_default = defineChannelPluginEntry({
 	plugin: matrixPlugin,
 	setRuntime: setMatrixRuntime,
 	registerFull(api) {
-		import("../../plugin-entry.runtime-D_datiBm.js").then(({ ensureMatrixCryptoRuntime }) => ensureMatrixCryptoRuntime({ log: api.logger.info }).catch((err) => {
+		import("../../plugin-entry.runtime-Cqhzs4GN.js").then(({ ensureMatrixCryptoRuntime }) => ensureMatrixCryptoRuntime({ log: api.logger.info }).catch((err) => {
 			const message = err instanceof Error ? err.message : String(err);
 			api.logger.warn?.(`matrix: crypto runtime bootstrap failed: ${message}`);
 		})).catch((err) => {
@@ -899,15 +899,15 @@ var matrix_default = defineChannelPluginEntry({
 			api.logger.warn?.(`matrix: failed loading crypto bootstrap runtime: ${message}`);
 		});
 		api.registerGatewayMethod("matrix.verify.recoveryKey", async (ctx) => {
-			const { handleVerifyRecoveryKey } = await import("../../plugin-entry.runtime-D_datiBm.js");
+			const { handleVerifyRecoveryKey } = await import("../../plugin-entry.runtime-Cqhzs4GN.js");
 			await handleVerifyRecoveryKey(ctx);
 		});
 		api.registerGatewayMethod("matrix.verify.bootstrap", async (ctx) => {
-			const { handleVerificationBootstrap } = await import("../../plugin-entry.runtime-D_datiBm.js");
+			const { handleVerificationBootstrap } = await import("../../plugin-entry.runtime-Cqhzs4GN.js");
 			await handleVerificationBootstrap(ctx);
 		});
 		api.registerGatewayMethod("matrix.verify.status", async (ctx) => {
-			const { handleVerificationStatus } = await import("../../plugin-entry.runtime-D_datiBm.js");
+			const { handleVerificationStatus } = await import("../../plugin-entry.runtime-Cqhzs4GN.js");
 			await handleVerificationStatus(ctx);
 		});
 		api.registerCli(({ program }) => {

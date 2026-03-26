@@ -10,5 +10,5 @@ import "../registry-bOiEdffE.js";
 import "../ip-ByO4-_4f.js";
 import "../links-DaR1j_Bv.js";
 import "../help-format-CBxH1Co4.js";
-import { n as runMemoryStatus, t as registerMemoryCli } from "../memory-cli-DUgYlNlq.js";
+import { n as runMemoryStatus, t as registerMemoryCli } from "../memory-cli-CEvRi-iL.js";
 export { registerMemoryCli, runMemoryStatus };

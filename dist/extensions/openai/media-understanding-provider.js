@@ -13,6 +13,6 @@ import "../../provider-model-definitions-CrItEa-O.js";
 import "../../provider-models-GbpUTgQg.js";
 import "../../ssrf-BdAu1_OT.js";
 import "../../fetch-guard-BiSGgjb-.js";
-import "../../media-understanding-Bo9B_E3l.js";
-import { n as openaiMediaUnderstandingProvider, r as transcribeOpenAiAudio, t as DEFAULT_OPENAI_AUDIO_BASE_URL } from "../../media-understanding-provider-DdwdWo-J.js";
+import "../../media-understanding-DXKhzmxa.js";
+import { n as openaiMediaUnderstandingProvider, r as transcribeOpenAiAudio, t as DEFAULT_OPENAI_AUDIO_BASE_URL } from "../../media-understanding-provider-DufME4kZ.js";
 export { DEFAULT_OPENAI_AUDIO_BASE_URL, openaiMediaUnderstandingProvider, transcribeOpenAiAudio };

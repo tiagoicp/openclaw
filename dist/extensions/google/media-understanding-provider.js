@@ -10,6 +10,6 @@ import "../../registry-bOiEdffE.js";
 import "../../ip-ByO4-_4f.js";
 import "../../ssrf-BdAu1_OT.js";
 import "../../fetch-guard-BiSGgjb-.js";
-import "../../media-understanding-Bo9B_E3l.js";
-import { a as transcribeGeminiAudio, i as googleMediaUnderstandingProvider, n as DEFAULT_GOOGLE_VIDEO_BASE_URL, r as describeGeminiVideo, t as DEFAULT_GOOGLE_AUDIO_BASE_URL } from "../../media-understanding-provider-C5e8GFRO.js";
+import "../../media-understanding-DXKhzmxa.js";
+import { a as transcribeGeminiAudio, i as googleMediaUnderstandingProvider, n as DEFAULT_GOOGLE_VIDEO_BASE_URL, r as describeGeminiVideo, t as DEFAULT_GOOGLE_AUDIO_BASE_URL } from "../../media-understanding-provider-mKPWfSgv.js";
 export { DEFAULT_GOOGLE_AUDIO_BASE_URL, DEFAULT_GOOGLE_VIDEO_BASE_URL, describeGeminiVideo, googleMediaUnderstandingProvider, transcribeGeminiAudio };

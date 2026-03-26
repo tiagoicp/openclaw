@@ -10,6 +10,6 @@ import "../../registry-bOiEdffE.js";
 import "../../ip-ByO4-_4f.js";
 import "../../ssrf-BdAu1_OT.js";
 import "../../fetch-guard-BiSGgjb-.js";
-import "../../media-understanding-Bo9B_E3l.js";
-import { n as minimaxPortalMediaUnderstandingProvider, t as minimaxMediaUnderstandingProvider } from "../../media-understanding-provider-Cft8whSN.js";
+import "../../media-understanding-DXKhzmxa.js";
+import { n as minimaxPortalMediaUnderstandingProvider, t as minimaxMediaUnderstandingProvider } from "../../media-understanding-provider-Ct7tMCM1.js";
 export { minimaxMediaUnderstandingProvider, minimaxPortalMediaUnderstandingProvider };
