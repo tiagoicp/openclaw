@@ -3,8 +3,8 @@ import { r as createLazyRuntimeModule } from "../../lazy-runtime-C48wNwsc.js";
 import { c as createScopedChannelConfigAdapter, m as formatTrimmedAllowFromEntries, t as adaptScopedAccountAccessor } from "../../channel-config-helpers-Da4M1Ru3.js";
 import { n as describeAccountSnapshot } from "../../account-helpers-Cq1Zr5oH.js";
 import { t as buildOutboundBaseSessionKey } from "../../base-session-key-p0_-kW2R.js";
-import { n as createChannelPluginBase, o as getChatChannelMeta, r as createChatChannelPlugin } from "../../core-w7kNLu40.js";
-import "../../channel-core-DRGB1UWh.js";
+import { n as createChannelPluginBase, o as getChatChannelMeta, r as createChatChannelPlugin } from "../../core-veIgLISV.js";
+import "../../channel-core-DblnUBax.js";
 import "../../routing-CKtHAXfV.js";
 import { r as createRestrictSendersChannelSecurity } from "../../channel-policy-fpyKQCGQ.js";
 import { a as resolveServicePrefixedChatTarget, i as resolveServicePrefixedAllowTarget, n as parseChatAllowTargetPrefixes, o as resolveServicePrefixedOrChatAllowTarget, r as parseChatTargetPrefixesOrThrow, s as resolveServicePrefixedTarget, t as createAllowedChatSenderMatcher } from "../../channel-targets-DdpMe36e.js";
@@ -15,15 +15,15 @@ import { t as chunkTextForOutbound } from "../../text-chunking-lDajLZMN.js";
 import { n as buildDmGroupAccountAllowlistAdapter } from "../../allowlist-config-edit-CENrHe-Q.js";
 import { n as buildPassiveProbedChannelStatusSummary } from "../../extension-shared-B3txLw6Y.js";
 import { a as listIMessageAccountIds, i as listEnabledIMessageAccounts, n as resolveIMessageAttachmentRoots, o as resolveDefaultIMessageAccountId, r as resolveIMessageRemoteAttachmentRoots, s as resolveIMessageAccount } from "../../media-contract-a3so6Jpt.js";
-import { a as matchIMessageAcpConversation, c as formatIMessageChatTarget, d as looksLikeIMessageExplicitTargetId, f as normalizeIMessageHandle, g as normalizeIMessageMessagingTarget, h as looksLikeIMessageTargetId, i as resolveIMessageInboundConversationId, l as inferIMessageTargetChatType, m as parseIMessageTarget, o as normalizeIMessageAcpConversationId, p as parseIMessageAllowTarget, r as DEFAULT_IMESSAGE_PROBE_TIMEOUT_MS, s as resolveIMessageConversationIdFromTarget, t as probeIMessage, u as isAllowedIMessageSender } from "../../probe-CA4zOQas.js";
+import { a as matchIMessageAcpConversation, c as formatIMessageChatTarget, d as looksLikeIMessageExplicitTargetId, f as normalizeIMessageHandle, g as normalizeIMessageMessagingTarget, h as looksLikeIMessageTargetId, i as resolveIMessageInboundConversationId, l as inferIMessageTargetChatType, m as parseIMessageTarget, o as normalizeIMessageAcpConversationId, p as parseIMessageAllowTarget, r as DEFAULT_IMESSAGE_PROBE_TIMEOUT_MS, s as resolveIMessageConversationIdFromTarget, t as probeIMessage, u as isAllowedIMessageSender } from "../../probe-DKJXW6jK.js";
 import { n as createIMessageConversationBindingManager, t as __testing } from "../../conversation-bindings-Dlc-lt11.js";
 import { n as resolveIMessageGroupToolPolicy, t as resolveIMessageGroupRequireMention } from "../../group-policy-DN6CA2ah.js";
-import { o as imessageSetupAdapter, r as createIMessageSetupWizardProxy, t as IMESSAGE_LEGACY_OUTBOUND_SEND_DEP_KEYS } from "../../outbound-send-deps-DyqduJGt.js";
+import { o as imessageSetupAdapter, r as createIMessageSetupWizardProxy, t as IMESSAGE_LEGACY_OUTBOUND_SEND_DEP_KEYS } from "../../outbound-send-deps-CfRRUd1f.js";
 import { t as IMessageChannelConfigSchema } from "../../config-schema-BKFUYcKZ.js";
 //#region extensions/imessage/src/shared.ts
 const IMESSAGE_CHANNEL = "imessage";
 async function loadIMessageChannelRuntime$1() {
-	return await import("../../channel.runtime-DCYzhN67.js");
+	return await import("../../channel.runtime-BxaSLtRS.js");
 }
 const imessageSetupWizard = createIMessageSetupWizardProxy(async () => (await loadIMessageChannelRuntime$1()).imessageSetupWizard);
 const imessageConfigAdapter = createScopedChannelConfigAdapter({
@@ -104,7 +104,7 @@ async function probeIMessageStatusAccount(params) {
 }
 //#endregion
 //#region extensions/imessage/src/channel.ts
-const loadIMessageChannelRuntime = createLazyRuntimeModule(() => import("../../channel.runtime-DCYzhN67.js"));
+const loadIMessageChannelRuntime = createLazyRuntimeModule(() => import("../../channel.runtime-BxaSLtRS.js"));
 function buildIMessageBaseSessionKey(params) {
 	return buildOutboundBaseSessionKey({
 		...params,

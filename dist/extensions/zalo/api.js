@@ -9,8 +9,8 @@ import { c as createScopedChannelConfigAdapter, h as mapAllowFromEntries, t as a
 import "../../text-runtime-DHfI0VWF.js";
 import { r as describeWebhookAccountSnapshot } from "../../account-helpers-Cq1Zr5oH.js";
 import { n as createStaticReplyToModeResolver } from "../../threading-helpers-COq9h6PI.js";
-import { c as stripTargetKindPrefix, r as createChatChannelPlugin, s as stripChannelTargetPrefix, t as buildChannelOutboundSessionRoute } from "../../core-w7kNLu40.js";
-import "../../channel-core-DRGB1UWh.js";
+import { c as stripTargetKindPrefix, r as createChatChannelPlugin, s as stripChannelTargetPrefix, t as buildChannelOutboundSessionRoute } from "../../core-veIgLISV.js";
+import "../../channel-core-DblnUBax.js";
 import { r as buildSecretInputSchema } from "../../secret-input-BtxKYnNF.js";
 import { t as formatAllowFromLowercase } from "../../allow-from-CULhQTVN.js";
 import "../../channel-config-schema-8omn2SVq.js";
@@ -21,20 +21,20 @@ import { d as createDefaultChannelRuntimeState, o as buildTokenChannelStatusSumm
 import { t as extractToolSend } from "../../tool-send-zAUYZMA_.js";
 import { t as resolveApprovalApprovers } from "../../approval-approvers-CsAy-QoF.js";
 import { t as createResolvedApproverActionAuthAdapter } from "../../approval-auth-helpers-B8V67Elu.js";
-import "../../conversation-runtime-BjYk0Wci.js";
+import "../../conversation-runtime-CvpWuTeT.js";
 import { t as chunkTextForOutbound } from "../../text-chunking-lDajLZMN.js";
 import { i as coerceStatusIssueAccountId, o as readStatusIssueFields } from "../../extension-shared-B3txLw6Y.js";
 import "../../channel-actions-D2Efrf3J.js";
 import { a as createEmptyChannelResult, o as createRawChannelSendResultAdapter } from "../../channel-send-result-Cuc21H78.js";
 import "../../channel-status-Bz9FAEWe.js";
 import { t as zod_exports } from "../../zod-BIW-RsMp.js";
-import { i as resolveZaloAccount, n as listZaloAccountIds, r as resolveDefaultZaloAccountId, t as listEnabledZaloAccounts } from "../../accounts-De5zTbyk.js";
+import { i as resolveZaloAccount, n as listZaloAccountIds, r as resolveDefaultZaloAccountId, t as listEnabledZaloAccounts } from "../../accounts-BUtNyjzZ.js";
 import { n as collectRuntimeConfigAssignments, r as secretTargetRegistryEntries } from "../../secret-contract-CjDf_Zte.js";
-import { n as zaloDmPolicy, r as zaloSetupAdapter, t as createZaloSetupWizardProxy } from "../../setup-core-BuZx-_ba.js";
+import { n as zaloDmPolicy, r as zaloSetupAdapter, t as createZaloSetupWizardProxy } from "../../setup-core-C4s5Duzd.js";
 import { r as resolveZaloRuntimeGroupPolicy, t as evaluateZaloGroupAccess } from "../../group-access-BWLSbS3h.js";
-import { t as zaloSetupWizard } from "../../setup-api-KpVm1ewB.js";
+import { t as zaloSetupWizard } from "../../setup-api-B9ejACf5.js";
 //#region extensions/zalo/src/actions.ts
-const loadZaloActionsRuntime = createLazyRuntimeNamedExport(() => import("../../actions.runtime-G3WLy6EA.js"), "zaloActionsRuntime");
+const loadZaloActionsRuntime = createLazyRuntimeNamedExport(() => import("../../actions.runtime-90X6HYQt.js"), "zaloActionsRuntime");
 const providerId = "zalo";
 function listEnabledAccounts(cfg, accountId) {
 	return (accountId ? [resolveZaloAccount({
@@ -183,8 +183,8 @@ function normalizeZaloMessagingTarget(raw) {
 	if (!trimmed) return;
 	return trimmed.replace(/^(zalo|zl):/i, "").trim();
 }
-const loadZaloChannelRuntime = createLazyRuntimeModule(() => import("../../channel.runtime-BjPec247.js"));
-const zaloSetupWizard$1 = createZaloSetupWizardProxy(async () => (await import("../../setup-surface-jZHLLidD.js")).zaloSetupWizard);
+const loadZaloChannelRuntime = createLazyRuntimeModule(() => import("../../channel.runtime-CnotdMwi.js"));
+const zaloSetupWizard$1 = createZaloSetupWizardProxy(async () => (await import("../../setup-surface-CW2ACQov.js")).zaloSetupWizard);
 const zaloTextChunkLimit = 2e3;
 const zaloRawSendResultAdapter = createRawChannelSendResultAdapter({
 	channel: "zalo",

@@ -7,8 +7,8 @@ import { c as createScopedChannelConfigAdapter, t as adaptScopedAccountAccessor 
 import "../../text-runtime-DHfI0VWF.js";
 import { n as describeAccountSnapshot } from "../../account-helpers-Cq1Zr5oH.js";
 import { t as buildOutboundBaseSessionKey } from "../../base-session-key-p0_-kW2R.js";
-import { n as createChannelPluginBase, o as getChatChannelMeta, r as createChatChannelPlugin } from "../../core-w7kNLu40.js";
-import "../../channel-core-DRGB1UWh.js";
+import { n as createChannelPluginBase, o as getChatChannelMeta, r as createChatChannelPlugin } from "../../core-veIgLISV.js";
+import "../../channel-core-DblnUBax.js";
 import "../../routing-CKtHAXfV.js";
 import { t as resolveMarkdownTableMode } from "../../markdown-tables-BrIMmeqx.js";
 import { r as createRestrictSendersChannelSecurity } from "../../channel-policy-fpyKQCGQ.js";
@@ -21,20 +21,20 @@ import { t as createResolvedApproverActionAuthAdapter } from "../../approval-aut
 import "../../config-runtime-svP9ZomL.js";
 import "../../reply-chunking-DMI133zb.js";
 import "../../outbound-runtime-Ct6SRp91.js";
-import "../../media-runtime-BX5Edo-X.js";
+import "../../media-runtime-CiuGP4f2.js";
 import { n as buildDmGroupAccountAllowlistAdapter } from "../../allowlist-config-edit-CENrHe-Q.js";
 import { n as attachChannelToResults, t as attachChannelToResult } from "../../channel-send-result-Cuc21H78.js";
 import "../../channel-status-Bz9FAEWe.js";
 import { i as resolveSignalAccount, n as listSignalAccountIds, r as resolveDefaultSignalAccountId, t as listEnabledSignalAccounts } from "../../accounts-DyyImrJQ.js";
 import { a as isSignalSenderAllowed, c as resolveSignalRecipient, d as looksLikeSignalTargetId, f as normalizeSignalMessagingTarget, i as isSignalGroupAllowed, l as resolveSignalSender, n as formatSignalSenderDisplay, o as normalizeSignalAllowRecipient, r as formatSignalSenderId, s as resolveSignalPeerId, t as formatSignalPairingIdLine, u as looksLikeUuid } from "../../identity-F33c7nek.js";
-import { a as markdownToSignalTextChunks, i as markdownToSignalText, n as sendReadReceiptSignal, r as sendTypingSignal, t as sendMessageSignal } from "../../send-KrtDoQAQ.js";
-import { n as sendReactionSignal, t as removeReactionSignal } from "../../reaction-runtime-api-DzthbCVD.js";
-import { n as resolveSignalReactionLevel, t as signalMessageActions } from "../../message-actions-DNUWkGLW.js";
+import { a as markdownToSignalTextChunks, i as markdownToSignalText, n as sendReadReceiptSignal, r as sendTypingSignal, t as sendMessageSignal } from "../../send-CTOSEVsG.js";
+import { n as sendReactionSignal, t as removeReactionSignal } from "../../reaction-runtime-api-ZQKTn7bL.js";
+import { n as resolveSignalReactionLevel, t as signalMessageActions } from "../../message-actions-ClTKwhqf.js";
 import { n as createSignalSetupWizardProxy, r as normalizeSignalAccountInput, s as signalSetupAdapter } from "../../setup-core-CpONH8Nm.js";
 import { t as SignalChannelConfigSchema } from "../../config-schema-DOD_okQA.js";
 import { i as pickAsset, n as installSignalCli, r as looksLikeArchive, t as extractSignalCliArchive } from "../../install-signal-cli-CKzG4FHA.js";
-import { t as monitorSignalProvider } from "../../monitor-Dr9m9Ayj.js";
-import { t as probeSignal } from "../../probe-B1Hkyjk0.js";
+import { t as monitorSignalProvider } from "../../monitor-Bv-nY-yI.js";
+import { t as probeSignal } from "../../probe-1bg7tz8e.js";
 //#region extensions/signal/src/approval-auth.ts
 function normalizeSignalApproverId(value) {
 	const normalized = normalizeSignalMessagingTarget(String(value));
@@ -172,15 +172,15 @@ let signalMonitorModulePromise = null;
 let signalProbeModulePromise = null;
 let signalSendRuntimePromise = null;
 async function loadSignalMonitorModule() {
-	signalMonitorModulePromise ??= import("../../monitor-fEgB-Cje.js");
+	signalMonitorModulePromise ??= import("../../monitor-DogHCrxU.js");
 	return await signalMonitorModulePromise;
 }
 async function loadSignalProbeModule() {
-	signalProbeModulePromise ??= import("../../probe-BxRc6gZn.js");
+	signalProbeModulePromise ??= import("../../probe-Kou_bJrt.js");
 	return await signalProbeModulePromise;
 }
 async function loadSignalSendRuntime() {
-	signalSendRuntimePromise ??= import("../../send.runtime-CH7G6a01.js");
+	signalSendRuntimePromise ??= import("../../send.runtime-CdjsTija.js");
 	return await signalSendRuntimePromise;
 }
 async function resolveSignalSendContext(params) {

@@ -1,1 +1,1 @@
-export { buildRandomTempFilePath, createTempDownloadTarget, resolvePreferredOpenClawTmpDir, sanitizeTempFileName, withTempDownloadPath, } from "../infra/temp-download.js";
+export * from "../../../../../dist/plugin-sdk/temp-path.js";

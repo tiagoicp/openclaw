@@ -1,6 +1,6 @@
 import { t as buildOpenAICodexCliBackend } from "../../cli-backend-CZPyf-aO.js";
 import { t as buildOpenAIImageGenerationProvider } from "../../image-generation-provider-DFrn77p8.js";
-import { n as openaiCodexMediaUnderstandingProvider, r as openaiMediaUnderstandingProvider } from "../../media-understanding-provider-BD-vFUOu.js";
+import { n as openaiCodexMediaUnderstandingProvider, r as openaiMediaUnderstandingProvider } from "../../media-understanding-provider-IaW26v2C.js";
 import { t as buildOpenAICodexProviderPlugin } from "../../openai-codex-provider-C-zBti-G.js";
 import { t as buildOpenAIProvider } from "../../openai-provider-hUlWVNAa.js";
 import { a as resolveOpenAIPromptOverlayMode, s as shouldApplyOpenAIPromptOverlay, t as OPENAI_FRIENDLY_PROMPT_OVERLAY } from "../../prompt-overlay-CtxMk6hX.js";

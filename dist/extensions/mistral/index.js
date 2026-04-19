@@ -2,7 +2,7 @@ import { t as defineSingleProviderPluginEntry } from "../../provider-entry-Cn-ad
 import { t as buildMistralProvider } from "../../provider-catalog-C6G48_DJ.js";
 import { n as applyMistralConfig, t as MISTRAL_DEFAULT_MODEL_REF } from "../../onboard-CIctDA1b.js";
 import { i as applyMistralModelCompat } from "../../api-DaKhxj3h.js";
-import { t as mistralMediaUnderstandingProvider } from "../../media-understanding-provider-nHo3Tgpn.js";
+import { t as mistralMediaUnderstandingProvider } from "../../media-understanding-provider-DMWEU2Hh.js";
 import { t as mistralMemoryEmbeddingProviderAdapter } from "../../memory-embedding-adapter-BHZ6JpDX.js";
 import { t as contributeMistralResolvedModelCompat } from "../../provider-compat-Bq_RE3L8.js";
 //#region extensions/mistral/index.ts

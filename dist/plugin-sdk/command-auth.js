@@ -7,7 +7,7 @@ import { n as resolveControlCommandGate, r as resolveDualTextControlCommandGate,
 import { t as resolveCommandAuthorization } from "../command-auth-CeVLR3DW.js";
 import { t as resolveStoredModelOverride } from "../stored-model-override-D_SY6-Bm.js";
 import { n as resolveSkillCommandInvocation, t as listReservedChatSlashCommandNames } from "../skill-commands-base-BonE71N8.js";
-import { a as resolveSenderCommandAuthorization, i as resolveDirectDmAuthorizationOutcome, n as buildCommandsMessagePaginated, o as resolveSenderCommandAuthorizationWithRuntime, r as buildHelpMessage, s as buildCommandsPaginationKeyboard, t as buildCommandsMessage } from "../command-auth-DYBby0CD.js";
+import { a as resolveSenderCommandAuthorization, i as resolveDirectDmAuthorizationOutcome, n as buildCommandsMessagePaginated, o as resolveSenderCommandAuthorizationWithRuntime, r as buildHelpMessage, s as buildCommandsPaginationKeyboard, t as buildCommandsMessage } from "../command-auth-B0ygfrmb.js";
 import { n as resolveInboundDirectDmAccessWithRuntime, t as createPreCryptoDirectDmAuthorizer } from "../direct-dm-access-B45shWwW.js";
 import { t as resolveNativeCommandSessionTargets } from "../native-command-session-targets-CsxYN7bZ.js";
 import { n as listSkillCommandsForWorkspace, t as listSkillCommandsForAgents } from "../skill-commands-BrLfcDDJ.js";

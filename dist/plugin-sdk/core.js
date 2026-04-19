@@ -8,7 +8,7 @@ import { d as resolveThreadSessionKeys } from "../session-key-DO1ve_TS.js";
 import { n as normalizeAccountId, t as DEFAULT_ACCOUNT_ID } from "../account-id-CZtNSGs2.js";
 import { i as parseStrictPositiveInteger } from "../parse-finite-number-DjkcOu1C.js";
 import { n as resolveGlobalDedupeCache, t as createDedupeCache } from "../dedupe-B-9LSQr4.js";
-import { n as delegateCompactionToRuntime, t as buildMemorySystemPromptAddition } from "../delegate-CBvOLB07.js";
+import { n as delegateCompactionToRuntime, t as buildMemorySystemPromptAddition } from "../delegate-LK-5mO_y.js";
 import { c as jsonResult, d as readNumberParam, f as readReactionParams, h as readStringParam, i as createActionGate, p as readStringArrayParam } from "../common-D14k4EfX.js";
 import { i as stringEnum, n as channelTargetsSchema, r as optionalStringEnum, t as channelTargetSchema } from "../typebox-D7chcNzz.js";
 import { a as generateSecureUuid, i as generateSecureToken } from "../secure-random-OMmPARXE.js";
@@ -23,6 +23,6 @@ import { a as readSecretFileSync, i as loadSecretFileSync, o as tryReadSecretFil
 import { n as resolveGatewayBindUrl, t as resolveTailnetHostWithRunner } from "../tailscale-status-R7vmDDxR.js";
 import { n as formatZonedTimestamp } from "../format-datetime-rwEdVs8W.js";
 import { t as resolveConfiguredAcpBindingRecord } from "../persistent-bindings.resolve-ynJybl3O.js";
-import { t as ensureConfiguredAcpBindingReady } from "../persistent-bindings.lifecycle-Bazqow0l.js";
-import { a as defineSetupPluginEntry, c as stripTargetKindPrefix, i as defineChannelPluginEntry, n as createChannelPluginBase, o as getChatChannelMeta, r as createChatChannelPlugin, s as stripChannelTargetPrefix, t as buildChannelOutboundSessionRoute } from "../core-w7kNLu40.js";
+import { t as ensureConfiguredAcpBindingReady } from "../persistent-bindings.lifecycle-6IX5LUvF.js";
+import { a as defineSetupPluginEntry, c as stripTargetKindPrefix, i as defineChannelPluginEntry, n as createChannelPluginBase, o as getChatChannelMeta, r as createChatChannelPlugin, s as stripChannelTargetPrefix, t as buildChannelOutboundSessionRoute } from "../core-veIgLISV.js";
 export { DEFAULT_ACCOUNT_ID, DEFAULT_SECRET_FILE_MAX_BYTES, KeyedAsyncQueue, applyAccountNameToChannelSection, buildAgentSessionKey, buildChannelConfigSchema, buildChannelOutboundSessionRoute, buildMemorySystemPromptAddition, buildPluginConfigSchema, channelTargetSchema, channelTargetsSchema, clearAccountEntryFields, createActionGate, createChannelPluginBase, createChatChannelPlugin, createDedupeCache, createSubsystemLogger, defineChannelPluginEntry, definePluginEntry, defineSetupPluginEntry, delegateCompactionToRuntime, deleteAccountFromConfigSection, emptyChannelConfigSchema, emptyPluginConfigSchema, enqueueKeyedTask, ensureConfiguredAcpBindingReady, formatPairingApproveHint, formatZonedTimestamp, generateSecureToken, generateSecureUuid, getChatChannelMeta, isSecretRef, isTrustedProxyAddress, jsonResult, loadSecretFileSync, migrateBaseNameToDefaultAccount, normalizeAccountId, normalizeAtHashSlug, normalizeHyphenSlug, optionalStringEnum, parseOptionalDelimitedEntries, parseStrictPositiveInteger, readNumberParam, readReactionParams, readSecretFileSync, readStringArrayParam, readStringParam, resolveClientIp, resolveConfiguredAcpBindingRecord, resolveGatewayBindUrl, resolveGatewayPort, resolveGlobalDedupeCache, resolveTailnetHostWithRunner, resolveThreadSessionKeys, setAccountEnabledInConfigSection, stringEnum, stripChannelTargetPrefix, stripTargetKindPrefix, tryReadSecretFileSync };

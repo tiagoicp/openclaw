@@ -1,1 +1,1 @@
-export * from "../memory-host-sdk/events.js";
+export * from "../../../../../dist/plugin-sdk/memory-host-events.js";

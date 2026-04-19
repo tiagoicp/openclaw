@@ -1,2 +1,1 @@
-export * from "../memory-host-sdk/status.js";
-export * from "../memory-host-sdk/dreaming.js";
+export * from "../../../../../dist/plugin-sdk/memory-core-host-status.js";

@@ -24,7 +24,7 @@ import { n as createChannelPairingController } from "../channel-pairing-CP5CQA0B
 import { n as buildBaseChannelStatusSummary, t as buildBaseAccountStatusSnapshot } from "../status-helpers-C-OjDvUo.js";
 import { t as createLoggerBackedRuntime } from "../runtime-logger-BZr47xiT.js";
 import "../runtime-BVru5p2T.js";
-import { n as dispatchInboundReplyWithBase } from "../inbound-reply-dispatch-CK9FZFpH.js";
+import { n as dispatchInboundReplyWithBase } from "../inbound-reply-dispatch-CVuQKs4f.js";
 import { t as chunkTextForOutbound } from "../text-chunking-lDajLZMN.js";
 import "../channel-plugin-common-PtaCHe3b.js";
 import { a as resolveIrcAccount, i as resolveDefaultIrcAccountId, n as ircSetupWizard, r as listIrcAccountIds, t as ircSetupAdapter } from "../irc-surface-DsJPkht6.js";

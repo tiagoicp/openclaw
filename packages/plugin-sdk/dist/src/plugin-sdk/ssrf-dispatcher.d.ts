@@ -1,1 +1,1 @@
-export { closeDispatcher, createPinnedDispatcher, resolvePinnedHostnameWithPolicy, type PinnedDispatcherPolicy, type SsrFPolicy, } from "../infra/net/ssrf.js";
+export * from "../../../../../dist/plugin-sdk/ssrf-dispatcher.js";

@@ -1,1 +1,1 @@
-export { createLazyRuntimeModule, createLazyRuntimeMethod, createLazyRuntimeMethodBinder, createLazyRuntimeNamedExport, createLazyRuntimeSurface, } from "../shared/lazy-runtime.js";
+export * from "../../../../../dist/plugin-sdk/lazy-runtime.js";

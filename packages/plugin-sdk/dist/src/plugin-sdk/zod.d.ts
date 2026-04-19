@@ -1,1 +1,1 @@
-export * from "zod";
+export * from "../../../../../dist/plugin-sdk/zod.js";

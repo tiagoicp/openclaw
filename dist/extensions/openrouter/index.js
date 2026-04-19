@@ -5,7 +5,7 @@ import { t as createProviderApiKeyAuthMethod } from "../../provider-api-key-auth
 import "../../provider-auth-api-key-4eUBG-bI.js";
 import { l as getOpenRouterModelCapabilities, u as loadOpenRouterModelCapabilities } from "../../provider-stream-CMZdYhRI.js";
 import "../../provider-stream-family-8iu_T9bk.js";
-import { t as openrouterMediaUnderstandingProvider } from "../../media-understanding-provider-BNsUOjAt.js";
+import { t as openrouterMediaUnderstandingProvider } from "../../media-understanding-provider-DcBbMeuu.js";
 import { n as applyOpenrouterConfig, t as OPENROUTER_DEFAULT_MODEL_REF } from "../../onboard-BPIXxBcA.js";
 import { n as buildOpenrouterProvider, r as normalizeOpenRouterBaseUrl, t as OPENROUTER_BASE_URL } from "../../provider-catalog-BeqrA9oY.js";
 import { t as wrapOpenRouterProviderStream } from "../../stream-BFwX_qF5.js";

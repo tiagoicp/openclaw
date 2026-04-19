@@ -1,2 +1,1 @@
-export { resolveApprovalApprovers } from "./approval-approvers.js";
-export { createResolvedApproverActionAuthAdapter } from "./approval-auth-helpers.js";
+export * from "../../../../../dist/plugin-sdk/approval-auth-runtime.js";

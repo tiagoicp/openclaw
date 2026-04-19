@@ -5,7 +5,7 @@ import "../../provider-stream-family-8iu_T9bk.js";
 import { a as buildMoonshotProvider, i as applyMoonshotNativeStreamingUsageCompat } from "../../provider-catalog-CQ5__2UY.js";
 import { n as applyMoonshotConfig, r as applyMoonshotConfigCn, t as MOONSHOT_DEFAULT_MODEL_REF } from "../../onboard-H6r5lNBU.js";
 import "../../api-DcOE6eFk.js";
-import { r as moonshotMediaUnderstandingProvider } from "../../media-understanding-provider-D4b24OLD.js";
+import { r as moonshotMediaUnderstandingProvider } from "../../media-understanding-provider-CsC3byYh.js";
 import { t as createKimiWebSearchProvider } from "../../kimi-web-search-provider-DLI26ArL.js";
 var moonshot_default = defineSingleProviderPluginEntry({
 	id: "moonshot",

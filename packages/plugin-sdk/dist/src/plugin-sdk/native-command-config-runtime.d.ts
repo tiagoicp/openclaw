@@ -1,1 +1,1 @@
-export { resolveNativeCommandsEnabled, resolveNativeSkillsEnabled } from "../config/commands.js";
+export * from "../../../../../dist/plugin-sdk/native-command-config-runtime.js";

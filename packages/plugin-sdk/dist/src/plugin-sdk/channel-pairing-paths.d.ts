@@ -1,1 +1,1 @@
-export { resolveChannelAllowFromPath } from "../pairing/allow-from-store-read.js";
+export * from "../../../../../dist/plugin-sdk/channel-pairing-paths.js";

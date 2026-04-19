@@ -7,9 +7,9 @@ import { i as saveSessionStore } from "./store-s411RGdM.js";
 import "./sessions-BCOzc64x.js";
 import { i as resolveSessionFilePath, u as resolveStorePath } from "./paths-CEB5IskJ.js";
 import { t as loadSessionStore } from "./store-load-yJr1Lyde.js";
-import { t as runEmbeddedPiAgent } from "./pi-embedded-runner-DYE5UEzy.js";
+import { t as runEmbeddedPiAgent } from "./pi-embedded-runner-DadJfjsd.js";
 import { t as resolveAgentTimeoutMs } from "./timeout-CrQtoLUW.js";
-import "./pi-embedded-ufQeccVw.js";
+import "./pi-embedded-CQR6tn6c.js";
 //#region src/extensionAPI.ts
 if (process.env.VITEST !== "true" && process.env.OPENCLAW_SUPPRESS_EXTENSION_API_WARNING !== "1") process.emitWarning("openclaw/extension-api is deprecated. Migrate to api.runtime.agent.* or focused openclaw/plugin-sdk/<subpath> imports. See https://docs.openclaw.ai/plugins/sdk-migration", {
 	code: "OPENCLAW_EXTENSION_API_DEPRECATED",

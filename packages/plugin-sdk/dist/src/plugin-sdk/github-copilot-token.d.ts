@@ -1,1 +1,1 @@
-export * from "../agents/github-copilot-token.js";
+export * from "../../../../../dist/plugin-sdk/github-copilot-token.js";

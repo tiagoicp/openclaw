@@ -4,7 +4,7 @@ import { h as toAgentStoreSessionKey, u as resolveAgentIdFromSessionKey, x as pa
 import { a as resolveAgentIdByWorkspacePath, b as resolveAgentWorkspaceDir } from "../../agent-scope-DsH_ZwEW.js";
 import { r as hasInterSessionUserProvenance } from "../../input-provenance-BxHjGXNv.js";
 import { g as writeFileWithinRoot } from "../../fs-safe-C0Kli84w.js";
-import { t as generateSlugViaLLM } from "../../llm-slug-generator-B3DsvNcE.js";
+import { t as generateSlugViaLLM } from "../../llm-slug-generator-CZAsFUiR.js";
 import { r as resolveHookConfig } from "../../config-DNw0Apab.js";
 import path from "node:path";
 import os from "node:os";

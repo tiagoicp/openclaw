@@ -203,7 +203,7 @@ function tryHandleRootHelpFastPath(argv, deps = {}) {
 }
 function runMainOrRootHelp(argv) {
 	if (tryHandleRootHelpFastPath(argv)) return;
-	import("./run-main-0yy7tlhO.js").then(({ runCli }) => runCli(argv)).catch((error) => {
+	import("./run-main-7FsYWDg6.js").then(({ runCli }) => runCli(argv)).catch((error) => {
 		console.error("[openclaw] Failed to start CLI:", error instanceof Error ? error.stack ?? error.message : error);
 		process$1.exitCode = 1;
 	});

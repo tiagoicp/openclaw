@@ -1,1 +1,1 @@
-export { listSkillCommandsForAgents, listSkillCommandsForWorkspace, } from "../auto-reply/skill-commands.js";
+export * from "../../../../../dist/plugin-sdk/skill-commands-runtime.js";

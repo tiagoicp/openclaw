@@ -2,7 +2,7 @@ import { t as defineSingleProviderPluginEntry } from "../../provider-entry-Cn-ad
 import { A as isQwenCodingPlanBaseUrl, h as QWEN_DEFAULT_MODEL_REF, u as QWEN_36_PLUS_MODEL_ID, x as applyQwenNativeStreamingUsageCompat } from "../../models-Bh3berBb.js";
 import { n as buildQwenProvider } from "../../provider-catalog-CmFY_6Rh.js";
 import "../../api-BypRqkiM.js";
-import { t as buildQwenMediaUnderstandingProvider } from "../../media-understanding-provider-DxcxQdlX.js";
+import { t as buildQwenMediaUnderstandingProvider } from "../../media-understanding-provider-BO0AdSnJ.js";
 import { l as applyQwenConfig, m as applyQwenStandardConfigCn, p as applyQwenStandardConfig, u as applyQwenConfigCn } from "../../onboard-C4veUvV0.js";
 import { t as buildQwenVideoGenerationProvider } from "../../video-generation-provider-BAObf3ck.js";
 //#region extensions/qwen/index.ts

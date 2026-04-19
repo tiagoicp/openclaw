@@ -1,6 +1,6 @@
 import { t as definePluginEntry } from "../../plugin-entry-Dzt3gEtQ.js";
 import { n as buildMinimaxPortalImageGenerationProvider, t as buildMinimaxImageGenerationProvider } from "../../image-generation-provider-kJf-K0Cy.js";
-import { n as minimaxPortalMediaUnderstandingProvider, t as minimaxMediaUnderstandingProvider } from "../../media-understanding-provider-CJCxwqQB.js";
+import { n as minimaxPortalMediaUnderstandingProvider, t as minimaxMediaUnderstandingProvider } from "../../media-understanding-provider-CVe7KyQs.js";
 import { t as buildMinimaxMusicGenerationProvider } from "../../music-generation-provider-wY2n4AOz.js";
 import { t as registerMinimaxProviders } from "../../provider-registration-DT3oJgN9.js";
 import { t as buildMinimaxSpeechProvider } from "../../speech-provider-CBE54oZn.js";

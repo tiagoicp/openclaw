@@ -1,1 +1,1 @@
-export { resolveConfiguredAcpBindingRecord } from "../acp/persistent-bindings.resolve.js";
+export * from "../../../../../dist/plugin-sdk/acp-binding-resolve-runtime.js";

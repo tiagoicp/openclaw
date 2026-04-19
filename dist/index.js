@@ -26,7 +26,7 @@ let runExec;
 let saveSessionStore;
 let waitForever;
 async function loadLegacyCliDeps() {
-	const [{ installGaxiosFetchCompat }, { runCli }] = await Promise.all([import("./gaxios-fetch-compat-BPr1GvIc.js"), import("./run-main-0yy7tlhO.js")]);
+	const [{ installGaxiosFetchCompat }, { runCli }] = await Promise.all([import("./gaxios-fetch-compat-BPr1GvIc.js"), import("./run-main-7FsYWDg6.js")]);
 	return {
 		installGaxiosFetchCompat,
 		runCli
@@ -38,7 +38,7 @@ async function runLegacyCliEntry(argv = process.argv, deps) {
 	await runCli(argv);
 }
 const isMain = isMainModule({ currentFile: fileURLToPath(import.meta.url) });
-if (!isMain) ({applyTemplate, createDefaultDeps, deriveSessionKey, describePortOwner, ensureBinary, ensurePortAvailable, getReplyFromConfig, handlePortError, loadConfig, loadSessionStore, monitorWebChannel, normalizeE164, PortInUseError, promptYesNo, resolveSessionKey, resolveStorePath, runCommandWithTimeout, runExec, saveSessionStore, waitForever} = await import("./library-D_1wtXMR.js"));
+if (!isMain) ({applyTemplate, createDefaultDeps, deriveSessionKey, describePortOwner, ensureBinary, ensurePortAvailable, getReplyFromConfig, handlePortError, loadConfig, loadSessionStore, monitorWebChannel, normalizeE164, PortInUseError, promptYesNo, resolveSessionKey, resolveStorePath, runCommandWithTimeout, runExec, saveSessionStore, waitForever} = await import("./library-CgDWmi1_.js"));
 if (isMain) {
 	const { restoreTerminalState } = await import("./restore-Bq3mpjIz.js");
 	installUnhandledRejectionHandler();

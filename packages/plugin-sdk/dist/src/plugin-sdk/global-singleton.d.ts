@@ -1,2 +1,1 @@
-export * from "../shared/global-singleton.js";
-export * from "../shared/scoped-expiring-id-cache.js";
+export * from "../../../../../dist/plugin-sdk/global-singleton.js";

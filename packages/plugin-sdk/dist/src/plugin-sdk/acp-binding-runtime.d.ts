@@ -1,2 +1,1 @@
-export { ensureConfiguredAcpBindingReady } from "../acp/persistent-bindings.lifecycle.js";
-export { resolveConfiguredAcpBindingRecord } from "../acp/persistent-bindings.resolve.js";
+export * from "../../../../../dist/plugin-sdk/acp-binding-runtime.js";

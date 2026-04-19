@@ -5,7 +5,7 @@ import { _ as runSshSandboxCommand, b as createRemoteShellSandboxFsBridge, d as 
 import "../../text-runtime-DHfI0VWF.js";
 import { t as buildPluginConfigSchema } from "../../config-schema-3udNz-jR.js";
 import { t as definePluginEntry } from "../../plugin-entry-Dzt3gEtQ.js";
-import "../../core-w7kNLu40.js";
+import "../../core-veIgLISV.js";
 import { t as runPluginCommandWithTimeout } from "../../run-command-DM_-5kJI.js";
 import "../../sandbox-BEZ5HXCz.js";
 import { t as zod_exports } from "../../zod-BIW-RsMp.js";

@@ -1,1 +1,1 @@
-export { detectZaiEndpoint, type ZaiDetectedEndpoint, type ZaiEndpointId, } from "../plugins/provider-zai-endpoint.js";
+export * from "../../../../../dist/plugin-sdk/provider-zai-endpoint.js";

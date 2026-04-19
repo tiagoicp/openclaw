@@ -9,8 +9,8 @@ import { c as createScopedChannelConfigAdapter, t as adaptScopedAccountAccessor,
 import "../../text-runtime-DHfI0VWF.js";
 import { r as describeWebhookAccountSnapshot } from "../../account-helpers-Cq1Zr5oH.js";
 import { a as createSetupInputPresenceValidator, l as patchScopedAccountConfig, u as prepareScopedSetupConfig } from "../../setup-helpers-DxNOfWja.js";
-import { r as createChatChannelPlugin, s as stripChannelTargetPrefix, t as buildChannelOutboundSessionRoute } from "../../core-w7kNLu40.js";
-import "../../channel-core-DRGB1UWh.js";
+import { r as createChatChannelPlugin, s as stripChannelTargetPrefix, t as buildChannelOutboundSessionRoute } from "../../core-veIgLISV.js";
+import "../../channel-core-DblnUBax.js";
 import { t as createAccountStatusSink } from "../../channel-lifecycle.core-CssCxUOn.js";
 import { n as formatNormalizedAllowFromEntries } from "../../allow-from-CULhQTVN.js";
 import { b as createOpenGroupPolicyRestrictSendersWarningCollector, w as projectAccountWarningCollector } from "../../channel-policy-fpyKQCGQ.js";
@@ -25,11 +25,11 @@ import "../../ssrf-runtime-CFMDGr4_.js";
 import "../../channel-actions-D2Efrf3J.js";
 import "../../channel-lifecycle-BQkPZ6nd.js";
 import "../../channel-status-Bz9FAEWe.js";
-import { A as resolveBlueBubblesAccount, D as isMacOS26OrHigher, I as normalizeBlueBubblesServerUrl, N as resolveDefaultBlueBubblesAccountId, S as parseBlueBubblesTarget, _ as looksLikeBlueBubblesExplicitTargetId, b as normalizeBlueBubblesMessagingTarget, g as isAllowedBlueBubblesSender, h as inferBlueBubblesTargetChatType, j as resolveBlueBubblesEffectiveAllowPrivateNetwork, k as listBlueBubblesAccountIds, p as extractHandleFromChatGuid, t as asRecord, v as looksLikeBlueBubblesTargetId, w as getCachedBlueBubblesPrivateApiStatus, x as parseBlueBubblesAllowTarget, y as normalizeBlueBubblesHandle } from "../../monitor-normalize-D4KeRjz0.js";
+import { A as resolveBlueBubblesAccount, D as isMacOS26OrHigher, I as normalizeBlueBubblesServerUrl, N as resolveDefaultBlueBubblesAccountId, S as parseBlueBubblesTarget, _ as looksLikeBlueBubblesExplicitTargetId, b as normalizeBlueBubblesMessagingTarget, g as isAllowedBlueBubblesSender, h as inferBlueBubblesTargetChatType, j as resolveBlueBubblesEffectiveAllowPrivateNetwork, k as listBlueBubblesAccountIds, p as extractHandleFromChatGuid, t as asRecord, v as looksLikeBlueBubblesTargetId, w as getCachedBlueBubblesPrivateApiStatus, x as parseBlueBubblesAllowTarget, y as normalizeBlueBubblesHandle } from "../../monitor-normalize-BJ7lGB9N.js";
 import "../../secret-input-BbyPbe8m.js";
 import { t as BlueBubblesChannelConfigSchema } from "../../config-schema-D2dgvWio.js";
 import { n as createBlueBubblesConversationBindingManager, t as __testing } from "../../conversation-bindings-A2IQIRIT.js";
-import { a as resolveBlueBubblesConversationIdFromTarget, i as normalizeBlueBubblesAcpConversationId, o as resolveBlueBubblesInboundConversationId, r as matchBlueBubblesAcpConversation, t as DEFAULT_WEBHOOK_PATH } from "../../webhook-shared-CtpoJkoO.js";
+import { a as resolveBlueBubblesConversationIdFromTarget, i as normalizeBlueBubblesAcpConversationId, o as resolveBlueBubblesInboundConversationId, r as matchBlueBubblesAcpConversation, t as DEFAULT_WEBHOOK_PATH } from "../../webhook-shared-_ysJO_Mp.js";
 import { n as resolveBlueBubblesGroupToolPolicy, t as resolveBlueBubblesGroupRequireMention } from "../../group-policy-hl9H0PZG.js";
 import { n as collectRuntimeConfigAssignments, r as secretTargetRegistryEntries } from "../../secret-contract-Y8QVNjjb.js";
 //#region extensions/bluebubbles/src/actions-contract.ts
@@ -67,7 +67,7 @@ const BLUEBUBBLES_ACTIONS = {
 const BLUEBUBBLES_ACTION_NAMES = Object.keys(BLUEBUBBLES_ACTIONS);
 //#endregion
 //#region extensions/bluebubbles/src/actions.ts
-const loadBlueBubblesActionsRuntime = createLazyRuntimeNamedExport(() => import("../../actions.runtime-W2gf5c2C.js"), "blueBubblesActionsRuntime");
+const loadBlueBubblesActionsRuntime = createLazyRuntimeNamedExport(() => import("../../actions.runtime-DIzxm7UD.js"), "blueBubblesActionsRuntime");
 const providerId = "bluebubbles";
 function mapTarget(raw) {
 	const parsed = parseBlueBubblesTarget(raw);
@@ -868,7 +868,7 @@ function collectBlueBubblesStatusIssues(accounts) {
 }
 //#endregion
 //#region extensions/bluebubbles/src/channel.ts
-const loadBlueBubblesChannelRuntime = createLazyRuntimeNamedExport(() => import("../../channel.runtime-rqo0FpXr.js"), "blueBubblesChannelRuntime");
+const loadBlueBubblesChannelRuntime = createLazyRuntimeNamedExport(() => import("../../channel.runtime-CKujNNyC.js"), "blueBubblesChannelRuntime");
 const resolveBlueBubblesDmPolicy = createScopedDmSecurityResolver({
 	channelKey: "bluebubbles",
 	resolvePolicy: (account) => account.config.dmPolicy,

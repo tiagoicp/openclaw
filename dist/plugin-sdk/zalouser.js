@@ -24,7 +24,7 @@ import { t as formatResolvedUnresolvedNote } from "../setup-C59mEjks.js";
 import { t as createOptionalChannelSetupSurface } from "../channel-setup-4NOmjXiO.js";
 import { t as loadOutboundMediaFromUrl } from "../outbound-media-V1H6_xDA.js";
 import { t as chunkTextForOutbound } from "../text-chunking-lDajLZMN.js";
-import { a as resolveSenderCommandAuthorization } from "../command-auth-DYBby0CD.js";
+import { a as resolveSenderCommandAuthorization } from "../command-auth-B0ygfrmb.js";
 import { r as buildChannelSendResult } from "../channel-send-result-Cuc21H78.js";
 import { t as resolveChannelAccountConfigBasePath } from "../config-paths-CK_0LkXr.js";
 //#region src/plugin-sdk/zalouser.ts

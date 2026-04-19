@@ -1,2 +1,1 @@
-export { coerceSecretRef } from "../config/types.secrets.js";
-export type { SecretInput, SecretRef } from "../config/types.secrets.js";
+export * from "../../../../../dist/plugin-sdk/secret-ref-runtime.js";

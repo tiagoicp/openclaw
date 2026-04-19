@@ -1,4 +1,4 @@
-import { a as describeMattermostAccount, c as mattermostMeta, i as MattermostChannelConfigSchema, n as mattermostSetupWizard, o as isMattermostConfigured, r as mattermostSetupAdapter, s as mattermostConfigAdapter, t as mattermostPlugin } from "../../channel-plugin-runtime-kQroe-_d.js";
+import { a as describeMattermostAccount, c as mattermostMeta, i as MattermostChannelConfigSchema, n as mattermostSetupWizard, o as isMattermostConfigured, r as mattermostSetupAdapter, s as mattermostConfigAdapter, t as mattermostPlugin } from "../../channel-plugin-runtime-DKe3srsJ.js";
 import { t as resolveMattermostGatewayAuthBypassPaths } from "../../gateway-auth-bypass-CKceYRfn.js";
 //#region extensions/mattermost/src/channel.setup.ts
 const mattermostSetupPlugin = {

@@ -1,1 +1,1 @@
-export { generateImage, listRuntimeImageGenerationProviders, type GenerateImageParams, type GenerateImageRuntimeResult, } from "../image-generation/runtime.js";
+export * from "../../../../../dist/plugin-sdk/image-generation-runtime.js";

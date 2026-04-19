@@ -1,2 +1,1 @@
-export { resolveOAuthDir, resolveStateDir, STATE_DIR } from "../config/paths.js";
-export { resolveRequiredHomeDir } from "../infra/home-dir.js";
+export * from "../../../../../dist/plugin-sdk/state-paths.js";

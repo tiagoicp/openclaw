@@ -2,7 +2,7 @@ import { a as buildProviderToolCompatFamilyHooks } from "../../provider-tools-Cp
 import { t as definePluginEntry } from "../../plugin-entry-Dzt3gEtQ.js";
 import { t as buildOpenAICodexCliBackend } from "../../cli-backend-CZPyf-aO.js";
 import { t as buildOpenAIImageGenerationProvider } from "../../image-generation-provider-DFrn77p8.js";
-import { n as openaiCodexMediaUnderstandingProvider, r as openaiMediaUnderstandingProvider } from "../../media-understanding-provider-BD-vFUOu.js";
+import { n as openaiCodexMediaUnderstandingProvider, r as openaiMediaUnderstandingProvider } from "../../media-understanding-provider-IaW26v2C.js";
 import { t as openAiMemoryEmbeddingProviderAdapter } from "../../memory-embedding-adapter-C1Xk0FT2.js";
 import { t as buildOpenAICodexProviderPlugin } from "../../openai-codex-provider-C-zBti-G.js";
 import { t as buildOpenAIProvider } from "../../openai-provider-hUlWVNAa.js";

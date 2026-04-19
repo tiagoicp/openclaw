@@ -9,9 +9,9 @@ import { i as resolveMainSessionKey, n as resolveAgentMainSessionKey } from "../
 import { u as resolveStorePath } from "../../paths-CEB5IskJ.js";
 import { t as loadSessionStore } from "../../store-load-yJr1Lyde.js";
 import { n as SILENT_REPLY_TOKEN } from "../../tokens-BC6Cn5aq.js";
-import { n as agentCommand } from "../../agent-command-lK8nwaZ7.js";
+import { n as agentCommand } from "../../agent-command-CaP8ld3q.js";
 import { t as createDefaultDeps } from "../../deps-D7L1GCOT.js";
-import "../../agent-BABfAFvH.js";
+import "../../agent-X553rQp9.js";
 import path from "node:path";
 import fs from "node:fs/promises";
 import crypto from "node:crypto";

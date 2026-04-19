@@ -1,2 +1,1 @@
-export { resolveMarkdownTableMode } from "../config/markdown-tables.js";
-export type { MarkdownTableMode } from "../config/types.base.js";
+export * from "../../../../../dist/plugin-sdk/markdown-table-runtime.js";

@@ -3,7 +3,7 @@ import { i as buildNestedDmConfigSchema, n as buildCatchallMultiAccountChannelSc
 import { c as ToolPolicySchema } from "../zod-schema.agent-runtime-DR2c4w8l.js";
 import { a as SignalConfigSchema, i as MSTeamsConfigSchema, n as GoogleChatConfigSchema, o as SlackConfigSchema, r as IMessageConfigSchema, s as TelegramConfigSchema, t as DiscordConfigSchema } from "../zod-schema.providers-core-B5o6Ezgb.js";
 import { t as WhatsAppConfigSchema } from "../zod-schema.providers-whatsapp-7UcbYosq.js";
-import { n as delegateCompactionToRuntime, t as buildMemorySystemPromptAddition } from "../delegate-CBvOLB07.js";
+import { n as delegateCompactionToRuntime, t as buildMemorySystemPromptAddition } from "../delegate-LK-5mO_y.js";
 import { r as onDiagnosticEvent } from "../diagnostic-events-DSB02kdj.js";
 import { i as resolveToolsBySender, n as resolveChannelGroupRequireMention, r as resolveChannelGroupToolsPolicy } from "../group-policy-CNAy4Tvq.js";
 import { a as createHybridChannelConfigAdapter, c as createScopedChannelConfigAdapter, d as createTopLevelChannelConfigAdapter, f as createTopLevelChannelConfigBase, h as mapAllowFromEntries, l as createScopedChannelConfigBase, o as createHybridChannelConfigBase, s as createScopedAccountConfigAccessors, u as createScopedDmSecurityResolver } from "../channel-config-helpers-Da4M1Ru3.js";

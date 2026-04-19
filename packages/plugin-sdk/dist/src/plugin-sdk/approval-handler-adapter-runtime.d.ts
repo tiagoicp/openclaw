@@ -1,1 +1,1 @@
-export { CHANNEL_APPROVAL_NATIVE_RUNTIME_CONTEXT_CAPABILITY, createLazyChannelApprovalNativeRuntimeAdapter, } from "../infra/approval-handler-adapter-runtime.js";
+export * from "../../../../../dist/plugin-sdk/approval-handler-adapter-runtime.js";

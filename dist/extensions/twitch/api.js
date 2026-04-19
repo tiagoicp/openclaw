@@ -8,8 +8,8 @@ import { n as normalizeAccountId, t as DEFAULT_ACCOUNT_ID } from "../../account-
 import "../../text-runtime-DHfI0VWF.js";
 import { n as describeAccountSnapshot } from "../../account-helpers-Cq1Zr5oH.js";
 import { n as emptyPluginConfigSchema } from "../../config-schema-3udNz-jR.js";
-import { r as createChatChannelPlugin } from "../../core-w7kNLu40.js";
-import "../../channel-core-DRGB1UWh.js";
+import { r as createChatChannelPlugin } from "../../core-veIgLISV.js";
+import "../../channel-core-DblnUBax.js";
 import "../../error-runtime-D3bX8zTc.js";
 import "../../channel-config-schema-8omn2SVq.js";
 import { t as createChannelReplyPipeline } from "../../channel-reply-pipeline-bDWUO7XT.js";
@@ -21,7 +21,7 @@ import { n as twitchSetupWizard, t as twitchSetupAdapter } from "../../twitch-BN
 import { t as zod_exports } from "../../zod-BIW-RsMp.js";
 import "../../runtime-api-CXW-__JI.js";
 import { a as normalizeTwitchChannel, i as normalizeToken, n as isAccountConfigured, o as resolveTwitchToken, r as missingTargetError, t as generateMessageId } from "../../twitch-DadiYvRE.js";
-import { a as getAccountConfig, c as resolveTwitchAccountContext, i as DEFAULT_ACCOUNT_ID$1, l as resolveTwitchSnapshotAccountId, o as listAccountIds, r as twitchSetupWizard$1, s as resolveDefaultTwitchAccountId, t as twitchSetupAdapter$1 } from "../../setup-surface-CvumYb5_.js";
+import { a as getAccountConfig, c as resolveTwitchAccountContext, i as DEFAULT_ACCOUNT_ID$1, l as resolveTwitchSnapshotAccountId, o as listAccountIds, r as twitchSetupWizard$1, s as resolveDefaultTwitchAccountId, t as twitchSetupAdapter$1 } from "../../setup-surface-C_MZW4Wi.js";
 import { A as DataObject, C as transformTwitchApiResponse, D as HellFreezesOverError, E as extractUserName, F as mapOptional, I as arrayToObject, L as Enumerable, M as accessTokenIsExpired, N as promiseWithResolvers, O as rtfm, P as mapNullable, S as handleTwitchApiResponseError, T as extractUserId, _ as EventEmitter, a as getClientManager, b as callTwitchApi, c as ChatClient, d as PartitionedTimeBasedRateLimiter, f as RateLimitReachedError, g as StaticAuthProvider, h as require_detect_node, i as stripMarkdownForTwitch, j as rawDataSymbol, k as CustomError, l as CachedGetter, m as createLogger$1, n as setTwitchRuntime, p as CustomError$1, r as chunkTextForTwitch, s as removeClientManager, u as Cacheable, v as TokenInfo, w as HttpStatusCodeError, x as callTwitchApiRaw, y as InvalidTokenError } from "../../runtime-CQ6hdFk5.js";
 import { a as __read, n as __decorate, o as __spreadArray, s as init_tslib_es6 } from "../../tslib.es6-yo54c8LC.js";
 //#region node_modules/@d-fischer/shared-utils/es/functions/array/flatten.mjs

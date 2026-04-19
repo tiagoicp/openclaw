@@ -53,7 +53,7 @@ const ZAI_AUTH_ERROR_PATTERNS = [
 
 const ERROR_PATTERNS = {
   rateLimit: [
-    /rate[_ ]limit|too many requests|429/,
+    /rate[_ ]limit|too many requests|rate increased|429/,
     /too many (?:concurrent )?requests/i,
     /throttling(?:exception)?/i,
     "model_cooldown",

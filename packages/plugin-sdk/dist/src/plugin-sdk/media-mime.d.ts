@@ -1,1 +1,1 @@
-export { detectMime, extensionForMime, getFileExtension, normalizeMimeType, } from "../media/mime.js";
+export * from "../../../../../dist/plugin-sdk/media-mime.js";

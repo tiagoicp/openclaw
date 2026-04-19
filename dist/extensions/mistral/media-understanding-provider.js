@@ -1,2 +1,2 @@
-import { t as mistralMediaUnderstandingProvider } from "../../media-understanding-provider-nHo3Tgpn.js";
+import { t as mistralMediaUnderstandingProvider } from "../../media-understanding-provider-DMWEU2Hh.js";
 export { mistralMediaUnderstandingProvider };

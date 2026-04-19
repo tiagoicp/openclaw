@@ -1,2 +1,1 @@
-export type { LogFn } from "../channels/logging.js";
-export { logAckFailure, logInboundDrop, logTypingFailure } from "../channels/logging.js";
+export * from "../../../../../dist/plugin-sdk/channel-logging.js";

@@ -4,7 +4,7 @@ import { n as normalizeAccountId, t as DEFAULT_ACCOUNT_ID } from "../account-id-
 import { n as resolveNormalizedAccountEntry } from "../account-lookup-CqHPlKDA.js";
 import "../account-core-BovahHzV.js";
 import { o as tryReadSecretFileSync } from "../secret-file-D3S7BSeN.js";
-import "../channel-core-DRGB1UWh.js";
+import "../channel-core-DblnUBax.js";
 import "../provider-auth-BfmcRQmu.js";
 import "../routing-CKtHAXfV.js";
 import "../secret-input-BtxKYnNF.js";

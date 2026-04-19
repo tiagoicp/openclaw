@@ -1,1 +1,1 @@
-export type { BedrockDiscoveryConfig, ModelApi, ModelCompatConfig, ModelDefinitionConfig, ModelProviderConfig, } from "../config/types.models.js";
+export * from "../../../../../dist/plugin-sdk/provider-model-types.js";

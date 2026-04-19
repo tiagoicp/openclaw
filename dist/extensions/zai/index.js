@@ -14,7 +14,7 @@ import "../../provider-stream-family-8iu_T9bk.js";
 import { a as resolveLegacyPiAgentAccessToken } from "../../provider-usage.shared-DMa2CU01.js";
 import { t as fetchZaiUsage } from "../../provider-usage-C5h_x8Ai.js";
 import { t as detectZaiEndpoint } from "../../detect-CyDQBR55.js";
-import { t as zaiMediaUnderstandingProvider } from "../../media-understanding-provider-_fn_LIOv.js";
+import { t as zaiMediaUnderstandingProvider } from "../../media-understanding-provider-DQBIk6AK.js";
 import { c as buildZaiModelDefinition } from "../../model-definitions-DNr6SQFQ.js";
 import { n as applyZaiConfig, r as applyZaiProviderConfig, t as ZAI_DEFAULT_MODEL_REF } from "../../onboard-Bq1S5BDC2.js";
 //#region extensions/zai/index.ts
