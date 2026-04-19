@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/account-resolution.js";
+export * from "./account-core.js";

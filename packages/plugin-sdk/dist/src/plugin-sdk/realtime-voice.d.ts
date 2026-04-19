@@ -1,1 +1,3 @@
-export * from "../../../../../dist/plugin-sdk/realtime-voice.js";
+export type { RealtimeVoiceProviderPlugin } from "../plugins/types.js";
+export type { RealtimeVoiceBridge, RealtimeVoiceBridgeCallbacks, RealtimeVoiceBridgeCreateRequest, RealtimeVoiceCloseReason, RealtimeVoiceProviderConfig, RealtimeVoiceProviderConfiguredContext, RealtimeVoiceProviderId, RealtimeVoiceProviderResolveConfigContext, RealtimeVoiceRole, RealtimeVoiceTool, RealtimeVoiceToolCallEvent, } from "../realtime-voice/provider-types.js";
+export { canonicalizeRealtimeVoiceProviderId, getRealtimeVoiceProvider, listRealtimeVoiceProviders, normalizeRealtimeVoiceProviderId, } from "../realtime-voice/provider-registry.js";

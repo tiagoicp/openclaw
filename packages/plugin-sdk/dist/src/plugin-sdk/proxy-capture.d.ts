@@ -1,1 +1,4 @@
-export * from "../../../../../dist/plugin-sdk/proxy-capture.js";
+export { createDebugProxyWebSocketAgent, resolveDebugProxySettings, resolveEffectiveDebugProxyUrl, } from "../proxy-capture/env.js";
+export { DebugProxyCaptureStore, getDebugProxyCaptureStore, } from "../proxy-capture/store.sqlite.js";
+export { captureHttpExchange, captureWsEvent, isDebugProxyGlobalFetchPatchInstalled, } from "../proxy-capture/runtime.js";
+export type { CaptureEventRecord, CaptureQueryPreset, CaptureQueryRow, CaptureSessionSummary, } from "../proxy-capture/types.js";

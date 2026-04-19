@@ -1,1 +1,4 @@
-export * from "../../../../../dist/plugin-sdk/provider-web-search-config-contract.js";
+import type { WebSearchCredentialResolutionSource, WebSearchProviderSetupContext, WebSearchProviderPlugin, WebSearchProviderToolDefinition } from "../plugins/types.js";
+export { getScopedCredentialValue, getTopLevelCredentialValue, mergeScopedSearchConfig, resolveProviderWebSearchPluginConfig, setScopedCredentialValue, setProviderWebSearchPluginConfigValue, setTopLevelCredentialValue, } from "../agents/tools/web-search-provider-config.js";
+export { createBaseWebSearchProviderContractFields as createWebSearchProviderContractFields } from "./provider-web-search-contract-fields.js";
+export type { WebSearchCredentialResolutionSource, WebSearchProviderSetupContext, WebSearchProviderPlugin, WebSearchProviderToolDefinition, };

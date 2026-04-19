@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/approval-gateway-runtime.js";
+export { resolveApprovalOverGateway } from "../infra/approval-gateway-resolver.js";

@@ -1,1 +1,5 @@
-export * from "../../../../../dist/plugin-sdk/command-auth-native.js";
+export { buildCommandTextFromArgs, findCommandByNativeName, listNativeCommandSpecs, listNativeCommandSpecsForConfig, parseCommandArgs, resolveCommandArgMenu, } from "../auto-reply/commands-registry.js";
+export type { CommandArgs } from "../auto-reply/commands-registry.js";
+export { resolveCommandAuthorizedFromAuthorizers, resolveControlCommandGate, } from "../channels/command-gating.js";
+export { resolveNativeCommandSessionTargets } from "../channels/native-command-session-targets.js";
+export { resolveCommandAuthorization, type CommandAuthorization, } from "../auto-reply/command-auth.js";

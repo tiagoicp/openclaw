@@ -1,1 +1,2 @@
-export * from "../../../../../dist/plugin-sdk/channel-mention-gating.js";
+export type { InboundImplicitMentionKind, InboundMentionDecision, InboundMentionFacts, InboundMentionPolicy, MentionGateParams, MentionGateResult, MentionGateWithBypassParams, MentionGateWithBypassResult, ResolveInboundMentionDecisionFlatParams, ResolveInboundMentionDecisionNestedParams, ResolveInboundMentionDecisionParams, } from "../channels/mention-gating.js";
+export { implicitMentionKindWhen, resolveInboundMentionDecision, resolveMentionGating, resolveMentionGatingWithBypass, } from "../channels/mention-gating.js";

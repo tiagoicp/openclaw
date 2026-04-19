@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/response-limit-runtime.js";
+export { readResponseWithLimit } from "../media/read-response-with-limit.js";

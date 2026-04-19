@@ -1,1 +1,3 @@
-export * from "../../../../../dist/plugin-sdk/command-status-runtime.js";
+type CommandStatusRuntime = typeof import("./command-status.runtime.js");
+export type { ResolveDirectStatusReplyForSessionParams } from "./command-status.runtime.js";
+export declare const resolveDirectStatusReplyForSession: CommandStatusRuntime["resolveDirectStatusReplyForSession"];

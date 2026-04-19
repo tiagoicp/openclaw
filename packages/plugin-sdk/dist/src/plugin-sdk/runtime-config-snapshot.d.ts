@@ -1,1 +1,2 @@
-export * from "../../../../../dist/plugin-sdk/runtime-config-snapshot.js";
+export { getRuntimeConfigSnapshot } from "../config/runtime-snapshot.js";
+export type { OpenClawConfig } from "../config/types.js";

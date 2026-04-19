@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/runtime-fetch.js";
+export { fetchWithRuntimeDispatcher, fetchWithRuntimeDispatcherOrMockedGlobal, isMockedFetch, type DispatcherAwareRequestInit, } from "../infra/net/runtime-fetch.js";

@@ -1,1 +1,2 @@
-export * from "../../../../../dist/plugin-sdk/poll-runtime.js";
+export type { NormalizedPollInput, PollInput } from "../polls.js";
+export { normalizePollDurationHours, normalizePollInput, resolvePollMaxSelections, } from "../polls.js";

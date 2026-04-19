@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/string-normalization-runtime.js";
+export { normalizeAtHashSlug, normalizeHyphenSlug, normalizeStringEntries, normalizeStringEntriesLower, } from "../shared/string-normalization.js";

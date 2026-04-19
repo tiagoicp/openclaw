@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/channel-secret-tts-runtime.js";
+export { collectNestedChannelTtsAssignments } from "../secrets/channel-secret-tts-runtime.js";

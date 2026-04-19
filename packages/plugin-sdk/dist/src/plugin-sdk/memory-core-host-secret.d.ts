@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/memory-core-host-secret.js";
+export * from "../memory-host-sdk/secret.js";

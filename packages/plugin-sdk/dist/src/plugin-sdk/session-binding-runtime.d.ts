@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/session-binding-runtime.js";
+export { __testing, getSessionBindingService, registerSessionBindingAdapter, type SessionBindingRecord, type SessionBindingService, } from "../infra/outbound/session-binding-service.js";

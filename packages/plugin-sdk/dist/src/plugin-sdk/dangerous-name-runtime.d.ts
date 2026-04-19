@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/dangerous-name-runtime.js";
+export { isDangerousNameMatchingEnabled, resolveDangerousNameMatchingEnabled, } from "../config/dangerous-name-matching.js";

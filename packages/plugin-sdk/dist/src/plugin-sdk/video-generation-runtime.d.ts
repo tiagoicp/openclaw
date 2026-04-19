@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/video-generation-runtime.js";
+export { generateVideo, listRuntimeVideoGenerationProviders, type GenerateVideoParams, type GenerateVideoRuntimeResult, } from "../video-generation/runtime.js";

@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/text-autolink-runtime.js";
+export { isAutoLinkedFileRef } from "../shared/text/auto-linked-file-ref.js";

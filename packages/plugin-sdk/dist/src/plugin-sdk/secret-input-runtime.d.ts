@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/secret-input-runtime.js";
+export { coerceSecretRef, hasConfiguredSecretInput, isSecretRef, normalizeResolvedSecretInputString, normalizeSecretInputString, resolveSecretInputString, type SecretInput, type SecretInputStringResolution, type SecretInputStringResolutionMode, } from "../config/types.secrets.js";

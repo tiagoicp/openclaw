@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/music-generation.js";
+export type { GeneratedMusicAsset, MusicGenerationEditCapabilities, MusicGenerationMode, MusicGenerationModeCapabilities, MusicGenerationProvider, MusicGenerationProviderCapabilities, MusicGenerationRequest, MusicGenerationResult, MusicGenerationSourceImage, MusicGenerationOutputFormat, } from "../music-generation/types.js";

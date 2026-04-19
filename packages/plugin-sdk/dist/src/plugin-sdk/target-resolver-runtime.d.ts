@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/target-resolver-runtime.js";
+export { buildUnresolvedTargetResults, resolveTargetsWithOptionalToken, } from "../channels/plugins/target-resolvers.js";

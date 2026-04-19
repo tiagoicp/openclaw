@@ -1,1 +1,2 @@
-export * from "../../../../../dist/plugin-sdk/context-visibility-runtime.js";
+export { resolveChannelContextVisibilityMode, resolveDefaultContextVisibility, } from "../config/context-visibility.js";
+export { evaluateSupplementalContextVisibility, filterSupplementalContextItems, shouldIncludeSupplementalContext, type ContextVisibilityDecision, type ContextVisibilityDecisionReason, type ContextVisibilityKind, } from "../security/context-visibility.js";

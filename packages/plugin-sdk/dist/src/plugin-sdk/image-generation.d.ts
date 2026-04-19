@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/image-generation.js";
+export type { GeneratedImageAsset, ImageGenerationProvider, ImageGenerationProviderConfiguredContext, ImageGenerationResolution, ImageGenerationRequest, ImageGenerationResult, ImageGenerationSourceImage, } from "../image-generation/types.js";

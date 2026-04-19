@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/process-runtime.js";
+export * from "../process/exec.js";

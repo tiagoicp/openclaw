@@ -1,1 +1,2 @@
-export * from "../../../../../dist/plugin-sdk/simple-completion-runtime.js";
+export * from "../agents/simple-completion-runtime.js";
+export { extractAssistantText } from "../agents/pi-embedded-utils.js";

@@ -1,1 +1,2 @@
-export * from "../../../../../dist/plugin-sdk/diagnostic-runtime.js";
+export { isDiagnosticFlagEnabled } from "../infra/diagnostic-flags.js";
+export { isDiagnosticsEnabled } from "../infra/diagnostic-events.js";

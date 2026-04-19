@@ -1,1 +1,2 @@
-export * from "../../../../../dist/plugin-sdk/channel-location.js";
+export type { LocationSource, NormalizedLocation } from "../channels/location.js";
+export { formatLocationText, toLocationContext } from "../channels/location.js";

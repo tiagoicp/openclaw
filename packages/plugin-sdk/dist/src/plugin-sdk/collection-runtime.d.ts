@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/collection-runtime.js";
+export { pruneMapToMaxSize } from "../infra/map-size.js";

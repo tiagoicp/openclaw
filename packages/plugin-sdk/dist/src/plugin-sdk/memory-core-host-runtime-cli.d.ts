@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/memory-core-host-runtime-cli.js";
+export * from "../memory-host-sdk/runtime-cli.js";

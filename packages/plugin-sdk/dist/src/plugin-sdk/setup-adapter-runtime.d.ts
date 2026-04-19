@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/setup-adapter-runtime.js";
+export { createEnvPatchedAccountSetupAdapter } from "../channels/plugins/setup-helpers.js";

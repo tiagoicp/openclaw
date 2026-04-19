@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/channel-inbound-roots.js";
+export { mergeInboundPathRoots } from "../media/inbound-path-policy.js";

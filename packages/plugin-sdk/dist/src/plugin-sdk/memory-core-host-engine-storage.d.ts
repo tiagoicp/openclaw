@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/memory-core-host-engine-storage.js";
+export * from "../memory-host-sdk/engine-storage.js";

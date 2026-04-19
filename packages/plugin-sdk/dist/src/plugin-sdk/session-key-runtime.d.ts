@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/session-key-runtime.js";
+export { resolveAgentIdFromSessionKey, type ParsedAgentSessionKey, } from "../routing/session-key.js";

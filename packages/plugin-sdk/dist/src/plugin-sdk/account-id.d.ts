@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/account-id.js";
+export { DEFAULT_ACCOUNT_ID, normalizeAccountId, normalizeOptionalAccountId, } from "../routing/account-id.js";

@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/command-surface.js";
+export { normalizeCommandBody, shouldHandleTextCommands } from "../auto-reply/commands-registry.js";

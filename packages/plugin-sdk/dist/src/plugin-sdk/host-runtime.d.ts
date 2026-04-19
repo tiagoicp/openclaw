@@ -1,1 +1,2 @@
-export * from "../../../../../dist/plugin-sdk/host-runtime.js";
+export { normalizeHostname } from "../infra/net/hostname.ts";
+export { normalizeScpRemoteHost } from "../infra/scp-host.ts";

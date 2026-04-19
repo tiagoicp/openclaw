@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/approval-delivery-runtime.js";
+export { createApproverRestrictedNativeApprovalAdapter, createApproverRestrictedNativeApprovalCapability, createChannelApprovalCapability, splitChannelApprovalCapability, } from "./approval-delivery-helpers.js";

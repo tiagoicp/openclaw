@@ -1,1 +1,1 @@
-export * from "../../../../../dist/plugin-sdk/provider-stream-family.js";
+export * from "./provider-stream.js";
