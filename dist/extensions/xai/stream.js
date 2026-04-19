@@ -1,2 +1,2 @@
-import { n as createXaiToolPayloadCompatibilityWrapper, t as createXaiToolCallArgumentDecodingWrapper } from "../../stream-WNyIq00o.js";
-export { createXaiToolCallArgumentDecodingWrapper, createXaiToolPayloadCompatibilityWrapper };
+import { i as wrapXaiProviderStream, n as createXaiToolCallArgumentDecodingWrapper, r as createXaiToolPayloadCompatibilityWrapper, t as createXaiFastModeWrapper } from "../../stream-D5IfxwZG.js";
+export { createXaiFastModeWrapper, createXaiToolCallArgumentDecodingWrapper, createXaiToolPayloadCompatibilityWrapper, wrapXaiProviderStream };

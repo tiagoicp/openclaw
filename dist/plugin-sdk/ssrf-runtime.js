@@ -1,5 +1,7 @@
-import "../ip-ByO4-_4f.js";
-import { d as resolvePinnedHostnameWithPolicy, i as createPinnedDispatcher, r as closeDispatcher } from "../ssrf-BdAu1_OT.js";
-import { a as ssrfPolicyFromAllowPrivateNetwork, t as assertHttpUrlTargetsPrivateNetwork } from "../ssrf-policy-Cve-f-IZ.js";
-import "../ssrf-runtime-Dtygnkht.js";
-export { assertHttpUrlTargetsPrivateNetwork, closeDispatcher, createPinnedDispatcher, resolvePinnedHostnameWithPolicy, ssrfPolicyFromAllowPrivateNetwork };
+import { i as formatErrorMessage } from "../errors-D8p6rxH8.js";
+import { s as isPrivateOrLoopbackHost } from "../net-lBInRHnX.js";
+import { a as createPinnedDispatcher, c as isBlockedHostnameOrIp, h as resolvePinnedHostnameWithPolicy, i as closeDispatcher, m as resolvePinnedHostname } from "../ssrf-Bo89T4pz.js";
+import { n as fetchWithSsrFGuard } from "../fetch-guard-vsxyWoE4.js";
+import { d as ssrfPolicyFromPrivateNetworkOptIn, i as hasLegacyFlatAllowPrivateNetworkAlias, l as ssrfPolicyFromAllowPrivateNetwork, n as buildHostnameAllowlistPolicyFromSuffixAllowlist, o as isPrivateNetworkOptInEnabled, r as createLegacyPrivateNetworkDoctorContract, s as migrateLegacyFlatAllowPrivateNetworkAlias, t as assertHttpUrlTargetsPrivateNetwork, u as ssrfPolicyFromDangerouslyAllowPrivateNetwork } from "../ssrf-policy-DpRGHY9E.js";
+import "../ssrf-runtime-CFMDGr4_.js";
+export { assertHttpUrlTargetsPrivateNetwork, buildHostnameAllowlistPolicyFromSuffixAllowlist, closeDispatcher, createLegacyPrivateNetworkDoctorContract, createPinnedDispatcher, fetchWithSsrFGuard, formatErrorMessage, hasLegacyFlatAllowPrivateNetworkAlias, isBlockedHostnameOrIp, isPrivateNetworkOptInEnabled, isPrivateOrLoopbackHost, migrateLegacyFlatAllowPrivateNetworkAlias, resolvePinnedHostname, resolvePinnedHostnameWithPolicy, ssrfPolicyFromAllowPrivateNetwork, ssrfPolicyFromDangerouslyAllowPrivateNetwork, ssrfPolicyFromPrivateNetworkOptIn };

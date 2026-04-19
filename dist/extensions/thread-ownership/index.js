@@ -1,4 +1,9 @@
-import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
+import { s as normalizeOptionalString } from "../../string-coerce-BUSzWgUA.js";
+import { n as fetchWithSsrFGuard } from "../../fetch-guard-vsxyWoE4.js";
+import "../../text-runtime-DHfI0VWF.js";
+import { t as definePluginEntry } from "../../plugin-entry-Dzt3gEtQ.js";
+import { u as ssrfPolicyFromDangerouslyAllowPrivateNetwork } from "../../ssrf-policy-DpRGHY9E.js";
+import "../../api-_eo-TdBJ.js";
 //#region extensions/thread-ownership/index.ts
 const mentionedThreads = /* @__PURE__ */ new Map();
 const MENTION_TTL_MS = 300 * 1e3;
@@ -7,11 +12,11 @@ function cleanExpiredMentions() {
 	for (const [key, ts] of mentionedThreads) if (now - ts > MENTION_TTL_MS) mentionedThreads.delete(key);
 }
 function resolveOwnershipAgent(config) {
-	const list = Array.isArray(config.agents?.list) ? config.agents.list.filter((entry) => Boolean(entry && typeof entry === "object")) : [];
+	const list = Array.isArray(config.agents?.list) ? config.agents.list.filter((entry) => entry !== null && typeof entry === "object") : [];
 	const selected = list.find((entry) => entry.default === true) ?? list[0];
-	const id = typeof selected?.id === "string" && selected.id.trim() ? selected.id.trim() : "unknown";
-	const identityName = typeof selected?.identity?.name === "string" ? selected.identity.name.trim() : "";
-	const fallbackName = typeof selected?.name === "string" ? selected.name.trim() : "";
+	const id = normalizeOptionalString(selected?.id) ?? "unknown";
+	const identityName = normalizeOptionalString(selected?.identity?.name) ?? "";
+	const fallbackName = normalizeOptionalString(selected?.name) ?? "";
 	return {
 		id,
 		name: identityName || fallbackName
@@ -47,19 +52,28 @@ var thread_ownership_default = definePluginEntry({
 			cleanExpiredMentions();
 			if (mentionedThreads.has(`${channelId}:${threadTs}`)) return;
 			try {
-				const resp = await fetch(`${forwarderUrl}/api/v1/ownership/${channelId}/${threadTs}`, {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ agent_id: agentId }),
-					signal: AbortSignal.timeout(3e3)
+				const { response: resp, release } = await fetchWithSsrFGuard({
+					url: `${forwarderUrl}/api/v1/ownership/${channelId}/${threadTs}`,
+					init: {
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify({ agent_id: agentId })
+					},
+					timeoutMs: 3e3,
+					policy: ssrfPolicyFromDangerouslyAllowPrivateNetwork(true),
+					auditContext: "thread-ownership"
 				});
-				if (resp.ok) return;
-				if (resp.status === 409) {
-					const body = await resp.json();
-					api.logger.info?.(`thread-ownership: cancelled send to ${channelId}:${threadTs} — owned by ${body.owner}`);
-					return { cancel: true };
+				try {
+					if (resp.ok) return;
+					if (resp.status === 409) {
+						const body = await resp.json();
+						api.logger.info?.(`thread-ownership: cancelled send to ${channelId}:${threadTs} — owned by ${body.owner}`);
+						return { cancel: true };
+					}
+					api.logger.warn?.(`thread-ownership: unexpected status ${resp.status}, allowing send`);
+				} finally {
+					await release();
 				}
-				api.logger.warn?.(`thread-ownership: unexpected status ${resp.status}, allowing send`);
 			} catch (err) {
 				api.logger.warn?.(`thread-ownership: ownership check failed (${String(err)}), allowing send`);
 			}

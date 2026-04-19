@@ -1,4 +1,4 @@
-import type { OpenClawConfig } from "../../config/config.js";
+import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import { CacheEntry } from "./web-shared.js";
 export type SearchConfigRecord = (NonNullable<OpenClawConfig["tools"]>["web"] extends infer Web ? Web extends {
     search?: infer Search;
@@ -23,6 +23,7 @@ export declare function postTrustedWebToolsJson<T>(params: {
     body: Record<string, unknown>;
     errorLabel: string;
     maxErrorBytes?: number;
+    extraHeaders?: Record<string, string>;
 }, parseResponse: (response: Response) => Promise<T>): Promise<T>;
 export declare function throwWebSearchApiError(res: Response, providerLabel: string): Promise<never>;
 export declare function resolveSiteName(url: string | undefined): string | undefined;

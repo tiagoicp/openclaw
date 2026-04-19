@@ -12,6 +12,10 @@ export type ResolvedGatewayAuth = {
     allowTailscale: boolean;
     trustedProxy?: GatewayTrustedProxyConfig;
 };
+export type EffectiveSharedGatewayAuth = {
+    mode: "token" | "password";
+    secret: string | undefined;
+};
 export type GatewayAuthResult = {
     ok: boolean;
     method?: "none" | "token" | "password" | "tailscale" | "device-token" | "bootstrap-token" | "trusted-proxy";
@@ -46,15 +50,28 @@ export type AuthorizeGatewayConnectParams = {
     rateLimitScope?: string;
     /** Trust X-Real-IP only when explicitly enabled. */
     allowRealIpFallback?: boolean;
+    /** Optional browser-origin policy for trusted-proxy HTTP requests. */
+    browserOriginPolicy?: {
+        requestHost?: string;
+        origin?: string;
+        allowedOrigins?: string[];
+        allowHostHeaderOriginFallback?: boolean;
+    };
 };
 type TailscaleWhoisLookup = (ip: string) => Promise<TailscaleWhoisIdentity | null>;
-export declare function isLocalDirectRequest(req?: IncomingMessage, trustedProxies?: string[], allowRealIpFallback?: boolean): boolean;
+export declare function isLocalDirectRequest(req?: IncomingMessage, _trustedProxies?: string[], _allowRealIpFallback?: boolean): boolean;
 export declare function resolveGatewayAuth(params: {
     authConfig?: GatewayAuthConfig | null;
     authOverride?: GatewayAuthConfig | null;
     env?: NodeJS.ProcessEnv;
     tailscaleMode?: GatewayTailscaleMode;
 }): ResolvedGatewayAuth;
+export declare function resolveEffectiveSharedGatewayAuth(params: {
+    authConfig?: GatewayAuthConfig | null;
+    authOverride?: GatewayAuthConfig | null;
+    env?: NodeJS.ProcessEnv;
+    tailscaleMode?: GatewayTailscaleMode;
+}): EffectiveSharedGatewayAuth | null;
 export declare function assertGatewayAuthConfigured(auth: ResolvedGatewayAuth, rawAuthConfig?: GatewayAuthConfig | null): void;
 export declare function authorizeGatewayConnect(params: AuthorizeGatewayConnectParams): Promise<GatewayAuthResult>;
 export declare function authorizeHttpGatewayConnect(params: Omit<AuthorizeGatewayConnectParams, "authSurface">): Promise<GatewayAuthResult>;

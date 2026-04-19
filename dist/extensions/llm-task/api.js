@@ -1,8 +1,6 @@
-import { n as resolvePreferredOpenClawTmpDir } from "../../tmp-openclaw-dir-DzRxfh9a.js";
-import { m as normalizeThinkLevel, o as formatXHighModelHint } from "../../provider-id-Dub5ZtOv.js";
-import "../../runtime-BF_KUcJM.js";
-import { i as supportsXHighThinking, t as formatThinkingLevels } from "../../thinking-Me2S38se.js";
-import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
-import "../../llm-task-D_W5GYK4.js";
-import "../../api-FyfAqWtX.js";
+import { n as resolvePreferredOpenClawTmpDir } from "../../tmp-openclaw-dir-eyAoWbVe.js";
+import { c as normalizeThinkLevel, n as formatXHighModelHint } from "../../thinking.shared-B_XYtu1m.js";
+import { i as supportsXHighThinking, t as formatThinkingLevels } from "../../thinking-CM6tfHdy.js";
+import { t as definePluginEntry } from "../../plugin-entry-Dzt3gEtQ.js";
+import "../../api-eFnpwSJV.js";
 export { definePluginEntry, formatThinkingLevels, formatXHighModelHint, normalizeThinkLevel, resolvePreferredOpenClawTmpDir, supportsXHighThinking };

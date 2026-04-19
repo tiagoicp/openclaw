@@ -1,4 +1,4 @@
-import type { OpenClawConfig } from "../../config/config.js";
+import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import type { ChannelAccountSnapshot } from "./types.core.js";
 export declare function createAccountListHelpers(channelKey: string, options?: {
     normalizeAccountId?: (id: string) => string;
@@ -35,12 +35,20 @@ export declare function resolveMergedAccountConfig<TConfig extends Record<string
     normalizeAccountId?: (accountId: string) => string;
     nestedObjectKeys?: string[];
 }): TConfig;
-export declare function describeAccountSnapshot<TAccount extends {
+type AccountSnapshotInput = {
     accountId?: string | null;
     enabled?: boolean | null;
     name?: string | null | undefined;
-}>(params: {
-    account: TAccount;
+};
+export declare function describeAccountSnapshot(params: {
+    account: AccountSnapshotInput;
     configured?: boolean | undefined;
     extra?: Record<string, unknown> | undefined;
 }): ChannelAccountSnapshot;
+export declare function describeWebhookAccountSnapshot(params: {
+    account: AccountSnapshotInput;
+    configured?: boolean | undefined;
+    mode?: string | undefined;
+    extra?: Record<string, unknown> | undefined;
+}): ChannelAccountSnapshot;
+export {};

@@ -1,9 +1,10 @@
-import type { ChannelId } from "../channels/plugins/types.js";
-import type { OpenClawConfig } from "./config.js";
+import type { ChannelId } from "../channels/plugins/channel-id.types.js";
+import type { OpenClawConfig } from "./types.openclaw.js";
 import { type GroupToolPolicyBySenderConfig, type GroupToolPolicyConfig } from "./types.tools.js";
 export type GroupPolicyChannel = ChannelId;
 export type ChannelGroupConfig = {
     requireMention?: boolean;
+    ingest?: boolean;
     tools?: GroupToolPolicyConfig;
     toolsBySender?: GroupToolPolicyBySenderConfig;
 };
@@ -44,6 +45,7 @@ export declare function resolveChannelGroupToolsPolicy(params: {
     cfg: OpenClawConfig;
     channel: GroupPolicyChannel;
     groupId?: string | null;
+    groupIdCandidates?: Array<string | null | undefined>;
     accountId?: string | null;
     groupIdCaseInsensitive?: boolean;
 } & GroupToolPolicySender): GroupToolPolicyConfig | undefined;

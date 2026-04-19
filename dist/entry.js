@@ -1,25 +1,19 @@
 #!/usr/bin/env node
-import { t as isMainModule } from "./is-main-YViS6wOn.js";
-import { Go as hasHelpOrVersion, Jo as isRootVersionInvocation, Ta as ensureOpenClawExecMarkerOnProcess, qo as isRootHelpInvocation, r as normalizeEnv, t as isTruthyEnvValue } from "./env-D1ktUnAV.js";
-import { a as parseCliContainerArgs, n as applyCliProfileEnv, o as resolveCliContainerTarget, r as parseCliProfileArgs, t as normalizeWindowsArgv } from "./windows-argv-4mAlPhJa.js";
-import "./paths-CjuwkA2v.js";
-import { t as resolveNodeStartupTlsEnvironment } from "./node-startup-env-Gz8ZQniA.js";
-import "./safe-text-K2Nonoo3.js";
-import "./tmp-openclaw-dir-DzRxfh9a.js";
-import "./theme-BH5F9mlg.js";
-import "./version-DGzLsBG-.js";
-import "./zod-schema.agent-runtime-DNndkpI8.js";
-import "./runtime-BF_KUcJM.js";
-import "./registry-bOiEdffE.js";
-import "./ip-ByO4-_4f.js";
-import { t as installProcessWarningFilter } from "./warning-filter-C_BEyyvc.js";
+import { t as isMainModule } from "./is-main-C_eE8dOT.js";
+import { N as isRootHelpInvocation, P as isRootVersionInvocation } from "./logger-D8OnBgBc.js";
+import { t as resolveCliArgvInvocation } from "./argv-invocation-DloX2c7c.js";
+import { a as parseCliContainerArgs, n as applyCliProfileEnv, o as resolveCliContainerTarget, r as parseCliProfileArgs, t as normalizeWindowsArgv } from "./windows-argv-BnjBN14p.js";
+import { t as resolveNodeStartupTlsEnvironment } from "./node-startup-env-BRa4mYVi.js";
+import { i as normalizeEnv, t as isTruthyEnvValue } from "./env-CqNoAfUj.js";
+import { t as ensureOpenClawExecMarkerOnProcess } from "./openclaw-exec-env-5MQ0wyS5.js";
+import { t as installProcessWarningFilter } from "./warning-filter-DGa1PXl5.js";
 import { enableCompileCache } from "node:module";
 import process$1 from "node:process";
 import { fileURLToPath } from "node:url";
 import { spawn } from "node:child_process";
 //#region src/cli/respawn-policy.ts
 function shouldSkipRespawnForArgv(argv) {
-	return hasHelpOrVersion(argv);
+	return resolveCliArgvInvocation(argv).hasHelpOrVersion;
 }
 //#endregion
 //#region src/entry.respawn.ts
@@ -118,7 +112,7 @@ if (!isMainModule({
 	currentFile: fileURLToPath(import.meta.url),
 	wrapperEntryPairs: [...ENTRY_WRAPPER_PAIRS]
 })) {} else {
-	const { installGaxiosFetchCompat } = await import("./gaxios-fetch-compat-350v8J5J.js");
+	const { installGaxiosFetchCompat } = await import("./gaxios-fetch-compat-BPr1GvIc.js");
 	await installGaxiosFetchCompat();
 	process$1.title = "openclaw";
 	ensureOpenClawExecMarkerOnProcess();
@@ -156,7 +150,7 @@ if (!isMainModule({
 	function tryHandleRootVersionFastPath(argv) {
 		if (resolveCliContainerTarget(argv)) return false;
 		if (!isRootVersionInvocation(argv)) return false;
-		Promise.all([import("./version-mZim_9V1.js"), import("./git-commit-7arVjYws.js")]).then(([{ VERSION }, { resolveCommitHash }]) => {
+		Promise.all([import("./version-Dmlp9Fs8.js"), import("./git-commit-DY8UB6DV.js")]).then(([{ VERSION }, { resolveCommitHash }]) => {
 			const commit = resolveCommitHash({ moduleUrl: import.meta.url });
 			console.log(commit ? `OpenClaw ${VERSION} (${commit})` : `OpenClaw ${VERSION}`);
 			process$1.exit(0);
@@ -197,21 +191,19 @@ function tryHandleRootHelpFastPath(argv, deps = {}) {
 		process$1.exitCode = 1;
 	});
 	if (deps.outputRootHelp) {
-		try {
-			deps.outputRootHelp();
-		} catch (error) {
-			handleError(error);
-		}
+		Promise.resolve().then(() => deps.outputRootHelp?.()).catch(handleError);
 		return true;
 	}
-	import("./root-help-O_bhsul6.js").then(({ outputRootHelp }) => {
-		outputRootHelp();
+	import("./root-help-metadata-DIX2skrC.js").then(async ({ outputPrecomputedRootHelpText }) => {
+		if (outputPrecomputedRootHelpText()) return;
+		const { outputRootHelp } = await import("./root-help--3t7DcrB.js");
+		await outputRootHelp();
 	}).catch(handleError);
 	return true;
 }
 function runMainOrRootHelp(argv) {
 	if (tryHandleRootHelpFastPath(argv)) return;
-	import("./run-main-CV0PSeIn.js").then(({ runCli }) => runCli(argv)).catch((error) => {
+	import("./run-main-0yy7tlhO.js").then(({ runCli }) => runCli(argv)).catch((error) => {
 		console.error("[openclaw] Failed to start CLI:", error instanceof Error ? error.stack ?? error.message : error);
 		process$1.exitCode = 1;
 	});

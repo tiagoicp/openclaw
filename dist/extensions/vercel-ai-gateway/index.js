@@ -1,23 +1,6 @@
-import "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../paths-DJBuCoRE.js";
-import "../../file-lock-Cm3HPowf.js";
-import "../../profiles-CRvutsjq.js";
-import "../../anthropic-vertex-provider-Cik2BDhe.js";
-import "../../provider-model-definitions-CrItEa-O.js";
-import "../../provider-models-GbpUTgQg.js";
-import { t as buildVercelAiGatewayProvider } from "../../provider-catalog-BFvOY2Dt.js";
-import "../../provider-api-key-auth-Uu86HoCQ.js";
-import { t as defineSingleProviderPluginEntry } from "../../provider-entry-Dh6ETIXa.js";
-import { n as applyVercelAiGatewayConfig, t as VERCEL_AI_GATEWAY_DEFAULT_MODEL_REF } from "../../provider-onboard-DmLoftpN.js";
+import { t as defineSingleProviderPluginEntry } from "../../provider-entry-Cn-adoN0.js";
+import { n as applyVercelAiGatewayConfig, t as VERCEL_AI_GATEWAY_DEFAULT_MODEL_REF } from "../../onboard-PIsZlFko.js";
+import { t as buildVercelAiGatewayProvider } from "../../provider-catalog-BXa9YStK2.js";
 var vercel_ai_gateway_default = defineSingleProviderPluginEntry({
 	id: "vercel-ai-gateway",
 	name: "Vercel AI Gateway Provider",

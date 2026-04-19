@@ -14,11 +14,14 @@ type WebMediaOptions = {
     maxBytes?: number;
     optimizeImages?: boolean;
     ssrfPolicy?: SsrFPolicy;
+    workspaceDir?: string;
     /** Allowed root directories for local path reads. "any" is deprecated; prefer sandboxValidated + readFile. */
     localRoots?: readonly string[] | "any";
     /** Caller already validated the local path (sandbox/other guards); requires readFile override. */
     sandboxValidated?: boolean;
     readFile?: (filePath: string) => Promise<Buffer>;
+    /** Host-local fs-policy read piggyback; rejects plaintext-like document sends. */
+    hostReadCapability?: boolean;
 };
 export declare function loadWebMedia(mediaUrl: string, maxBytesOrOptions?: number | WebMediaOptions, options?: {
     ssrfPolicy?: SsrFPolicy;

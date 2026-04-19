@@ -1,13 +1,6 @@
-import { o as createSubsystemLogger } from "../../env-D1ktUnAV.js";
-import { _ as resolveStateDir } from "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
+import { i as formatErrorMessage } from "../../errors-D8p6rxH8.js";
+import { t as createSubsystemLogger } from "../../subsystem-vwBrGICF.js";
+import { _ as resolveStateDir } from "../../paths-Dvv9VRAc.js";
 import path from "node:path";
 import os from "node:os";
 import fs from "node:fs/promises";
@@ -56,7 +49,7 @@ const logCommand = async (event) => {
 		}) + "\n";
 		await fs.appendFile(logFile, logLine, "utf-8");
 	} catch (err) {
-		const message = err instanceof Error ? err.message : String(err);
+		const message = formatErrorMessage(err);
 		log.error(`Failed to log command: ${message}`);
 	}
 };

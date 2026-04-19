@@ -1,28 +1,14 @@
-import "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../paths-DJBuCoRE.js";
-import "../../file-lock-Cm3HPowf.js";
-import "../../profiles-CRvutsjq.js";
-import "../../anthropic-vertex-provider-Cik2BDhe.js";
-import { S as applyXaiModelCompat } from "../../provider-model-definitions-CrItEa-O.js";
-import { C as VENICE_DEFAULT_MODEL_REF } from "../../provider-models-GbpUTgQg.js";
-import { t as buildVeniceProvider } from "../../provider-catalog-Czll7Q5-.js";
-import "../../provider-api-key-auth-Uu86HoCQ.js";
-import { t as defineSingleProviderPluginEntry } from "../../provider-entry-Dh6ETIXa.js";
-import "../../provider-onboard-DmLoftpN.js";
-import { t as applyVeniceConfig } from "../../onboard-CqPotyhM.js";
+import { i as normalizeLowercaseStringOrEmpty } from "../../string-coerce-BUSzWgUA.js";
+import { i as applyXaiModelCompat } from "../../provider-tools-CpuBYaLK.js";
+import "../../text-runtime-DHfI0VWF.js";
+import { t as defineSingleProviderPluginEntry } from "../../provider-entry-Cn-adoN0.js";
+import { i as VENICE_DEFAULT_MODEL_REF } from "../../models-DbL9Rd3b.js";
+import { t as buildVeniceProvider } from "../../provider-catalog-CgncuiIA.js";
+import { t as applyVeniceConfig } from "../../onboard-DdGezGnC.js";
 //#region extensions/venice/index.ts
 const PROVIDER_ID = "venice";
 function isXaiBackedVeniceModel(modelId) {
-	return modelId.trim().toLowerCase().includes("grok");
+	return normalizeLowercaseStringOrEmpty(modelId).includes("grok");
 }
 var venice_default = defineSingleProviderPluginEntry({
 	id: PROVIDER_ID,

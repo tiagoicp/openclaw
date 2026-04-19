@@ -17,6 +17,16 @@
       "help": "Brave Search mode: web or llm-context."
     }
   },
+  "contracts": {
+    "webSearchProviders": [
+      "brave"
+    ]
+  },
+  "configContracts": {
+    "compatibilityRuntimePaths": [
+      "tools.web.search.apiKey"
+    ]
+  },
   "configSchema": {
     "type": "object",
     "additionalProperties": false,

@@ -1,5 +1,6 @@
 import type { GatewayAuthConfig, GatewayTailscaleConfig, OpenClawConfig } from "../config/config.js";
 import { resolveGatewayAuth, type ResolvedGatewayAuth } from "./auth.js";
+export { assertGatewayAuthNotKnownWeak } from "./known-weak-gateway-secrets.js";
 export declare function mergeGatewayAuthConfig(base?: GatewayAuthConfig, override?: GatewayAuthConfig): GatewayAuthConfig;
 export declare function mergeGatewayTailscaleConfig(base?: GatewayTailscaleConfig, override?: GatewayTailscaleConfig): GatewayTailscaleConfig;
 export declare function ensureGatewayStartupAuth(params: {
@@ -8,6 +9,7 @@ export declare function ensureGatewayStartupAuth(params: {
     authOverride?: GatewayAuthConfig;
     tailscaleOverride?: GatewayTailscaleConfig;
     persist?: boolean;
+    baseHash?: string;
 }): Promise<{
     cfg: OpenClawConfig;
     auth: ReturnType<typeof resolveGatewayAuth>;

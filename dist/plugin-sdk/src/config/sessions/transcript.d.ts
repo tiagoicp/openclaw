@@ -1,8 +1,17 @@
+import { SessionManager } from "@mariozechner/pi-coding-agent";
 import type { SessionEntry } from "./types.js";
-export declare function resolveMirroredTranscriptText(params: {
-    text?: string;
-    mediaUrls?: string[];
-}): string | null;
+export type SessionTranscriptAppendResult = {
+    ok: true;
+    sessionFile: string;
+    messageId: string;
+} | {
+    ok: false;
+    reason: string;
+};
+export type SessionTranscriptUpdateMode = "inline" | "file-only" | "none";
+export type SessionTranscriptAssistantMessage = Parameters<SessionManager["appendMessage"]>[0] & {
+    role: "assistant";
+};
 export declare function resolveSessionTranscriptFile(params: {
     sessionId: string;
     sessionKey: string;
@@ -23,11 +32,13 @@ export declare function appendAssistantMessageToSessionTranscript(params: {
     idempotencyKey?: string;
     /** Optional override for store path (mostly for tests). */
     storePath?: string;
-}): Promise<{
-    ok: true;
-    sessionFile: string;
-    messageId: string;
-} | {
-    ok: false;
-    reason: string;
-}>;
+    updateMode?: SessionTranscriptUpdateMode;
+}): Promise<SessionTranscriptAppendResult>;
+export declare function appendExactAssistantMessageToSessionTranscript(params: {
+    agentId?: string;
+    sessionKey: string;
+    message: SessionTranscriptAssistantMessage;
+    idempotencyKey?: string;
+    storePath?: string;
+    updateMode?: SessionTranscriptUpdateMode;
+}): Promise<SessionTranscriptAppendResult>;

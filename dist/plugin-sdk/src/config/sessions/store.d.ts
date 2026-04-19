@@ -1,25 +1,15 @@
+import { acquireSessionWriteLock } from "../../agents/session-write-lock.js";
 import type { MsgContext } from "../../auto-reply/templating.js";
-import { type DeliveryContext } from "../../utils/delivery-context.js";
+import type { DeliveryContext } from "../../utils/delivery-context.types.js";
 import { type SessionDiskBudgetSweepResult } from "./disk-budget.js";
 import { capEntryCount, getActiveSessionMaintenanceWarning, pruneStaleEntries, resolveMaintenanceConfig, rotateSessionFile, type ResolvedSessionMaintenanceConfig, type SessionMaintenanceWarning } from "./store-maintenance.js";
 import { type SessionEntry } from "./types.js";
-export declare function normalizeStoreSessionKey(sessionKey: string): string;
-export declare function resolveSessionStoreEntry(params: {
-    store: Record<string, SessionEntry>;
-    sessionKey: string;
-}): {
-    normalizedKey: string;
-    existing: SessionEntry | undefined;
-    legacyKeys: string[];
-};
-export declare function clearSessionStoreCacheForTest(): void;
-/** Expose lock queue size for tests. */
-export declare function getSessionStoreLockQueueSizeForTest(): number;
+export { clearSessionStoreCacheForTest, drainSessionStoreLockQueuesForTest, getSessionStoreLockQueueSizeForTest, } from "./store-lock-state.js";
+export { loadSessionStore } from "./store-load.js";
+export { normalizeStoreSessionKey, resolveSessionStoreEntry } from "./store-entry.js";
+export declare function setSessionWriteLockAcquirerForTests(acquirer: typeof acquireSessionWriteLock | null): void;
+export declare function resetSessionStoreLockRuntimeForTests(): void;
 export declare function withSessionStoreLockForTest<T>(storePath: string, fn: () => Promise<T>, opts?: SessionStoreLockOptions): Promise<T>;
-type LoadSessionStoreOptions = {
-    skipCache?: boolean;
-};
-export declare function loadSessionStore(storePath: string, opts?: LoadSessionStoreOptions): Record<string, SessionEntry>;
 export declare function readSessionUpdatedAt(params: {
     storePath: string;
     sessionKey: string;
@@ -51,6 +41,8 @@ type SaveSessionStoreOptions = {
     onMaintenanceApplied?: (report: SessionMaintenanceApplyReport) => void | Promise<void>;
     /** Optional overrides used by maintenance commands. */
     maintenanceOverride?: Partial<ResolvedSessionMaintenanceConfig>;
+    /** Fully resolved maintenance settings when the caller already has config loaded. */
+    maintenanceConfig?: ResolvedSessionMaintenanceConfig;
 };
 export declare function saveSessionStore(storePath: string, store: Record<string, SessionEntry>, opts?: SaveSessionStoreOptions): Promise<void>;
 export declare function updateSessionStore<T>(storePath: string, mutator: (store: Record<string, SessionEntry>) => Promise<T> | T, opts?: SaveSessionStoreOptions): Promise<T>;
@@ -65,7 +57,7 @@ export declare function archiveRemovedSessionTranscripts(params: {
     storePath: string;
     reason: "deleted" | "reset";
     restrictToStoreDir?: boolean;
-}): Set<string>;
+}): Promise<Set<string>>;
 export declare function updateSessionStoreEntry(params: {
     storePath: string;
     sessionKey: string;

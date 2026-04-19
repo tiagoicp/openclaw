@@ -1,2 +1,1 @@
-import type { LegacyConfigRule } from "./legacy.shared.js";
-export declare const LEGACY_CONFIG_RULES: LegacyConfigRule[];
+export { LEGACY_CONFIG_RULES } from "../commands/doctor/shared/legacy-config-rules.js";

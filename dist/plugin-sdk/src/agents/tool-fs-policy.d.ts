@@ -1,4 +1,4 @@
-import type { OpenClawConfig } from "../config/config.js";
+import type { OpenClawConfig } from "../config/types.openclaw.js";
 export type ToolFsPolicy = {
     workspaceOnly: boolean;
 };
@@ -12,6 +12,10 @@ export declare function resolveToolFsConfig(params: {
     workspaceOnly?: boolean;
 };
 export declare function resolveEffectiveToolFsWorkspaceOnly(params: {
+    cfg?: OpenClawConfig;
+    agentId?: string;
+}): boolean;
+export declare function resolveEffectiveToolFsRootExpansionAllowed(params: {
     cfg?: OpenClawConfig;
     agentId?: string;
 }): boolean;

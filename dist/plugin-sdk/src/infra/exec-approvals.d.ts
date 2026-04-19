@@ -1,9 +1,15 @@
+import { resolveAllowAlwaysPatternEntries } from "./exec-approvals-allowlist.js";
+import type { ExecCommandSegment } from "./exec-approvals-analysis.js";
+import type { ExecAllowlistEntry } from "./exec-approvals.types.js";
 export * from "./exec-approvals-analysis.js";
 export * from "./exec-approvals-allowlist.js";
+export type { ExecAllowlistEntry } from "./exec-approvals.types.js";
 export type ExecHost = "sandbox" | "gateway" | "node";
+export type ExecTarget = "auto" | ExecHost;
 export type ExecSecurity = "deny" | "allowlist" | "full";
 export type ExecAsk = "off" | "on-miss" | "always";
 export declare function normalizeExecHost(value?: string | null): ExecHost | null;
+export declare function normalizeExecTarget(value?: string | null): ExecTarget | null;
 export declare function normalizeExecSecurity(value?: string | null): ExecSecurity | null;
 export declare function normalizeExecAsk(value?: string | null): ExecAsk | null;
 export type SystemRunApprovalBinding = {
@@ -39,6 +45,7 @@ export type ExecApprovalRequestPayload = {
     host?: string | null;
     security?: string | null;
     ask?: string | null;
+    allowedDecisions?: readonly ExecApprovalDecision[];
     agentId?: string | null;
     resolvedPath?: string | null;
     sessionKey?: string | null;
@@ -66,13 +73,6 @@ export type ExecApprovalsDefaults = {
     askFallback?: ExecSecurity;
     autoAllowSkills?: boolean;
 };
-export type ExecAllowlistEntry = {
-    id?: string;
-    pattern: string;
-    lastUsedAt?: number;
-    lastUsedCommand?: string;
-    lastResolvedPath?: string;
-};
 export type ExecApprovalsAgent = ExecApprovalsDefaults & {
     allowlist?: ExecAllowlistEntry[];
 };
@@ -98,10 +98,16 @@ export type ExecApprovalsResolved = {
     token: string;
     defaults: Required<ExecApprovalsDefaults>;
     agent: Required<ExecApprovalsDefaults>;
+    agentSources: {
+        security: string | null;
+        ask: string | null;
+        askFallback: string | null;
+    };
     allowlist: ExecAllowlistEntry[];
     file: ExecApprovalsFile;
 };
-export declare const DEFAULT_EXEC_APPROVAL_TIMEOUT_MS = 120000;
+export declare const DEFAULT_EXEC_APPROVAL_TIMEOUT_MS = 1800000;
+export declare const DEFAULT_EXEC_APPROVAL_ASK_FALLBACK: ExecSecurity;
 export declare function resolveExecApprovalsPath(): string;
 export declare function resolveExecApprovalsSocketPath(): string;
 export declare function normalizeExecApprovals(file: ExecApprovalsFile): ExecApprovalsFile;
@@ -112,6 +118,7 @@ export declare function mergeExecApprovalsSocketDefaults(params: {
 export declare function readExecApprovalsSnapshot(): ExecApprovalsSnapshot;
 export declare function loadExecApprovals(): ExecApprovalsFile;
 export declare function saveExecApprovals(file: ExecApprovalsFile): void;
+export declare function restoreExecApprovalsSnapshot(snapshot: ExecApprovalsSnapshot): void;
 export declare function ensureExecApprovals(): ExecApprovalsFile;
 export type ExecApprovalsDefaultOverrides = {
     security?: ExecSecurity;
@@ -133,12 +140,51 @@ export declare function requiresExecApproval(params: {
     security: ExecSecurity;
     analysisOk: boolean;
     allowlistSatisfied: boolean;
+    durableApprovalSatisfied?: boolean;
+}): boolean;
+export declare function hasDurableExecApproval(params: {
+    analysisOk: boolean;
+    segmentAllowlistEntries: Array<ExecAllowlistEntry | null>;
+    allowlist?: readonly ExecAllowlistEntry[];
+    commandText?: string | null;
 }): boolean;
 export declare function recordAllowlistUse(approvals: ExecApprovalsFile, agentId: string | undefined, entry: ExecAllowlistEntry, command: string, resolvedPath?: string): void;
-export declare function addAllowlistEntry(approvals: ExecApprovalsFile, agentId: string | undefined, pattern: string): void;
+export declare function recordAllowlistMatchesUse(params: {
+    approvals: ExecApprovalsFile;
+    agentId: string | undefined;
+    matches: readonly ExecAllowlistEntry[];
+    command: string;
+    resolvedPath?: string;
+}): void;
+export declare function addAllowlistEntry(approvals: ExecApprovalsFile, agentId: string | undefined, pattern: string, options?: {
+    argPattern?: string;
+    source?: ExecAllowlistEntry["source"];
+}): void;
+export declare function addDurableCommandApproval(approvals: ExecApprovalsFile, agentId: string | undefined, commandText: string): void;
+export declare function persistAllowAlwaysPatterns(params: {
+    approvals: ExecApprovalsFile;
+    agentId: string | undefined;
+    segments: ExecCommandSegment[];
+    cwd?: string;
+    env?: NodeJS.ProcessEnv;
+    platform?: string | null;
+    strictInlineEval?: boolean;
+}): ReturnType<typeof resolveAllowAlwaysPatternEntries>;
 export declare function minSecurity(a: ExecSecurity, b: ExecSecurity): ExecSecurity;
 export declare function maxAsk(a: ExecAsk, b: ExecAsk): ExecAsk;
 export type ExecApprovalDecision = "allow-once" | "allow-always" | "deny";
+export declare const DEFAULT_EXEC_APPROVAL_DECISIONS: readonly ["allow-once", "allow-always", "deny"];
+export declare function resolveExecApprovalAllowedDecisions(params?: {
+    ask?: string | null;
+}): readonly ExecApprovalDecision[];
+export declare function resolveExecApprovalRequestAllowedDecisions(params?: {
+    ask?: string | null;
+    allowedDecisions?: readonly ExecApprovalDecision[] | readonly string[] | null;
+}): readonly ExecApprovalDecision[];
+export declare function isExecApprovalDecisionAllowed(params: {
+    decision: ExecApprovalDecision;
+    ask?: string | null;
+}): boolean;
 export declare function requestExecApprovalViaSocket(params: {
     socketPath: string;
     token: string;

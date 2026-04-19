@@ -4,12 +4,16 @@ export type ToolPolicyPipelineStep = {
     policy: ToolPolicyLike | undefined;
     label: string;
     stripPluginOnlyAllowlist?: boolean;
+    suppressUnavailableCoreToolWarning?: boolean;
+    suppressUnavailableCoreToolWarningAllowlist?: string[];
 };
 export declare function buildDefaultToolPolicyPipelineSteps(params: {
     profilePolicy?: ToolPolicyLike;
     profile?: string;
+    profileUnavailableCoreWarningAllowlist?: string[];
     providerProfilePolicy?: ToolPolicyLike;
     providerProfile?: string;
+    providerProfileUnavailableCoreWarningAllowlist?: string[];
     globalPolicy?: ToolPolicyLike;
     globalProviderPolicy?: ToolPolicyLike;
     agentPolicy?: ToolPolicyLike;

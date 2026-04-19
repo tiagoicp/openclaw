@@ -1,4 +1,6 @@
-import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
+import { i as normalizeLowercaseStringOrEmpty, o as normalizeOptionalLowercaseString } from "../../string-coerce-BUSzWgUA.js";
+import "../../text-runtime-DHfI0VWF.js";
+import { t as definePluginEntry } from "../../plugin-entry-Dzt3gEtQ.js";
 import path from "node:path";
 import fs from "node:fs/promises";
 //#region extensions/phone-control/index.ts
@@ -8,6 +10,7 @@ const STATE_REL_PATH = [
 	"phone-control",
 	"armed.json"
 ];
+const PHONE_ADMIN_SCOPE = "operator.admin";
 const GROUP_COMMANDS = {
 	camera: ["camera.snap", "camera.clip"],
 	screen: ["screen.record"],
@@ -34,8 +37,7 @@ function formatGroupList() {
 	].join(", ");
 }
 function parseDurationMs(input) {
-	if (!input) return null;
-	const raw = input.trim().toLowerCase();
+	const raw = normalizeOptionalLowercaseString(input);
 	if (!raw) return null;
 	const m = raw.match(/^(\d+)(s|m|h|d)$/);
 	if (!m) return null;
@@ -165,10 +167,14 @@ function formatHelp() {
 	].join("\n");
 }
 function parseGroup(raw) {
-	const value = (raw ?? "").trim().toLowerCase();
+	const value = normalizeOptionalLowercaseString(raw) ?? "";
 	if (!value) return null;
 	if (value === "camera" || value === "screen" || value === "writes" || value === "all") return value;
 	return null;
+}
+function requiresAdminToMutatePhoneControl(channel, gatewayClientScopes) {
+	if (Array.isArray(gatewayClientScopes)) return !gatewayClientScopes.includes(PHONE_ADMIN_SCOPE);
+	return channel === "webchat";
 }
 function formatStatus(state) {
 	if (!state) return "Phone control: disarmed.";
@@ -216,13 +222,13 @@ var phone_control_default = definePluginEntry({
 			acceptsArgs: true,
 			handler: async (ctx) => {
 				const tokens = (ctx.args?.trim() ?? "").split(/\s+/).filter(Boolean);
-				const action = tokens[0]?.toLowerCase() ?? "";
+				const action = normalizeLowercaseStringOrEmpty(tokens[0]);
 				const stateDir = api.runtime.state.resolveStateDir();
 				const statePath = resolveStatePath(stateDir);
 				if (!action || action === "help") return { text: `${formatStatus(await readArmState(statePath))}\n\n${formatHelp()}` };
 				if (action === "status") return { text: formatStatus(await readArmState(statePath)) };
 				if (action === "disarm") {
-					if (ctx.channel === "webchat" && !ctx.gatewayClientScopes?.includes("operator.admin")) return { text: "⚠️ /phone disarm requires operator.admin for internal gateway callers." };
+					if (requiresAdminToMutatePhoneControl(ctx.channel, ctx.gatewayClientScopes)) return { text: "⚠️ /phone disarm requires operator.admin." };
 					const res = await disarmNow({
 						api,
 						stateDir,
@@ -234,7 +240,7 @@ var phone_control_default = definePluginEntry({
 					return { text: `Phone control: disarmed.\nRemoved allowlist: ${res.removed.length > 0 ? res.removed.join(", ") : "none"}\nRestored denylist: ${restoredLabel}` };
 				}
 				if (action === "arm") {
-					if (ctx.channel === "webchat" && !ctx.gatewayClientScopes?.includes("operator.admin")) return { text: "⚠️ /phone arm requires operator.admin for internal gateway callers." };
+					if (requiresAdminToMutatePhoneControl(ctx.channel, ctx.gatewayClientScopes)) return { text: "⚠️ /phone arm requires operator.admin." };
 					const group = parseGroup(tokens[1]);
 					if (!group) return { text: `Usage: /phone arm <group> [duration]\nGroups: ${formatGroupList()}` };
 					const durationMs = parseDurationMs(tokens[2]) ?? 10 * 6e4;

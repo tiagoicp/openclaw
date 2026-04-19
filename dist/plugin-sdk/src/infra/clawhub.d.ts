@@ -1,8 +1,10 @@
+export { parseClawHubPluginSpec } from "./clawhub-spec.js";
 export type ClawHubPackageFamily = "skill" | "code-plugin" | "bundle-plugin";
 export type ClawHubPackageChannel = "official" | "community" | "private";
 export type ClawHubPackageCompatibility = {
     pluginApiRange?: string;
     builtWithOpenClawVersion?: string;
+    pluginSdkVersion?: string;
     minGatewayVersion?: string;
 };
 export type ClawHubPackageListItem = {
@@ -64,7 +66,13 @@ export type ClawHubPackageVersion = {
         createdAt: number;
         changelog: string;
         distTags?: string[];
-        files?: unknown;
+        files?: Array<{
+            path: string;
+            size: number;
+            sha256: string;
+            contentType?: string;
+        }>;
+        sha256hash?: string | null;
         compatibility?: ClawHubPackageCompatibility | null;
         capabilities?: ClawHubPackageDetail["package"] extends infer T ? T extends {
             capabilities?: infer C;
@@ -133,8 +141,9 @@ export type ClawHubSkillListResponse = {
 export type ClawHubDownloadResult = {
     archivePath: string;
     integrity: string;
+    cleanup: () => Promise<void>;
 };
-type FetchLike = typeof fetch;
+type FetchLike = (input: string | URL | Request, init?: RequestInit) => Promise<Response>;
 export declare class ClawHubRequestError extends Error {
     readonly status: number;
     readonly requestPath: string;
@@ -148,11 +157,8 @@ export declare class ClawHubRequestError extends Error {
 export declare function resolveClawHubAuthToken(): Promise<string | undefined>;
 export declare function resolveClawHubBaseUrl(baseUrl?: string): string;
 export declare function formatSha256Integrity(bytes: Uint8Array): string;
-export declare function parseClawHubPluginSpec(raw: string): {
-    name: string;
-    version?: string;
-    baseUrl?: string;
-} | null;
+export declare function normalizeClawHubSha256Integrity(value: string): string | null;
+export declare function normalizeClawHubSha256Hex(value: string): string | null;
 export declare function fetchClawHubPackageDetail(params: {
     name: string;
     baseUrl?: string;
@@ -221,4 +227,3 @@ export declare function resolveLatestVersionFromPackage(detail: ClawHubPackageDe
 export declare function isClawHubFamilySkill(detail: ClawHubPackageDetail | ClawHubSkillDetail): boolean;
 export declare function satisfiesPluginApiRange(pluginApiVersion: string, pluginApiRange?: string | null): boolean;
 export declare function satisfiesGatewayMinimum(currentVersion: string, minGatewayVersion?: string | null): boolean;
-export {};

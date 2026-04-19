@@ -1,3 +1,21 @@
+import type { OpenClawConfig } from "../config/types.openclaw.js";
+import { drainPendingDeliveries as coreDrainPendingDeliveries, type DeliverFn, type RecoveryLogger } from "../infra/outbound/delivery-queue.js";
+type DrainPendingDeliveriesOptions = Omit<Parameters<typeof coreDrainPendingDeliveries>[0], "deliver"> & {
+    deliver?: DeliverFn;
+};
+export declare function drainPendingDeliveries(opts: DrainPendingDeliveriesOptions): Promise<void>;
+/**
+ * @deprecated Prefer plugin-owned reconnect policy wired through
+ * `drainPendingDeliveries(...)`. This compatibility shim preserves the
+ * historical public SDK symbol for existing plugin callers.
+ */
+export declare function drainReconnectQueue(opts: {
+    accountId: string;
+    cfg: OpenClawConfig;
+    log: RecoveryLogger;
+    stateDir?: string;
+    deliver?: DeliverFn;
+}): Promise<void>;
 export * from "../infra/backoff.js";
 export * from "../infra/channel-activity.js";
 export * from "../infra/dedupe.js";
@@ -6,9 +24,13 @@ export * from "../infra/diagnostic-flags.js";
 export * from "../infra/env.js";
 export * from "../infra/errors.js";
 export * from "../infra/exec-approval-command-display.ts";
+export * from "../infra/exec-approval-channel-runtime.ts";
 export * from "../infra/exec-approval-reply.ts";
 export * from "../infra/exec-approval-session-target.ts";
 export * from "../infra/exec-approvals.ts";
+export * from "../infra/approval-native-delivery.ts";
+export * from "../infra/approval-native-runtime.ts";
+export * from "../infra/plugin-approvals.ts";
 export * from "../infra/fetch.js";
 export * from "../infra/file-lock.js";
 export * from "../infra/format-time/format-duration.ts";
@@ -27,6 +49,8 @@ export * from "../infra/net/proxy-fetch.js";
 export * from "../infra/net/undici-global-dispatcher.js";
 export * from "../infra/net/ssrf.js";
 export * from "../infra/outbound/identity.js";
+export * from "../infra/outbound/sanitize-text.js";
+export * from "../infra/parse-finite-number.js";
 export * from "../infra/outbound/send-deps.js";
 export * from "../infra/retry.js";
 export * from "../infra/retry-policy.js";

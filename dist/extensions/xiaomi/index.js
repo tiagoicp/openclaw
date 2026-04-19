@@ -1,25 +1,8 @@
-import "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../paths-DJBuCoRE.js";
-import "../../file-lock-Cm3HPowf.js";
-import "../../profiles-CRvutsjq.js";
-import "../../anthropic-vertex-provider-Cik2BDhe.js";
-import "../../provider-model-definitions-CrItEa-O.js";
-import "../../provider-models-GbpUTgQg.js";
-import { n as buildXiaomiProvider } from "../../provider-catalog-YxtK6nJT.js";
-import "../../provider-api-key-auth-Uu86HoCQ.js";
-import { u as PROVIDER_LABELS } from "../../provider-usage-D_y-rSPa.js";
-import { t as defineSingleProviderPluginEntry } from "../../provider-entry-Dh6ETIXa.js";
-import "../../provider-onboard-DmLoftpN.js";
-import { n as applyXiaomiConfig, t as XIAOMI_DEFAULT_MODEL_REF } from "../../onboard-BdMhexI3.js";
+import { t as defineSingleProviderPluginEntry } from "../../provider-entry-Cn-adoN0.js";
+import { n as PROVIDER_LABELS } from "../../provider-usage.shared-DMa2CU01.js";
+import "../../provider-usage-C5h_x8Ai.js";
+import { n as buildXiaomiProvider } from "../../provider-catalog-CBDZYtP_.js";
+import { n as applyXiaomiConfig, t as XIAOMI_DEFAULT_MODEL_REF } from "../../onboard-DVkN2cgW.js";
 var xiaomi_default = defineSingleProviderPluginEntry({
 	id: "xiaomi",
 	name: "Xiaomi Provider",

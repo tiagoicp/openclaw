@@ -5,6 +5,12 @@ export type AgentModelConfig = string | {
     /** Per-agent model fallbacks (provider/model). */
     fallbacks?: string[];
 };
+export type AgentEmbeddedHarnessConfig = {
+    /** Embedded harness id: "auto", "pi", or a registered plugin harness id. */
+    runtime?: string;
+    /** Fallback when no plugin harness matches or an auto-selected plugin harness fails. */
+    fallback?: "pi" | "none";
+};
 export type AgentSandboxConfig = {
     mode?: "off" | "non-main" | "all";
     /** Sandbox runtime backend id. Default: "docker". */
@@ -19,8 +25,6 @@ export type AgentSandboxConfig = {
     sessionToolsVisibility?: "spawned" | "all";
     /** Container/workspace scope for sandbox isolation. */
     scope?: "session" | "agent" | "shared";
-    /** Legacy alias for scope ("session" when true, "shared" when false). */
-    perSession?: boolean;
     workspaceRoot?: string;
     /** Docker-specific sandbox settings. */
     docker?: SandboxDockerSettings;

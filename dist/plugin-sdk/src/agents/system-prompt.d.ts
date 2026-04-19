@@ -1,16 +1,21 @@
 import type { ReasoningLevel, ThinkLevel } from "../auto-reply/thinking.js";
 import type { MemoryCitationsMode } from "../config/types.memory.js";
+import type { BootstrapMode } from "./bootstrap-mode.js";
 import type { ResolvedTimeFormat } from "./date-time.js";
 import type { EmbeddedContextFile } from "./pi-embedded-helpers.js";
 import type { EmbeddedSandboxInfo } from "./pi-embedded-runner/types.js";
+import type { ProviderSystemPromptContribution } from "./system-prompt-contribution.js";
+import type { PromptMode } from "./system-prompt.types.js";
 /**
  * Controls which hardcoded sections are included in the system prompt.
  * - "full": All sections (default, for main agent)
  * - "minimal": Reduced sections (Tooling, Workspace, Runtime) - used for subagents
  * - "none": Just basic identity line, no sections
  */
-export type PromptMode = "full" | "minimal" | "none";
 type OwnerIdDisplay = "raw" | "hash";
+export declare function buildAgentUserPromptPrefix(params: {
+    bootstrapMode?: BootstrapMode;
+}): string | undefined;
 export declare function buildAgentSystemPrompt(params: {
     workspaceDir: string;
     defaultThinkLevel?: ThinkLevel;
@@ -48,6 +53,7 @@ export declare function buildAgentSystemPrompt(params: {
         channel?: string;
         capabilities?: string[];
         repoRoot?: string;
+        canvasRootDir?: string;
     };
     messageToolHints?: string[];
     sandboxInfo?: EmbeddedSandboxInfo;
@@ -56,7 +62,9 @@ export declare function buildAgentSystemPrompt(params: {
         level: "minimal" | "extensive";
         channel: string;
     };
+    includeMemorySection?: boolean;
     memoryCitationsMode?: MemoryCitationsMode;
+    promptContribution?: ProviderSystemPromptContribution;
 }): string;
 export declare function buildRuntimeLine(runtimeInfo?: {
     agentId?: string;

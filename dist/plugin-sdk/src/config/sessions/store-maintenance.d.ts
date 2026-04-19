@@ -1,4 +1,4 @@
-import type { SessionMaintenanceMode } from "../types.base.js";
+import type { SessionMaintenanceConfig, SessionMaintenanceMode } from "../types.base.js";
 import type { SessionEntry } from "./types.js";
 export type SessionMaintenanceWarning = {
     activeSessionKey: string;
@@ -22,6 +22,7 @@ export type ResolvedSessionMaintenanceConfig = {
  * Resolve maintenance settings from openclaw.json (`session.maintenance`).
  * Falls back to built-in defaults when config is missing or unset.
  */
+export declare function resolveMaintenanceConfigFromInput(maintenance?: SessionMaintenanceConfig): ResolvedSessionMaintenanceConfig;
 export declare function resolveMaintenanceConfig(): ResolvedSessionMaintenanceConfig;
 /**
  * Remove entries whose `updatedAt` is older than the configured threshold.

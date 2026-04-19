@@ -1,4 +1,4 @@
-import type { OpenClawConfig } from "../config/config.js";
+import type { OpenClawConfig } from "../config/types.openclaw.js";
 export type SpawnedRunMetadata = {
     spawnedBy?: string | null;
     groupId?: string | null;
@@ -10,6 +10,7 @@ export type SpawnedToolContext = {
     agentGroupId?: string | null;
     agentGroupChannel?: string | null;
     agentGroupSpace?: string | null;
+    agentMemberRoleIds?: string[];
     workspaceDir?: string;
 };
 export type NormalizedSpawnedRunMetadata = {

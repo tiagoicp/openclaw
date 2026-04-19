@@ -14,6 +14,20 @@ export type SecretRef = {
 export type SecretInput = string | SecretRef;
 export declare const DEFAULT_SECRET_PROVIDER_ALIAS = "default";
 export declare const ENV_SECRET_REF_ID_RE: RegExp;
+export type SecretInputStringResolutionMode = "strict" | "inspect";
+export type SecretInputStringResolution = {
+    status: "available";
+    value: string;
+    ref: null;
+} | {
+    status: "configured_unavailable";
+    value: undefined;
+    ref: SecretRef;
+} | {
+    status: "missing";
+    value: undefined;
+    ref: null;
+};
 type SecretDefaults = {
     env?: string;
     file?: string;
@@ -31,6 +45,13 @@ export declare function assertSecretInputResolved(params: {
     defaults?: SecretDefaults;
     path: string;
 }): void;
+export declare function resolveSecretInputString(params: {
+    value: unknown;
+    refValue?: unknown;
+    defaults?: SecretDefaults;
+    path: string;
+    mode?: SecretInputStringResolutionMode;
+}): SecretInputStringResolution;
 export declare function normalizeResolvedSecretInputString(params: {
     value: unknown;
     refValue?: unknown;

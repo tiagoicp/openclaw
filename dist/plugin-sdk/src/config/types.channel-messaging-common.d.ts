@@ -1,4 +1,4 @@
-import type { BlockStreamingCoalesceConfig, DmPolicy, GroupPolicy, MarkdownConfig } from "./types.base.js";
+import type { BlockStreamingCoalesceConfig, ContextVisibilityMode, DmPolicy, GroupPolicy, MarkdownConfig } from "./types.base.js";
 import type { ChannelHealthMonitorConfig, ChannelHeartbeatVisibilityConfig } from "./types.channels.js";
 import type { DmConfig } from "./types.messages.js";
 export type CommonChannelMessagingConfig = {
@@ -22,6 +22,13 @@ export type CommonChannelMessagingConfig = {
     groupAllowFrom?: Array<string | number>;
     /** Group/channel message handling policy. */
     groupPolicy?: GroupPolicy;
+    /**
+     * Supplemental context visibility policy for fetched/group context.
+     * - "all": include all quoted/thread/history context
+     * - "allowlist": only include context from allowlisted senders
+     * - "allowlist_quote": same as allowlist, but keep explicit quote/reply context
+     */
+    contextVisibility?: ContextVisibilityMode;
     /** Max group/channel messages to keep as history context (0 disables). */
     historyLimit?: number;
     /** Max DM turns to keep as history context. */

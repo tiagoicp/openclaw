@@ -1,12 +1,10 @@
 #!/usr/bin/env node
-import "./redact-BDinS1q9.js";
-import { i as formatUncaughtError } from "./errors-BxyFnvP3.js";
-import { t as isMainModule } from "./is-main-YViS6wOn.js";
-import { t as installUnhandledRejectionHandler } from "./unhandled-rejections-CDJ8dOVP.js";
+import { a as formatUncaughtError } from "./errors-D8p6rxH8.js";
+import { t as isMainModule } from "./is-main-C_eE8dOT.js";
+import { t as installUnhandledRejectionHandler } from "./unhandled-rejections-CeMi3POt.js";
 import process from "node:process";
 import { fileURLToPath } from "node:url";
 //#region src/index.ts
-let assertWebChannel;
 let applyTemplate;
 let createDefaultDeps;
 let deriveSessionKey;
@@ -26,10 +24,9 @@ let resolveStorePath;
 let runCommandWithTimeout;
 let runExec;
 let saveSessionStore;
-let toWhatsappJid;
 let waitForever;
 async function loadLegacyCliDeps() {
-	const [{ installGaxiosFetchCompat }, { runCli }] = await Promise.all([import("./gaxios-fetch-compat-350v8J5J.js"), import("./run-main-CV0PSeIn.js")]);
+	const [{ installGaxiosFetchCompat }, { runCli }] = await Promise.all([import("./gaxios-fetch-compat-BPr1GvIc.js"), import("./run-main-0yy7tlhO.js")]);
 	return {
 		installGaxiosFetchCompat,
 		runCli
@@ -41,17 +38,20 @@ async function runLegacyCliEntry(argv = process.argv, deps) {
 	await runCli(argv);
 }
 const isMain = isMainModule({ currentFile: fileURLToPath(import.meta.url) });
-if (!isMain) ({assertWebChannel, applyTemplate, createDefaultDeps, deriveSessionKey, describePortOwner, ensureBinary, ensurePortAvailable, getReplyFromConfig, handlePortError, loadConfig, loadSessionStore, monitorWebChannel, normalizeE164, PortInUseError, promptYesNo, resolveSessionKey, resolveStorePath, runCommandWithTimeout, runExec, saveSessionStore, toWhatsappJid, waitForever} = await import("./library-L20iwo0Z.js"));
+if (!isMain) ({applyTemplate, createDefaultDeps, deriveSessionKey, describePortOwner, ensureBinary, ensurePortAvailable, getReplyFromConfig, handlePortError, loadConfig, loadSessionStore, monitorWebChannel, normalizeE164, PortInUseError, promptYesNo, resolveSessionKey, resolveStorePath, runCommandWithTimeout, runExec, saveSessionStore, waitForever} = await import("./library-D_1wtXMR.js"));
 if (isMain) {
+	const { restoreTerminalState } = await import("./restore-Bq3mpjIz.js");
 	installUnhandledRejectionHandler();
 	process.on("uncaughtException", (error) => {
 		console.error("[openclaw] Uncaught exception:", formatUncaughtError(error));
+		restoreTerminalState("uncaught exception", { resumeStdinIfPaused: false });
 		process.exit(1);
 	});
 	runLegacyCliEntry(process.argv).catch((err) => {
 		console.error("[openclaw] CLI failed:", formatUncaughtError(err));
+		restoreTerminalState("legacy cli failure", { resumeStdinIfPaused: false });
 		process.exit(1);
 	});
 }
 //#endregion
-export { PortInUseError, applyTemplate, assertWebChannel, createDefaultDeps, deriveSessionKey, describePortOwner, ensureBinary, ensurePortAvailable, getReplyFromConfig, handlePortError, loadConfig, loadSessionStore, monitorWebChannel, normalizeE164, promptYesNo, resolveSessionKey, resolveStorePath, runCommandWithTimeout, runExec, runLegacyCliEntry, saveSessionStore, toWhatsappJid, waitForever };
+export { PortInUseError, applyTemplate, createDefaultDeps, deriveSessionKey, describePortOwner, ensureBinary, ensurePortAvailable, getReplyFromConfig, handlePortError, loadConfig, loadSessionStore, monitorWebChannel, normalizeE164, promptYesNo, resolveSessionKey, resolveStorePath, runCommandWithTimeout, runExec, runLegacyCliEntry, saveSessionStore, waitForever };

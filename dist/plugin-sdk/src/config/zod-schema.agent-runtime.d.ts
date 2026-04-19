@@ -15,8 +15,10 @@ export declare const HeartbeatSchema: z.ZodOptional<z.ZodObject<{
     to: z.ZodOptional<z.ZodString>;
     accountId: z.ZodOptional<z.ZodString>;
     prompt: z.ZodOptional<z.ZodString>;
+    includeSystemPromptSection: z.ZodOptional<z.ZodBoolean>;
     ackMaxChars: z.ZodOptional<z.ZodNumber>;
     suppressToolErrorWarnings: z.ZodOptional<z.ZodBoolean>;
+    timeoutSeconds: z.ZodOptional<z.ZodNumber>;
     lightContext: z.ZodOptional<z.ZodBoolean>;
     isolatedSession: z.ZodOptional<z.ZodBoolean>;
 }, z.core.$strict>>;
@@ -68,6 +70,15 @@ export declare const SandboxPruneSchema: z.ZodOptional<z.ZodObject<{
     idleHours: z.ZodOptional<z.ZodNumber>;
     maxAgeDays: z.ZodOptional<z.ZodNumber>;
 }, z.core.$strict>>;
+export declare const AgentContextLimitsSchema: z.ZodOptional<z.ZodObject<{
+    memoryGetMaxChars: z.ZodOptional<z.ZodNumber>;
+    memoryGetDefaultLines: z.ZodOptional<z.ZodNumber>;
+    toolResultMaxChars: z.ZodOptional<z.ZodNumber>;
+    postCompactionMaxChars: z.ZodOptional<z.ZodNumber>;
+}, z.core.$strict>>;
+export declare const AgentSkillsLimitsSchema: z.ZodOptional<z.ZodObject<{
+    maxSkillsPromptChars: z.ZodOptional<z.ZodNumber>;
+}, z.core.$strict>>;
 export declare const ToolPolicySchema: z.ZodOptional<z.ZodObject<{
     allow: z.ZodOptional<z.ZodArray<z.ZodString>>;
     alsoAllow: z.ZodOptional<z.ZodArray<z.ZodString>>;
@@ -92,120 +103,43 @@ export declare const ToolsWebSearchSchema: z.ZodOptional<z.ZodObject<{
         provider: z.ZodString;
         id: z.ZodString;
     }, z.core.$strict>], "source">]>>;
-    brave: z.ZodOptional<z.ZodObject<{
-        apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-            source: z.ZodLiteral<"env">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>, z.ZodObject<{
-            source: z.ZodLiteral<"file">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>, z.ZodObject<{
-            source: z.ZodLiteral<"exec">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>], "source">]>>;
-        baseUrl: z.ZodOptional<z.ZodString>;
-        model: z.ZodOptional<z.ZodString>;
-        mode: z.ZodOptional<z.ZodString>;
-    }, z.core.$strict>>;
-    firecrawl: z.ZodOptional<z.ZodObject<{
-        apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-            source: z.ZodLiteral<"env">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>, z.ZodObject<{
-            source: z.ZodLiteral<"file">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>, z.ZodObject<{
-            source: z.ZodLiteral<"exec">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>], "source">]>>;
-        baseUrl: z.ZodOptional<z.ZodString>;
-        model: z.ZodOptional<z.ZodString>;
-    }, z.core.$strict>>;
-    gemini: z.ZodOptional<z.ZodObject<{
-        apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-            source: z.ZodLiteral<"env">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>, z.ZodObject<{
-            source: z.ZodLiteral<"file">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>, z.ZodObject<{
-            source: z.ZodLiteral<"exec">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>], "source">]>>;
-        baseUrl: z.ZodOptional<z.ZodString>;
-        model: z.ZodOptional<z.ZodString>;
-    }, z.core.$strict>>;
-    grok: z.ZodOptional<z.ZodObject<{
-        apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-            source: z.ZodLiteral<"env">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>, z.ZodObject<{
-            source: z.ZodLiteral<"file">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>, z.ZodObject<{
-            source: z.ZodLiteral<"exec">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>], "source">]>>;
-        baseUrl: z.ZodOptional<z.ZodString>;
-        model: z.ZodOptional<z.ZodString>;
-        inlineCitations: z.ZodOptional<z.ZodBoolean>;
-    }, z.core.$strict>>;
-    kimi: z.ZodOptional<z.ZodObject<{
-        apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-            source: z.ZodLiteral<"env">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>, z.ZodObject<{
-            source: z.ZodLiteral<"file">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>, z.ZodObject<{
-            source: z.ZodLiteral<"exec">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>], "source">]>>;
-        baseUrl: z.ZodOptional<z.ZodString>;
-        model: z.ZodOptional<z.ZodString>;
-    }, z.core.$strict>>;
-    perplexity: z.ZodOptional<z.ZodObject<{
-        apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-            source: z.ZodLiteral<"env">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>, z.ZodObject<{
-            source: z.ZodLiteral<"file">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>, z.ZodObject<{
-            source: z.ZodLiteral<"exec">;
-            provider: z.ZodString;
-            id: z.ZodString;
-        }, z.core.$strict>], "source">]>>;
-        baseUrl: z.ZodOptional<z.ZodString>;
-        model: z.ZodOptional<z.ZodString>;
+    openaiCodex: z.ZodOptional<z.ZodObject<{
+        enabled: z.ZodOptional<z.ZodBoolean>;
+        mode: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"cached">, z.ZodLiteral<"live">]>>;
+        allowedDomains: z.ZodOptional<z.ZodPipe<z.ZodArray<z.ZodString>, z.ZodTransform<string[] | undefined, string[]>>>;
+        contextSize: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"low">, z.ZodLiteral<"medium">, z.ZodLiteral<"high">]>>;
+        userLocation: z.ZodOptional<z.ZodPipe<z.ZodObject<{
+            country: z.ZodPipe<z.ZodTransform<unknown, unknown>, z.ZodOptional<z.ZodString>>;
+            region: z.ZodPipe<z.ZodTransform<unknown, unknown>, z.ZodOptional<z.ZodString>>;
+            city: z.ZodPipe<z.ZodTransform<unknown, unknown>, z.ZodOptional<z.ZodString>>;
+            timezone: z.ZodPipe<z.ZodTransform<unknown, unknown>, z.ZodOptional<z.ZodString>>;
+        }, z.core.$strict>, z.ZodTransform<{
+            country?: string | undefined;
+            region?: string | undefined;
+            city?: string | undefined;
+            timezone?: string | undefined;
+        } | undefined, {
+            country?: string | undefined;
+            region?: string | undefined;
+            city?: string | undefined;
+            timezone?: string | undefined;
+        }>>>;
     }, z.core.$strict>>;
 }, z.core.$strict>>;
 export declare const ToolsWebFetchSchema: z.ZodOptional<z.ZodObject<{
     enabled: z.ZodOptional<z.ZodBoolean>;
+    provider: z.ZodOptional<z.ZodString>;
     maxChars: z.ZodOptional<z.ZodNumber>;
     maxCharsCap: z.ZodOptional<z.ZodNumber>;
+    maxResponseBytes: z.ZodOptional<z.ZodNumber>;
     timeoutSeconds: z.ZodOptional<z.ZodNumber>;
     cacheTtlMinutes: z.ZodOptional<z.ZodNumber>;
     maxRedirects: z.ZodOptional<z.ZodNumber>;
     userAgent: z.ZodOptional<z.ZodString>;
     readability: z.ZodOptional<z.ZodBoolean>;
+    ssrfPolicy: z.ZodOptional<z.ZodObject<{
+        allowRfc2544BenchmarkRange: z.ZodOptional<z.ZodBoolean>;
+    }, z.core.$strict>>;
     firecrawl: z.ZodOptional<z.ZodObject<{
         enabled: z.ZodOptional<z.ZodBoolean>;
         apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
@@ -227,6 +161,14 @@ export declare const ToolsWebFetchSchema: z.ZodOptional<z.ZodObject<{
         timeoutSeconds: z.ZodOptional<z.ZodNumber>;
     }, z.core.$strict>>;
 }, z.core.$strict>>;
+export declare const ToolsWebXSearchSchema: z.ZodOptional<z.ZodObject<{
+    enabled: z.ZodOptional<z.ZodBoolean>;
+    model: z.ZodOptional<z.ZodString>;
+    inlineCitations: z.ZodOptional<z.ZodBoolean>;
+    maxTurns: z.ZodOptional<z.ZodNumber>;
+    timeoutSeconds: z.ZodOptional<z.ZodNumber>;
+    cacheTtlMinutes: z.ZodOptional<z.ZodNumber>;
+}, z.core.$strict>>;
 export declare const ToolsWebSchema: z.ZodOptional<z.ZodObject<{
     search: z.ZodOptional<z.ZodObject<{
         enabled: z.ZodOptional<z.ZodBoolean>;
@@ -247,120 +189,43 @@ export declare const ToolsWebSchema: z.ZodOptional<z.ZodObject<{
             provider: z.ZodString;
             id: z.ZodString;
         }, z.core.$strict>], "source">]>>;
-        brave: z.ZodOptional<z.ZodObject<{
-            apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-                source: z.ZodLiteral<"env">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>, z.ZodObject<{
-                source: z.ZodLiteral<"file">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>, z.ZodObject<{
-                source: z.ZodLiteral<"exec">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>], "source">]>>;
-            baseUrl: z.ZodOptional<z.ZodString>;
-            model: z.ZodOptional<z.ZodString>;
-            mode: z.ZodOptional<z.ZodString>;
-        }, z.core.$strict>>;
-        firecrawl: z.ZodOptional<z.ZodObject<{
-            apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-                source: z.ZodLiteral<"env">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>, z.ZodObject<{
-                source: z.ZodLiteral<"file">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>, z.ZodObject<{
-                source: z.ZodLiteral<"exec">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>], "source">]>>;
-            baseUrl: z.ZodOptional<z.ZodString>;
-            model: z.ZodOptional<z.ZodString>;
-        }, z.core.$strict>>;
-        gemini: z.ZodOptional<z.ZodObject<{
-            apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-                source: z.ZodLiteral<"env">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>, z.ZodObject<{
-                source: z.ZodLiteral<"file">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>, z.ZodObject<{
-                source: z.ZodLiteral<"exec">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>], "source">]>>;
-            baseUrl: z.ZodOptional<z.ZodString>;
-            model: z.ZodOptional<z.ZodString>;
-        }, z.core.$strict>>;
-        grok: z.ZodOptional<z.ZodObject<{
-            apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-                source: z.ZodLiteral<"env">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>, z.ZodObject<{
-                source: z.ZodLiteral<"file">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>, z.ZodObject<{
-                source: z.ZodLiteral<"exec">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>], "source">]>>;
-            baseUrl: z.ZodOptional<z.ZodString>;
-            model: z.ZodOptional<z.ZodString>;
-            inlineCitations: z.ZodOptional<z.ZodBoolean>;
-        }, z.core.$strict>>;
-        kimi: z.ZodOptional<z.ZodObject<{
-            apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-                source: z.ZodLiteral<"env">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>, z.ZodObject<{
-                source: z.ZodLiteral<"file">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>, z.ZodObject<{
-                source: z.ZodLiteral<"exec">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>], "source">]>>;
-            baseUrl: z.ZodOptional<z.ZodString>;
-            model: z.ZodOptional<z.ZodString>;
-        }, z.core.$strict>>;
-        perplexity: z.ZodOptional<z.ZodObject<{
-            apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-                source: z.ZodLiteral<"env">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>, z.ZodObject<{
-                source: z.ZodLiteral<"file">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>, z.ZodObject<{
-                source: z.ZodLiteral<"exec">;
-                provider: z.ZodString;
-                id: z.ZodString;
-            }, z.core.$strict>], "source">]>>;
-            baseUrl: z.ZodOptional<z.ZodString>;
-            model: z.ZodOptional<z.ZodString>;
+        openaiCodex: z.ZodOptional<z.ZodObject<{
+            enabled: z.ZodOptional<z.ZodBoolean>;
+            mode: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"cached">, z.ZodLiteral<"live">]>>;
+            allowedDomains: z.ZodOptional<z.ZodPipe<z.ZodArray<z.ZodString>, z.ZodTransform<string[] | undefined, string[]>>>;
+            contextSize: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"low">, z.ZodLiteral<"medium">, z.ZodLiteral<"high">]>>;
+            userLocation: z.ZodOptional<z.ZodPipe<z.ZodObject<{
+                country: z.ZodPipe<z.ZodTransform<unknown, unknown>, z.ZodOptional<z.ZodString>>;
+                region: z.ZodPipe<z.ZodTransform<unknown, unknown>, z.ZodOptional<z.ZodString>>;
+                city: z.ZodPipe<z.ZodTransform<unknown, unknown>, z.ZodOptional<z.ZodString>>;
+                timezone: z.ZodPipe<z.ZodTransform<unknown, unknown>, z.ZodOptional<z.ZodString>>;
+            }, z.core.$strict>, z.ZodTransform<{
+                country?: string | undefined;
+                region?: string | undefined;
+                city?: string | undefined;
+                timezone?: string | undefined;
+            } | undefined, {
+                country?: string | undefined;
+                region?: string | undefined;
+                city?: string | undefined;
+                timezone?: string | undefined;
+            }>>>;
         }, z.core.$strict>>;
     }, z.core.$strict>>;
     fetch: z.ZodOptional<z.ZodObject<{
         enabled: z.ZodOptional<z.ZodBoolean>;
+        provider: z.ZodOptional<z.ZodString>;
         maxChars: z.ZodOptional<z.ZodNumber>;
         maxCharsCap: z.ZodOptional<z.ZodNumber>;
+        maxResponseBytes: z.ZodOptional<z.ZodNumber>;
         timeoutSeconds: z.ZodOptional<z.ZodNumber>;
         cacheTtlMinutes: z.ZodOptional<z.ZodNumber>;
         maxRedirects: z.ZodOptional<z.ZodNumber>;
         userAgent: z.ZodOptional<z.ZodString>;
         readability: z.ZodOptional<z.ZodBoolean>;
+        ssrfPolicy: z.ZodOptional<z.ZodObject<{
+            allowRfc2544BenchmarkRange: z.ZodOptional<z.ZodBoolean>;
+        }, z.core.$strict>>;
         firecrawl: z.ZodOptional<z.ZodObject<{
             enabled: z.ZodOptional<z.ZodBoolean>;
             apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
@@ -381,6 +246,14 @@ export declare const ToolsWebSchema: z.ZodOptional<z.ZodObject<{
             maxAgeMs: z.ZodOptional<z.ZodNumber>;
             timeoutSeconds: z.ZodOptional<z.ZodNumber>;
         }, z.core.$strict>>;
+    }, z.core.$strict>>;
+    x_search: z.ZodOptional<z.ZodObject<{
+        enabled: z.ZodOptional<z.ZodBoolean>;
+        model: z.ZodOptional<z.ZodString>;
+        inlineCitations: z.ZodOptional<z.ZodBoolean>;
+        maxTurns: z.ZodOptional<z.ZodNumber>;
+        timeoutSeconds: z.ZodOptional<z.ZodNumber>;
+        cacheTtlMinutes: z.ZodOptional<z.ZodNumber>;
     }, z.core.$strict>>;
 }, z.core.$strict>>;
 export declare const ToolProfileSchema: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"minimal">, z.ZodLiteral<"coding">, z.ZodLiteral<"messaging">, z.ZodLiteral<"full">]>>;
@@ -446,7 +319,6 @@ export declare const AgentSandboxSchema: z.ZodOptional<z.ZodObject<{
     workspaceAccess: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"none">, z.ZodLiteral<"ro">, z.ZodLiteral<"rw">]>>;
     sessionToolsVisibility: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"spawned">, z.ZodLiteral<"all">]>>;
     scope: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"session">, z.ZodLiteral<"agent">, z.ZodLiteral<"shared">]>>;
-    perSession: z.ZodOptional<z.ZodBoolean>;
     workspaceRoot: z.ZodOptional<z.ZodString>;
     docker: z.ZodOptional<z.ZodObject<{
         image: z.ZodOptional<z.ZodString>;
@@ -554,6 +426,7 @@ export declare const AgentToolsSchema: z.ZodOptional<z.ZodObject<{
     exec: z.ZodOptional<z.ZodObject<{
         approvalRunningNoticeMs: z.ZodOptional<z.ZodNumber>;
         host: z.ZodOptional<z.ZodEnum<{
+            auto: "auto";
             sandbox: "sandbox";
             gateway: "gateway";
             node: "node";
@@ -597,6 +470,7 @@ export declare const AgentToolsSchema: z.ZodOptional<z.ZodObject<{
         enabled: z.ZodOptional<z.ZodBoolean>;
         historySize: z.ZodOptional<z.ZodNumber>;
         warningThreshold: z.ZodOptional<z.ZodNumber>;
+        unknownToolThreshold: z.ZodOptional<z.ZodNumber>;
         criticalThreshold: z.ZodOptional<z.ZodNumber>;
         globalCircuitBreakerThreshold: z.ZodOptional<z.ZodNumber>;
         detectors: z.ZodOptional<z.ZodObject<{
@@ -627,6 +501,13 @@ export declare const MemorySearchSchema: z.ZodOptional<z.ZodObject<{
     enabled: z.ZodOptional<z.ZodBoolean>;
     sources: z.ZodOptional<z.ZodArray<z.ZodUnion<readonly [z.ZodLiteral<"memory">, z.ZodLiteral<"sessions">]>>>;
     extraPaths: z.ZodOptional<z.ZodArray<z.ZodString>>;
+    qmd: z.ZodOptional<z.ZodObject<{
+        extraCollections: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            path: z.ZodString;
+            name: z.ZodOptional<z.ZodString>;
+            pattern: z.ZodOptional<z.ZodString>;
+        }, z.core.$strict>>>;
+    }, z.core.$strict>>;
     multimodal: z.ZodOptional<z.ZodObject<{
         enabled: z.ZodOptional<z.ZodBoolean>;
         modalities: z.ZodOptional<z.ZodArray<z.ZodUnion<readonly [z.ZodLiteral<"image">, z.ZodLiteral<"audio">, z.ZodLiteral<"all">]>>>;
@@ -635,7 +516,7 @@ export declare const MemorySearchSchema: z.ZodOptional<z.ZodObject<{
     experimental: z.ZodOptional<z.ZodObject<{
         sessionMemory: z.ZodOptional<z.ZodBoolean>;
     }, z.core.$strict>>;
-    provider: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"local">, z.ZodLiteral<"gemini">, z.ZodLiteral<"voyage">, z.ZodLiteral<"mistral">, z.ZodLiteral<"ollama">]>>;
+    provider: z.ZodOptional<z.ZodString>;
     remote: z.ZodOptional<z.ZodObject<{
         baseUrl: z.ZodOptional<z.ZodString>;
         apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
@@ -660,7 +541,7 @@ export declare const MemorySearchSchema: z.ZodOptional<z.ZodObject<{
             timeoutMinutes: z.ZodOptional<z.ZodNumber>;
         }, z.core.$strict>>;
     }, z.core.$strict>>;
-    fallback: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"gemini">, z.ZodLiteral<"local">, z.ZodLiteral<"voyage">, z.ZodLiteral<"mistral">, z.ZodLiteral<"ollama">, z.ZodLiteral<"none">]>>;
+    fallback: z.ZodOptional<z.ZodString>;
     model: z.ZodOptional<z.ZodString>;
     outputDimensionality: z.ZodOptional<z.ZodNumber>;
     local: z.ZodOptional<z.ZodObject<{
@@ -670,6 +551,9 @@ export declare const MemorySearchSchema: z.ZodOptional<z.ZodObject<{
     store: z.ZodOptional<z.ZodObject<{
         driver: z.ZodOptional<z.ZodLiteral<"sqlite">>;
         path: z.ZodOptional<z.ZodString>;
+        fts: z.ZodOptional<z.ZodObject<{
+            tokenizer: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"unicode61">, z.ZodLiteral<"trigram">]>>;
+        }, z.core.$strict>>;
         vector: z.ZodOptional<z.ZodObject<{
             enabled: z.ZodOptional<z.ZodBoolean>;
             extensionPath: z.ZodOptional<z.ZodString>;
@@ -715,12 +599,27 @@ export declare const MemorySearchSchema: z.ZodOptional<z.ZodObject<{
     }, z.core.$strict>>;
 }, z.core.$strict>>;
 export { AgentModelSchema };
+export declare const AgentEmbeddedHarnessSchema: z.ZodOptional<z.ZodObject<{
+    runtime: z.ZodOptional<z.ZodString>;
+    fallback: z.ZodOptional<z.ZodEnum<{
+        none: "none";
+        pi: "pi";
+    }>>;
+}, z.core.$strict>>;
 export declare const AgentEntrySchema: z.ZodObject<{
     id: z.ZodString;
     default: z.ZodOptional<z.ZodBoolean>;
     name: z.ZodOptional<z.ZodString>;
     workspace: z.ZodOptional<z.ZodString>;
     agentDir: z.ZodOptional<z.ZodString>;
+    systemPromptOverride: z.ZodOptional<z.ZodString>;
+    embeddedHarness: z.ZodOptional<z.ZodObject<{
+        runtime: z.ZodOptional<z.ZodString>;
+        fallback: z.ZodOptional<z.ZodEnum<{
+            none: "none";
+            pi: "pi";
+        }>>;
+    }, z.core.$strict>>;
     model: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodObject<{
         primary: z.ZodOptional<z.ZodString>;
         fallbacks: z.ZodOptional<z.ZodArray<z.ZodString>>;
@@ -745,6 +644,13 @@ export declare const AgentEntrySchema: z.ZodObject<{
         enabled: z.ZodOptional<z.ZodBoolean>;
         sources: z.ZodOptional<z.ZodArray<z.ZodUnion<readonly [z.ZodLiteral<"memory">, z.ZodLiteral<"sessions">]>>>;
         extraPaths: z.ZodOptional<z.ZodArray<z.ZodString>>;
+        qmd: z.ZodOptional<z.ZodObject<{
+            extraCollections: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                path: z.ZodString;
+                name: z.ZodOptional<z.ZodString>;
+                pattern: z.ZodOptional<z.ZodString>;
+            }, z.core.$strict>>>;
+        }, z.core.$strict>>;
         multimodal: z.ZodOptional<z.ZodObject<{
             enabled: z.ZodOptional<z.ZodBoolean>;
             modalities: z.ZodOptional<z.ZodArray<z.ZodUnion<readonly [z.ZodLiteral<"image">, z.ZodLiteral<"audio">, z.ZodLiteral<"all">]>>>;
@@ -753,7 +659,7 @@ export declare const AgentEntrySchema: z.ZodObject<{
         experimental: z.ZodOptional<z.ZodObject<{
             sessionMemory: z.ZodOptional<z.ZodBoolean>;
         }, z.core.$strict>>;
-        provider: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"local">, z.ZodLiteral<"gemini">, z.ZodLiteral<"voyage">, z.ZodLiteral<"mistral">, z.ZodLiteral<"ollama">]>>;
+        provider: z.ZodOptional<z.ZodString>;
         remote: z.ZodOptional<z.ZodObject<{
             baseUrl: z.ZodOptional<z.ZodString>;
             apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
@@ -778,7 +684,7 @@ export declare const AgentEntrySchema: z.ZodObject<{
                 timeoutMinutes: z.ZodOptional<z.ZodNumber>;
             }, z.core.$strict>>;
         }, z.core.$strict>>;
-        fallback: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"gemini">, z.ZodLiteral<"local">, z.ZodLiteral<"voyage">, z.ZodLiteral<"mistral">, z.ZodLiteral<"ollama">, z.ZodLiteral<"none">]>>;
+        fallback: z.ZodOptional<z.ZodString>;
         model: z.ZodOptional<z.ZodString>;
         outputDimensionality: z.ZodOptional<z.ZodNumber>;
         local: z.ZodOptional<z.ZodObject<{
@@ -788,6 +694,9 @@ export declare const AgentEntrySchema: z.ZodObject<{
         store: z.ZodOptional<z.ZodObject<{
             driver: z.ZodOptional<z.ZodLiteral<"sqlite">>;
             path: z.ZodOptional<z.ZodString>;
+            fts: z.ZodOptional<z.ZodObject<{
+                tokenizer: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"unicode61">, z.ZodLiteral<"trigram">]>>;
+            }, z.core.$strict>>;
             vector: z.ZodOptional<z.ZodObject<{
                 enabled: z.ZodOptional<z.ZodBoolean>;
                 extensionPath: z.ZodOptional<z.ZodString>;
@@ -837,6 +746,15 @@ export declare const AgentEntrySchema: z.ZodObject<{
         minMs: z.ZodOptional<z.ZodNumber>;
         maxMs: z.ZodOptional<z.ZodNumber>;
     }, z.core.$strict>>;
+    skillsLimits: z.ZodOptional<z.ZodObject<{
+        maxSkillsPromptChars: z.ZodOptional<z.ZodNumber>;
+    }, z.core.$strict>>;
+    contextLimits: z.ZodOptional<z.ZodObject<{
+        memoryGetMaxChars: z.ZodOptional<z.ZodNumber>;
+        memoryGetDefaultLines: z.ZodOptional<z.ZodNumber>;
+        toolResultMaxChars: z.ZodOptional<z.ZodNumber>;
+        postCompactionMaxChars: z.ZodOptional<z.ZodNumber>;
+    }, z.core.$strict>>;
     heartbeat: z.ZodOptional<z.ZodObject<{
         every: z.ZodOptional<z.ZodString>;
         activeHours: z.ZodOptional<z.ZodObject<{
@@ -852,8 +770,10 @@ export declare const AgentEntrySchema: z.ZodObject<{
         to: z.ZodOptional<z.ZodString>;
         accountId: z.ZodOptional<z.ZodString>;
         prompt: z.ZodOptional<z.ZodString>;
+        includeSystemPromptSection: z.ZodOptional<z.ZodBoolean>;
         ackMaxChars: z.ZodOptional<z.ZodNumber>;
         suppressToolErrorWarnings: z.ZodOptional<z.ZodBoolean>;
+        timeoutSeconds: z.ZodOptional<z.ZodNumber>;
         lightContext: z.ZodOptional<z.ZodBoolean>;
         isolatedSession: z.ZodOptional<z.ZodBoolean>;
     }, z.core.$strict>>;
@@ -874,6 +794,10 @@ export declare const AgentEntrySchema: z.ZodObject<{
             fallbacks: z.ZodOptional<z.ZodArray<z.ZodString>>;
         }, z.core.$strict>]>>;
         thinking: z.ZodOptional<z.ZodString>;
+        requireAgentId: z.ZodOptional<z.ZodBoolean>;
+    }, z.core.$strict>>;
+    embeddedPi: z.ZodOptional<z.ZodObject<{
+        executionContract: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"default">, z.ZodLiteral<"strict-agentic">]>>;
     }, z.core.$strict>>;
     sandbox: z.ZodOptional<z.ZodObject<{
         mode: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"off">, z.ZodLiteral<"non-main">, z.ZodLiteral<"all">]>>;
@@ -881,7 +805,6 @@ export declare const AgentEntrySchema: z.ZodObject<{
         workspaceAccess: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"none">, z.ZodLiteral<"ro">, z.ZodLiteral<"rw">]>>;
         sessionToolsVisibility: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"spawned">, z.ZodLiteral<"all">]>>;
         scope: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"session">, z.ZodLiteral<"agent">, z.ZodLiteral<"shared">]>>;
-        perSession: z.ZodOptional<z.ZodBoolean>;
         workspaceRoot: z.ZodOptional<z.ZodString>;
         docker: z.ZodOptional<z.ZodObject<{
             image: z.ZodOptional<z.ZodString>;
@@ -990,6 +913,7 @@ export declare const AgentEntrySchema: z.ZodObject<{
         exec: z.ZodOptional<z.ZodObject<{
             approvalRunningNoticeMs: z.ZodOptional<z.ZodNumber>;
             host: z.ZodOptional<z.ZodEnum<{
+                auto: "auto";
                 sandbox: "sandbox";
                 gateway: "gateway";
                 node: "node";
@@ -1033,6 +957,7 @@ export declare const AgentEntrySchema: z.ZodObject<{
             enabled: z.ZodOptional<z.ZodBoolean>;
             historySize: z.ZodOptional<z.ZodNumber>;
             warningThreshold: z.ZodOptional<z.ZodNumber>;
+            unknownToolThreshold: z.ZodOptional<z.ZodNumber>;
             criticalThreshold: z.ZodOptional<z.ZodNumber>;
             globalCircuitBreakerThreshold: z.ZodOptional<z.ZodNumber>;
             detectors: z.ZodOptional<z.ZodObject<{
@@ -1095,120 +1020,43 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
                 provider: z.ZodString;
                 id: z.ZodString;
             }, z.core.$strict>], "source">]>>;
-            brave: z.ZodOptional<z.ZodObject<{
-                apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-                    source: z.ZodLiteral<"env">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>, z.ZodObject<{
-                    source: z.ZodLiteral<"file">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>, z.ZodObject<{
-                    source: z.ZodLiteral<"exec">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>], "source">]>>;
-                baseUrl: z.ZodOptional<z.ZodString>;
-                model: z.ZodOptional<z.ZodString>;
-                mode: z.ZodOptional<z.ZodString>;
-            }, z.core.$strict>>;
-            firecrawl: z.ZodOptional<z.ZodObject<{
-                apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-                    source: z.ZodLiteral<"env">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>, z.ZodObject<{
-                    source: z.ZodLiteral<"file">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>, z.ZodObject<{
-                    source: z.ZodLiteral<"exec">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>], "source">]>>;
-                baseUrl: z.ZodOptional<z.ZodString>;
-                model: z.ZodOptional<z.ZodString>;
-            }, z.core.$strict>>;
-            gemini: z.ZodOptional<z.ZodObject<{
-                apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-                    source: z.ZodLiteral<"env">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>, z.ZodObject<{
-                    source: z.ZodLiteral<"file">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>, z.ZodObject<{
-                    source: z.ZodLiteral<"exec">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>], "source">]>>;
-                baseUrl: z.ZodOptional<z.ZodString>;
-                model: z.ZodOptional<z.ZodString>;
-            }, z.core.$strict>>;
-            grok: z.ZodOptional<z.ZodObject<{
-                apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-                    source: z.ZodLiteral<"env">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>, z.ZodObject<{
-                    source: z.ZodLiteral<"file">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>, z.ZodObject<{
-                    source: z.ZodLiteral<"exec">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>], "source">]>>;
-                baseUrl: z.ZodOptional<z.ZodString>;
-                model: z.ZodOptional<z.ZodString>;
-                inlineCitations: z.ZodOptional<z.ZodBoolean>;
-            }, z.core.$strict>>;
-            kimi: z.ZodOptional<z.ZodObject<{
-                apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-                    source: z.ZodLiteral<"env">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>, z.ZodObject<{
-                    source: z.ZodLiteral<"file">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>, z.ZodObject<{
-                    source: z.ZodLiteral<"exec">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>], "source">]>>;
-                baseUrl: z.ZodOptional<z.ZodString>;
-                model: z.ZodOptional<z.ZodString>;
-            }, z.core.$strict>>;
-            perplexity: z.ZodOptional<z.ZodObject<{
-                apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
-                    source: z.ZodLiteral<"env">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>, z.ZodObject<{
-                    source: z.ZodLiteral<"file">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>, z.ZodObject<{
-                    source: z.ZodLiteral<"exec">;
-                    provider: z.ZodString;
-                    id: z.ZodString;
-                }, z.core.$strict>], "source">]>>;
-                baseUrl: z.ZodOptional<z.ZodString>;
-                model: z.ZodOptional<z.ZodString>;
+            openaiCodex: z.ZodOptional<z.ZodObject<{
+                enabled: z.ZodOptional<z.ZodBoolean>;
+                mode: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"cached">, z.ZodLiteral<"live">]>>;
+                allowedDomains: z.ZodOptional<z.ZodPipe<z.ZodArray<z.ZodString>, z.ZodTransform<string[] | undefined, string[]>>>;
+                contextSize: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"low">, z.ZodLiteral<"medium">, z.ZodLiteral<"high">]>>;
+                userLocation: z.ZodOptional<z.ZodPipe<z.ZodObject<{
+                    country: z.ZodPipe<z.ZodTransform<unknown, unknown>, z.ZodOptional<z.ZodString>>;
+                    region: z.ZodPipe<z.ZodTransform<unknown, unknown>, z.ZodOptional<z.ZodString>>;
+                    city: z.ZodPipe<z.ZodTransform<unknown, unknown>, z.ZodOptional<z.ZodString>>;
+                    timezone: z.ZodPipe<z.ZodTransform<unknown, unknown>, z.ZodOptional<z.ZodString>>;
+                }, z.core.$strict>, z.ZodTransform<{
+                    country?: string | undefined;
+                    region?: string | undefined;
+                    city?: string | undefined;
+                    timezone?: string | undefined;
+                } | undefined, {
+                    country?: string | undefined;
+                    region?: string | undefined;
+                    city?: string | undefined;
+                    timezone?: string | undefined;
+                }>>>;
             }, z.core.$strict>>;
         }, z.core.$strict>>;
         fetch: z.ZodOptional<z.ZodObject<{
             enabled: z.ZodOptional<z.ZodBoolean>;
+            provider: z.ZodOptional<z.ZodString>;
             maxChars: z.ZodOptional<z.ZodNumber>;
             maxCharsCap: z.ZodOptional<z.ZodNumber>;
+            maxResponseBytes: z.ZodOptional<z.ZodNumber>;
             timeoutSeconds: z.ZodOptional<z.ZodNumber>;
             cacheTtlMinutes: z.ZodOptional<z.ZodNumber>;
             maxRedirects: z.ZodOptional<z.ZodNumber>;
             userAgent: z.ZodOptional<z.ZodString>;
             readability: z.ZodOptional<z.ZodBoolean>;
+            ssrfPolicy: z.ZodOptional<z.ZodObject<{
+                allowRfc2544BenchmarkRange: z.ZodOptional<z.ZodBoolean>;
+            }, z.core.$strict>>;
             firecrawl: z.ZodOptional<z.ZodObject<{
                 enabled: z.ZodOptional<z.ZodBoolean>;
                 apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
@@ -1230,6 +1078,14 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
                 timeoutSeconds: z.ZodOptional<z.ZodNumber>;
             }, z.core.$strict>>;
         }, z.core.$strict>>;
+        x_search: z.ZodOptional<z.ZodObject<{
+            enabled: z.ZodOptional<z.ZodBoolean>;
+            model: z.ZodOptional<z.ZodString>;
+            inlineCitations: z.ZodOptional<z.ZodBoolean>;
+            maxTurns: z.ZodOptional<z.ZodNumber>;
+            timeoutSeconds: z.ZodOptional<z.ZodNumber>;
+            cacheTtlMinutes: z.ZodOptional<z.ZodNumber>;
+        }, z.core.$strict>>;
     }, z.core.$strict>>;
     media: z.ZodOptional<z.ZodObject<{
         models: z.ZodOptional<z.ZodArray<z.ZodOptional<z.ZodObject<{
@@ -1246,6 +1102,230 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
             }, z.core.$strict>>;
             baseUrl: z.ZodOptional<z.ZodString>;
             headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+            request: z.ZodOptional<z.ZodObject<{
+                headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                    source: z.ZodLiteral<"env">;
+                    provider: z.ZodString;
+                    id: z.ZodString;
+                }, z.core.$strict>, z.ZodObject<{
+                    source: z.ZodLiteral<"file">;
+                    provider: z.ZodString;
+                    id: z.ZodString;
+                }, z.core.$strict>, z.ZodObject<{
+                    source: z.ZodLiteral<"exec">;
+                    provider: z.ZodString;
+                    id: z.ZodString;
+                }, z.core.$strict>], "source">]>>>;
+                auth: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                    mode: z.ZodLiteral<"provider-default">;
+                }, z.core.$strict>, z.ZodObject<{
+                    mode: z.ZodLiteral<"authorization-bearer">;
+                    token: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>;
+                }, z.core.$strict>, z.ZodObject<{
+                    mode: z.ZodLiteral<"header">;
+                    headerName: z.ZodString;
+                    value: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>;
+                    prefix: z.ZodOptional<z.ZodString>;
+                }, z.core.$strict>]>>;
+                proxy: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                    mode: z.ZodLiteral<"env-proxy">;
+                    tls: z.ZodOptional<z.ZodObject<{
+                        ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        serverName: z.ZodOptional<z.ZodString>;
+                        insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                    }, z.core.$strict>>;
+                }, z.core.$strict>, z.ZodObject<{
+                    mode: z.ZodLiteral<"explicit-proxy">;
+                    url: z.ZodString;
+                    tls: z.ZodOptional<z.ZodObject<{
+                        ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        serverName: z.ZodOptional<z.ZodString>;
+                        insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                    }, z.core.$strict>>;
+                }, z.core.$strict>]>>;
+                tls: z.ZodOptional<z.ZodObject<{
+                    ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    serverName: z.ZodOptional<z.ZodString>;
+                    insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                }, z.core.$strict>>;
+            }, z.core.$strict>>;
             provider: z.ZodOptional<z.ZodString>;
             model: z.ZodOptional<z.ZodString>;
             capabilities: z.ZodOptional<z.ZodArray<z.ZodUnion<readonly [z.ZodLiteral<"image">, z.ZodLiteral<"audio">, z.ZodLiteral<"video">]>>>;
@@ -1256,6 +1336,9 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
             maxBytes: z.ZodOptional<z.ZodNumber>;
         }, z.core.$strict>>>>;
         concurrency: z.ZodOptional<z.ZodNumber>;
+        asyncCompletion: z.ZodOptional<z.ZodObject<{
+            directSend: z.ZodOptional<z.ZodBoolean>;
+        }, z.core.$strict>>;
         image: z.ZodOptional<z.ZodOptional<z.ZodObject<{
             attachments: z.ZodOptional<z.ZodObject<{
                 mode: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"first">, z.ZodLiteral<"all">]>>;
@@ -1276,6 +1359,230 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
                 }, z.core.$strict>>;
                 baseUrl: z.ZodOptional<z.ZodString>;
                 headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+                request: z.ZodOptional<z.ZodObject<{
+                    headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>>;
+                    auth: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                        mode: z.ZodLiteral<"provider-default">;
+                    }, z.core.$strict>, z.ZodObject<{
+                        mode: z.ZodLiteral<"authorization-bearer">;
+                        token: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>;
+                    }, z.core.$strict>, z.ZodObject<{
+                        mode: z.ZodLiteral<"header">;
+                        headerName: z.ZodString;
+                        value: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>;
+                        prefix: z.ZodOptional<z.ZodString>;
+                    }, z.core.$strict>]>>;
+                    proxy: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                        mode: z.ZodLiteral<"env-proxy">;
+                        tls: z.ZodOptional<z.ZodObject<{
+                            ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            serverName: z.ZodOptional<z.ZodString>;
+                            insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                        }, z.core.$strict>>;
+                    }, z.core.$strict>, z.ZodObject<{
+                        mode: z.ZodLiteral<"explicit-proxy">;
+                        url: z.ZodString;
+                        tls: z.ZodOptional<z.ZodObject<{
+                            ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            serverName: z.ZodOptional<z.ZodString>;
+                            insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                        }, z.core.$strict>>;
+                    }, z.core.$strict>]>>;
+                    tls: z.ZodOptional<z.ZodObject<{
+                        ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        serverName: z.ZodOptional<z.ZodString>;
+                        insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                    }, z.core.$strict>>;
+                }, z.core.$strict>>;
                 provider: z.ZodOptional<z.ZodString>;
                 model: z.ZodOptional<z.ZodString>;
                 capabilities: z.ZodOptional<z.ZodArray<z.ZodUnion<readonly [z.ZodLiteral<"image">, z.ZodLiteral<"audio">, z.ZodLiteral<"video">]>>>;
@@ -1298,6 +1605,230 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
             }, z.core.$strict>>;
             baseUrl: z.ZodOptional<z.ZodString>;
             headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+            request: z.ZodOptional<z.ZodObject<{
+                headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                    source: z.ZodLiteral<"env">;
+                    provider: z.ZodString;
+                    id: z.ZodString;
+                }, z.core.$strict>, z.ZodObject<{
+                    source: z.ZodLiteral<"file">;
+                    provider: z.ZodString;
+                    id: z.ZodString;
+                }, z.core.$strict>, z.ZodObject<{
+                    source: z.ZodLiteral<"exec">;
+                    provider: z.ZodString;
+                    id: z.ZodString;
+                }, z.core.$strict>], "source">]>>>;
+                auth: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                    mode: z.ZodLiteral<"provider-default">;
+                }, z.core.$strict>, z.ZodObject<{
+                    mode: z.ZodLiteral<"authorization-bearer">;
+                    token: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>;
+                }, z.core.$strict>, z.ZodObject<{
+                    mode: z.ZodLiteral<"header">;
+                    headerName: z.ZodString;
+                    value: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>;
+                    prefix: z.ZodOptional<z.ZodString>;
+                }, z.core.$strict>]>>;
+                proxy: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                    mode: z.ZodLiteral<"env-proxy">;
+                    tls: z.ZodOptional<z.ZodObject<{
+                        ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        serverName: z.ZodOptional<z.ZodString>;
+                        insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                    }, z.core.$strict>>;
+                }, z.core.$strict>, z.ZodObject<{
+                    mode: z.ZodLiteral<"explicit-proxy">;
+                    url: z.ZodString;
+                    tls: z.ZodOptional<z.ZodObject<{
+                        ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        serverName: z.ZodOptional<z.ZodString>;
+                        insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                    }, z.core.$strict>>;
+                }, z.core.$strict>]>>;
+                tls: z.ZodOptional<z.ZodObject<{
+                    ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    serverName: z.ZodOptional<z.ZodString>;
+                    insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                }, z.core.$strict>>;
+            }, z.core.$strict>>;
             enabled: z.ZodOptional<z.ZodBoolean>;
             scope: z.ZodOptional<z.ZodObject<{
                 default: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"allow">, z.ZodLiteral<"deny">]>>;
@@ -1334,6 +1865,230 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
                 }, z.core.$strict>>;
                 baseUrl: z.ZodOptional<z.ZodString>;
                 headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+                request: z.ZodOptional<z.ZodObject<{
+                    headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>>;
+                    auth: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                        mode: z.ZodLiteral<"provider-default">;
+                    }, z.core.$strict>, z.ZodObject<{
+                        mode: z.ZodLiteral<"authorization-bearer">;
+                        token: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>;
+                    }, z.core.$strict>, z.ZodObject<{
+                        mode: z.ZodLiteral<"header">;
+                        headerName: z.ZodString;
+                        value: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>;
+                        prefix: z.ZodOptional<z.ZodString>;
+                    }, z.core.$strict>]>>;
+                    proxy: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                        mode: z.ZodLiteral<"env-proxy">;
+                        tls: z.ZodOptional<z.ZodObject<{
+                            ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            serverName: z.ZodOptional<z.ZodString>;
+                            insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                        }, z.core.$strict>>;
+                    }, z.core.$strict>, z.ZodObject<{
+                        mode: z.ZodLiteral<"explicit-proxy">;
+                        url: z.ZodString;
+                        tls: z.ZodOptional<z.ZodObject<{
+                            ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            serverName: z.ZodOptional<z.ZodString>;
+                            insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                        }, z.core.$strict>>;
+                    }, z.core.$strict>]>>;
+                    tls: z.ZodOptional<z.ZodObject<{
+                        ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        serverName: z.ZodOptional<z.ZodString>;
+                        insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                    }, z.core.$strict>>;
+                }, z.core.$strict>>;
                 provider: z.ZodOptional<z.ZodString>;
                 model: z.ZodOptional<z.ZodString>;
                 capabilities: z.ZodOptional<z.ZodArray<z.ZodUnion<readonly [z.ZodLiteral<"image">, z.ZodLiteral<"audio">, z.ZodLiteral<"video">]>>>;
@@ -1356,6 +2111,230 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
             }, z.core.$strict>>;
             baseUrl: z.ZodOptional<z.ZodString>;
             headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+            request: z.ZodOptional<z.ZodObject<{
+                headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                    source: z.ZodLiteral<"env">;
+                    provider: z.ZodString;
+                    id: z.ZodString;
+                }, z.core.$strict>, z.ZodObject<{
+                    source: z.ZodLiteral<"file">;
+                    provider: z.ZodString;
+                    id: z.ZodString;
+                }, z.core.$strict>, z.ZodObject<{
+                    source: z.ZodLiteral<"exec">;
+                    provider: z.ZodString;
+                    id: z.ZodString;
+                }, z.core.$strict>], "source">]>>>;
+                auth: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                    mode: z.ZodLiteral<"provider-default">;
+                }, z.core.$strict>, z.ZodObject<{
+                    mode: z.ZodLiteral<"authorization-bearer">;
+                    token: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>;
+                }, z.core.$strict>, z.ZodObject<{
+                    mode: z.ZodLiteral<"header">;
+                    headerName: z.ZodString;
+                    value: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>;
+                    prefix: z.ZodOptional<z.ZodString>;
+                }, z.core.$strict>]>>;
+                proxy: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                    mode: z.ZodLiteral<"env-proxy">;
+                    tls: z.ZodOptional<z.ZodObject<{
+                        ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        serverName: z.ZodOptional<z.ZodString>;
+                        insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                    }, z.core.$strict>>;
+                }, z.core.$strict>, z.ZodObject<{
+                    mode: z.ZodLiteral<"explicit-proxy">;
+                    url: z.ZodString;
+                    tls: z.ZodOptional<z.ZodObject<{
+                        ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        serverName: z.ZodOptional<z.ZodString>;
+                        insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                    }, z.core.$strict>>;
+                }, z.core.$strict>]>>;
+                tls: z.ZodOptional<z.ZodObject<{
+                    ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    serverName: z.ZodOptional<z.ZodString>;
+                    insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                }, z.core.$strict>>;
+            }, z.core.$strict>>;
             enabled: z.ZodOptional<z.ZodBoolean>;
             scope: z.ZodOptional<z.ZodObject<{
                 default: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"allow">, z.ZodLiteral<"deny">]>>;
@@ -1392,6 +2371,230 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
                 }, z.core.$strict>>;
                 baseUrl: z.ZodOptional<z.ZodString>;
                 headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+                request: z.ZodOptional<z.ZodObject<{
+                    headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>>;
+                    auth: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                        mode: z.ZodLiteral<"provider-default">;
+                    }, z.core.$strict>, z.ZodObject<{
+                        mode: z.ZodLiteral<"authorization-bearer">;
+                        token: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>;
+                    }, z.core.$strict>, z.ZodObject<{
+                        mode: z.ZodLiteral<"header">;
+                        headerName: z.ZodString;
+                        value: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>;
+                        prefix: z.ZodOptional<z.ZodString>;
+                    }, z.core.$strict>]>>;
+                    proxy: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                        mode: z.ZodLiteral<"env-proxy">;
+                        tls: z.ZodOptional<z.ZodObject<{
+                            ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            serverName: z.ZodOptional<z.ZodString>;
+                            insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                        }, z.core.$strict>>;
+                    }, z.core.$strict>, z.ZodObject<{
+                        mode: z.ZodLiteral<"explicit-proxy">;
+                        url: z.ZodString;
+                        tls: z.ZodOptional<z.ZodObject<{
+                            ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                                source: z.ZodLiteral<"env">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"file">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>, z.ZodObject<{
+                                source: z.ZodLiteral<"exec">;
+                                provider: z.ZodString;
+                                id: z.ZodString;
+                            }, z.core.$strict>], "source">]>>;
+                            serverName: z.ZodOptional<z.ZodString>;
+                            insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                        }, z.core.$strict>>;
+                    }, z.core.$strict>]>>;
+                    tls: z.ZodOptional<z.ZodObject<{
+                        ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        serverName: z.ZodOptional<z.ZodString>;
+                        insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                    }, z.core.$strict>>;
+                }, z.core.$strict>>;
                 provider: z.ZodOptional<z.ZodString>;
                 model: z.ZodOptional<z.ZodString>;
                 capabilities: z.ZodOptional<z.ZodArray<z.ZodUnion<readonly [z.ZodLiteral<"image">, z.ZodLiteral<"audio">, z.ZodLiteral<"video">]>>>;
@@ -1414,6 +2617,230 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
             }, z.core.$strict>>;
             baseUrl: z.ZodOptional<z.ZodString>;
             headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
+            request: z.ZodOptional<z.ZodObject<{
+                headers: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                    source: z.ZodLiteral<"env">;
+                    provider: z.ZodString;
+                    id: z.ZodString;
+                }, z.core.$strict>, z.ZodObject<{
+                    source: z.ZodLiteral<"file">;
+                    provider: z.ZodString;
+                    id: z.ZodString;
+                }, z.core.$strict>, z.ZodObject<{
+                    source: z.ZodLiteral<"exec">;
+                    provider: z.ZodString;
+                    id: z.ZodString;
+                }, z.core.$strict>], "source">]>>>;
+                auth: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                    mode: z.ZodLiteral<"provider-default">;
+                }, z.core.$strict>, z.ZodObject<{
+                    mode: z.ZodLiteral<"authorization-bearer">;
+                    token: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>;
+                }, z.core.$strict>, z.ZodObject<{
+                    mode: z.ZodLiteral<"header">;
+                    headerName: z.ZodString;
+                    value: z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>;
+                    prefix: z.ZodOptional<z.ZodString>;
+                }, z.core.$strict>]>>;
+                proxy: z.ZodOptional<z.ZodUnion<readonly [z.ZodObject<{
+                    mode: z.ZodLiteral<"env-proxy">;
+                    tls: z.ZodOptional<z.ZodObject<{
+                        ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        serverName: z.ZodOptional<z.ZodString>;
+                        insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                    }, z.core.$strict>>;
+                }, z.core.$strict>, z.ZodObject<{
+                    mode: z.ZodLiteral<"explicit-proxy">;
+                    url: z.ZodString;
+                    tls: z.ZodOptional<z.ZodObject<{
+                        ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                            source: z.ZodLiteral<"env">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"file">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>, z.ZodObject<{
+                            source: z.ZodLiteral<"exec">;
+                            provider: z.ZodString;
+                            id: z.ZodString;
+                        }, z.core.$strict>], "source">]>>;
+                        serverName: z.ZodOptional<z.ZodString>;
+                        insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                    }, z.core.$strict>>;
+                }, z.core.$strict>]>>;
+                tls: z.ZodOptional<z.ZodObject<{
+                    ca: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    cert: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    key: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    passphrase: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
+                        source: z.ZodLiteral<"env">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"file">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>, z.ZodObject<{
+                        source: z.ZodLiteral<"exec">;
+                        provider: z.ZodString;
+                        id: z.ZodString;
+                    }, z.core.$strict>], "source">]>>;
+                    serverName: z.ZodOptional<z.ZodString>;
+                    insecureSkipVerify: z.ZodOptional<z.ZodBoolean>;
+                }, z.core.$strict>>;
+            }, z.core.$strict>>;
             enabled: z.ZodOptional<z.ZodBoolean>;
             scope: z.ZodOptional<z.ZodObject<{
                 default: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"allow">, z.ZodLiteral<"deny">]>>;
@@ -1466,6 +2893,7 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
         enabled: z.ZodOptional<z.ZodBoolean>;
         historySize: z.ZodOptional<z.ZodNumber>;
         warningThreshold: z.ZodOptional<z.ZodNumber>;
+        unknownToolThreshold: z.ZodOptional<z.ZodNumber>;
         criticalThreshold: z.ZodOptional<z.ZodNumber>;
         globalCircuitBreakerThreshold: z.ZodOptional<z.ZodNumber>;
         detectors: z.ZodOptional<z.ZodObject<{
@@ -1499,6 +2927,7 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
     }, z.core.$strict>>;
     exec: z.ZodOptional<z.ZodObject<{
         host: z.ZodOptional<z.ZodEnum<{
+            auto: "auto";
             sandbox: "sandbox";
             gateway: "gateway";
             node: "node";
@@ -1560,6 +2989,9 @@ export declare const ToolsSchema: z.ZodOptional<z.ZodObject<{
             maxFileBytes: z.ZodOptional<z.ZodNumber>;
             retainOnSessionKeep: z.ZodOptional<z.ZodBoolean>;
         }, z.core.$strict>>;
+    }, z.core.$strict>>;
+    experimental: z.ZodOptional<z.ZodObject<{
+        planTool: z.ZodOptional<z.ZodBoolean>;
     }, z.core.$strict>>;
     profile: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"minimal">, z.ZodLiteral<"coding">, z.ZodLiteral<"messaging">, z.ZodLiteral<"full">]>>;
     allow: z.ZodOptional<z.ZodArray<z.ZodString>>;

@@ -5,6 +5,7 @@ type ConfigMcpReadResult = {
     path: string;
     config: OpenClawConfig;
     mcpServers: ConfigMcpServers;
+    baseHash?: string;
 } | {
     ok: false;
     path: string;

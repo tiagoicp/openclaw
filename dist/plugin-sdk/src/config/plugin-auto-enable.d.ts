@@ -1,14 +1,4 @@
-import { type PluginManifestRegistry } from "../plugins/manifest-registry.js";
-import type { OpenClawConfig } from "./config.js";
-export type PluginAutoEnableResult = {
-    config: OpenClawConfig;
-    changes: string[];
-};
-export declare function applyPluginAutoEnable(params: {
-    config: OpenClawConfig;
-    env?: NodeJS.ProcessEnv;
-    /** Pre-loaded manifest registry. When omitted, the registry is loaded from
-     *  the installed plugins on disk. Pass an explicit registry in tests to
-     *  avoid filesystem access and control what plugins are "installed". */
-    manifestRegistry?: PluginManifestRegistry;
-}): PluginAutoEnableResult;
+export { applyPluginAutoEnable, materializePluginAutoEnableCandidates, } from "./plugin-auto-enable.apply.js";
+export { detectPluginAutoEnableCandidates } from "./plugin-auto-enable.detect.js";
+export type { PluginAutoEnableCandidate, PluginAutoEnableResult, } from "./plugin-auto-enable.types.js";
+export { resolvePluginAutoEnableCandidateReason } from "./plugin-auto-enable.shared.js";

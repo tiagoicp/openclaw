@@ -1,5 +1,6 @@
 {
   "id": "byteplus",
+  "enabledByDefault": true,
   "providers": [
     "byteplus",
     "byteplus-plan"
@@ -8,6 +9,9 @@
     "byteplus": [
       "BYTEPLUS_API_KEY"
     ]
+  },
+  "providerAuthAliases": {
+    "byteplus-plan": "byteplus"
   },
   "providerAuthChoices": [
     {
@@ -24,6 +28,11 @@
       "cliDescription": "BytePlus API key"
     }
   ],
+  "contracts": {
+    "videoGenerationProviders": [
+      "byteplus"
+    ]
+  },
   "configSchema": {
     "type": "object",
     "additionalProperties": false,

@@ -1,16 +1,16 @@
-import { n as resolvePreferredOpenClawTmpDir } from "../../tmp-openclaw-dir-DzRxfh9a.js";
-import { m as normalizeThinkLevel, o as formatXHighModelHint } from "../../provider-id-Dub5ZtOv.js";
-import "../../runtime-BF_KUcJM.js";
-import { i as supportsXHighThinking } from "../../thinking-Me2S38se.js";
-import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
-import "../../llm-task-D_W5GYK4.js";
-import "../../api-FyfAqWtX.js";
+import { s as normalizeOptionalString } from "../../string-coerce-BUSzWgUA.js";
+import { n as resolvePreferredOpenClawTmpDir } from "../../tmp-openclaw-dir-eyAoWbVe.js";
+import { c as normalizeThinkLevel, n as formatXHighModelHint } from "../../thinking.shared-B_XYtu1m.js";
+import { i as supportsXHighThinking } from "../../thinking-CM6tfHdy.js";
+import "../../text-runtime-DHfI0VWF.js";
+import { t as definePluginEntry } from "../../plugin-entry-Dzt3gEtQ.js";
+import "../../api-eFnpwSJV.js";
 import path from "node:path";
 import fs from "node:fs/promises";
-import Ajv from "ajv";
+import AjvPkg from "ajv";
 import { Type } from "@sinclair/typebox";
 //#region extensions/llm-task/src/llm-task-tool.ts
-const AjvCtor = Ajv;
+const AjvCtor = AjvPkg;
 function stripCodeFences(s) {
 	const trimmed = s.trim();
 	const m = trimmed.match(/^```(?:json)?\s*([\s\S]*?)\s*```$/i);
@@ -49,14 +49,14 @@ function createLlmTaskTool(api) {
 			if (!prompt.trim()) throw new Error("prompt required");
 			const pluginCfg = api.pluginConfig ?? {};
 			const defaultsModel = api.config?.agents?.defaults?.model;
-			const primary = typeof defaultsModel === "string" ? defaultsModel.trim() : defaultsModel?.primary?.trim() ?? void 0;
+			const primary = typeof defaultsModel === "string" ? normalizeOptionalString(defaultsModel) : normalizeOptionalString(defaultsModel?.primary);
 			const primaryProvider = typeof primary === "string" ? primary.split("/")[0] : void 0;
 			const primaryModel = typeof primary === "string" ? primary.split("/").slice(1).join("/") : void 0;
 			const provider = typeof params.provider === "string" && params.provider.trim() || typeof pluginCfg.defaultProvider === "string" && pluginCfg.defaultProvider.trim() || primaryProvider || void 0;
 			const model = typeof params.model === "string" && params.model.trim() || typeof pluginCfg.defaultModel === "string" && pluginCfg.defaultModel.trim() || primaryModel || void 0;
 			const authProfileId = typeof params.authProfileId === "string" && params.authProfileId.trim() || typeof pluginCfg.defaultAuthProfileId === "string" && pluginCfg.defaultAuthProfileId.trim() || void 0;
 			const modelKey = toModelKey(provider, model);
-			if (!provider || !model || !modelKey) throw new Error(`provider/model could not be resolved (provider=${String(provider ?? "")}, model=${String(model ?? "")})`);
+			if (!provider || !model || !modelKey) throw new Error(`provider/model could not be resolved (provider=${provider ?? ""}, model=${model ?? ""})`);
 			const allowed = Array.isArray(pluginCfg.allowedModels) ? pluginCfg.allowedModels : void 0;
 			if (allowed && allowed.length > 0 && !allowed.includes(modelKey)) throw new Error(`Model not allowed by llm-task plugin config: ${modelKey}. Allowed models: ${allowed.join(", ")}`);
 			const thinkingRaw = typeof params.thinking === "string" && params.thinking.trim() ? params.thinking : void 0;
@@ -87,7 +87,7 @@ function createLlmTaskTool(api) {
 				tmpDir = await fs.mkdtemp(path.join(resolvePreferredOpenClawTmpDir(), "openclaw-llm-task-"));
 				const sessionId = `llm-task-${Date.now()}`;
 				const sessionFile = path.join(tmpDir, "session.json");
-				const text = collectText((await api.runtime.agent.runEmbeddedPiAgent({
+				const result = await api.runtime.agent.runEmbeddedPiAgent({
 					sessionId,
 					sessionFile,
 					workspaceDir: api.config?.agents?.defaults?.workspace ?? process.cwd(),
@@ -102,7 +102,8 @@ function createLlmTaskTool(api) {
 					thinkLevel,
 					streamParams,
 					disableTools: true
-				})).payloads);
+				});
+				const text = collectText(typeof result === "object" && result !== null && "payloads" in result ? result.payloads : void 0);
 				if (!text) throw new Error("LLM returned empty output");
 				const raw = stripCodeFences(text);
 				let parsed;

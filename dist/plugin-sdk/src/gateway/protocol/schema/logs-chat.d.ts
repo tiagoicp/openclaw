@@ -14,12 +14,17 @@ export declare const LogsTailResultSchema: import("@sinclair/typebox").TObject<{
 export declare const ChatHistoryParamsSchema: import("@sinclair/typebox").TObject<{
     sessionKey: import("@sinclair/typebox").TString;
     limit: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
+    maxChars: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
 }>;
 export declare const ChatSendParamsSchema: import("@sinclair/typebox").TObject<{
     sessionKey: import("@sinclair/typebox").TString;
     message: import("@sinclair/typebox").TString;
     thinking: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     deliver: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+    originatingChannel: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    originatingTo: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    originatingAccountId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    originatingThreadId: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     attachments: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TUnknown>>;
     timeoutMs: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
     systemInputProvenance: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
@@ -48,6 +53,7 @@ export declare const ChatEventSchema: import("@sinclair/typebox").TObject<{
     state: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"delta">, import("@sinclair/typebox").TLiteral<"final">, import("@sinclair/typebox").TLiteral<"aborted">, import("@sinclair/typebox").TLiteral<"error">]>;
     message: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnknown>;
     errorMessage: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    errorKind: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"refusal">, import("@sinclair/typebox").TLiteral<"timeout">, import("@sinclair/typebox").TLiteral<"rate_limit">, import("@sinclair/typebox").TLiteral<"context_length">, import("@sinclair/typebox").TLiteral<"unknown">]>>;
     usage: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnknown>;
     stopReason: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
 }>;

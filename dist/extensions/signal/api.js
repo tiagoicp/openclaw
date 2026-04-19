@@ -1,186 +1,448 @@
-import "../../redact-BDinS1q9.js";
-import "../../errors-BxyFnvP3.js";
-import "../../unhandled-rejections-CDJ8dOVP.js";
-import "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../warning-filter-C_BEyyvc.js";
-import "../../links-DaR1j_Bv.js";
-import "../../paths-DJBuCoRE.js";
-import "../../auth-profiles-DWcA6joY.js";
-import "../../provider-runtime.runtime-DwNmuhmD.js";
-import "../../file-lock-Cm3HPowf.js";
-import "../../audit-fs-7IxnGQxG.js";
-import "../../resolve-DqJVzTVp.js";
-import "../../profiles-CRvutsjq.js";
-import "../../tailscale-FHZADwLL.js";
-import "../../tailnet-BPCtbdja.js";
-import "../../net-1LAzWzJc.js";
-import "../../auth-BC0t_CEl.js";
-import "../../credentials-6hokf6e3.js";
-import "../../message-channel-ZzTqBBLH.js";
-import "../../sessions-uRDRs4f-.js";
-import "../../plugins-h0t63KQW.js";
-import "../../paths-BEHCHyAI.js";
-import "../../delivery-context-oynQ_N5k.js";
-import "../../session-write-lock-B7nwE7de.js";
-import "../../method-scopes-DtJfTstv.js";
-import "../../call-CFi2qbI2.js";
-import "../../detect-binary-78pS71eg.js";
-import "../../prompt-style-qxNRcnm3.js";
-import "../../ports-lsof-qBGFcQvX.js";
-import "../../restart-stale-pids-ciXEfnyN.js";
-import "../../ports-DF41F7NN.js";
-import "../../logging-CS4wyI-j.js";
-import "../../commands-AceByDw5.js";
-import "../../issue-format-Cj39YIRp.js";
-import "../../provider-env-vars-BZwz5sMG.js";
-import "../../model-auth-env-BWzx2-YC.js";
-import "../../anthropic-vertex-provider-Cik2BDhe.js";
-import "../../pi-model-discovery-hz4apXP-.js";
-import "../../identity-xGthCqY8.js";
-import "../../heartbeat-DqtPOAC0.js";
-import { Af as looksLikeUuid, Cf as sendReactionSignal, Df as formatSignalSenderId, Ef as formatSignalSenderDisplay, Ff as listEnabledSignalAccounts, Gl as sendReadReceiptSignal, Hl as resolveSignalOutboundTarget, If as listSignalAccountIds, Kl as sendTypingSignal, Lf as resolveDefaultSignalAccountId, Mf as resolveSignalPeerId, Nf as resolveSignalRecipient, Of as isSignalGroupAllowed, Pf as resolveSignalSender, Rf as resolveSignalAccount, Sf as removeReactionSignal, Tf as formatSignalPairingIdLine, Ul as monitorSignalProvider, Vl as probeSignal, Wl as sendMessageSignal, jf as normalizeSignalAllowRecipient, kf as isSignalSenderAllowed, wf as resolveSignalReactionLevel, xf as signalMessageActions } from "../../pi-embedded-BHLc2HPd.js";
-import "../../internal-hooks-CVdBfFMw.js";
-import "../../multimodal-CDYWira8.js";
-import "../../memory-search-B5CuuJZB.js";
-import "../../secret-input-x2By3bJy.js";
-import "../../bindings-KL-4Efmw.js";
-import "../../resolve-route-C5Xj9lGN.js";
-import "../../routing-DA_79T-X.js";
-import "../../identity-file-ClDAlI0t.js";
-import "../../outbound-runtime-BAxohuIf.js";
-import "../../provider-model-definitions-CrItEa-O.js";
-import "../../provider-models-GbpUTgQg.js";
-import "../../provider-catalog-hDyZGQ8R.js";
-import "../../provider-catalog-0WIhy6f_.js";
-import "../../provider-catalog-CdCrQ7UP.js";
-import "../../provider-catalog-DzIvFdfj.js";
-import "../../provider-catalog-COMYNKV2.js";
-import "../../provider-catalog-Bce8iOMh.js";
-import "../../provider-catalog-CPx35FBq.js";
-import "../../provider-catalog-Czll7Q5-.js";
-import "../../provider-catalog-BFvOY2Dt.js";
-import "../../provider-catalog-VZaye2Ib.js";
-import "../../models-config.providers.discovery-oJl_MWQT.js";
-import "../../text-runtime-B-kOpuLv.js";
-import "../../docker-BrzH-NvE.js";
-import "../../tool-catalog-BQWPAtTb.js";
-import "../../common-CMCEg0LE.js";
-import "../../image-ops-xftchR8Z.js";
-import "../../thinking-Me2S38se.js";
-import "../../path-alias-guards-BfUEa8Z8.js";
-import "../../sandbox-paths-DM85ql27.js";
-import "../../channel-actions-M8UJU-J1.js";
-import "../../mime-Bwp1UQ_8.js";
-import "../../ssrf-BdAu1_OT.js";
-import "../../fetch-guard-BiSGgjb-.js";
-import "../../provider-web-search-B2TRQt7q.js";
-import "../../manager-BFi-xqLj.js";
-import "../../config-schema-BoeEl_gh.js";
-import "../../channel-plugin-common-Bw5e9GHM.js";
-import "../../status-helpers-DTFg68Zs.js";
-import "../../conversation-runtime-BfLWHgdb.js";
-import "../../runtime-whatsapp-boundary-C0sTsAVN.js";
-import "../../pairing-store-Ci8ZfuL6.js";
-import "../../json-store-Dizz4Rhx.js";
-import "../../secret-file-BzdoxKYZ.js";
-import "../../channel-config-schema-DOQ4q6a_.js";
-import "../../setup-binary-Tg8N6z5q.js";
-import "../../archive-Oi0PB5pw.js";
-import "../../fs-safe-DpC9pe80.js";
-import "../../signal-cli-install-pAmdy64m.js";
-import "../../setup-wizard-proxy-3tbzVvIf.js";
-import "../../setup-Cuh8Qocv.js";
-import "../../dm-policy-shared-3Jdbvvlm.js";
-import "../../runtime-env-pWTJLxVn.js";
-import "../../temp-path-DvwSkpQg.js";
-import "../../diagnostic-Dx7wnQab.js";
-import "../../logging-B3tLYQAZ.js";
-import "../../config-runtime-BMqUsOKJ.js";
-import "../../level-overrides-DxRoq-Vr.js";
-import "../../exec-approvals-CoUFlPSg.js";
-import "../../webhook-ingress-CwnvXQ9i.js";
-import "../../system-events-D_U3rn_H.js";
-import "../../ssrf-policy-Cve-f-IZ.js";
-import "../../hook-runtime-C0FQ8mwc.js";
-import "../../templating-BpbUbFSs.js";
-import "../../channel-reply-pipeline-BQ2GND11.js";
-import "../../reply-history-CYr7j6cE.js";
-import "../../commands-registry.data-C-Zb7sHo.js";
-import "../../commands-registry-kALONq2A.js";
-import "../../frontmatter-C_CWb6f1.js";
-import "../../env-overrides-CilRbuhU.js";
-import "../../skills-Xrdxpo0d.js";
-import "../../skills-remote-D055n83h.js";
-import "../../workspace-dirs-BooYyzLb.js";
-import "../../pairing-token-BhzPXbCy.js";
-import "../../skill-commands-X9DVN0CB.js";
-import "../../exec-inline-eval-CAjjj6oR.js";
-import "../../sandbox-DSgCBor-.js";
-import "../../target-registry-CUzd3r6R.js";
-import "../../external-content-BtOAY1jC.js";
-import "../../brave-iyc-zT4j.js";
-import "../../duckduckgo-RnKnjVjk.js";
-import "../../exa-B_PEobTF.js";
-import "../../security-runtime-DuEgVcd_.js";
-import "../../provider-auth-ref-CkjXioxW.js";
-import "../../provider-auth-input-DY2h0M4n.js";
-import "../../provider-auth-helpers-CfaQ5Xn6.js";
-import "../../provider-api-key-auth-Uu86HoCQ.js";
-import "../../provider-usage-D_y-rSPa.js";
-import "../../provider-models-BlbL1wnJ.js";
-import "../../media-understanding-DXKhzmxa.js";
-import "../../media-understanding-provider-mKPWfSgv.js";
-import "../../provider-entry-Dh6ETIXa.js";
-import "../../media-understanding-provider-Br6AUUTp.js";
-import "../../provider-onboard-DmLoftpN.js";
-import "../../onboard-p6odcf1a.js";
-import "../../perplexity-web-search-provider-CBvej2u9.js";
-import "../../perplexity-DVSMCtcT.js";
-import "../../model-definitions-CLlu-y8L.js";
-import "../../onboard-CQyz1Xh9.js";
-import "../../provider-catalog-BbgD0Blc.js";
-import "../../provider-models-CPWTfv6u.js";
-import "../../stream-WNyIq00o.js";
-import "../../web-search-C2bCgEzC.js";
-import "../../client-fetch-DG9t9440.js";
-import "../../config-B6bjVdCF.js";
-import "../../web-media-B7RZCKik.js";
-import "../../stagger-C20Z_jRQ.js";
-import "../../command-secret-targets-CiFc3JN3.js";
-import "../../delivery-queue-iwWmpCz9.js";
-import "../../pairing-labels-PxfGoTvk.js";
-import "../../directory-runtime-D9Y42mW-.js";
-import "../../read-only-account-inspect-DL-l3acs.js";
-import "../../src-hV2aBDoy.js";
-import "../../web-media-C0RRMmtv.js";
-import "../../state-paths-CG7b-A_-.js";
-import "../../axios-zS_oAKS1.js";
-import "../../channel-summary-BXD0QyVg.js";
-import "../../session-system-events-CRFPrG-r.js";
-import "../../ssh-tunnel-Ca8F0wnz.js";
-import "../../server-middleware-DUIlEnG_.js";
-import "../../llm-task-D_W5GYK4.js";
-import "../../tool-policy-match-DgTjuJ-l.js";
-import "../../runtime-DAr9Q1gF.js";
-import "../../channel-status-DxDpNj1k.js";
-import "../../discord-core-CTFa_tPG.js";
-import "../../cli-runtime-CivyfPOe.js";
-import "../../config-presence-Bo4-9YVM.js";
-import "../../query-expansion-CeNhqo71.js";
-import "../../search-manager-CiHiEX8K.js";
-import "../../acp-runtime-CRrXx1ZI.js";
-import "../../telegram-core-n7uYzMlP.js";
-import "../../audit-BszklQB5.js";
-import "../../gateway-runtime-_5BLwTPa.js";
-import "../../connection-auth-DQ6Wy_i-.js";
-import "../../mcp-config-vaYGkUmW.js";
-export { formatSignalPairingIdLine, formatSignalSenderDisplay, formatSignalSenderId, isSignalGroupAllowed, isSignalSenderAllowed, listEnabledSignalAccounts, listSignalAccountIds, looksLikeUuid, monitorSignalProvider, normalizeSignalAllowRecipient, probeSignal, removeReactionSignal, resolveDefaultSignalAccountId, resolveSignalAccount, resolveSignalOutboundTarget, resolveSignalPeerId, resolveSignalReactionLevel, resolveSignalRecipient, resolveSignalSender, sendMessageSignal, sendReactionSignal, sendReadReceiptSignal, sendTypingSignal, signalMessageActions };
+import { i as normalizeLowercaseStringOrEmpty, u as normalizeStringifiedOptionalString } from "../../string-coerce-BUSzWgUA.js";
+import { u as normalizeE164 } from "../../utils-D5DtWkEu.js";
+import { t as DEFAULT_ACCOUNT_ID } from "../../account-id-CZtNSGs2.js";
+import { a as chunkText, c as resolveTextChunkLimit } from "../../chunk-BwGwtTwh.js";
+import { t as resolveOutboundSendDep } from "../../send-deps-ChgxnZ0n.js";
+import { c as createScopedChannelConfigAdapter, t as adaptScopedAccountAccessor } from "../../channel-config-helpers-Da4M1Ru3.js";
+import "../../text-runtime-DHfI0VWF.js";
+import { n as describeAccountSnapshot } from "../../account-helpers-Cq1Zr5oH.js";
+import { t as buildOutboundBaseSessionKey } from "../../base-session-key-p0_-kW2R.js";
+import { n as createChannelPluginBase, o as getChatChannelMeta, r as createChatChannelPlugin } from "../../core-w7kNLu40.js";
+import "../../channel-core-DRGB1UWh.js";
+import "../../routing-CKtHAXfV.js";
+import { t as resolveMarkdownTableMode } from "../../markdown-tables-BrIMmeqx.js";
+import { r as createRestrictSendersChannelSecurity } from "../../channel-policy-fpyKQCGQ.js";
+import { t as resolveChannelMediaMaxBytes } from "../../media-limits-DYdkyg_b.js";
+import { t as PAIRING_APPROVED_MESSAGE } from "../../pairing-message-COPj1ZLj.js";
+import { i as createPairingPrefixStripper } from "../../channel-pairing-CP5CQA0B.js";
+import { c as collectStatusIssuesFromLastError, d as createDefaultChannelRuntimeState, n as buildBaseChannelStatusSummary, u as createComputedAccountStatusAdapter } from "../../status-helpers-C-OjDvUo.js";
+import { t as resolveApprovalApprovers } from "../../approval-approvers-CsAy-QoF.js";
+import { t as createResolvedApproverActionAuthAdapter } from "../../approval-auth-helpers-B8V67Elu.js";
+import "../../config-runtime-svP9ZomL.js";
+import "../../reply-chunking-DMI133zb.js";
+import "../../outbound-runtime-Ct6SRp91.js";
+import "../../media-runtime-BX5Edo-X.js";
+import { n as buildDmGroupAccountAllowlistAdapter } from "../../allowlist-config-edit-CENrHe-Q.js";
+import { n as attachChannelToResults, t as attachChannelToResult } from "../../channel-send-result-Cuc21H78.js";
+import "../../channel-status-Bz9FAEWe.js";
+import { i as resolveSignalAccount, n as listSignalAccountIds, r as resolveDefaultSignalAccountId, t as listEnabledSignalAccounts } from "../../accounts-DyyImrJQ.js";
+import { a as isSignalSenderAllowed, c as resolveSignalRecipient, d as looksLikeSignalTargetId, f as normalizeSignalMessagingTarget, i as isSignalGroupAllowed, l as resolveSignalSender, n as formatSignalSenderDisplay, o as normalizeSignalAllowRecipient, r as formatSignalSenderId, s as resolveSignalPeerId, t as formatSignalPairingIdLine, u as looksLikeUuid } from "../../identity-F33c7nek.js";
+import { a as markdownToSignalTextChunks, i as markdownToSignalText, n as sendReadReceiptSignal, r as sendTypingSignal, t as sendMessageSignal } from "../../send-KrtDoQAQ.js";
+import { n as sendReactionSignal, t as removeReactionSignal } from "../../reaction-runtime-api-DzthbCVD.js";
+import { n as resolveSignalReactionLevel, t as signalMessageActions } from "../../message-actions-DNUWkGLW.js";
+import { n as createSignalSetupWizardProxy, r as normalizeSignalAccountInput, s as signalSetupAdapter } from "../../setup-core-CpONH8Nm.js";
+import { t as SignalChannelConfigSchema } from "../../config-schema-DOD_okQA.js";
+import { i as pickAsset, n as installSignalCli, r as looksLikeArchive, t as extractSignalCliArchive } from "../../install-signal-cli-CKzG4FHA.js";
+import { t as monitorSignalProvider } from "../../monitor-Dr9m9Ayj.js";
+import { t as probeSignal } from "../../probe-B1Hkyjk0.js";
+//#region extensions/signal/src/approval-auth.ts
+function normalizeSignalApproverId(value) {
+	const normalized = normalizeSignalMessagingTarget(String(value));
+	if (!normalized || normalized.startsWith("group:") || normalized.startsWith("username:")) return;
+	if (looksLikeUuid(normalized)) return `uuid:${normalized}`;
+	const e164 = normalizeE164(normalized);
+	return e164.length > 1 ? e164 : void 0;
+}
+const signalApprovalAuth = createResolvedApproverActionAuthAdapter({
+	channelLabel: "Signal",
+	resolveApprovers: ({ cfg, accountId }) => {
+		const account = resolveSignalAccount({
+			cfg,
+			accountId
+		}).config;
+		return resolveApprovalApprovers({
+			allowFrom: account.allowFrom,
+			defaultTo: account.defaultTo,
+			normalizeApprover: normalizeSignalApproverId
+		});
+	},
+	normalizeSenderId: (value) => normalizeSignalApproverId(value)
+});
+//#endregion
+//#region extensions/signal/src/outbound-session.ts
+function resolveSignalOutboundTarget(target) {
+	const stripped = target.replace(/^signal:/i, "").trim();
+	const lowered = normalizeLowercaseStringOrEmpty(stripped);
+	if (lowered.startsWith("group:")) {
+		const groupId = stripped.slice(6).trim();
+		if (!groupId) return null;
+		return {
+			peer: {
+				kind: "group",
+				id: groupId
+			},
+			chatType: "group",
+			from: `group:${groupId}`,
+			to: `group:${groupId}`
+		};
+	}
+	let recipient = stripped.trim();
+	if (lowered.startsWith("username:")) recipient = stripped.slice(9).trim();
+	else if (lowered.startsWith("u:")) recipient = stripped.slice(2).trim();
+	if (!recipient) return null;
+	const uuidCandidate = normalizeLowercaseStringOrEmpty(recipient).startsWith("uuid:") ? recipient.slice(5) : recipient;
+	const sender = resolveSignalSender({
+		sourceUuid: looksLikeUuid(uuidCandidate) ? uuidCandidate : null,
+		sourceNumber: looksLikeUuid(uuidCandidate) ? null : recipient
+	});
+	const peerId = sender ? resolveSignalPeerId(sender) : recipient;
+	const displayRecipient = sender ? resolveSignalRecipient(sender) : recipient;
+	return {
+		peer: {
+			kind: "direct",
+			id: peerId
+		},
+		chatType: "direct",
+		from: `signal:${displayRecipient}`,
+		to: `signal:${displayRecipient}`
+	};
+}
+//#endregion
+//#region extensions/signal/src/shared.ts
+const SIGNAL_CHANNEL = "signal";
+async function loadSignalChannelRuntime() {
+	return await import("../../channel.runtime-C6TFWF8R.js");
+}
+const signalSetupWizard = createSignalSetupWizardProxy(async () => (await loadSignalChannelRuntime()).signalSetupWizard);
+const signalConfigAdapter = createScopedChannelConfigAdapter({
+	sectionKey: SIGNAL_CHANNEL,
+	listAccountIds: (cfg) => listSignalAccountIds(cfg),
+	resolveAccount: adaptScopedAccountAccessor((params) => resolveSignalAccount(params)),
+	defaultAccountId: (cfg) => resolveDefaultSignalAccountId(cfg),
+	clearBaseFields: [
+		"account",
+		"httpUrl",
+		"httpHost",
+		"httpPort",
+		"cliPath",
+		"name"
+	],
+	resolveAllowFrom: (account) => account.config.allowFrom,
+	formatAllowFrom: (allowFrom) => allowFrom.map((entry) => normalizeStringifiedOptionalString(entry)).filter((entry) => Boolean(entry)).map((entry) => entry === "*" ? "*" : normalizeE164(entry.replace(/^signal:/i, ""))).filter(Boolean),
+	resolveDefaultTo: (account) => account.config.defaultTo
+});
+const signalSecurityAdapter = createRestrictSendersChannelSecurity({
+	channelKey: SIGNAL_CHANNEL,
+	resolveDmPolicy: (account) => account.config.dmPolicy,
+	resolveDmAllowFrom: (account) => account.config.allowFrom,
+	resolveGroupPolicy: (account) => account.config.groupPolicy,
+	surface: "Signal groups",
+	openScope: "any member",
+	groupPolicyPath: "channels.signal.groupPolicy",
+	groupAllowFromPath: "channels.signal.groupAllowFrom",
+	mentionGated: false,
+	policyPathSuffix: "dmPolicy",
+	normalizeDmEntry: (raw) => normalizeE164(raw.replace(/^signal:/i, "").trim())
+});
+function createSignalPluginBase(params) {
+	return {
+		...createChannelPluginBase({
+			id: SIGNAL_CHANNEL,
+			meta: { ...getChatChannelMeta(SIGNAL_CHANNEL) },
+			setupWizard: params.setupWizard,
+			capabilities: {
+				chatTypes: ["direct", "group"],
+				media: true,
+				reactions: true
+			},
+			streaming: { blockStreamingCoalesceDefaults: {
+				minChars: 1500,
+				idleMs: 1e3
+			} },
+			reload: { configPrefixes: ["channels.signal"] },
+			configSchema: SignalChannelConfigSchema,
+			config: {
+				...signalConfigAdapter,
+				isConfigured: (account) => account.configured,
+				describeAccount: (account) => describeAccountSnapshot({
+					account,
+					configured: account.configured,
+					extra: { baseUrl: account.baseUrl }
+				})
+			},
+			security: signalSecurityAdapter,
+			setup: params.setup
+		}),
+		messaging: { defaultMarkdownTableMode: "bullets" }
+	};
+}
+//#endregion
+//#region extensions/signal/src/channel.ts
+let signalMonitorModulePromise = null;
+let signalProbeModulePromise = null;
+let signalSendRuntimePromise = null;
+async function loadSignalMonitorModule() {
+	signalMonitorModulePromise ??= import("../../monitor-fEgB-Cje.js");
+	return await signalMonitorModulePromise;
+}
+async function loadSignalProbeModule() {
+	signalProbeModulePromise ??= import("../../probe-BxRc6gZn.js");
+	return await signalProbeModulePromise;
+}
+async function loadSignalSendRuntime() {
+	signalSendRuntimePromise ??= import("../../send.runtime-CH7G6a01.js");
+	return await signalSendRuntimePromise;
+}
+async function resolveSignalSendContext(params) {
+	return {
+		send: resolveOutboundSendDep(params.deps, "signal") ?? (await loadSignalSendRuntime()).sendMessageSignal,
+		maxBytes: resolveChannelMediaMaxBytes({
+			cfg: params.cfg,
+			resolveChannelLimitMb: ({ cfg, accountId }) => cfg.channels?.signal?.accounts?.[accountId]?.mediaMaxMb ?? cfg.channels?.signal?.mediaMaxMb,
+			accountId: params.accountId
+		})
+	};
+}
+async function sendSignalOutbound(params) {
+	const { send, maxBytes } = await resolveSignalSendContext(params);
+	return await send(params.to, params.text, {
+		cfg: params.cfg,
+		...params.mediaUrl ? { mediaUrl: params.mediaUrl } : {},
+		...params.mediaLocalRoots?.length ? { mediaLocalRoots: params.mediaLocalRoots } : {},
+		...params.mediaReadFile ? { mediaReadFile: params.mediaReadFile } : {},
+		maxBytes,
+		accountId: params.accountId ?? void 0
+	});
+}
+function inferSignalTargetChatType(rawTo) {
+	let to = rawTo.trim();
+	if (!to) return;
+	if (/^signal:/i.test(to)) to = to.replace(/^signal:/i, "").trim();
+	if (!to) return;
+	const lower = normalizeLowercaseStringOrEmpty(to);
+	if (lower.startsWith("group:")) return "group";
+	if (lower.startsWith("username:") || lower.startsWith("u:")) return "direct";
+	return "direct";
+}
+function parseSignalExplicitTarget(raw) {
+	const normalized = normalizeSignalMessagingTarget(raw);
+	if (!normalized) return null;
+	return {
+		to: normalized,
+		chatType: inferSignalTargetChatType(normalized)
+	};
+}
+function buildSignalBaseSessionKey(params) {
+	return buildOutboundBaseSessionKey({
+		...params,
+		channel: "signal"
+	});
+}
+function resolveSignalOutboundSessionRoute(params) {
+	const resolved = resolveSignalOutboundTarget(params.target);
+	if (!resolved) return null;
+	const baseSessionKey = buildSignalBaseSessionKey({
+		cfg: params.cfg,
+		agentId: params.agentId,
+		accountId: params.accountId,
+		peer: resolved.peer
+	});
+	return {
+		sessionKey: baseSessionKey,
+		baseSessionKey,
+		...resolved
+	};
+}
+async function sendFormattedSignalText(ctx) {
+	const { send, maxBytes } = await resolveSignalSendContext({
+		cfg: ctx.cfg,
+		accountId: ctx.accountId ?? void 0,
+		deps: ctx.deps
+	});
+	const limit = resolveTextChunkLimit(ctx.cfg, "signal", ctx.accountId ?? void 0, { fallbackLimit: 4e3 });
+	const tableMode = resolveMarkdownTableMode({
+		cfg: ctx.cfg,
+		channel: "signal",
+		accountId: ctx.accountId ?? void 0
+	});
+	let chunks = limit === void 0 ? markdownToSignalTextChunks(ctx.text, Number.POSITIVE_INFINITY, { tableMode }) : markdownToSignalTextChunks(ctx.text, limit, { tableMode });
+	if (chunks.length === 0 && ctx.text) chunks = [{
+		text: ctx.text,
+		styles: []
+	}];
+	const results = [];
+	for (const chunk of chunks) {
+		ctx.abortSignal?.throwIfAborted();
+		const result = await send(ctx.to, chunk.text, {
+			cfg: ctx.cfg,
+			maxBytes,
+			accountId: ctx.accountId ?? void 0,
+			textMode: "plain",
+			textStyles: chunk.styles
+		});
+		results.push(result);
+	}
+	return attachChannelToResults("signal", results);
+}
+async function sendFormattedSignalMedia(ctx) {
+	ctx.abortSignal?.throwIfAborted();
+	const { send, maxBytes } = await resolveSignalSendContext({
+		cfg: ctx.cfg,
+		accountId: ctx.accountId ?? void 0,
+		deps: ctx.deps
+	});
+	const tableMode = resolveMarkdownTableMode({
+		cfg: ctx.cfg,
+		channel: "signal",
+		accountId: ctx.accountId ?? void 0
+	});
+	const formatted = markdownToSignalTextChunks(ctx.text, Number.POSITIVE_INFINITY, { tableMode })[0] ?? {
+		text: ctx.text,
+		styles: []
+	};
+	return attachChannelToResult("signal", await send(ctx.to, formatted.text, {
+		cfg: ctx.cfg,
+		mediaUrl: ctx.mediaUrl,
+		mediaLocalRoots: ctx.mediaLocalRoots,
+		...ctx.mediaReadFile ? { mediaReadFile: ctx.mediaReadFile } : {},
+		maxBytes,
+		accountId: ctx.accountId ?? void 0,
+		textMode: "plain",
+		textStyles: formatted.styles
+	}));
+}
+const signalPlugin = createChatChannelPlugin({
+	base: {
+		...createSignalPluginBase({
+			setupWizard: signalSetupWizard,
+			setup: signalSetupAdapter
+		}),
+		actions: signalMessageActions,
+		approvalCapability: signalApprovalAuth,
+		allowlist: buildDmGroupAccountAllowlistAdapter({
+			channelId: "signal",
+			resolveAccount: resolveSignalAccount,
+			normalize: ({ cfg, accountId, values }) => signalConfigAdapter.formatAllowFrom({
+				cfg,
+				accountId,
+				allowFrom: values
+			}),
+			resolveDmAllowFrom: (account) => account.config.allowFrom,
+			resolveGroupAllowFrom: (account) => account.config.groupAllowFrom,
+			resolveDmPolicy: (account) => account.config.dmPolicy,
+			resolveGroupPolicy: (account) => account.config.groupPolicy
+		}),
+		agentPrompt: { reactionGuidance: ({ cfg, accountId }) => {
+			const level = resolveSignalReactionLevel({
+				cfg,
+				accountId: accountId ?? void 0
+			}).agentReactionGuidance;
+			return level ? {
+				level,
+				channelLabel: "Signal"
+			} : void 0;
+		} },
+		messaging: {
+			normalizeTarget: normalizeSignalMessagingTarget,
+			parseExplicitTarget: ({ raw }) => parseSignalExplicitTarget(raw),
+			inferTargetChatType: ({ to }) => inferSignalTargetChatType(to),
+			resolveOutboundSessionRoute: (params) => resolveSignalOutboundSessionRoute(params),
+			targetResolver: {
+				looksLikeId: looksLikeSignalTargetId,
+				hint: "<E.164|uuid:ID|group:ID|signal:group:ID|signal:+E.164>"
+			}
+		},
+		status: createComputedAccountStatusAdapter({
+			defaultRuntime: createDefaultChannelRuntimeState(DEFAULT_ACCOUNT_ID),
+			collectStatusIssues: (accounts) => collectStatusIssuesFromLastError("signal", accounts),
+			buildChannelSummary: ({ snapshot }) => buildBaseChannelStatusSummary(snapshot, {
+				baseUrl: snapshot.baseUrl ?? null,
+				probe: snapshot.probe,
+				lastProbeAt: snapshot.lastProbeAt ?? null
+			}),
+			probeAccount: async ({ account, timeoutMs }) => {
+				const baseUrl = account.baseUrl;
+				const { probeSignal } = await loadSignalProbeModule();
+				return await probeSignal(baseUrl, timeoutMs);
+			},
+			formatCapabilitiesProbe: ({ probe }) => probe?.version ? [{ text: `Signal daemon: ${probe.version}` }] : [],
+			resolveAccountSnapshot: ({ account }) => ({
+				accountId: account.accountId,
+				name: account.name,
+				enabled: account.enabled,
+				configured: account.configured,
+				extra: { baseUrl: account.baseUrl }
+			})
+		}),
+		gateway: { startAccount: async (ctx) => {
+			const account = ctx.account;
+			ctx.setStatus({
+				accountId: account.accountId,
+				baseUrl: account.baseUrl
+			});
+			ctx.log?.info(`[${account.accountId}] starting provider (${account.baseUrl})`);
+			const { monitorSignalProvider } = await loadSignalMonitorModule();
+			return await monitorSignalProvider({
+				accountId: account.accountId,
+				config: ctx.cfg,
+				runtime: ctx.runtime,
+				abortSignal: ctx.abortSignal,
+				mediaMaxMb: account.config.mediaMaxMb
+			});
+		} }
+	},
+	pairing: { text: {
+		idLabel: "signalNumber",
+		message: PAIRING_APPROVED_MESSAGE,
+		normalizeAllowEntry: createPairingPrefixStripper(/^signal:/i),
+		notify: async ({ id, message }) => {
+			await (await loadSignalSendRuntime()).sendMessageSignal(id, message);
+		}
+	} },
+	security: signalSecurityAdapter,
+	outbound: {
+		base: {
+			deliveryMode: "direct",
+			chunker: chunkText,
+			chunkerMode: "text",
+			textChunkLimit: 4e3,
+			sendFormattedText: async ({ cfg, to, text, accountId, deps, abortSignal }) => await sendFormattedSignalText({
+				cfg,
+				to,
+				text,
+				accountId,
+				deps,
+				abortSignal
+			}),
+			sendFormattedMedia: async ({ cfg, to, text, mediaUrl, mediaLocalRoots, mediaReadFile, accountId, deps, abortSignal }) => await sendFormattedSignalMedia({
+				cfg,
+				to,
+				text,
+				mediaUrl,
+				mediaLocalRoots,
+				mediaReadFile,
+				accountId,
+				deps,
+				abortSignal
+			})
+		},
+		attachedResults: {
+			channel: "signal",
+			sendText: async ({ cfg, to, text, accountId, deps }) => await sendSignalOutbound({
+				cfg,
+				to,
+				text,
+				accountId: accountId ?? void 0,
+				deps
+			}),
+			sendMedia: async ({ cfg, to, text, mediaUrl, mediaLocalRoots, mediaReadFile, accountId, deps }) => await sendSignalOutbound({
+				cfg,
+				to,
+				text,
+				mediaUrl,
+				mediaLocalRoots,
+				mediaReadFile,
+				accountId: accountId ?? void 0,
+				deps
+			})
+		}
+	}
+});
+//#endregion
+//#region extensions/signal/src/channel.setup.ts
+const signalSetupPlugin = { ...createSignalPluginBase({
+	setupWizard: signalSetupWizard,
+	setup: signalSetupAdapter
+}) };
+//#endregion
+export { extractSignalCliArchive, formatSignalPairingIdLine, formatSignalSenderDisplay, formatSignalSenderId, installSignalCli, isSignalGroupAllowed, isSignalSenderAllowed, listEnabledSignalAccounts, listSignalAccountIds, looksLikeArchive, looksLikeSignalTargetId, looksLikeUuid, markdownToSignalText, markdownToSignalTextChunks, monitorSignalProvider, normalizeSignalAccountInput, normalizeSignalAllowRecipient, normalizeSignalMessagingTarget, pickAsset, probeSignal, removeReactionSignal, resolveDefaultSignalAccountId, resolveSignalAccount, resolveSignalOutboundTarget, resolveSignalPeerId, resolveSignalReactionLevel, resolveSignalRecipient, resolveSignalSender, sendMessageSignal, sendReactionSignal, sendReadReceiptSignal, sendTypingSignal, signalMessageActions, signalPlugin, signalSetupPlugin };

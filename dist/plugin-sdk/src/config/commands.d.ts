@@ -1,8 +1,6 @@
-import type { ChannelId } from "../channels/plugins/types.js";
-import type { CommandsConfig, NativeCommandsSetting } from "./types.js";
-export type CommandFlagKey = {
-    [K in keyof CommandsConfig]-?: Exclude<CommandsConfig[K], undefined> extends boolean ? K : never;
-}[keyof CommandsConfig];
+import type { ChannelId } from "../channels/plugins/types.public.js";
+import type { NativeCommandsSetting } from "./types.js";
+export { isCommandFlagEnabled, isRestartEnabled, type CommandFlagKey } from "./commands.flags.js";
 export declare function resolveNativeSkillsEnabled(params: {
     providerId: ChannelId;
     providerSetting?: NativeCommandsSetting;
@@ -16,10 +14,4 @@ export declare function resolveNativeCommandsEnabled(params: {
 export declare function isNativeCommandsExplicitlyDisabled(params: {
     providerSetting?: NativeCommandsSetting;
     globalSetting?: NativeCommandsSetting;
-}): boolean;
-export declare function isCommandFlagEnabled(config: {
-    commands?: unknown;
-} | undefined, key: CommandFlagKey): boolean;
-export declare function isRestartEnabled(config?: {
-    commands?: unknown;
 }): boolean;

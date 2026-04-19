@@ -1,11 +1,53 @@
-import { authorizeConfigWrite, canBypassConfigWritePolicy, formatConfigWriteDeniedMessage, resolveChannelConfigWrites, type ConfigWriteAuthorizationResult, type ConfigWriteScope, type ConfigWriteTarget } from "../channels/plugins/config-writes.js";
-import { collectAllowlistProviderGroupPolicyWarnings, collectAllowlistProviderRestrictSendersWarnings, collectOpenGroupPolicyConfiguredRouteWarnings, collectOpenGroupPolicyRouteAllowlistWarnings, collectOpenProviderGroupPolicyWarnings } from "../channels/plugins/group-policy-warnings.js";
-import { buildAccountScopedDmSecurityPolicy } from "../channels/plugins/helpers.js";
+import { type ConfigWriteAuthorizationResultLike, type ConfigWriteScopeLike, type ConfigWriteTargetLike } from "../channels/plugins/config-write-policy-shared.js";
 import type { ChannelConfigAdapter } from "../channels/plugins/types.adapters.js";
-import type { OpenClawConfig } from "../config/config.js";
-export { authorizeConfigWrite, canBypassConfigWritePolicy, formatConfigWriteDeniedMessage, resolveChannelConfigWrites, };
-export type { ConfigWriteAuthorizationResult, ConfigWriteScope, ConfigWriteTarget };
+import type { OpenClawConfig } from "../config/types.openclaw.js";
+export type ConfigWriteScope = ConfigWriteScopeLike;
+export type ConfigWriteTarget = ConfigWriteTargetLike;
+export type ConfigWriteAuthorizationResult = ConfigWriteAuthorizationResultLike;
 type ChannelConfigAdapterWithAccessors<ResolvedAccount> = Pick<ChannelConfigAdapter<ResolvedAccount>, "listAccountIds" | "resolveAccount" | "inspectAccount" | "defaultAccountId" | "setAccountEnabled" | "deleteAccount" | "resolveAllowFrom" | "formatAllowFrom" | "resolveDefaultTo">;
+declare function buildAccountScopedDmSecurityPolicy(params: {
+    cfg: OpenClawConfig;
+    channelKey: string;
+    accountId?: string | null;
+    fallbackAccountId?: string | null;
+    policy?: string | null;
+    allowFrom?: Array<string | number> | null;
+    defaultPolicy?: string;
+    allowFromPathSuffix?: string;
+    policyPathSuffix?: string;
+    approveChannelId?: string;
+    approveHint?: string;
+    normalizeEntry?: (raw: string) => string;
+    inheritSharedDefaultsFromDefaultAccount?: boolean;
+}): {
+    policy: string;
+    allowFrom: (string | number)[];
+    policyPath: string | undefined;
+    allowFromPath: string;
+    approveHint: string;
+    normalizeEntry: ((raw: string) => string) | undefined;
+};
+export declare function resolveChannelConfigWrites(params: {
+    cfg: OpenClawConfig;
+    channelId?: string | null;
+    accountId?: string | null;
+}): boolean;
+export declare function authorizeConfigWrite(params: {
+    cfg: OpenClawConfig;
+    origin?: ConfigWriteScope;
+    target?: ConfigWriteTarget;
+    allowBypass?: boolean;
+}): ConfigWriteAuthorizationResult;
+export declare function canBypassConfigWritePolicy(params: {
+    channel?: string | null;
+    gatewayClientScopes?: string[] | null;
+}): boolean;
+export declare function formatConfigWriteDeniedMessage(params: {
+    result: Exclude<ConfigWriteAuthorizationResult, {
+        allowed: true;
+    }>;
+    fallbackChannelId?: string | null;
+}): string;
 type ChannelConfigAccessorParams<Config extends OpenClawConfig = OpenClawConfig> = {
     cfg: Config;
     accountId?: string | null;
@@ -112,32 +154,17 @@ export declare function createScopedDmSecurityResolver<ResolvedAccount extends {
     approveChannelId?: string;
     approveHint?: string;
     normalizeEntry?: (raw: string) => string;
+    inheritSharedDefaultsFromDefaultAccount?: boolean;
 }): ({ cfg, accountId, account, }: {
     cfg: OpenClawConfig;
     accountId?: string | null;
     account: ResolvedAccount;
-}) => import("./channel-runtime.ts").ChannelSecurityDmPolicy;
+}) => {
+    policy: string;
+    allowFrom: (string | number)[];
+    policyPath: string | undefined;
+    allowFromPath: string;
+    approveHint: string;
+    normalizeEntry: ((raw: string) => string) | undefined;
+};
 export { buildAccountScopedDmSecurityPolicy };
-export { collectAllowlistProviderGroupPolicyWarnings, collectAllowlistProviderRestrictSendersWarnings, collectOpenGroupPolicyConfiguredRouteWarnings, collectOpenGroupPolicyRouteAllowlistWarnings, collectOpenProviderGroupPolicyWarnings, };
-/** Read the effective WhatsApp allowlist through the active plugin contract. */
-export declare function resolveWhatsAppConfigAllowFrom(params: {
-    cfg: OpenClawConfig;
-    accountId?: string | null;
-}): string[];
-/** Format WhatsApp allowlist entries with the same normalization used by the channel plugin. */
-export declare function formatWhatsAppConfigAllowFromEntries(allowFrom: Array<string | number>): string[];
-/** Resolve the effective WhatsApp default recipient after account and root config fallback. */
-export declare function resolveWhatsAppConfigDefaultTo(params: {
-    cfg: OpenClawConfig;
-    accountId?: string | null;
-}): string | undefined;
-/** Read iMessage allowlist entries from the active plugin's resolved account view. */
-export declare function resolveIMessageConfigAllowFrom(params: {
-    cfg: OpenClawConfig;
-    accountId?: string | null;
-}): string[];
-/** Resolve the effective iMessage default recipient from the plugin-resolved account config. */
-export declare function resolveIMessageConfigDefaultTo(params: {
-    cfg: OpenClawConfig;
-    accountId?: string | null;
-}): string | undefined;

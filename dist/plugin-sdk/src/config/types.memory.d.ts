@@ -11,6 +11,7 @@ export type MemoryQmdConfig = {
     command?: string;
     mcporter?: MemoryQmdMcporterConfig;
     searchMode?: MemoryQmdSearchMode;
+    searchTool?: string;
     includeDefaultMemory?: boolean;
     paths?: MemoryQmdIndexPath[];
     sessions?: MemoryQmdSessionConfig;

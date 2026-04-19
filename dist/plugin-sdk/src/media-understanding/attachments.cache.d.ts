@@ -11,6 +11,7 @@ type MediaPathResult = {
 };
 export type MediaAttachmentCacheOptions = {
     localPathRoots?: readonly string[];
+    includeDefaultLocalPathRoots?: boolean;
 };
 export declare class MediaAttachmentCache {
     private readonly entries;
@@ -33,5 +34,7 @@ export declare class MediaAttachmentCache {
     private resolveLocalPath;
     private ensureLocalStat;
     private getCanonicalLocalPathRoots;
+    private readLocalBuffer;
+    private resolveCanonicalLocalPath;
 }
 export {};

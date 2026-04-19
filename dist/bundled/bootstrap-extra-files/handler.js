@@ -1,30 +1,17 @@
-import { Li as filterBootstrapFilesForSession, o as createSubsystemLogger, zi as loadExtraBootstrapFilesWithDiagnostics } from "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import { a as isAgentBootstrapEvent } from "../../internal-hooks-CVdBfFMw.js";
-import "../../frontmatter-C_CWb6f1.js";
-import "../../frontmatter-B1KcR1Dc.js";
-import { r as resolveHookConfig } from "../../config-BstHJhVL.js";
+import { t as createSubsystemLogger } from "../../subsystem-vwBrGICF.js";
+import { l as normalizeTrimmedStringList } from "../../string-normalization-DpFJ3rD9.js";
+import { f as filterBootstrapFilesForSession, g as loadExtraBootstrapFilesWithDiagnostics } from "../../workspace-Dphk4K2m.js";
+import { a as isAgentBootstrapEvent } from "../../internal-hooks-BejhqQO2.js";
+import { r as resolveHookConfig } from "../../config-DNw0Apab.js";
 //#region src/hooks/bundled/bootstrap-extra-files/handler.ts
 const HOOK_KEY = "bootstrap-extra-files";
 const log = createSubsystemLogger("bootstrap-extra-files");
-function normalizeStringArray(value) {
-	if (!Array.isArray(value)) return [];
-	return value.map((v) => typeof v === "string" ? v.trim() : "").filter(Boolean);
-}
 function resolveExtraBootstrapPatterns(hookConfig) {
-	const fromPaths = normalizeStringArray(hookConfig.paths);
+	const fromPaths = normalizeTrimmedStringList(hookConfig.paths);
 	if (fromPaths.length > 0) return fromPaths;
-	const fromPatterns = normalizeStringArray(hookConfig.patterns);
+	const fromPatterns = normalizeTrimmedStringList(hookConfig.patterns);
 	if (fromPatterns.length > 0) return fromPatterns;
-	return normalizeStringArray(hookConfig.files);
+	return normalizeTrimmedStringList(hookConfig.files);
 }
 const bootstrapExtraFilesHook = async (event) => {
 	if (!isAgentBootstrapEvent(event)) return;

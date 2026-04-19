@@ -1,21 +1,12 @@
-import "../env-D1ktUnAV.js";
-import "../paths-CjuwkA2v.js";
-import "../safe-text-K2Nonoo3.js";
-import "../tmp-openclaw-dir-DzRxfh9a.js";
-import "../theme-BH5F9mlg.js";
-import "../version-DGzLsBG-.js";
-import "../zod-schema.agent-runtime-DNndkpI8.js";
-import "../runtime-BF_KUcJM.js";
-import "../registry-bOiEdffE.js";
-import "../ip-ByO4-_4f.js";
-import "../audit-fs-7IxnGQxG.js";
-import "../resolve-DqJVzTVp.js";
-import "../tailnet-BPCtbdja.js";
-import "../net-1LAzWzJc.js";
-import "../credentials-6hokf6e3.js";
-import "../message-channel-ZzTqBBLH.js";
-import { u as GatewayClient } from "../method-scopes-DtJfTstv.js";
-import "../call-CFi2qbI2.js";
-import { n as createConnectedChannelStatusPatch, t as createOperatorApprovalsGatewayClient } from "../gateway-runtime-_5BLwTPa.js";
-import "../connection-auth-DQ6Wy_i-.js";
-export { GatewayClient, createConnectedChannelStatusPatch, createOperatorApprovalsGatewayClient };
+import { t as GatewayClient } from "../client-BHmYeoNE.js";
+import { n as withOperatorApprovalsGatewayClient, t as createOperatorApprovalsGatewayClient } from "../operator-approvals-client-Bj6psYxj.js";
+//#region src/gateway/channel-status-patches.ts
+function createConnectedChannelStatusPatch(at = Date.now()) {
+	return {
+		connected: true,
+		lastConnectedAt: at,
+		lastEventAt: at
+	};
+}
+//#endregion
+export { GatewayClient, createConnectedChannelStatusPatch, createOperatorApprovalsGatewayClient, withOperatorApprovalsGatewayClient };

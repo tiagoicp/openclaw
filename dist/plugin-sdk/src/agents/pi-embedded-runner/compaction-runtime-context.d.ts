@@ -1,5 +1,5 @@
 import type { ReasoningLevel, ThinkLevel } from "../../auto-reply/thinking.js";
-import type { OpenClawConfig } from "../../config/config.js";
+import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import type { ExecElevatedDefaults } from "../bash-tools.js";
 import type { SkillSnapshot } from "../skills.js";
 export type EmbeddedCompactionRuntimeContext = {
@@ -24,6 +24,22 @@ export type EmbeddedCompactionRuntimeContext = {
     bashElevated?: ExecElevatedDefaults;
     extraSystemPrompt?: string;
     ownerNumbers?: string[];
+};
+/**
+ * Resolve the effective compaction target from config, falling back to the
+ * caller-supplied provider/model and optionally applying runtime defaults.
+ */
+export declare function resolveEmbeddedCompactionTarget(params: {
+    config?: OpenClawConfig;
+    provider?: string | null;
+    modelId?: string | null;
+    authProfileId?: string | null;
+    defaultProvider?: string;
+    defaultModel?: string;
+}): {
+    provider: string | undefined;
+    model: string | undefined;
+    authProfileId: string | undefined;
 };
 export declare function buildEmbeddedCompactionRuntimeContext(params: {
     sessionKey?: string | null;

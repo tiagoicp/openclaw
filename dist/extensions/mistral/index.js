@@ -1,31 +1,20 @@
-import "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../paths-DJBuCoRE.js";
-import "../../file-lock-Cm3HPowf.js";
-import "../../profiles-CRvutsjq.js";
-import "../../anthropic-vertex-provider-Cik2BDhe.js";
-import "../../provider-model-definitions-CrItEa-O.js";
-import "../../provider-models-GbpUTgQg.js";
-import "../../ssrf-BdAu1_OT.js";
-import "../../fetch-guard-BiSGgjb-.js";
-import "../../provider-api-key-auth-Uu86HoCQ.js";
-import "../../media-understanding-DXKhzmxa.js";
-import { t as defineSingleProviderPluginEntry } from "../../provider-entry-Dh6ETIXa.js";
-import "../../provider-onboard-DmLoftpN.js";
-import { t as mistralMediaUnderstandingProvider } from "../../media-understanding-provider-Bbk6XW9T.js";
-import "../../model-definitions-BlFf9Zmg.js";
-import { n as applyMistralConfig, t as MISTRAL_DEFAULT_MODEL_REF } from "../../onboard-DTU_yjLq.js";
-import { t as buildMistralProvider } from "../../provider-catalog-BnNSpVBM.js";
+import { t as defineSingleProviderPluginEntry } from "../../provider-entry-Cn-adoN0.js";
+import { t as buildMistralProvider } from "../../provider-catalog-C6G48_DJ.js";
+import { n as applyMistralConfig, t as MISTRAL_DEFAULT_MODEL_REF } from "../../onboard-CIctDA1b.js";
+import { i as applyMistralModelCompat } from "../../api-DaKhxj3h.js";
+import { t as mistralMediaUnderstandingProvider } from "../../media-understanding-provider-nHo3Tgpn.js";
+import { t as mistralMemoryEmbeddingProviderAdapter } from "../../memory-embedding-adapter-BHZ6JpDX.js";
+import { t as contributeMistralResolvedModelCompat } from "../../provider-compat-Bq_RE3L8.js";
+//#region extensions/mistral/index.ts
+const PROVIDER_ID = "mistral";
+function buildMistralReplayPolicy() {
+	return {
+		sanitizeToolCallIds: true,
+		toolCallIdMode: "strict9"
+	};
+}
 var mistral_default = defineSingleProviderPluginEntry({
-	id: "mistral",
+	id: PROVIDER_ID,
 	name: "Mistral Provider",
 	description: "Bundled Mistral provider plugin",
 	provider: {
@@ -47,22 +36,18 @@ var mistral_default = defineSingleProviderPluginEntry({
 			buildProvider: buildMistralProvider,
 			allowExplicitBaseUrl: true
 		},
-		capabilities: {
-			transcriptToolCallIdMode: "strict9",
-			transcriptToolCallIdModelHints: [
-				"mistral",
-				"mixtral",
-				"codestral",
-				"pixtral",
-				"devstral",
-				"ministral",
-				"mistralai"
-			]
-		}
+		matchesContextOverflowError: ({ errorMessage }) => /\bmistral\b.*(?:input.*too long|token limit.*exceeded)/i.test(errorMessage),
+		normalizeResolvedModel: ({ model }) => applyMistralModelCompat(model),
+		contributeResolvedModelCompat: ({ modelId, model }) => contributeMistralResolvedModelCompat({
+			modelId,
+			model
+		}),
+		buildReplayPolicy: () => buildMistralReplayPolicy()
 	},
 	register(api) {
+		api.registerMemoryEmbeddingProvider(mistralMemoryEmbeddingProviderAdapter);
 		api.registerMediaUnderstandingProvider(mistralMediaUnderstandingProvider);
 	}
 });
 //#endregion
-export { mistral_default as default };
+export { buildMistralReplayPolicy, mistral_default as default };

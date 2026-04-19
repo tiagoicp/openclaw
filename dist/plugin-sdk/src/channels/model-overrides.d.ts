@@ -1,4 +1,4 @@
-import type { OpenClawConfig } from "../config/config.js";
+import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { type ChannelMatchSource } from "./channel-config.js";
 export type ChannelModelOverride = {
     channel: string;
@@ -10,6 +10,7 @@ type ChannelModelOverrideParams = {
     cfg: OpenClawConfig;
     channel?: string | null;
     groupId?: string | null;
+    groupChatType?: string | null;
     groupChannel?: string | null;
     groupSubject?: string | null;
     parentSessionKey?: string | null;

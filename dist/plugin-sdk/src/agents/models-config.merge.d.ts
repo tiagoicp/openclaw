@@ -1,4 +1,4 @@
-import type { ProviderConfig } from "./models-config.providers.js";
+import type { ProviderConfig } from "./models-config.providers.secrets.js";
 export type ExistingProviderConfig = ProviderConfig & {
     apiKey?: string;
     baseUrl?: string;
@@ -13,5 +13,4 @@ export declare function mergeWithExistingProviderSecrets(params: {
     nextProviders: Record<string, ProviderConfig>;
     existingProviders: Record<string, ExistingProviderConfig>;
     secretRefManagedProviders: ReadonlySet<string>;
-    explicitBaseUrlProviders: ReadonlySet<string>;
 }): Record<string, ProviderConfig>;

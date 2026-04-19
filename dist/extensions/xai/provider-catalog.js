@@ -1,3 +1,2 @@
-import "../../model-definitions-CLlu-y8L.js";
-import { t as buildXaiProvider } from "../../provider-catalog-BbgD0Blc.js";
+import { t as buildXaiProvider } from "../../provider-catalog-BZB5Uy5s.js";
 export { buildXaiProvider };

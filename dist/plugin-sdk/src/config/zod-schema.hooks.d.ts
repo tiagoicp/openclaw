@@ -14,7 +14,7 @@ export declare const HookMappingSchema: z.ZodOptional<z.ZodObject<{
     textTemplate: z.ZodOptional<z.ZodString>;
     deliver: z.ZodOptional<z.ZodBoolean>;
     allowUnsafeExternalContent: z.ZodOptional<z.ZodBoolean>;
-    channel: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"last">, z.ZodLiteral<"whatsapp">, z.ZodLiteral<"telegram">, z.ZodLiteral<"discord">, z.ZodLiteral<"irc">, z.ZodLiteral<"slack">, z.ZodLiteral<"signal">, z.ZodLiteral<"imessage">, z.ZodLiteral<"msteams">]>>;
+    channel: z.ZodOptional<z.ZodString>;
     to: z.ZodOptional<z.ZodString>;
     model: z.ZodOptional<z.ZodString>;
     thinking: z.ZodOptional<z.ZodString>;

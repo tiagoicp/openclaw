@@ -1,12 +1,13 @@
-import type { MessagingToolSend } from "../../agents/pi-embedded-runner.js";
+import type { MessagingToolSend } from "../../agents/pi-embedded-messaging.types.js";
 import type { ReplyToMode } from "../../config/types.js";
 import type { OriginatingChannelType } from "../templating.js";
-import type { ReplyPayload } from "../types.js";
+import type { ReplyPayload, ReplyThreadingPolicy } from "../types.js";
 import { type BlockReplyPipeline } from "./block-reply-pipeline.js";
 export declare function buildReplyPayloads(params: {
     payloads: ReplyPayload[];
     isHeartbeat: boolean;
     didLogHeartbeatStrip: boolean;
+    silentExpected?: boolean;
     blockStreamingEnabled: boolean;
     blockReplyPipeline: BlockReplyPipeline | null;
     /** Payload keys sent directly (not via pipeline) during tool flush. */
@@ -14,6 +15,7 @@ export declare function buildReplyPayloads(params: {
     replyToMode: ReplyToMode;
     replyToChannel?: OriginatingChannelType;
     currentMessageId?: string;
+    replyThreading?: ReplyThreadingPolicy;
     messageProvider?: string;
     messagingToolSentTexts?: string[];
     messagingToolSentMediaUrls?: string[];

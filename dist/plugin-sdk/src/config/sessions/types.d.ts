@@ -1,10 +1,10 @@
 import type { Skill } from "@mariozechner/pi-coding-agent";
 import type { ChatType } from "../../channels/chat-type.js";
-import type { ChannelId } from "../../channels/plugins/types.js";
-import type { DeliveryContext } from "../../utils/delivery-context.js";
+import type { ChannelId } from "../../channels/plugins/channel-id.types.js";
+import type { DeliveryContext } from "../../utils/delivery-context.types.js";
 import type { TtsAutoMode } from "../types.tts.js";
 export type SessionScope = "per-sender" | "global";
-export type SessionChannelId = ChannelId | "webchat";
+export type SessionChannelId = ChannelId;
 export type SessionChatType = ChatType;
 export type SessionOrigin = {
     label?: string;
@@ -13,6 +13,8 @@ export type SessionOrigin = {
     chatType?: SessionChatType;
     from?: string;
     to?: string;
+    nativeChannelId?: string;
+    nativeDirectUserId?: string;
     accountId?: string;
     threadId?: string | number;
 };
@@ -54,6 +56,37 @@ export type AcpSessionRuntimeOptions = {
     /** Backend-specific option bag mapped through session/set_config_option. */
     backendExtras?: Record<string, string>;
 };
+export type CliSessionBinding = {
+    sessionId: string;
+    authProfileId?: string;
+    authEpoch?: string;
+    extraSystemPromptHash?: string;
+    mcpConfigHash?: string;
+};
+export type SessionCompactionCheckpointReason = "manual" | "auto-threshold" | "overflow-retry" | "timeout-retry";
+export type SessionCompactionTranscriptReference = {
+    sessionId: string;
+    sessionFile?: string;
+    leafId?: string;
+    entryId?: string;
+};
+export type SessionCompactionCheckpoint = {
+    checkpointId: string;
+    sessionKey: string;
+    sessionId: string;
+    createdAt: number;
+    reason: SessionCompactionCheckpointReason;
+    tokensBefore?: number;
+    tokensAfter?: number;
+    summary?: string;
+    firstKeptEntryId?: string;
+    preCompaction: SessionCompactionTranscriptReference;
+    postCompaction: SessionCompactionTranscriptReference;
+};
+export type SessionPluginDebugEntry = {
+    pluginId: string;
+    lines: string[];
+};
 export type SessionEntry = {
     /**
      * Last delivered heartbeat payload (used to suppress duplicate heartbeat notifications).
@@ -62,6 +95,14 @@ export type SessionEntry = {
     lastHeartbeatText?: string;
     /** Timestamp (ms) when lastHeartbeatText was delivered. */
     lastHeartbeatSentAt?: number;
+    /**
+     * Base session key for heartbeat-created isolated sessions.
+     * When present, `<base>:heartbeat` is a synthetic isolated session rather than
+     * a real user/session-scoped key that merely happens to end with `:heartbeat`.
+     */
+    heartbeatIsolatedBaseSessionKey?: string;
+    /** Heartbeat task state (task name -> last run timestamp ms). */
+    heartbeatTaskState?: Record<string, number>;
     sessionId: string;
     updatedAt: number;
     sessionFile?: string;
@@ -101,6 +142,7 @@ export type SessionEntry = {
     thinkingLevel?: string;
     fastMode?: boolean;
     verboseLevel?: string;
+    traceLevel?: string;
     reasoningLevel?: string;
     elevatedLevel?: string;
     ttsAuto?: TtsAutoMode;
@@ -111,9 +153,23 @@ export type SessionEntry = {
     responseUsage?: "on" | "off" | "tokens" | "full";
     providerOverride?: string;
     modelOverride?: string;
+    /**
+     * Tracks whether the persisted model override came from an explicit user
+     * action (`/model`, `sessions.patch`) or from a temporary runtime fallback.
+     * Resets only preserve user-driven overrides.
+     */
+    modelOverrideSource?: "auto" | "user";
     authProfileOverride?: string;
     authProfileOverrideSource?: "auto" | "user";
     authProfileOverrideCompactionCount?: number;
+    /**
+     * Set on explicit user-driven session model changes (for example `/model`
+     * and `sessions.patch`) during an active run. The embedded runner checks
+     * this flag to decide whether to throw `LiveSessionModelSwitchError`.
+     * System-initiated fallbacks (rate-limit retry rotation) never set this
+     * flag, so they are never mistaken for user-initiated switches.
+     */
+    liveModelSwitchPending?: boolean;
     groupActivation?: "mention" | "always";
     groupActivationNeedsSystemIntro?: boolean;
     sendPolicy?: "allow" | "deny";
@@ -144,10 +200,12 @@ export type SessionEntry = {
     fallbackNoticeReason?: string;
     contextTokens?: number;
     compactionCount?: number;
+    compactionCheckpoints?: SessionCompactionCheckpoint[];
     memoryFlushAt?: number;
     memoryFlushCompactionCount?: number;
     memoryFlushContextHash?: string;
     cliSessionIds?: Record<string, string>;
+    cliSessionBindings?: Record<string, CliSessionBinding>;
     claudeCliSessionId?: string;
     label?: string;
     displayName?: string;
@@ -164,8 +222,15 @@ export type SessionEntry = {
     lastThreadId?: string | number;
     skillsSnapshot?: SessionSkillSnapshot;
     systemPromptReport?: SessionSystemPromptReport;
+    /**
+     * Generic plugin-owned runtime debug entries shown in verbose status surfaces.
+     * Each plugin owns and may overwrite only its own entry between turns.
+     */
+    pluginDebugEntries?: SessionPluginDebugEntry[];
     acp?: SessionAcpMeta;
 };
+export declare function resolveSessionPluginStatusLines(entry: Pick<SessionEntry, "pluginDebugEntries"> | undefined): string[];
+export declare function resolveSessionPluginTraceLines(entry: Pick<SessionEntry, "pluginDebugEntries"> | undefined): string[];
 export declare function normalizeSessionRuntimeModelFields(entry: SessionEntry): SessionEntry;
 export declare function setSessionRuntimeModel(entry: SessionEntry, runtime: {
     provider: string;

@@ -1,21 +1,39 @@
-import type { OpenClawConfig } from "../config/config.js";
+import type { OpenClawConfig } from "../config/types.js";
 import { type PluginCandidate } from "./discovery.js";
-import { type PluginManifest } from "./manifest.js";
-import type { PluginBundleFormat, PluginConfigUiHint, PluginDiagnostic, PluginFormat, PluginKind, PluginOrigin } from "./types.js";
+import type { PluginManifestCommandAlias } from "./manifest-command-aliases.js";
+import type { PluginBundleFormat, PluginConfigUiHint, PluginDiagnostic, PluginFormat } from "./manifest-types.js";
+import { type PluginManifestActivation, type PluginManifestConfigContracts, type PluginManifest, type PluginManifestChannelConfig, type PluginManifestContracts, type PluginManifestModelSupport, type PluginManifestProviderEndpoint, type PluginManifestQaRunner, type PluginManifestSetup } from "./manifest.js";
+import type { PluginKind } from "./plugin-kind.types.js";
+import type { PluginOrigin } from "./plugin-origin.types.js";
+type PluginManifestContractListKey = "speechProviders" | "mediaUnderstandingProviders" | "realtimeVoiceProviders" | "realtimeTranscriptionProviders" | "imageGenerationProviders" | "videoGenerationProviders" | "musicGenerationProviders" | "memoryEmbeddingProviders" | "webFetchProviders" | "webSearchProviders";
 export type PluginManifestRecord = {
     id: string;
     name?: string;
     description?: string;
     version?: string;
     enabledByDefault?: boolean;
+    autoEnableWhenConfiguredProviders?: string[];
+    legacyPluginIds?: string[];
     format?: PluginFormat;
     bundleFormat?: PluginBundleFormat;
     bundleCapabilities?: string[];
-    kind?: PluginKind;
+    kind?: PluginKind | PluginKind[];
     channels: string[];
     providers: string[];
+    providerDiscoverySource?: string;
+    modelSupport?: PluginManifestModelSupport;
+    providerEndpoints?: PluginManifestProviderEndpoint[];
+    cliBackends: string[];
+    syntheticAuthRefs?: string[];
+    nonSecretAuthMarkers?: string[];
+    commandAliases?: PluginManifestCommandAlias[];
     providerAuthEnvVars?: Record<string, string[]>;
+    providerAuthAliases?: Record<string, string>;
+    channelEnvVars?: Record<string, string[]>;
     providerAuthChoices?: PluginManifest["providerAuthChoices"];
+    activation?: PluginManifestActivation;
+    setup?: PluginManifestSetup;
+    qaRunners?: PluginManifestQaRunner[];
     skills: string[];
     settingsFiles?: string[];
     hooks: string[];
@@ -29,16 +47,45 @@ export type PluginManifestRecord = {
     schemaCacheKey?: string;
     configSchema?: Record<string, unknown>;
     configUiHints?: Record<string, PluginConfigUiHint>;
+    contracts?: PluginManifestContracts;
+    configContracts?: PluginManifestConfigContracts;
+    channelConfigs?: Record<string, PluginManifestChannelConfig>;
     channelCatalogMeta?: {
         id: string;
-        preferOver?: string[];
+        label?: string;
+        blurb?: string;
+        preferOver?: readonly string[];
     };
 };
 export type PluginManifestRegistry = {
     plugins: PluginManifestRecord[];
     diagnostics: PluginDiagnostic[];
 };
-export declare function clearPluginManifestRegistryCache(): void;
+export { clearPluginManifestRegistryCache } from "./manifest-registry-state.js";
+export declare function resolveManifestContractPluginIds(params: {
+    contract: PluginManifestContractListKey;
+    origin?: PluginOrigin;
+    config?: OpenClawConfig;
+    workspaceDir?: string;
+    env?: NodeJS.ProcessEnv;
+    onlyPluginIds?: readonly string[];
+}): string[];
+export declare function resolveManifestContractPluginIdsByCompatibilityRuntimePath(params: {
+    contract: PluginManifestContractListKey;
+    path: string | undefined;
+    origin?: PluginOrigin;
+    config?: OpenClawConfig;
+    workspaceDir?: string;
+    env?: NodeJS.ProcessEnv;
+}): string[];
+export declare function resolveManifestContractOwnerPluginId(params: {
+    contract: PluginManifestContractListKey;
+    value: string | undefined;
+    origin?: PluginOrigin;
+    config?: OpenClawConfig;
+    workspaceDir?: string;
+    env?: NodeJS.ProcessEnv;
+}): string | undefined;
 export declare function loadPluginManifestRegistry(params?: {
     config?: OpenClawConfig;
     workspaceDir?: string;

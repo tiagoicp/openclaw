@@ -1,47 +1,17 @@
-import "../../redact-BDinS1q9.js";
-import "../../errors-BxyFnvP3.js";
-import "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import { n as resolvePreferredOpenClawTmpDir } from "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../audit-fs-7IxnGQxG.js";
-import "../../resolve-DqJVzTVp.js";
-import "../../tailscale-FHZADwLL.js";
-import "../../tailnet-BPCtbdja.js";
-import "../../net-1LAzWzJc.js";
-import "../../auth-BC0t_CEl.js";
-import "../../credentials-6hokf6e3.js";
-import "../../session-write-lock-B7nwE7de.js";
-import "../../ports-lsof-qBGFcQvX.js";
-import "../../ports-DF41F7NN.js";
-import "../../docker-BrzH-NvE.js";
-import "../../tool-catalog-BQWPAtTb.js";
-import "../../image-ops-xftchR8Z.js";
-import "../../path-alias-guards-BfUEa8Z8.js";
-import "../../sandbox-paths-DM85ql27.js";
-import "../../mime-Bwp1UQ_8.js";
-import "../../ssrf-BdAu1_OT.js";
-import "../../fs-safe-DpC9pe80.js";
-import "../../frontmatter-C_CWb6f1.js";
-import "../../env-overrides-CilRbuhU.js";
-import "../../skills-Xrdxpo0d.js";
-import { S as resolveWritableRenameTargetsForBridge, _ as runSshSandboxCommand, b as createRemoteShellSandboxFsBridge, d as buildExecRemoteCommand, g as disposeSshSandboxSession, l as registerSandboxBackend, m as createSshSandboxSessionFromConfigText, v as shellEscape } from "../../sandbox-DSgCBor-.js";
-import "../../client-fetch-DG9t9440.js";
-import "../../config-B6bjVdCF.js";
-import "../../ssh-tunnel-Ca8F0wnz.js";
-import "../../server-middleware-DUIlEnG_.js";
-import { t as runPluginCommandWithTimeout } from "../../run-command-PEm1zDRW.js";
-import "../../sandbox-B7u6SD2e.js";
+import { i as normalizeLowercaseStringOrEmpty } from "../../string-coerce-BUSzWgUA.js";
+import { n as resolvePreferredOpenClawTmpDir } from "../../tmp-openclaw-dir-eyAoWbVe.js";
+import { t as sanitizeEnvVars } from "../../sanitize-env-vars-oPFb9BLE.js";
+import { _ as runSshSandboxCommand, b as createRemoteShellSandboxFsBridge, d as buildExecRemoteCommand, g as disposeSshSandboxSession, l as registerSandboxBackend, m as createSshSandboxSessionFromConfigText, v as shellEscape, x as createWritableRenameTargetResolver } from "../../sandbox-IBSNYIhr.js";
+import "../../text-runtime-DHfI0VWF.js";
+import { t as buildPluginConfigSchema } from "../../config-schema-3udNz-jR.js";
+import { t as definePluginEntry } from "../../plugin-entry-Dzt3gEtQ.js";
+import "../../core-w7kNLu40.js";
+import { t as runPluginCommandWithTimeout } from "../../run-command-DM_-5kJI.js";
+import "../../sandbox-BEZ5HXCz.js";
+import { t as zod_exports } from "../../zod-BIW-RsMp.js";
 import { createRequire } from "node:module";
 import fs from "node:fs";
 import path from "node:path";
-import os from "node:os";
 import fs$1 from "node:fs/promises";
 //#region extensions/openshell/src/cli.ts
 const require = createRequire(import.meta.url);
@@ -99,20 +69,11 @@ const DEFAULT_SOURCE = "openclaw";
 const DEFAULT_REMOTE_WORKSPACE_DIR = "/sandbox";
 const DEFAULT_REMOTE_AGENT_WORKSPACE_DIR = "/agent";
 const DEFAULT_TIMEOUT_MS = 12e4;
-function isRecord(value) {
-	return typeof value === "object" && value !== null && !Array.isArray(value);
-}
-function trimString(value) {
-	if (typeof value !== "string") return;
-	return value.trim() || void 0;
-}
+const OPEN_SHELL_MANAGED_REMOTE_ROOTS = [DEFAULT_REMOTE_WORKSPACE_DIR, DEFAULT_REMOTE_AGENT_WORKSPACE_DIR];
 function normalizeProviders(value) {
-	if (value === void 0) return [];
-	if (!Array.isArray(value)) return null;
 	const seen = /* @__PURE__ */ new Set();
 	const providers = [];
-	for (const entry of value) {
-		if (typeof entry !== "string" || !entry.trim()) return null;
+	for (const entry of value ?? []) {
 		const normalized = entry.trim();
 		if (seen.has(normalized)) continue;
 		seen.add(normalized);
@@ -120,160 +81,186 @@ function normalizeProviders(value) {
 	}
 	return providers;
 }
-function normalizeRemotePath(value, fallback) {
+const nonEmptyTrimmedString = (message) => zod_exports.z.string({ error: message }).trim().min(1, { error: message });
+const OpenShellPluginConfigSchema = zod_exports.z.strictObject({
+	mode: zod_exports.z.enum(["mirror", "remote"], { error: "mode must be one of mirror, remote" }).optional(),
+	command: nonEmptyTrimmedString("command must be a non-empty string").optional(),
+	gateway: nonEmptyTrimmedString("gateway must be a non-empty string").optional(),
+	gatewayEndpoint: nonEmptyTrimmedString("gatewayEndpoint must be a non-empty string").optional(),
+	from: nonEmptyTrimmedString("from must be a non-empty string").optional(),
+	policy: nonEmptyTrimmedString("policy must be a non-empty string").optional(),
+	providers: zod_exports.z.array(zod_exports.z.string({ error: "providers must be an array of strings" }).trim().min(1, { error: "providers must be an array of strings" }), { error: "providers must be an array of strings" }).optional(),
+	gpu: zod_exports.z.boolean({ error: "gpu must be a boolean" }).optional(),
+	autoProviders: zod_exports.z.boolean({ error: "autoProviders must be a boolean" }).optional(),
+	remoteWorkspaceDir: nonEmptyTrimmedString("remoteWorkspaceDir must be a non-empty string").optional(),
+	remoteAgentWorkspaceDir: nonEmptyTrimmedString("remoteAgentWorkspaceDir must be a non-empty string").optional(),
+	timeoutSeconds: zod_exports.z.number({ error: "timeoutSeconds must be a number >= 1" }).min(1, { error: "timeoutSeconds must be a number >= 1" }).optional()
+});
+function formatOpenShellConfigIssue(issue) {
+	if (!issue) return "invalid config";
+	if (issue.code === "unrecognized_keys" && issue.keys.length > 0) return `unknown config key: ${issue.keys[0]}`;
+	if (issue.code === "invalid_type" && issue.path.length === 0) return "expected config object";
+	return issue.message;
+}
+function isManagedOpenShellRemotePath(value) {
+	return OPEN_SHELL_MANAGED_REMOTE_ROOTS.some((root) => value === root || value.startsWith(`${root}/`));
+}
+function normalizeOpenShellRemotePath(value, fallback, fieldName = "remote path") {
 	const candidate = value ?? fallback;
 	const normalized = path.posix.normalize(candidate.trim() || fallback);
-	if (!normalized.startsWith("/")) throw new Error(`OpenShell remote path must be absolute: ${candidate}`);
+	if (!normalized.startsWith("/")) throw new Error(`OpenShell ${fieldName} must be absolute: ${candidate}`);
+	if (!isManagedOpenShellRemotePath(normalized)) throw new Error(`OpenShell ${fieldName} must stay under ${OPEN_SHELL_MANAGED_REMOTE_ROOTS.join(" or ")}: ${candidate}`);
 	return normalized;
 }
 function createOpenShellPluginConfigSchema() {
-	const safeParse = (value) => {
+	return buildPluginConfigSchema(OpenShellPluginConfigSchema, { safeParse(value) {
 		if (value === void 0) return {
 			success: true,
 			data: void 0
 		};
-		if (!isRecord(value)) return {
-			success: false,
-			error: { issues: [{
-				path: [],
-				message: "expected config object"
-			}] }
-		};
-		const allowedKeys = new Set([
-			"mode",
-			"command",
-			"gateway",
-			"gatewayEndpoint",
-			"from",
-			"policy",
-			"providers",
-			"gpu",
-			"autoProviders",
-			"remoteWorkspaceDir",
-			"remoteAgentWorkspaceDir",
-			"timeoutSeconds"
-		]);
-		for (const key of Object.keys(value)) if (!allowedKeys.has(key)) return {
-			success: false,
-			error: { issues: [{
-				path: [key],
-				message: `unknown config key: ${key}`
-			}] }
-		};
-		const providers = normalizeProviders(value.providers);
-		if (providers === null) return {
-			success: false,
-			error: { issues: [{
-				path: ["providers"],
-				message: "providers must be an array of strings"
-			}] }
-		};
-		const timeoutSeconds = value.timeoutSeconds;
-		if (timeoutSeconds !== void 0 && (typeof timeoutSeconds !== "number" || !Number.isFinite(timeoutSeconds) || timeoutSeconds < 1)) return {
-			success: false,
-			error: { issues: [{
-				path: ["timeoutSeconds"],
-				message: "timeoutSeconds must be a number >= 1"
-			}] }
-		};
-		for (const key of ["gpu", "autoProviders"]) {
-			const candidate = value[key];
-			if (candidate !== void 0 && typeof candidate !== "boolean") return {
-				success: false,
-				error: { issues: [{
-					path: [key],
-					message: `${key} must be a boolean`
-				}] }
-			};
-		}
-		return {
+		const parsed = OpenShellPluginConfigSchema.safeParse(value);
+		if (parsed.success) return {
 			success: true,
-			data: {
-				mode: trimString(value.mode),
-				command: trimString(value.command),
-				gateway: trimString(value.gateway),
-				gatewayEndpoint: trimString(value.gatewayEndpoint),
-				from: trimString(value.from),
-				policy: trimString(value.policy),
-				providers,
-				gpu: value.gpu,
-				autoProviders: value.autoProviders,
-				remoteWorkspaceDir: trimString(value.remoteWorkspaceDir),
-				remoteAgentWorkspaceDir: trimString(value.remoteAgentWorkspaceDir),
-				timeoutSeconds
-			}
+			data: parsed.data
 		};
-	};
-	return {
-		safeParse,
-		jsonSchema: {
-			type: "object",
-			additionalProperties: false,
-			properties: {
-				command: { type: "string" },
-				mode: {
-					type: "string",
-					enum: ["mirror", "remote"]
-				},
-				gateway: { type: "string" },
-				gatewayEndpoint: { type: "string" },
-				from: { type: "string" },
-				policy: { type: "string" },
-				providers: {
-					type: "array",
-					items: { type: "string" }
-				},
-				gpu: { type: "boolean" },
-				autoProviders: { type: "boolean" },
-				remoteWorkspaceDir: { type: "string" },
-				remoteAgentWorkspaceDir: { type: "string" },
-				timeoutSeconds: {
-					type: "number",
-					minimum: 1
-				}
-			}
-		}
-	};
+		return {
+			success: false,
+			error: { issues: parsed.error.issues.map((issue) => ({
+				path: issue.path.filter((segment) => {
+					const kind = typeof segment;
+					return kind === "string" || kind === "number";
+				}),
+				message: formatOpenShellConfigIssue(issue)
+			})) }
+		};
+	} });
 }
 function resolveOpenShellPluginConfig(value) {
-	const parsed = createOpenShellPluginConfigSchema().safeParse?.(value);
-	if (!parsed || !parsed.success) {
-		const message = (parsed && !parsed.success ? parsed.error?.issues : void 0)?.map((issue) => issue.message).join(", ") || "invalid config";
+	if (value === void 0) return {
+		mode: DEFAULT_MODE,
+		command: DEFAULT_COMMAND,
+		gateway: void 0,
+		gatewayEndpoint: void 0,
+		from: DEFAULT_SOURCE,
+		policy: void 0,
+		providers: [],
+		gpu: false,
+		autoProviders: true,
+		remoteWorkspaceDir: DEFAULT_REMOTE_WORKSPACE_DIR,
+		remoteAgentWorkspaceDir: DEFAULT_REMOTE_AGENT_WORKSPACE_DIR,
+		timeoutMs: DEFAULT_TIMEOUT_MS
+	};
+	const parsed = OpenShellPluginConfigSchema.safeParse(value);
+	if (!parsed.success) {
+		const message = formatOpenShellConfigIssue(parsed.error.issues[0]);
 		throw new Error(`Invalid openshell plugin config: ${message}`);
 	}
-	const cfg = parsed.data ?? {} ?? {};
-	const mode = cfg.mode ?? DEFAULT_MODE;
-	if (mode !== "mirror" && mode !== "remote") throw new Error(`Invalid openshell plugin config: mode must be one of mirror, remote`);
+	const cfg = parsed.data;
 	return {
-		mode,
+		mode: cfg.mode ?? DEFAULT_MODE,
 		command: cfg.command ?? DEFAULT_COMMAND,
 		gateway: cfg.gateway,
 		gatewayEndpoint: cfg.gatewayEndpoint,
 		from: cfg.from ?? DEFAULT_SOURCE,
 		policy: cfg.policy,
-		providers: cfg.providers ?? [],
+		providers: normalizeProviders(cfg.providers),
 		gpu: cfg.gpu ?? false,
 		autoProviders: cfg.autoProviders ?? true,
-		remoteWorkspaceDir: normalizeRemotePath(cfg.remoteWorkspaceDir, DEFAULT_REMOTE_WORKSPACE_DIR),
-		remoteAgentWorkspaceDir: normalizeRemotePath(cfg.remoteAgentWorkspaceDir, DEFAULT_REMOTE_AGENT_WORKSPACE_DIR),
+		remoteWorkspaceDir: normalizeOpenShellRemotePath(cfg.remoteWorkspaceDir, DEFAULT_REMOTE_WORKSPACE_DIR, "remoteWorkspaceDir"),
+		remoteAgentWorkspaceDir: normalizeOpenShellRemotePath(cfg.remoteAgentWorkspaceDir, DEFAULT_REMOTE_AGENT_WORKSPACE_DIR, "remoteAgentWorkspaceDir"),
 		timeoutMs: typeof cfg.timeoutSeconds === "number" ? Math.floor(cfg.timeoutSeconds * 1e3) : DEFAULT_TIMEOUT_MS
 	};
 }
 //#endregion
 //#region extensions/openshell/src/mirror.ts
+const DEFAULT_OPEN_SHELL_MIRROR_EXCLUDE_DIRS = [
+	"hooks",
+	"git-hooks",
+	".git"
+];
+const COPY_TREE_FS_CONCURRENCY = 16;
+function createExcludeMatcher(excludeDirs) {
+	const excluded = new Set((excludeDirs ?? []).map((d) => normalizeLowercaseStringOrEmpty(d)));
+	return (name) => excluded.has(normalizeLowercaseStringOrEmpty(name));
+}
+function createConcurrencyLimiter(limit) {
+	let active = 0;
+	const queue = [];
+	const release = () => {
+		active -= 1;
+		queue.shift()?.();
+	};
+	return async (task) => {
+		if (active >= limit) await new Promise((resolve) => {
+			queue.push(resolve);
+		});
+		active += 1;
+		try {
+			return await task();
+		} finally {
+			release();
+		}
+	};
+}
+const runLimitedFs = createConcurrencyLimiter(COPY_TREE_FS_CONCURRENCY);
+async function lstatIfExists(targetPath) {
+	return await runLimitedFs(async () => await fs$1.lstat(targetPath)).catch(() => null);
+}
+async function copyTreeWithoutSymlinks(params) {
+	const stats = await runLimitedFs(async () => await fs$1.lstat(params.sourcePath));
+	if (stats.isSymbolicLink()) return;
+	const targetStats = await lstatIfExists(params.targetPath);
+	if (params.preserveTargetSymlinks && targetStats?.isSymbolicLink()) return;
+	if (stats.isDirectory()) {
+		await runLimitedFs(async () => await fs$1.mkdir(params.targetPath, { recursive: true }));
+		const entries = await runLimitedFs(async () => await fs$1.readdir(params.sourcePath));
+		await Promise.all(entries.map(async (entry) => {
+			await copyTreeWithoutSymlinks({
+				sourcePath: path.join(params.sourcePath, entry),
+				targetPath: path.join(params.targetPath, entry),
+				preserveTargetSymlinks: params.preserveTargetSymlinks
+			});
+		}));
+		return;
+	}
+	if (stats.isFile()) {
+		await runLimitedFs(async () => await fs$1.mkdir(path.dirname(params.targetPath), { recursive: true }));
+		await runLimitedFs(async () => await fs$1.copyFile(params.sourcePath, params.targetPath));
+	}
+}
 async function replaceDirectoryContents(params) {
+	const isExcluded = createExcludeMatcher(params.excludeDirs);
 	await fs$1.mkdir(params.targetDir, { recursive: true });
 	const existing = await fs$1.readdir(params.targetDir);
-	await Promise.all(existing.map((entry) => fs$1.rm(path.join(params.targetDir, entry), {
-		recursive: true,
-		force: true
-	})));
+	await Promise.all(existing.filter((entry) => !isExcluded(entry)).map(async (entry) => {
+		const targetPath = path.join(params.targetDir, entry);
+		if ((await lstatIfExists(targetPath))?.isSymbolicLink()) return;
+		await runLimitedFs(async () => await fs$1.rm(targetPath, {
+			recursive: true,
+			force: true
+		}));
+	}));
 	const sourceEntries = await fs$1.readdir(params.sourceDir);
-	for (const entry of sourceEntries) await fs$1.cp(path.join(params.sourceDir, entry), path.join(params.targetDir, entry), {
-		recursive: true,
-		force: true,
-		dereference: false
-	});
+	for (const entry of sourceEntries) {
+		if (isExcluded(entry)) continue;
+		await copyTreeWithoutSymlinks({
+			sourcePath: path.join(params.sourceDir, entry),
+			targetPath: path.join(params.targetDir, entry),
+			preserveTargetSymlinks: true
+		});
+	}
+}
+async function stageDirectoryContents(params) {
+	const isExcluded = createExcludeMatcher(params.excludeDirs);
+	await fs$1.mkdir(params.targetDir, { recursive: true });
+	const sourceEntries = await fs$1.readdir(params.sourceDir);
+	for (const entry of sourceEntries) {
+		if (isExcluded(entry)) continue;
+		await copyTreeWithoutSymlinks({
+			sourcePath: path.join(params.sourceDir, entry),
+			targetPath: path.join(params.targetDir, entry)
+		});
+	}
 }
 async function movePathWithCopyFallback(params) {
 	try {
@@ -301,9 +288,7 @@ var OpenShellFsBridge = class {
 	constructor(sandbox, backend) {
 		this.sandbox = sandbox;
 		this.backend = backend;
-	}
-	resolveRenameTargets(params) {
-		return resolveWritableRenameTargetsForBridge(params, (target) => this.resolveTarget(target), (target, action) => this.ensureWritable(target, action));
+		this.resolveRenameTargets = createWritableRenameTargetResolver((target) => this.resolveTarget(target), (target, action) => this.ensureWritable(target, action));
 	}
 	resolvePath(params) {
 		const target = this.resolveTarget(params);
@@ -524,6 +509,9 @@ async function resolveCanonicalCandidate(targetPath) {
 }
 //#endregion
 //#region extensions/openshell/src/backend.ts
+function buildOpenShellSshExecEnv() {
+	return sanitizeEnvVars(process.env).allowed;
+}
 function createOpenShellSandboxBackendFactory(params) {
 	return async (createParams) => await createOpenShellSandboxBackend({
 		...params,
@@ -598,7 +586,7 @@ async function createOpenShellSandboxBackend(params) {
 			});
 			return {
 				argv: pending.argv,
-				env: process.env,
+				env: buildOpenShellSshExecEnv(),
 				stdinMode: "pipe-open",
 				finalizeToken: pending.token
 			};
@@ -627,7 +615,6 @@ var OpenShellSandboxBackendImpl = class {
 		this.remoteSeedPending = false;
 	}
 	asHandle() {
-		const self = this;
 		return {
 			id: "openshell",
 			runtimeId: this.params.execContext.sandboxName,
@@ -640,7 +627,7 @@ var OpenShellSandboxBackendImpl = class {
 			remoteWorkspaceDir: this.params.remoteWorkspaceDir,
 			remoteAgentWorkspaceDir: this.params.remoteAgentWorkspaceDir,
 			buildExecSpec: async ({ command, workdir, env, usePty }) => {
-				const pending = await self.prepareExec({
+				const pending = await this.prepareExec({
 					command,
 					workdir,
 					env,
@@ -648,24 +635,24 @@ var OpenShellSandboxBackendImpl = class {
 				});
 				return {
 					argv: pending.argv,
-					env: process.env,
+					env: buildOpenShellSshExecEnv(),
 					stdinMode: "pipe-open",
 					finalizeToken: pending.token
 				};
 			},
 			finalizeExec: async ({ token }) => {
-				await self.finalizeExec(token);
+				await this.finalizeExec(token);
 			},
-			runShellCommand: async (command) => await self.runRemoteShellScript(command),
+			runShellCommand: async (command) => await this.runRemoteShellScript(command),
 			createFsBridge: ({ sandbox }) => this.params.execContext.config.mode === "remote" ? createRemoteShellSandboxFsBridge({
 				sandbox,
-				runtime: self.asHandle()
+				runtime: this.asHandle()
 			}) : createOpenShellFsBridge({
 				sandbox,
-				backend: self.asHandle()
+				backend: this.asHandle()
 			}),
-			runRemoteShellScript: async (command) => await self.runRemoteShellScript(command),
-			syncLocalPathToRemote: async (localPath, remotePath) => await self.syncLocalPathToRemote(localPath, remotePath)
+			runRemoteShellScript: async (command) => await this.runRemoteShellScript(command),
+			syncLocalPathToRemote: async (localPath, remotePath) => await this.syncLocalPathToRemote(localPath, remotePath)
 		};
 	}
 	async prepareExec(params) {
@@ -737,6 +724,14 @@ var OpenShellSandboxBackendImpl = class {
 		await this.maybeSeedRemoteWorkspace();
 		const stats = await fs$1.lstat(localPath).catch(() => null);
 		if (!stats) {
+			await this.runRemoteShellScript({
+				script: "rm -rf -- \"$1\"",
+				args: [remotePath],
+				allowFailure: true
+			});
+			return;
+		}
+		if (stats.isSymbolicLink()) {
 			await this.runRemoteShellScript({
 				script: "rm -rf -- \"$1\"",
 				args: [remotePath],
@@ -843,7 +838,8 @@ var OpenShellSandboxBackendImpl = class {
 			if (result.code !== 0) throw new Error(result.stderr.trim() || "openshell sandbox download failed");
 			await replaceDirectoryContents({
 				sourceDir: tmpDir,
-				targetDir: this.params.createParams.workspaceDir
+				targetDir: this.params.createParams.workspaceDir,
+				excludeDirs: DEFAULT_OPEN_SHELL_MIRROR_EXCLUDE_DIRS
 			});
 		} finally {
 			await fs$1.rm(tmpDir, {
@@ -853,19 +849,31 @@ var OpenShellSandboxBackendImpl = class {
 		}
 	}
 	async uploadPathToRemote(localPath, remotePath) {
-		const result = await runOpenShellCli({
-			context: this.params.execContext,
-			args: [
-				"sandbox",
-				"upload",
-				"--no-git-ignore",
-				this.params.execContext.sandboxName,
-				localPath,
-				remotePath
-			],
-			cwd: this.params.createParams.workspaceDir
-		});
-		if (result.code !== 0) throw new Error(result.stderr.trim() || "openshell sandbox upload failed");
+		const tmpDir = await fs$1.mkdtemp(path.join(resolveOpenShellTmpRoot(), "openclaw-openshell-upload-"));
+		try {
+			await stageDirectoryContents({
+				sourceDir: localPath,
+				targetDir: tmpDir
+			});
+			const result = await runOpenShellCli({
+				context: this.params.execContext,
+				args: [
+					"sandbox",
+					"upload",
+					"--no-git-ignore",
+					this.params.execContext.sandboxName,
+					tmpDir,
+					remotePath
+				],
+				cwd: this.params.createParams.workspaceDir
+			});
+			if (result.code !== 0) throw new Error(result.stderr.trim() || "openshell sandbox upload failed");
+		} finally {
+			await fs$1.rm(tmpDir, {
+				recursive: true,
+				force: true
+			});
+		}
 	}
 	async maybeSeedRemoteWorkspace() {
 		if (!this.remoteSeedPending) return;
@@ -885,16 +893,16 @@ function resolveOpenShellPluginConfigFromConfig(config, fallback) {
 }
 function buildOpenShellSandboxName(scopeKey) {
 	const trimmed = scopeKey.trim() || "session";
-	const safe = trimmed.toLowerCase().replace(/[^a-z0-9._-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 32);
+	const safe = normalizeLowercaseStringOrEmpty(trimmed).replace(/[^a-z0-9._-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 32);
 	const hash = Array.from(trimmed).reduce((acc, char) => (acc * 33 ^ char.charCodeAt(0)) >>> 0, 5381);
 	return `openclaw-${safe || "session"}-${hash.toString(16).slice(0, 8)}`;
 }
 function resolveOpenShellTmpRoot() {
-	return path.resolve(resolvePreferredOpenClawTmpDir() ?? os.tmpdir());
+	return path.resolve(resolvePreferredOpenClawTmpDir());
 }
 //#endregion
 //#region extensions/openshell/index.ts
-const plugin = {
+var openshell_default = definePluginEntry({
 	id: "openshell",
 	name: "OpenShell Sandbox",
 	description: "OpenShell-backed sandbox runtime for agent exec and file tools.",
@@ -907,6 +915,6 @@ const plugin = {
 			manager: createOpenShellSandboxBackendManager({ pluginConfig })
 		});
 	}
-};
+});
 //#endregion
-export { plugin as default };
+export { openshell_default as default };

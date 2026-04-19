@@ -21,13 +21,10 @@ export declare const CronPayloadSchema: import("@sinclair/typebox").TUnion<[impo
     model: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     fallbacks: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>>;
     thinking: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-    timeoutSeconds: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
+    timeoutSeconds: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
     allowUnsafeExternalContent: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
     lightContext: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-    deliver: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-    channel: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-    to: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-    bestEffortDeliver: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+    toolsAllow: import("@sinclair/typebox").TOptional<TSchema>;
 }>]>;
 export declare const CronPayloadPatchSchema: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TObject<{
     kind: import("@sinclair/typebox").TLiteral<"systemEvent">;
@@ -38,13 +35,10 @@ export declare const CronPayloadPatchSchema: import("@sinclair/typebox").TUnion<
     model: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     fallbacks: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>>;
     thinking: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-    timeoutSeconds: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
+    timeoutSeconds: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
     allowUnsafeExternalContent: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
     lightContext: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-    deliver: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-    channel: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-    to: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-    bestEffortDeliver: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+    toolsAllow: import("@sinclair/typebox").TOptional<TSchema>;
 }>]>;
 export declare const CronFailureAlertSchema: import("@sinclair/typebox").TObject<{
     after: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
@@ -159,13 +153,10 @@ export declare const CronJobSchema: import("@sinclair/typebox").TObject<{
         model: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
         fallbacks: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>>;
         thinking: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-        timeoutSeconds: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
+        timeoutSeconds: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
         allowUnsafeExternalContent: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
         lightContext: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-        deliver: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-        channel: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-        to: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-        bestEffortDeliver: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+        toolsAllow: import("@sinclair/typebox").TOptional<TSchema>;
     }>]>;
     delivery: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TObject<{
         to: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
@@ -263,13 +254,10 @@ export declare const CronAddParamsSchema: import("@sinclair/typebox").TObject<{
         model: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
         fallbacks: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>>;
         thinking: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-        timeoutSeconds: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
+        timeoutSeconds: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
         allowUnsafeExternalContent: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
         lightContext: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-        deliver: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-        channel: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-        to: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-        bestEffortDeliver: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+        toolsAllow: import("@sinclair/typebox").TOptional<TSchema>;
     }>]>;
     delivery: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TObject<{
         to: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
@@ -348,13 +336,10 @@ export declare const CronJobPatchSchema: import("@sinclair/typebox").TObject<{
         model: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
         fallbacks: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>>;
         thinking: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-        timeoutSeconds: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TInteger>;
+        timeoutSeconds: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
         allowUnsafeExternalContent: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
         lightContext: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-        deliver: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
-        channel: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-        to: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
-        bestEffortDeliver: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+        toolsAllow: import("@sinclair/typebox").TOptional<TSchema>;
     }>]>>;
     delivery: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TObject<{
         to: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;

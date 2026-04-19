@@ -1,5 +1,13 @@
 import { z } from "zod";
 export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
+    params: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;
+    embeddedHarness: z.ZodOptional<z.ZodObject<{
+        runtime: z.ZodOptional<z.ZodString>;
+        fallback: z.ZodOptional<z.ZodEnum<{
+            none: "none";
+            pi: "pi";
+        }>>;
+    }, z.core.$strict>>;
     model: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodObject<{
         primary: z.ZodOptional<z.ZodString>;
         fallbacks: z.ZodOptional<z.ZodArray<z.ZodString>>;
@@ -12,6 +20,15 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
         primary: z.ZodOptional<z.ZodString>;
         fallbacks: z.ZodOptional<z.ZodArray<z.ZodString>>;
     }, z.core.$strict>]>>;
+    videoGenerationModel: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodObject<{
+        primary: z.ZodOptional<z.ZodString>;
+        fallbacks: z.ZodOptional<z.ZodArray<z.ZodString>>;
+    }, z.core.$strict>]>>;
+    musicGenerationModel: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodObject<{
+        primary: z.ZodOptional<z.ZodString>;
+        fallbacks: z.ZodOptional<z.ZodArray<z.ZodString>>;
+    }, z.core.$strict>]>>;
+    mediaGenerationAutoProviderFallback: z.ZodOptional<z.ZodBoolean>;
     pdfModel: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodObject<{
         primary: z.ZodOptional<z.ZodString>;
         fallbacks: z.ZodOptional<z.ZodArray<z.ZodString>>;
@@ -24,12 +41,32 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
         streaming: z.ZodOptional<z.ZodBoolean>;
     }, z.core.$strict>>>;
     workspace: z.ZodOptional<z.ZodString>;
+    skills: z.ZodOptional<z.ZodArray<z.ZodString>>;
     repoRoot: z.ZodOptional<z.ZodString>;
+    systemPromptOverride: z.ZodOptional<z.ZodString>;
     skipBootstrap: z.ZodOptional<z.ZodBoolean>;
+    contextInjection: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"always">, z.ZodLiteral<"continuation-skip">]>>;
     bootstrapMaxChars: z.ZodOptional<z.ZodNumber>;
     bootstrapTotalMaxChars: z.ZodOptional<z.ZodNumber>;
+    experimental: z.ZodOptional<z.ZodObject<{
+        localModelLean: z.ZodOptional<z.ZodBoolean>;
+    }, z.core.$strict>>;
     bootstrapPromptTruncationWarning: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"off">, z.ZodLiteral<"once">, z.ZodLiteral<"always">]>>;
     userTimezone: z.ZodOptional<z.ZodString>;
+    startupContext: z.ZodOptional<z.ZodObject<{
+        enabled: z.ZodOptional<z.ZodBoolean>;
+        applyOn: z.ZodOptional<z.ZodArray<z.ZodUnion<readonly [z.ZodLiteral<"new">, z.ZodLiteral<"reset">]>>>;
+        dailyMemoryDays: z.ZodOptional<z.ZodNumber>;
+        maxFileBytes: z.ZodOptional<z.ZodNumber>;
+        maxFileChars: z.ZodOptional<z.ZodNumber>;
+        maxTotalChars: z.ZodOptional<z.ZodNumber>;
+    }, z.core.$strict>>;
+    contextLimits: z.ZodOptional<z.ZodObject<{
+        memoryGetMaxChars: z.ZodOptional<z.ZodNumber>;
+        memoryGetDefaultLines: z.ZodOptional<z.ZodNumber>;
+        toolResultMaxChars: z.ZodOptional<z.ZodNumber>;
+        postCompactionMaxChars: z.ZodOptional<z.ZodNumber>;
+    }, z.core.$strict>>;
     timeFormat: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"auto">, z.ZodLiteral<"12">, z.ZodLiteral<"24">]>>;
     envelopeTimezone: z.ZodOptional<z.ZodString>;
     envelopeTimestamp: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"on">, z.ZodLiteral<"off">]>>;
@@ -40,6 +77,7 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
         args: z.ZodOptional<z.ZodArray<z.ZodString>>;
         output: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"json">, z.ZodLiteral<"text">, z.ZodLiteral<"jsonl">]>>;
         resumeOutput: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"json">, z.ZodLiteral<"text">, z.ZodLiteral<"jsonl">]>>;
+        jsonlDialect: z.ZodOptional<z.ZodLiteral<"claude-stream-json">>;
         input: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"arg">, z.ZodLiteral<"stdin">]>>;
         maxPromptArgChars: z.ZodOptional<z.ZodNumber>;
         env: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodString>>;
@@ -52,10 +90,13 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
         sessionMode: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"always">, z.ZodLiteral<"existing">, z.ZodLiteral<"none">]>>;
         sessionIdFields: z.ZodOptional<z.ZodArray<z.ZodString>>;
         systemPromptArg: z.ZodOptional<z.ZodString>;
+        systemPromptFileConfigArg: z.ZodOptional<z.ZodString>;
+        systemPromptFileConfigKey: z.ZodOptional<z.ZodString>;
         systemPromptMode: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"append">, z.ZodLiteral<"replace">]>>;
         systemPromptWhen: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"first">, z.ZodLiteral<"always">, z.ZodLiteral<"never">]>>;
         imageArg: z.ZodOptional<z.ZodString>;
         imageMode: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"repeat">, z.ZodLiteral<"list">]>>;
+        imagePathScope: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"temp">, z.ZodLiteral<"workspace">]>>;
         serialize: z.ZodOptional<z.ZodBoolean>;
         reliability: z.ZodOptional<z.ZodObject<{
             watchdog: z.ZodOptional<z.ZodObject<{
@@ -78,6 +119,13 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
         enabled: z.ZodOptional<z.ZodBoolean>;
         sources: z.ZodOptional<z.ZodArray<z.ZodUnion<readonly [z.ZodLiteral<"memory">, z.ZodLiteral<"sessions">]>>>;
         extraPaths: z.ZodOptional<z.ZodArray<z.ZodString>>;
+        qmd: z.ZodOptional<z.ZodObject<{
+            extraCollections: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                path: z.ZodString;
+                name: z.ZodOptional<z.ZodString>;
+                pattern: z.ZodOptional<z.ZodString>;
+            }, z.core.$strict>>>;
+        }, z.core.$strict>>;
         multimodal: z.ZodOptional<z.ZodObject<{
             enabled: z.ZodOptional<z.ZodBoolean>;
             modalities: z.ZodOptional<z.ZodArray<z.ZodUnion<readonly [z.ZodLiteral<"image">, z.ZodLiteral<"audio">, z.ZodLiteral<"all">]>>>;
@@ -86,7 +134,7 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
         experimental: z.ZodOptional<z.ZodObject<{
             sessionMemory: z.ZodOptional<z.ZodBoolean>;
         }, z.core.$strict>>;
-        provider: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"local">, z.ZodLiteral<"gemini">, z.ZodLiteral<"voyage">, z.ZodLiteral<"mistral">, z.ZodLiteral<"ollama">]>>;
+        provider: z.ZodOptional<z.ZodString>;
         remote: z.ZodOptional<z.ZodObject<{
             baseUrl: z.ZodOptional<z.ZodString>;
             apiKey: z.ZodOptional<z.ZodUnion<readonly [z.ZodString, z.ZodDiscriminatedUnion<[z.ZodObject<{
@@ -111,7 +159,7 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
                 timeoutMinutes: z.ZodOptional<z.ZodNumber>;
             }, z.core.$strict>>;
         }, z.core.$strict>>;
-        fallback: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"openai">, z.ZodLiteral<"gemini">, z.ZodLiteral<"local">, z.ZodLiteral<"voyage">, z.ZodLiteral<"mistral">, z.ZodLiteral<"ollama">, z.ZodLiteral<"none">]>>;
+        fallback: z.ZodOptional<z.ZodString>;
         model: z.ZodOptional<z.ZodString>;
         outputDimensionality: z.ZodOptional<z.ZodNumber>;
         local: z.ZodOptional<z.ZodObject<{
@@ -121,6 +169,9 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
         store: z.ZodOptional<z.ZodObject<{
             driver: z.ZodOptional<z.ZodLiteral<"sqlite">>;
             path: z.ZodOptional<z.ZodString>;
+            fts: z.ZodOptional<z.ZodObject<{
+                tokenizer: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"unicode61">, z.ZodLiteral<"trigram">]>>;
+            }, z.core.$strict>>;
             vector: z.ZodOptional<z.ZodObject<{
                 enabled: z.ZodOptional<z.ZodBoolean>;
                 extensionPath: z.ZodOptional<z.ZodString>;
@@ -186,8 +237,12 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
             placeholder: z.ZodOptional<z.ZodString>;
         }, z.core.$strict>>;
     }, z.core.$strict>>;
+    llm: z.ZodOptional<z.ZodObject<{
+        idleTimeoutSeconds: z.ZodOptional<z.ZodNumber>;
+    }, z.core.$strict>>;
     compaction: z.ZodOptional<z.ZodObject<{
         mode: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"default">, z.ZodLiteral<"safeguard">]>>;
+        provider: z.ZodOptional<z.ZodString>;
         reserveTokens: z.ZodOptional<z.ZodNumber>;
         keepRecentTokens: z.ZodOptional<z.ZodNumber>;
         reserveTokensFloor: z.ZodOptional<z.ZodNumber>;
@@ -215,9 +270,11 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
             prompt: z.ZodOptional<z.ZodString>;
             systemPrompt: z.ZodOptional<z.ZodString>;
         }, z.core.$strict>>;
+        notifyUser: z.ZodOptional<z.ZodBoolean>;
     }, z.core.$strict>>;
     embeddedPi: z.ZodOptional<z.ZodObject<{
         projectSettingsPolicy: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"trusted">, z.ZodLiteral<"sanitize">, z.ZodLiteral<"ignore">]>>;
+        executionContract: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"default">, z.ZodLiteral<"strict-agentic">]>>;
     }, z.core.$strict>>;
     thinkingDefault: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"off">, z.ZodLiteral<"minimal">, z.ZodLiteral<"low">, z.ZodLiteral<"medium">, z.ZodLiteral<"high">, z.ZodLiteral<"xhigh">, z.ZodLiteral<"adaptive">]>>;
     verboseDefault: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"off">, z.ZodLiteral<"on">, z.ZodLiteral<"full">]>>;
@@ -259,13 +316,16 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
         to: z.ZodOptional<z.ZodString>;
         accountId: z.ZodOptional<z.ZodString>;
         prompt: z.ZodOptional<z.ZodString>;
+        includeSystemPromptSection: z.ZodOptional<z.ZodBoolean>;
         ackMaxChars: z.ZodOptional<z.ZodNumber>;
         suppressToolErrorWarnings: z.ZodOptional<z.ZodBoolean>;
+        timeoutSeconds: z.ZodOptional<z.ZodNumber>;
         lightContext: z.ZodOptional<z.ZodBoolean>;
         isolatedSession: z.ZodOptional<z.ZodBoolean>;
     }, z.core.$strict>>;
     maxConcurrent: z.ZodOptional<z.ZodNumber>;
     subagents: z.ZodOptional<z.ZodObject<{
+        allowAgents: z.ZodOptional<z.ZodArray<z.ZodString>>;
         maxConcurrent: z.ZodOptional<z.ZodNumber>;
         maxSpawnDepth: z.ZodOptional<z.ZodNumber>;
         maxChildrenPerAgent: z.ZodOptional<z.ZodNumber>;
@@ -277,6 +337,7 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
         thinking: z.ZodOptional<z.ZodString>;
         runTimeoutSeconds: z.ZodOptional<z.ZodNumber>;
         announceTimeoutMs: z.ZodOptional<z.ZodNumber>;
+        requireAgentId: z.ZodOptional<z.ZodBoolean>;
     }, z.core.$strict>>;
     sandbox: z.ZodOptional<z.ZodObject<{
         mode: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"off">, z.ZodLiteral<"non-main">, z.ZodLiteral<"all">]>>;
@@ -284,7 +345,6 @@ export declare const AgentDefaultsSchema: z.ZodOptional<z.ZodObject<{
         workspaceAccess: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"none">, z.ZodLiteral<"ro">, z.ZodLiteral<"rw">]>>;
         sessionToolsVisibility: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"spawned">, z.ZodLiteral<"all">]>>;
         scope: z.ZodOptional<z.ZodUnion<readonly [z.ZodLiteral<"session">, z.ZodLiteral<"agent">, z.ZodLiteral<"shared">]>>;
-        perSession: z.ZodOptional<z.ZodBoolean>;
         workspaceRoot: z.ZodOptional<z.ZodString>;
         docker: z.ZodOptional<z.ZodObject<{
             image: z.ZodOptional<z.ZodString>;

@@ -1,188 +1,352 @@
-import "../../redact-BDinS1q9.js";
-import "../../errors-BxyFnvP3.js";
-import "../../unhandled-rejections-CDJ8dOVP.js";
-import "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../warning-filter-C_BEyyvc.js";
-import "../../links-DaR1j_Bv.js";
-import "../../paths-DJBuCoRE.js";
-import "../../auth-profiles-DWcA6joY.js";
-import "../../provider-runtime.runtime-DwNmuhmD.js";
-import "../../file-lock-Cm3HPowf.js";
-import "../../audit-fs-7IxnGQxG.js";
-import "../../resolve-DqJVzTVp.js";
-import "../../profiles-CRvutsjq.js";
-import "../../tailscale-FHZADwLL.js";
-import "../../tailnet-BPCtbdja.js";
-import "../../net-1LAzWzJc.js";
-import "../../auth-BC0t_CEl.js";
-import "../../credentials-6hokf6e3.js";
-import "../../message-channel-ZzTqBBLH.js";
-import "../../sessions-uRDRs4f-.js";
-import "../../plugins-h0t63KQW.js";
-import "../../paths-BEHCHyAI.js";
-import "../../delivery-context-oynQ_N5k.js";
-import "../../session-write-lock-B7nwE7de.js";
-import "../../method-scopes-DtJfTstv.js";
-import "../../call-CFi2qbI2.js";
-import "../../detect-binary-78pS71eg.js";
-import "../../prompt-style-qxNRcnm3.js";
-import "../../ports-lsof-qBGFcQvX.js";
-import "../../restart-stale-pids-ciXEfnyN.js";
-import "../../ports-DF41F7NN.js";
-import "../../logging-CS4wyI-j.js";
-import "../../commands-AceByDw5.js";
-import "../../issue-format-Cj39YIRp.js";
-import "../../provider-env-vars-BZwz5sMG.js";
-import "../../model-auth-env-BWzx2-YC.js";
-import "../../anthropic-vertex-provider-Cik2BDhe.js";
-import "../../pi-model-discovery-hz4apXP-.js";
-import "../../identity-xGthCqY8.js";
-import "../../heartbeat-DqtPOAC0.js";
-import "../../pi-embedded-BHLc2HPd.js";
-import "../../internal-hooks-CVdBfFMw.js";
-import "../../multimodal-CDYWira8.js";
-import "../../memory-search-B5CuuJZB.js";
-import "../../secret-input-x2By3bJy.js";
-import "../../bindings-KL-4Efmw.js";
-import "../../resolve-route-C5Xj9lGN.js";
-import "../../routing-DA_79T-X.js";
-import "../../identity-file-ClDAlI0t.js";
-import "../../outbound-runtime-BAxohuIf.js";
-import "../../provider-model-definitions-CrItEa-O.js";
-import "../../provider-models-GbpUTgQg.js";
-import "../../provider-catalog-hDyZGQ8R.js";
-import "../../provider-catalog-0WIhy6f_.js";
-import "../../provider-catalog-CdCrQ7UP.js";
-import "../../provider-catalog-DzIvFdfj.js";
-import "../../provider-catalog-COMYNKV2.js";
-import "../../provider-catalog-Bce8iOMh.js";
-import "../../provider-catalog-CPx35FBq.js";
-import "../../provider-catalog-Czll7Q5-.js";
-import "../../provider-catalog-BFvOY2Dt.js";
-import "../../provider-catalog-VZaye2Ib.js";
-import "../../models-config.providers.discovery-oJl_MWQT.js";
-import "../../text-runtime-B-kOpuLv.js";
-import "../../docker-BrzH-NvE.js";
-import "../../tool-catalog-BQWPAtTb.js";
-import "../../common-CMCEg0LE.js";
-import "../../image-ops-xftchR8Z.js";
-import "../../thinking-Me2S38se.js";
-import "../../path-alias-guards-BfUEa8Z8.js";
-import "../../sandbox-paths-DM85ql27.js";
-import "../../channel-actions-M8UJU-J1.js";
-import "../../mime-Bwp1UQ_8.js";
-import "../../ssrf-BdAu1_OT.js";
-import "../../fetch-guard-BiSGgjb-.js";
-import "../../provider-web-search-B2TRQt7q.js";
-import "../../manager-BFi-xqLj.js";
-import "../../config-schema-BoeEl_gh.js";
-import "../../channel-plugin-common-Bw5e9GHM.js";
-import "../../status-helpers-DTFg68Zs.js";
-import "../../conversation-runtime-BfLWHgdb.js";
-import "../../runtime-whatsapp-boundary-C0sTsAVN.js";
-import "../../pairing-store-Ci8ZfuL6.js";
-import "../../json-store-Dizz4Rhx.js";
-import "../../secret-file-BzdoxKYZ.js";
-import "../../channel-config-schema-DOQ4q6a_.js";
-import "../../setup-binary-Tg8N6z5q.js";
-import "../../archive-Oi0PB5pw.js";
-import "../../fs-safe-DpC9pe80.js";
-import "../../signal-cli-install-pAmdy64m.js";
-import "../../setup-wizard-proxy-3tbzVvIf.js";
-import "../../setup-Cuh8Qocv.js";
-import "../../dm-policy-shared-3Jdbvvlm.js";
-import "../../runtime-env-pWTJLxVn.js";
-import "../../temp-path-DvwSkpQg.js";
-import "../../diagnostic-Dx7wnQab.js";
-import "../../logging-B3tLYQAZ.js";
-import "../../config-runtime-BMqUsOKJ.js";
-import "../../level-overrides-DxRoq-Vr.js";
-import "../../exec-approvals-CoUFlPSg.js";
-import "../../webhook-ingress-CwnvXQ9i.js";
-import "../../system-events-D_U3rn_H.js";
-import "../../ssrf-policy-Cve-f-IZ.js";
-import "../../hook-runtime-C0FQ8mwc.js";
-import "../../templating-BpbUbFSs.js";
-import "../../channel-reply-pipeline-BQ2GND11.js";
-import "../../reply-history-CYr7j6cE.js";
-import "../../commands-registry.data-C-Zb7sHo.js";
-import "../../commands-registry-kALONq2A.js";
-import "../../frontmatter-C_CWb6f1.js";
-import "../../env-overrides-CilRbuhU.js";
-import "../../skills-Xrdxpo0d.js";
-import "../../skills-remote-D055n83h.js";
-import "../../workspace-dirs-BooYyzLb.js";
-import "../../pairing-token-BhzPXbCy.js";
-import "../../skill-commands-X9DVN0CB.js";
-import "../../exec-inline-eval-CAjjj6oR.js";
-import "../../sandbox-DSgCBor-.js";
-import "../../target-registry-CUzd3r6R.js";
-import "../../external-content-BtOAY1jC.js";
-import "../../brave-iyc-zT4j.js";
-import "../../duckduckgo-RnKnjVjk.js";
-import "../../exa-B_PEobTF.js";
-import "../../security-runtime-DuEgVcd_.js";
-import "../../provider-auth-ref-CkjXioxW.js";
-import "../../provider-auth-input-DY2h0M4n.js";
-import "../../provider-auth-helpers-CfaQ5Xn6.js";
-import "../../provider-api-key-auth-Uu86HoCQ.js";
-import "../../provider-usage-D_y-rSPa.js";
-import "../../provider-models-BlbL1wnJ.js";
-import "../../media-understanding-DXKhzmxa.js";
-import "../../media-understanding-provider-mKPWfSgv.js";
-import "../../provider-entry-Dh6ETIXa.js";
-import "../../media-understanding-provider-Br6AUUTp.js";
-import "../../provider-onboard-DmLoftpN.js";
-import "../../onboard-p6odcf1a.js";
-import "../../perplexity-web-search-provider-CBvej2u9.js";
-import "../../perplexity-DVSMCtcT.js";
-import "../../model-definitions-CLlu-y8L.js";
-import "../../onboard-CQyz1Xh9.js";
-import "../../provider-catalog-BbgD0Blc.js";
-import "../../provider-models-CPWTfv6u.js";
-import "../../stream-WNyIq00o.js";
-import "../../web-search-C2bCgEzC.js";
-import "../../client-fetch-DG9t9440.js";
-import "../../config-B6bjVdCF.js";
-import "../../web-media-B7RZCKik.js";
-import "../../stagger-C20Z_jRQ.js";
-import "../../command-secret-targets-CiFc3JN3.js";
-import "../../delivery-queue-iwWmpCz9.js";
-import "../../pairing-labels-PxfGoTvk.js";
-import "../../directory-runtime-D9Y42mW-.js";
-import "../../read-only-account-inspect-DL-l3acs.js";
-import "../../src-hV2aBDoy.js";
-import "../../web-media-C0RRMmtv.js";
-import "../../state-paths-CG7b-A_-.js";
-import "../../axios-zS_oAKS1.js";
-import "../../channel-summary-BXD0QyVg.js";
-import "../../session-system-events-CRFPrG-r.js";
-import "../../ssh-tunnel-Ca8F0wnz.js";
-import "../../server-middleware-DUIlEnG_.js";
-import "../../llm-task-D_W5GYK4.js";
-import "../../tool-policy-match-DgTjuJ-l.js";
-import "../../runtime-DAr9Q1gF.js";
-import "../../channel-status-DxDpNj1k.js";
-import "../../discord-core-CTFa_tPG.js";
-import "../../cli-runtime-CivyfPOe.js";
-import "../../config-presence-Bo4-9YVM.js";
-import "../../query-expansion-CeNhqo71.js";
-import "../../search-manager-CiHiEX8K.js";
-import "../../acp-runtime-CRrXx1ZI.js";
-import "../../telegram-core-n7uYzMlP.js";
-import "../../audit-BszklQB5.js";
-import "../../gateway-runtime-_5BLwTPa.js";
-import "../../connection-auth-DQ6Wy_i-.js";
-import "../../mcp-config-vaYGkUmW.js";
-import { n as zaloSetupAdapter, t as zaloSetupWizard } from "../../api-B_31pOwc.js";
-import "../../accounts-HeV9rTqW.js";
-export { zaloSetupAdapter, zaloSetupWizard };
+import { i as normalizeLowercaseStringOrEmpty } from "../../string-coerce-BUSzWgUA.js";
+import { h as MarkdownConfigSchema, l as GroupPolicySchema, o as DmPolicySchema } from "../../zod-schema.core-Du3k_7-j.js";
+import { n as buildCatchallMultiAccountChannelSchema, r as buildChannelConfigSchema, t as AllowFromListSchema } from "../../config-schema-rBqVo6-O.js";
+import { t as DEFAULT_ACCOUNT_ID } from "../../account-id-CZtNSGs2.js";
+import { l as isNumericTargetId, y as sendPayloadWithChunkedTextAndMedia } from "../../reply-payload-B7vg_FeY.js";
+import { i as createLazyRuntimeNamedExport, r as createLazyRuntimeModule } from "../../lazy-runtime-C48wNwsc.js";
+import { c as jsonResult, h as readStringParam } from "../../common-D14k4EfX.js";
+import { c as createScopedChannelConfigAdapter, h as mapAllowFromEntries, t as adaptScopedAccountAccessor, u as createScopedDmSecurityResolver } from "../../channel-config-helpers-Da4M1Ru3.js";
+import "../../text-runtime-DHfI0VWF.js";
+import { r as describeWebhookAccountSnapshot } from "../../account-helpers-Cq1Zr5oH.js";
+import { n as createStaticReplyToModeResolver } from "../../threading-helpers-COq9h6PI.js";
+import { c as stripTargetKindPrefix, r as createChatChannelPlugin, s as stripChannelTargetPrefix, t as buildChannelOutboundSessionRoute } from "../../core-w7kNLu40.js";
+import "../../channel-core-DRGB1UWh.js";
+import { r as buildSecretInputSchema } from "../../secret-input-BtxKYnNF.js";
+import { t as formatAllowFromLowercase } from "../../allow-from-CULhQTVN.js";
+import "../../channel-config-schema-8omn2SVq.js";
+import { S as createOpenProviderGroupPolicyWarningCollector, o as buildOpenGroupPolicyRestrictSendersWarning, s as buildOpenGroupPolicyWarning } from "../../channel-policy-fpyKQCGQ.js";
+import { t as createChannelDirectoryAdapter } from "../../directory-runtime-CMbDj_o-.js";
+import { p as listResolvedDirectoryUserEntriesFromAllowFrom } from "../../directory-config-helpers-C7uQQUxi.js";
+import { d as createDefaultChannelRuntimeState, o as buildTokenChannelStatusSummary, u as createComputedAccountStatusAdapter } from "../../status-helpers-C-OjDvUo.js";
+import { t as extractToolSend } from "../../tool-send-zAUYZMA_.js";
+import { t as resolveApprovalApprovers } from "../../approval-approvers-CsAy-QoF.js";
+import { t as createResolvedApproverActionAuthAdapter } from "../../approval-auth-helpers-B8V67Elu.js";
+import "../../conversation-runtime-BjYk0Wci.js";
+import { t as chunkTextForOutbound } from "../../text-chunking-lDajLZMN.js";
+import { i as coerceStatusIssueAccountId, o as readStatusIssueFields } from "../../extension-shared-B3txLw6Y.js";
+import "../../channel-actions-D2Efrf3J.js";
+import { a as createEmptyChannelResult, o as createRawChannelSendResultAdapter } from "../../channel-send-result-Cuc21H78.js";
+import "../../channel-status-Bz9FAEWe.js";
+import { t as zod_exports } from "../../zod-BIW-RsMp.js";
+import { i as resolveZaloAccount, n as listZaloAccountIds, r as resolveDefaultZaloAccountId, t as listEnabledZaloAccounts } from "../../accounts-De5zTbyk.js";
+import { n as collectRuntimeConfigAssignments, r as secretTargetRegistryEntries } from "../../secret-contract-CjDf_Zte.js";
+import { n as zaloDmPolicy, r as zaloSetupAdapter, t as createZaloSetupWizardProxy } from "../../setup-core-BuZx-_ba.js";
+import { r as resolveZaloRuntimeGroupPolicy, t as evaluateZaloGroupAccess } from "../../group-access-BWLSbS3h.js";
+import { t as zaloSetupWizard } from "../../setup-api-KpVm1ewB.js";
+//#region extensions/zalo/src/actions.ts
+const loadZaloActionsRuntime = createLazyRuntimeNamedExport(() => import("../../actions.runtime-G3WLy6EA.js"), "zaloActionsRuntime");
+const providerId = "zalo";
+function listEnabledAccounts(cfg, accountId) {
+	return (accountId ? [resolveZaloAccount({
+		cfg,
+		accountId
+	})] : listEnabledZaloAccounts(cfg)).filter((account) => account.enabled && account.tokenSource !== "none");
+}
+const zaloMessageActions = {
+	describeMessageTool: ({ cfg, accountId }) => {
+		if (listEnabledAccounts(cfg, accountId).length === 0) return null;
+		const actions = new Set(["send"]);
+		return {
+			actions: Array.from(actions),
+			capabilities: []
+		};
+	},
+	extractToolSend: ({ args }) => extractToolSend(args, "sendMessage"),
+	handleAction: async ({ action, params, cfg, accountId }) => {
+		if (action === "send") {
+			const to = readStringParam(params, "to", { required: true });
+			const content = readStringParam(params, "message", {
+				required: true,
+				allowEmpty: true
+			});
+			const mediaUrl = readStringParam(params, "media", { trim: false });
+			const { sendMessageZalo } = await loadZaloActionsRuntime();
+			const result = await sendMessageZalo(to ?? "", content ?? "", {
+				accountId: accountId ?? void 0,
+				mediaUrl: mediaUrl ?? void 0,
+				cfg
+			});
+			if (!result.ok) return jsonResult({
+				ok: false,
+				error: result.error ?? "Failed to send Zalo message"
+			});
+			return jsonResult({
+				ok: true,
+				to,
+				messageId: result.messageId
+			});
+		}
+		throw new Error(`Action ${action} is not supported for provider ${providerId}.`);
+	}
+};
+//#endregion
+//#region extensions/zalo/src/approval-auth.ts
+function normalizeZaloApproverId(value) {
+	const normalized = String(value).trim().replace(/^(zalo|zl):/i, "").trim();
+	return /^\d+$/.test(normalized) ? normalized : void 0;
+}
+const zaloApprovalAuth = createResolvedApproverActionAuthAdapter({
+	channelLabel: "Zalo",
+	resolveApprovers: ({ cfg, accountId }) => {
+		const account = resolveZaloAccount({
+			cfg,
+			accountId
+		}).config;
+		return resolveApprovalApprovers({
+			allowFrom: account.allowFrom,
+			normalizeApprover: normalizeZaloApproverId
+		});
+	},
+	normalizeSenderId: (value) => normalizeZaloApproverId(value)
+});
+const ZaloConfigSchema = buildCatchallMultiAccountChannelSchema(zod_exports.z.object({
+	name: zod_exports.z.string().optional(),
+	enabled: zod_exports.z.boolean().optional(),
+	markdown: MarkdownConfigSchema,
+	botToken: buildSecretInputSchema().optional(),
+	tokenFile: zod_exports.z.string().optional(),
+	webhookUrl: zod_exports.z.string().optional(),
+	webhookSecret: buildSecretInputSchema().optional(),
+	webhookPath: zod_exports.z.string().optional(),
+	dmPolicy: DmPolicySchema.optional(),
+	allowFrom: AllowFromListSchema,
+	groupPolicy: GroupPolicySchema.optional(),
+	groupAllowFrom: AllowFromListSchema,
+	mediaMaxMb: zod_exports.z.number().optional(),
+	proxy: zod_exports.z.string().optional(),
+	responsePrefix: zod_exports.z.string().optional()
+}));
+//#endregion
+//#region extensions/zalo/src/session-route.ts
+function resolveZaloOutboundSessionRoute(params) {
+	const trimmed = stripChannelTargetPrefix(params.target, "zalo", "zl");
+	if (!trimmed) return null;
+	const isGroup = normalizeLowercaseStringOrEmpty(trimmed).startsWith("group:");
+	const peerId = stripTargetKindPrefix(trimmed);
+	if (!peerId) return null;
+	return buildChannelOutboundSessionRoute({
+		cfg: params.cfg,
+		agentId: params.agentId,
+		channel: "zalo",
+		accountId: params.accountId,
+		peer: {
+			kind: isGroup ? "group" : "direct",
+			id: peerId
+		},
+		chatType: isGroup ? "group" : "direct",
+		from: isGroup ? `zalo:group:${peerId}` : `zalo:${peerId}`,
+		to: `zalo:${peerId}`
+	});
+}
+//#endregion
+//#region extensions/zalo/src/status-issues.ts
+const ZALO_STATUS_FIELDS = [
+	"accountId",
+	"enabled",
+	"configured",
+	"dmPolicy"
+];
+function collectZaloStatusIssues(accounts) {
+	const issues = [];
+	for (const entry of accounts) {
+		const account = readStatusIssueFields(entry, ZALO_STATUS_FIELDS);
+		if (!account) continue;
+		const accountId = coerceStatusIssueAccountId(account.accountId) ?? "default";
+		const enabled = account.enabled !== false;
+		const configured = account.configured === true;
+		if (!enabled || !configured) continue;
+		if (account.dmPolicy === "open") issues.push({
+			channel: "zalo",
+			accountId,
+			kind: "config",
+			message: "Zalo dmPolicy is \"open\", allowing any user to message the bot without pairing.",
+			fix: "Set channels.zalo.dmPolicy to \"pairing\" or \"allowlist\" to restrict access."
+		});
+	}
+	return issues;
+}
+//#endregion
+//#region extensions/zalo/src/channel.ts
+const meta = {
+	id: "zalo",
+	label: "Zalo",
+	selectionLabel: "Zalo (Bot API)",
+	docsPath: "/channels/zalo",
+	docsLabel: "zalo",
+	blurb: "Vietnam-focused messaging platform with Bot API.",
+	aliases: ["zl"],
+	order: 80,
+	quickstartAllowFrom: true
+};
+function normalizeZaloMessagingTarget(raw) {
+	const trimmed = raw?.trim();
+	if (!trimmed) return;
+	return trimmed.replace(/^(zalo|zl):/i, "").trim();
+}
+const loadZaloChannelRuntime = createLazyRuntimeModule(() => import("../../channel.runtime-BjPec247.js"));
+const zaloSetupWizard$1 = createZaloSetupWizardProxy(async () => (await import("../../setup-surface-jZHLLidD.js")).zaloSetupWizard);
+const zaloTextChunkLimit = 2e3;
+const zaloRawSendResultAdapter = createRawChannelSendResultAdapter({
+	channel: "zalo",
+	sendText: async ({ to, text, accountId, cfg }) => await (await loadZaloChannelRuntime()).sendZaloText({
+		to,
+		text,
+		accountId: accountId ?? void 0,
+		cfg
+	}),
+	sendMedia: async ({ to, text, mediaUrl, accountId, cfg }) => await (await loadZaloChannelRuntime()).sendZaloText({
+		to,
+		text,
+		accountId: accountId ?? void 0,
+		mediaUrl,
+		cfg
+	})
+});
+const zaloConfigAdapter = createScopedChannelConfigAdapter({
+	sectionKey: "zalo",
+	listAccountIds: listZaloAccountIds,
+	resolveAccount: adaptScopedAccountAccessor(resolveZaloAccount),
+	defaultAccountId: resolveDefaultZaloAccountId,
+	clearBaseFields: [
+		"botToken",
+		"tokenFile",
+		"name"
+	],
+	resolveAllowFrom: (account) => account.config.allowFrom,
+	formatAllowFrom: (allowFrom) => formatAllowFromLowercase({
+		allowFrom,
+		stripPrefixRe: /^(zalo|zl):/i
+	})
+});
+const resolveZaloDmPolicy = createScopedDmSecurityResolver({
+	channelKey: "zalo",
+	resolvePolicy: (account) => account.config.dmPolicy,
+	resolveAllowFrom: (account) => account.config.allowFrom,
+	policyPathSuffix: "dmPolicy",
+	normalizeEntry: (raw) => raw.trim().replace(/^(zalo|zl):/i, "")
+});
+const collectZaloSecurityWarnings = createOpenProviderGroupPolicyWarningCollector({
+	providerConfigPresent: (cfg) => cfg.channels?.zalo !== void 0,
+	resolveGroupPolicy: ({ account }) => account.config.groupPolicy,
+	collect: ({ account, groupPolicy }) => {
+		if (groupPolicy !== "open") return [];
+		const explicitGroupAllowFrom = mapAllowFromEntries(account.config.groupAllowFrom);
+		const dmAllowFrom = mapAllowFromEntries(account.config.allowFrom);
+		if ((explicitGroupAllowFrom.length > 0 ? explicitGroupAllowFrom : dmAllowFrom).length > 0) return [buildOpenGroupPolicyRestrictSendersWarning({
+			surface: "Zalo groups",
+			openScope: "any member",
+			groupPolicyPath: "channels.zalo.groupPolicy",
+			groupAllowFromPath: "channels.zalo.groupAllowFrom"
+		})];
+		return [buildOpenGroupPolicyWarning({
+			surface: "Zalo groups",
+			openBehavior: "with no groupAllowFrom/allowFrom allowlist; any member can trigger (mention-gated)",
+			remediation: "Set channels.zalo.groupPolicy=\"allowlist\" + channels.zalo.groupAllowFrom"
+		})];
+	}
+});
+const zaloPlugin = createChatChannelPlugin({
+	base: {
+		id: "zalo",
+		meta,
+		setup: zaloSetupAdapter,
+		setupWizard: zaloSetupWizard$1,
+		capabilities: {
+			chatTypes: ["direct", "group"],
+			media: true,
+			reactions: false,
+			threads: false,
+			polls: false,
+			nativeCommands: false,
+			blockStreaming: true
+		},
+		reload: { configPrefixes: ["channels.zalo"] },
+		configSchema: buildChannelConfigSchema(ZaloConfigSchema),
+		config: {
+			...zaloConfigAdapter,
+			isConfigured: (account) => Boolean(account.token?.trim()),
+			describeAccount: (account) => describeWebhookAccountSnapshot({
+				account,
+				configured: Boolean(account.token?.trim()),
+				mode: account.config.webhookUrl ? "webhook" : "polling",
+				extra: { tokenSource: account.tokenSource }
+			})
+		},
+		approvalCapability: zaloApprovalAuth,
+		secrets: {
+			secretTargetRegistryEntries,
+			collectRuntimeConfigAssignments
+		},
+		groups: { resolveRequireMention: () => true },
+		actions: zaloMessageActions,
+		messaging: {
+			normalizeTarget: normalizeZaloMessagingTarget,
+			resolveOutboundSessionRoute: (params) => resolveZaloOutboundSessionRoute(params),
+			targetResolver: {
+				looksLikeId: isNumericTargetId,
+				hint: "<chatId>"
+			}
+		},
+		directory: createChannelDirectoryAdapter({
+			listPeers: async (params) => listResolvedDirectoryUserEntriesFromAllowFrom({
+				...params,
+				resolveAccount: adaptScopedAccountAccessor(resolveZaloAccount),
+				resolveAllowFrom: (account) => account.config.allowFrom,
+				normalizeId: (entry) => entry.trim().replace(/^(zalo|zl):/i, "")
+			}),
+			listGroups: async () => []
+		}),
+		status: createComputedAccountStatusAdapter({
+			defaultRuntime: createDefaultChannelRuntimeState(DEFAULT_ACCOUNT_ID),
+			collectStatusIssues: collectZaloStatusIssues,
+			buildChannelSummary: ({ snapshot }) => buildTokenChannelStatusSummary(snapshot),
+			probeAccount: async ({ account, timeoutMs }) => await (await loadZaloChannelRuntime()).probeZaloAccount({
+				account,
+				timeoutMs
+			}),
+			resolveAccountSnapshot: ({ account }) => {
+				const configured = Boolean(account.token?.trim());
+				return {
+					accountId: account.accountId,
+					name: account.name,
+					enabled: account.enabled,
+					configured,
+					extra: {
+						tokenSource: account.tokenSource,
+						mode: account.config.webhookUrl ? "webhook" : "polling",
+						dmPolicy: account.config.dmPolicy ?? "pairing"
+					}
+				};
+			}
+		}),
+		gateway: { startAccount: async (ctx) => await (await loadZaloChannelRuntime()).startZaloGatewayAccount(ctx) }
+	},
+	security: {
+		resolveDmPolicy: resolveZaloDmPolicy,
+		collectWarnings: collectZaloSecurityWarnings
+	},
+	pairing: { text: {
+		idLabel: "zaloUserId",
+		message: "Your pairing request has been approved.",
+		normalizeAllowEntry: (entry) => entry.trim().replace(/^(zalo|zl):/i, ""),
+		notify: async (params) => await (await loadZaloChannelRuntime()).notifyZaloPairingApproval(params)
+	} },
+	threading: { resolveReplyToMode: createStaticReplyToModeResolver("off") },
+	outbound: {
+		deliveryMode: "direct",
+		chunker: chunkTextForOutbound,
+		chunkerMode: "text",
+		textChunkLimit: zaloTextChunkLimit,
+		sendPayload: async (ctx) => await sendPayloadWithChunkedTextAndMedia({
+			ctx,
+			textChunkLimit: zaloTextChunkLimit,
+			chunker: chunkTextForOutbound,
+			sendText: (nextCtx) => zaloRawSendResultAdapter.sendText(nextCtx),
+			sendMedia: (nextCtx) => zaloRawSendResultAdapter.sendMedia(nextCtx),
+			emptyResult: createEmptyChannelResult("zalo")
+		}),
+		...zaloRawSendResultAdapter
+	}
+});
+//#endregion
+export { createZaloSetupWizardProxy, evaluateZaloGroupAccess, resolveZaloRuntimeGroupPolicy, zaloDmPolicy, zaloPlugin, zaloSetupAdapter, zaloSetupWizard };

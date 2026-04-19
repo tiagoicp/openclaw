@@ -1,4 +1,5 @@
 import type { AgentMessage } from "@mariozechner/pi-agent-core";
+export { isRedactedSessionsSpawnAttachment } from "./tool-call-shared.js";
 declare function makeMissingToolResult(params: {
     toolCallId: string;
     toolName?: string;
@@ -13,9 +14,11 @@ export type ToolCallInputRepairReport = {
 };
 export type ToolCallInputRepairOptions = {
     allowedToolNames?: Iterable<string>;
+    allowProviderOwnedThinkingReplay?: boolean;
 };
+export type ErroredAssistantResultPolicy = "preserve" | "drop";
 export type ToolUseResultPairingOptions = {
-    preserveErroredAssistantResults?: boolean;
+    erroredAssistantResultPolicy?: ErroredAssistantResultPolicy;
 };
 export declare function stripToolResultDetails(messages: AgentMessage[]): AgentMessage[];
 export declare function repairToolCallInputs(messages: AgentMessage[], options?: ToolCallInputRepairOptions): ToolCallInputRepairReport;

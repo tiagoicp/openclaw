@@ -1,5 +1,5 @@
-import type { OpenClawConfig } from "./config.js";
-export type GatewayNonLoopbackBindMode = "lan" | "tailnet" | "custom";
+import type { OpenClawConfig } from "./types.openclaw.js";
+export type GatewayNonLoopbackBindMode = "lan" | "tailnet" | "custom" | "auto";
 export declare function isGatewayNonLoopbackBindMode(bind: unknown): bind is GatewayNonLoopbackBindMode;
 export declare function hasConfiguredControlUiAllowedOrigins(params: {
     allowedOrigins: unknown;
@@ -14,6 +14,12 @@ export declare function buildDefaultControlUiAllowedOrigins(params: {
 export declare function ensureControlUiAllowedOriginsForNonLoopbackBind(config: OpenClawConfig, opts?: {
     defaultPort?: number;
     requireControlUiEnabled?: boolean;
+    /** Optional container-detection callback.  When provided and `gateway.bind`
+     *  is unset, the function is called to determine whether the runtime will
+     *  default to `"auto"` (container) so that origins can be seeded
+     *  proactively.  Keeping this as an injected callback avoids a hard
+     *  dependency from the config layer on the gateway runtime layer. */
+    isContainerEnvironment?: () => boolean;
 }): {
     config: OpenClawConfig;
     seededOrigins: string[] | null;

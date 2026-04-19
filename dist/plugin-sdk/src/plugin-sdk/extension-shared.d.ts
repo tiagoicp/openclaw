@@ -1,5 +1,6 @@
 import type { z } from "zod";
-import { createLoggerBackedRuntime } from "./runtime.js";
+import { createLoggerBackedRuntime } from "./runtime-logger.js";
+export { safeParseJsonWithSchema, safeParseWithSchema } from "../utils/zod-parse.js";
 type PassiveChannelStatusSnapshot = {
     configured?: boolean;
     running?: boolean;
@@ -41,7 +42,7 @@ export declare function buildPassiveProbedChannelStatusSummary<TExtra extends ob
     lastStopAt: number | null;
     lastError: string | null;
 };
-export declare function buildTrafficStatusSummary<TSnapshot extends TrafficStatusSnapshot>(snapshot?: TSnapshot | null): {
+export declare function buildTrafficStatusSummary(snapshot?: TrafficStatusSnapshot | null): {
     lastInboundAt: number | null;
     lastOutboundAt: number | null;
 };
@@ -64,4 +65,8 @@ export declare function createDeferred<T>(): {
     resolve: (value: T | PromiseLike<T>) => void;
     reject: (reason?: unknown) => void;
 };
-export {};
+export declare function resolveAmbientNodeProxyAgent<TAgent>(params?: {
+    onError?: (error: unknown) => void;
+    onUsingProxy?: () => void;
+    protocol?: "http" | "https";
+}): Promise<TAgent | undefined>;

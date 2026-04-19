@@ -1,16 +1,19 @@
-export type AgentInternalEventType = "task_completion";
+import { AGENT_INTERNAL_EVENT_TYPE_TASK_COMPLETION, type AgentInternalEventSource, type AgentInternalEventStatus } from "./internal-event-contract.js";
+import { INTERNAL_RUNTIME_CONTEXT_BEGIN, INTERNAL_RUNTIME_CONTEXT_END } from "./internal-runtime-context.js";
 export type AgentTaskCompletionInternalEvent = {
-    type: "task_completion";
-    source: "subagent" | "cron";
+    type: typeof AGENT_INTERNAL_EVENT_TYPE_TASK_COMPLETION;
+    source: AgentInternalEventSource;
     childSessionKey: string;
     childSessionId?: string;
     announceType: string;
     taskLabel: string;
-    status: "ok" | "timeout" | "error" | "unknown";
+    status: AgentInternalEventStatus;
     statusLabel: string;
     result: string;
+    mediaUrls?: string[];
     statsLine?: string;
     replyInstruction: string;
 };
 export type AgentInternalEvent = AgentTaskCompletionInternalEvent;
+export { INTERNAL_RUNTIME_CONTEXT_BEGIN, INTERNAL_RUNTIME_CONTEXT_END };
 export declare function formatAgentInternalEventsForPrompt(events?: AgentInternalEvent[]): string;

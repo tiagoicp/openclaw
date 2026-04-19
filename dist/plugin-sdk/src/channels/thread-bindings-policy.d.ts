@@ -1,6 +1,4 @@
-import type { OpenClawConfig } from "../config/config.js";
-export declare const DISCORD_THREAD_BINDING_CHANNEL = "discord";
-export declare const MATRIX_THREAD_BINDING_CHANNEL = "matrix";
+import type { OpenClawConfig } from "../config/types.openclaw.js";
 export type ThreadBindingSpawnKind = "subagent" | "acp";
 export type ThreadBindingSpawnPolicy = {
     channel: string;
@@ -8,6 +6,12 @@ export type ThreadBindingSpawnPolicy = {
     enabled: boolean;
     spawnEnabled: boolean;
 };
+export declare function supportsAutomaticThreadBindingSpawn(channel: string): boolean;
+export declare function requiresNativeThreadContextForThreadHere(channel: string): boolean;
+export declare function resolveThreadBindingPlacementForCurrentContext(params: {
+    channel: string;
+    threadId?: string;
+}): "current" | "child";
 export declare function resolveThreadBindingIdleTimeoutMs(params: {
     channelIdleHoursRaw: unknown;
     sessionIdleHoursRaw: unknown;

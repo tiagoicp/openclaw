@@ -1,13 +1,13 @@
 import type { AuthProfileStore, OAuthCredential } from "./types.js";
-type ExternalCliSyncOptions = {
-    log?: boolean;
+export { areOAuthCredentialsEquivalent, hasUsableOAuthCredential, isSafeToAdoptBootstrapOAuthIdentity, isSafeToOverwriteStoredOAuthIdentity, shouldBootstrapFromExternalCliCredential, shouldReplaceStoredOAuthCredential, } from "./oauth-shared.js";
+export type ExternalCliResolvedProfile = {
+    profileId: string;
+    credential: OAuthCredential;
 };
-export declare function shouldReplaceStoredOAuthCredential(existing: OAuthCredential | undefined, incoming: OAuthCredential): boolean;
-/**
- * Sync OAuth credentials from external CLI tools (Qwen Code CLI, MiniMax CLI, Codex CLI)
- * into the store.
- *
- * Returns true if any credentials were updated.
- */
-export declare function syncExternalCliCredentials(store: AuthProfileStore, options?: ExternalCliSyncOptions): boolean;
-export {};
+export declare function isSafeToUseExternalCliCredential(existing: OAuthCredential | undefined, imported: OAuthCredential): boolean;
+export declare function readExternalCliBootstrapCredential(params: {
+    profileId: string;
+    credential: OAuthCredential;
+}): OAuthCredential | null;
+export declare const readManagedExternalCliCredential: typeof readExternalCliBootstrapCredential;
+export declare function resolveExternalCliAuthProfiles(store: AuthProfileStore): ExternalCliResolvedProfile[];

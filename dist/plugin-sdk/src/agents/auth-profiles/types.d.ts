@@ -1,6 +1,17 @@
-import type { OAuthCredentials } from "@mariozechner/pi-ai";
-import type { OpenClawConfig } from "../../config/config.js";
+import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import type { SecretRef } from "../../config/types.secrets.js";
+export type OAuthProvider = string;
+export type OAuthCredentials = {
+    access: string;
+    refresh: string;
+    expires: number;
+    provider?: OAuthProvider;
+    email?: string;
+    enterpriseUrl?: string;
+    projectId?: string;
+    accountId?: string;
+    idToken?: string;
+};
 export type ApiKeyCredential = {
     type: "api_key";
     provider: string;
@@ -38,15 +49,15 @@ export type AuthProfileFailureReason = "auth" | "auth_permanent" | "format" | "o
 export type ProfileUsageStats = {
     lastUsed?: number;
     cooldownUntil?: number;
+    cooldownReason?: AuthProfileFailureReason;
+    cooldownModel?: string;
     disabledUntil?: number;
     disabledReason?: AuthProfileFailureReason;
     errorCount?: number;
     failureCounts?: Partial<Record<AuthProfileFailureReason, number>>;
     lastFailureAt?: number;
 };
-export type AuthProfileStore = {
-    version: number;
-    profiles: Record<string, AuthProfileCredential>;
+export type AuthProfileState = {
     /**
      * Optional per-agent preferred profile order overrides.
      * This lets you lock/override auth rotation for a specific agent without
@@ -57,6 +68,14 @@ export type AuthProfileStore = {
     /** Usage statistics per profile for round-robin rotation */
     usageStats?: Record<string, ProfileUsageStats>;
 };
+export type AuthProfileSecretsStore = {
+    version: number;
+    profiles: Record<string, AuthProfileCredential>;
+};
+export type AuthProfileStateStore = {
+    version: number;
+} & AuthProfileState;
+export type AuthProfileStore = AuthProfileSecretsStore & AuthProfileState;
 export type AuthProfileIdRepairResult = {
     config: OpenClawConfig;
     changes: string[];

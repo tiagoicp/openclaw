@@ -1,5 +1,6 @@
 export type ThinkLevel = "off" | "minimal" | "low" | "medium" | "high" | "xhigh" | "adaptive";
 export type VerboseLevel = "off" | "on" | "full";
+export type TraceLevel = "off" | "on" | "raw";
 export type NoticeLevel = "off" | "on" | "full";
 export type ElevatedLevel = "off" | "on" | "ask" | "full";
 export type ElevatedMode = "off" | "ask" | "full";
@@ -10,9 +11,7 @@ export type ThinkingCatalogEntry = {
     id: string;
     reasoning?: boolean;
 };
-export declare function normalizeProviderId(provider?: string | null): string;
 export declare function isBinaryThinkingProvider(provider?: string | null): boolean;
-export declare function supportsBuiltInXHighThinking(provider?: string | null, model?: string | null): boolean;
 export declare function normalizeThinkLevel(raw?: string | null): ThinkLevel | undefined;
 export declare function listThinkingLevels(_provider?: string | null, _model?: string | null): ThinkLevel[];
 export declare function listThinkingLevelLabels(provider?: string | null, model?: string | null): string[];
@@ -24,6 +23,7 @@ export declare function resolveThinkingDefaultForModel(params: {
     catalog?: ThinkingCatalogEntry[];
 }): ThinkLevel;
 export declare function normalizeVerboseLevel(raw?: string | null): VerboseLevel | undefined;
+export declare function normalizeTraceLevel(raw?: string | null): TraceLevel | undefined;
 export declare function normalizeNoticeLevel(raw?: string | null): NoticeLevel | undefined;
 export declare function normalizeUsageDisplay(raw?: string | null): UsageDisplayLevel | undefined;
 export declare function resolveResponseUsageMode(raw?: string | null): UsageDisplayLevel;

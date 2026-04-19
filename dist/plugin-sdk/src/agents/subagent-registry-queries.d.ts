@@ -1,10 +1,12 @@
-import type { DeliveryContext } from "../utils/delivery-context.js";
+import type { DeliveryContext } from "../utils/delivery-context.types.js";
 import type { SubagentRunRecord } from "./subagent-registry.types.js";
 export declare function findRunIdsByChildSessionKeyFromRuns(runs: Map<string, SubagentRunRecord>, childSessionKey: string): string[];
 export declare function listRunsForRequesterFromRuns(runs: Map<string, SubagentRunRecord>, requesterSessionKey: string, options?: {
     requesterRunId?: string;
 }): SubagentRunRecord[];
 export declare function listRunsForControllerFromRuns(runs: Map<string, SubagentRunRecord>, controllerSessionKey: string): SubagentRunRecord[];
+export declare function isSubagentSessionRunActiveFromRuns(runs: Map<string, SubagentRunRecord>, childSessionKey: string): boolean;
+export declare function getSubagentRunByChildSessionKeyFromRuns(runs: Map<string, SubagentRunRecord>, childSessionKey: string): SubagentRunRecord | null;
 export declare function resolveRequesterForChildSessionFromRuns(runs: Map<string, SubagentRunRecord>, childSessionKey: string): {
     requesterSessionKey: string;
     requesterOrigin?: DeliveryContext;

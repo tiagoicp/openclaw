@@ -1,24 +1,10 @@
-import { Fr as resolveActiveTalkProviderConfig } from "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../message-channel-ZzTqBBLH.js";
-import "../../sessions-uRDRs4f-.js";
-import "../../plugins-h0t63KQW.js";
-import "../../paths-BEHCHyAI.js";
-import "../../delivery-context-oynQ_N5k.js";
-import "../../session-write-lock-B7nwE7de.js";
-import "../../commands-AceByDw5.js";
-import "../../issue-format-Cj39YIRp.js";
-import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
-import "../../logging-B3tLYQAZ.js";
-import "../../config-runtime-BMqUsOKJ.js";
+import { i as formatErrorMessage } from "../../errors-D8p6rxH8.js";
+import { i as normalizeLowercaseStringOrEmpty, o as normalizeOptionalLowercaseString } from "../../string-coerce-BUSzWgUA.js";
+import { X as resolveActiveTalkProviderConfig } from "../../io-CW6SWMPF.js";
+import "../../text-runtime-DHfI0VWF.js";
+import { t as definePluginEntry } from "../../plugin-entry-Dzt3gEtQ.js";
+import "../../error-runtime-D3bX8zTc.js";
+import "../../config-runtime-svP9ZomL.js";
 //#region extensions/talk-voice/index.ts
 function mask(s, keep = 6) {
 	const trimmed = s.trim();
@@ -70,12 +56,12 @@ function formatVoiceList(voices, limit, providerId) {
 function findVoice(voices, query) {
 	const q = query.trim();
 	if (!q) return null;
-	const lower = q.toLowerCase();
+	const lower = normalizeLowercaseStringOrEmpty(q);
 	const byId = voices.find((v) => v.id === q);
 	if (byId) return byId;
-	const exactName = voices.find((v) => (v.name ?? "").trim().toLowerCase() === lower);
+	const exactName = voices.find((v) => normalizeOptionalLowercaseString(v.name) === lower);
 	if (exactName) return exactName;
-	return voices.find((v) => (v.name ?? "").trim().toLowerCase().includes(lower)) ?? null;
+	return voices.find((v) => normalizeLowercaseStringOrEmpty(v.name).includes(lower)) ?? null;
 }
 function asTrimmedString(value) {
 	return typeof value === "string" ? value.trim() : "";
@@ -85,6 +71,11 @@ function resolveCommandLabel(channel) {
 }
 function asProviderBaseUrl(value) {
 	return asTrimmedString(value) || void 0;
+}
+const TALK_ADMIN_SCOPE = "operator.admin";
+function requiresAdminToSetVoice(channel, gatewayClientScopes) {
+	if (Array.isArray(gatewayClientScopes)) return !gatewayClientScopes.includes(TALK_ADMIN_SCOPE);
+	return channel === "webchat";
 }
 var talk_voice_default = definePluginEntry({
 	id: "talk-voice",
@@ -99,7 +90,7 @@ var talk_voice_default = definePluginEntry({
 			handler: async (ctx) => {
 				const commandLabel = resolveCommandLabel(ctx.channel);
 				const tokens = (ctx.args?.trim() ?? "").split(/\s+/).filter(Boolean);
-				const action = (tokens[0] ?? "status").toLowerCase();
+				const action = normalizeLowercaseStringOrEmpty(tokens[0] ?? "status");
 				const cfg = api.runtime.config.loadConfig();
 				const active = resolveActiveTalkProviderConfig(cfg.talk);
 				if (!active) return { text: "Talk voice is not configured.\n\nMissing: talk.provider and talk.providers.<provider>.\nSet it on the gateway, then retry." };
@@ -107,9 +98,9 @@ var talk_voice_default = definePluginEntry({
 				const providerLabel = resolveProviderLabel(providerId);
 				const apiKey = asTrimmedString(active.config.apiKey);
 				const baseUrl = asProviderBaseUrl(active.config.baseUrl);
-				const currentVoiceId = asTrimmedString(active.config.voiceId) || asTrimmedString(cfg.talk?.voiceId);
+				const currentVoiceId = asTrimmedString(active.config.voiceId);
 				if (action === "status") return { text: `Talk voice status:
-- provider: ${providerId}\n- talk.voiceId: ${currentVoiceId ? currentVoiceId : "(unset)"}\n- ${providerId}.apiKey: ${apiKey ? mask(apiKey) : "(unset)"}` };
+- provider: ${providerId}\n- talk.providers.${providerId}.voiceId: ${currentVoiceId ? currentVoiceId : "(unset)"}\n- ${providerId}.apiKey: ${apiKey ? mask(apiKey) : "(unset)"}` };
 				if (action === "list") {
 					const limit = Number.parseInt(tokens[1] ?? "12", 10);
 					try {
@@ -120,10 +111,11 @@ var talk_voice_default = definePluginEntry({
 							baseUrl
 						}), Number.isFinite(limit) ? limit : 12, providerId) };
 					} catch (error) {
-						return { text: `${providerLabel} voice list failed: ${error instanceof Error ? error.message : String(error)}` };
+						return { text: `${providerLabel} voice list failed: ${formatErrorMessage(error)}` };
 					}
 				}
 				if (action === "set") {
+					if (requiresAdminToSetVoice(ctx.channel, ctx.gatewayClientScopes)) return { text: `⚠️ ${commandLabel} set requires operator.admin.` };
 					const query = tokens.slice(1).join(" ").trim();
 					if (!query) return { text: `Usage: ${commandLabel} set <voiceId|name>` };
 					let voices;
@@ -135,7 +127,7 @@ var talk_voice_default = definePluginEntry({
 							baseUrl
 						});
 					} catch (error) {
-						return { text: `${providerLabel} voice lookup failed: ${error instanceof Error ? error.message : String(error)}` };
+						return { text: `${providerLabel} voice lookup failed: ${formatErrorMessage(error)}` };
 					}
 					const chosen = findVoice(voices, query);
 					if (!chosen) return { text: `No voice found for ${isLikelyVoiceId(query) ? query : `"${query}"`}. Try: ${commandLabel} list` };
@@ -145,9 +137,9 @@ var talk_voice_default = definePluginEntry({
 							...cfg.talk,
 							provider: providerId,
 							providers: {
-								...cfg.talk?.providers ?? {},
+								...cfg.talk?.providers,
 								[providerId]: {
-									...cfg.talk?.providers?.[providerId] ?? {},
+									...cfg.talk?.providers?.[providerId],
 									voiceId: chosen.id
 								}
 							},

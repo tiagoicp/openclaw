@@ -1,2 +1,2 @@
-import { n as normalizeTelegramAllowFromEntry, t as isNumericTelegramUserId } from "../../allow-from-DiU9dMhv.js";
-export { isNumericTelegramUserId, normalizeTelegramAllowFromEntry };
+import { n as isNumericTelegramUserId, r as normalizeTelegramAllowFromEntry, t as isNumericTelegramSenderUserId } from "./allow-from-DDSIFusT.js";
+export { isNumericTelegramSenderUserId, isNumericTelegramUserId, normalizeTelegramAllowFromEntry };

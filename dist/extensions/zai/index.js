@@ -1,229 +1,43 @@
-import "../../redact-BDinS1q9.js";
-import "../../errors-BxyFnvP3.js";
-import "../../unhandled-rejections-CDJ8dOVP.js";
-import "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import { a as DEFAULT_CONTEXT_TOKENS } from "../../configured-provider-fallback-C-XNRUP6.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../warning-filter-C_BEyyvc.js";
-import "../../links-DaR1j_Bv.js";
-import "../../paths-DJBuCoRE.js";
-import "../../auth-profiles-DWcA6joY.js";
-import "../../provider-runtime.runtime-DwNmuhmD.js";
-import "../../file-lock-Cm3HPowf.js";
-import "../../audit-fs-7IxnGQxG.js";
-import "../../resolve-DqJVzTVp.js";
-import { t as normalizeOptionalSecretInput } from "../../normalize-secret-input-EW7savI9.js";
-import { a as upsertAuthProfile } from "../../profiles-CRvutsjq.js";
-import "../../tailscale-FHZADwLL.js";
-import "../../tailnet-BPCtbdja.js";
-import "../../net-1LAzWzJc.js";
-import "../../auth-BC0t_CEl.js";
-import "../../credentials-6hokf6e3.js";
-import "../../message-channel-ZzTqBBLH.js";
-import "../../sessions-uRDRs4f-.js";
-import "../../plugins-h0t63KQW.js";
-import "../../paths-BEHCHyAI.js";
-import "../../delivery-context-oynQ_N5k.js";
-import "../../session-write-lock-B7nwE7de.js";
-import "../../method-scopes-DtJfTstv.js";
-import "../../call-CFi2qbI2.js";
-import "../../detect-binary-78pS71eg.js";
-import "../../prompt-style-qxNRcnm3.js";
-import "../../ports-lsof-qBGFcQvX.js";
-import "../../restart-stale-pids-ciXEfnyN.js";
-import "../../ports-DF41F7NN.js";
-import "../../logging-CS4wyI-j.js";
-import "../../commands-AceByDw5.js";
-import "../../issue-format-Cj39YIRp.js";
-import "../../provider-env-vars-BZwz5sMG.js";
-import "../../model-auth-env-BWzx2-YC.js";
-import "../../anthropic-vertex-provider-Cik2BDhe.js";
-import "../../pi-model-discovery-hz4apXP-.js";
-import "../../identity-xGthCqY8.js";
-import "../../heartbeat-DqtPOAC0.js";
-import { E_ as createZaiToolStreamWrapper } from "../../pi-embedded-BHLc2HPd.js";
-import "../../internal-hooks-CVdBfFMw.js";
-import "../../multimodal-CDYWira8.js";
-import "../../memory-search-B5CuuJZB.js";
-import "../../secret-input-x2By3bJy.js";
-import "../../bindings-KL-4Efmw.js";
-import "../../resolve-route-C5Xj9lGN.js";
-import "../../routing-DA_79T-X.js";
-import "../../identity-file-ClDAlI0t.js";
-import "../../outbound-runtime-BAxohuIf.js";
-import { w as normalizeModelCompat } from "../../provider-model-definitions-CrItEa-O.js";
-import "../../provider-models-GbpUTgQg.js";
-import "../../provider-catalog-hDyZGQ8R.js";
-import "../../provider-catalog-0WIhy6f_.js";
-import "../../provider-catalog-CdCrQ7UP.js";
-import "../../provider-catalog-DzIvFdfj.js";
-import "../../provider-catalog-COMYNKV2.js";
-import "../../provider-catalog-Bce8iOMh.js";
-import "../../provider-catalog-CPx35FBq.js";
-import "../../provider-catalog-Czll7Q5-.js";
-import "../../provider-catalog-BFvOY2Dt.js";
-import "../../provider-catalog-VZaye2Ib.js";
-import "../../models-config.providers.discovery-oJl_MWQT.js";
-import "../../text-runtime-B-kOpuLv.js";
-import "../../docker-BrzH-NvE.js";
-import "../../tool-catalog-BQWPAtTb.js";
-import "../../common-CMCEg0LE.js";
-import "../../image-ops-xftchR8Z.js";
-import "../../thinking-Me2S38se.js";
-import "../../path-alias-guards-BfUEa8Z8.js";
-import "../../sandbox-paths-DM85ql27.js";
-import "../../channel-actions-M8UJU-J1.js";
-import "../../mime-Bwp1UQ_8.js";
-import "../../ssrf-BdAu1_OT.js";
-import "../../fetch-guard-BiSGgjb-.js";
-import "../../provider-web-search-B2TRQt7q.js";
-import "../../manager-BFi-xqLj.js";
-import "../../config-schema-BoeEl_gh.js";
-import "../../channel-plugin-common-Bw5e9GHM.js";
-import "../../status-helpers-DTFg68Zs.js";
-import "../../conversation-runtime-BfLWHgdb.js";
-import "../../runtime-whatsapp-boundary-C0sTsAVN.js";
-import "../../pairing-store-Ci8ZfuL6.js";
-import "../../json-store-Dizz4Rhx.js";
-import { t as definePluginEntry } from "../../plugin-entry-CK-4XWE0.js";
-import "../../secret-file-BzdoxKYZ.js";
-import "../../channel-config-schema-DOQ4q6a_.js";
-import "../../setup-binary-Tg8N6z5q.js";
-import "../../archive-Oi0PB5pw.js";
-import "../../fs-safe-DpC9pe80.js";
-import "../../signal-cli-install-pAmdy64m.js";
-import "../../setup-wizard-proxy-3tbzVvIf.js";
-import "../../setup-Cuh8Qocv.js";
-import "../../dm-policy-shared-3Jdbvvlm.js";
-import "../../runtime-env-pWTJLxVn.js";
-import "../../temp-path-DvwSkpQg.js";
-import "../../diagnostic-Dx7wnQab.js";
-import "../../logging-B3tLYQAZ.js";
-import "../../config-runtime-BMqUsOKJ.js";
-import "../../level-overrides-DxRoq-Vr.js";
-import "../../exec-approvals-CoUFlPSg.js";
-import "../../webhook-ingress-CwnvXQ9i.js";
-import "../../system-events-D_U3rn_H.js";
-import "../../ssrf-policy-Cve-f-IZ.js";
-import "../../hook-runtime-C0FQ8mwc.js";
-import "../../templating-BpbUbFSs.js";
-import "../../channel-reply-pipeline-BQ2GND11.js";
-import "../../reply-history-CYr7j6cE.js";
-import "../../commands-registry.data-C-Zb7sHo.js";
-import "../../commands-registry-kALONq2A.js";
-import "../../frontmatter-C_CWb6f1.js";
-import "../../env-overrides-CilRbuhU.js";
-import "../../skills-Xrdxpo0d.js";
-import "../../skills-remote-D055n83h.js";
-import "../../workspace-dirs-BooYyzLb.js";
-import "../../pairing-token-BhzPXbCy.js";
-import "../../skill-commands-X9DVN0CB.js";
-import "../../exec-inline-eval-CAjjj6oR.js";
-import "../../sandbox-DSgCBor-.js";
-import "../../target-registry-CUzd3r6R.js";
-import "../../external-content-BtOAY1jC.js";
-import "../../brave-iyc-zT4j.js";
-import "../../duckduckgo-RnKnjVjk.js";
-import "../../exa-B_PEobTF.js";
-import "../../security-runtime-DuEgVcd_.js";
-import "../../provider-auth-ref-CkjXioxW.js";
-import { i as normalizeApiKeyInput, n as ensureApiKeyFromOptionEnvOrPrompt, s as validateApiKeyInput } from "../../provider-auth-input-DY2h0M4n.js";
-import { n as buildApiKeyCredential, t as applyAuthProfileConfig } from "../../provider-auth-helpers-CfaQ5Xn6.js";
-import "../../provider-api-key-auth-Uu86HoCQ.js";
-import { p as resolveLegacyPiAgentAccessToken, t as fetchZaiUsage } from "../../provider-usage-D_y-rSPa.js";
-import "../../provider-models-BlbL1wnJ.js";
-import "../../media-understanding-DXKhzmxa.js";
-import "../../media-understanding-provider-mKPWfSgv.js";
-import "../../provider-entry-Dh6ETIXa.js";
-import "../../media-understanding-provider-Br6AUUTp.js";
-import "../../provider-onboard-DmLoftpN.js";
-import "../../onboard-p6odcf1a.js";
-import "../../perplexity-web-search-provider-CBvej2u9.js";
-import "../../perplexity-DVSMCtcT.js";
-import "../../model-definitions-CLlu-y8L.js";
-import "../../onboard-CQyz1Xh9.js";
-import "../../provider-catalog-BbgD0Blc.js";
-import "../../provider-models-CPWTfv6u.js";
-import "../../stream-WNyIq00o.js";
-import "../../web-search-C2bCgEzC.js";
-import "../../client-fetch-DG9t9440.js";
-import "../../config-B6bjVdCF.js";
-import "../../web-media-B7RZCKik.js";
-import "../../stagger-C20Z_jRQ.js";
-import "../../command-secret-targets-CiFc3JN3.js";
-import "../../delivery-queue-iwWmpCz9.js";
-import "../../pairing-labels-PxfGoTvk.js";
-import "../../directory-runtime-D9Y42mW-.js";
-import "../../read-only-account-inspect-DL-l3acs.js";
-import "../../src-hV2aBDoy.js";
-import "../../web-media-C0RRMmtv.js";
-import "../../state-paths-CG7b-A_-.js";
-import "../../axios-zS_oAKS1.js";
-import "../../channel-summary-BXD0QyVg.js";
-import "../../session-system-events-CRFPrG-r.js";
-import "../../ssh-tunnel-Ca8F0wnz.js";
-import "../../server-middleware-DUIlEnG_.js";
-import "../../llm-task-D_W5GYK4.js";
-import "../../tool-policy-match-DgTjuJ-l.js";
-import "../../runtime-DAr9Q1gF.js";
-import "../../channel-status-DxDpNj1k.js";
-import "../../discord-core-CTFa_tPG.js";
-import "../../cli-runtime-CivyfPOe.js";
-import "../../config-presence-Bo4-9YVM.js";
-import "../../query-expansion-CeNhqo71.js";
-import "../../search-manager-CiHiEX8K.js";
-import "../../acp-runtime-CRrXx1ZI.js";
-import "../../telegram-core-n7uYzMlP.js";
-import "../../audit-BszklQB5.js";
-import "../../gateway-runtime-_5BLwTPa.js";
-import "../../connection-auth-DQ6Wy_i-.js";
-import "../../mcp-config-vaYGkUmW.js";
-import "../../provider-auth-api-key-DBJYvxJP.js";
-import "../../provider-zai-endpoint-ACRh-IIN.js";
-import "../../runtime-api-BBa4neYf.js";
-import { t as detectZaiEndpoint } from "../../detect-BAf_HYeG.js";
-import { t as zaiMediaUnderstandingProvider } from "../../media-understanding-provider-Dq8Rrj6f.js";
-import "../../model-definitions-DUiOEKBE.js";
-import { n as applyZaiConfig, r as applyZaiProviderConfig, t as ZAI_DEFAULT_MODEL_REF } from "../../onboard-CDWe9ZY0.js";
+import { i as normalizeLowercaseStringOrEmpty } from "../../string-coerce-BUSzWgUA.js";
+import { t as normalizeOptionalSecretInput } from "../../normalize-secret-input-CrlFEfo2.js";
+import { i as normalizeModelCompat } from "../../provider-model-compat-5vEo94mk.js";
+import { o as upsertAuthProfile } from "../../profiles-DGA70W16.js";
+import { r as OPENAI_COMPATIBLE_REPLAY_HOOKS } from "../../provider-model-shared-Cl567THa.js";
+import { s as defaultToolStreamExtraParams } from "../../provider-stream-shared-BVj9N0Kb.js";
+import "../../text-runtime-DHfI0VWF.js";
+import { t as definePluginEntry } from "../../plugin-entry-Dzt3gEtQ.js";
+import { i as normalizeApiKeyInput, n as ensureApiKeyFromOptionEnvOrPrompt, s as validateApiKeyInput } from "../../provider-auth-input-DWbYKRV6.js";
+import { n as buildApiKeyCredential, t as applyAuthProfileConfig } from "../../provider-auth-helpers-UDxcHI9h.js";
+import "../../provider-auth-api-key-4eUBG-bI.js";
+import { s as TOOL_STREAM_DEFAULT_ON_HOOKS } from "../../provider-stream-CMZdYhRI.js";
+import "../../provider-stream-family-8iu_T9bk.js";
+import { a as resolveLegacyPiAgentAccessToken } from "../../provider-usage.shared-DMa2CU01.js";
+import { t as fetchZaiUsage } from "../../provider-usage-C5h_x8Ai.js";
+import { t as detectZaiEndpoint } from "../../detect-CyDQBR55.js";
+import { t as zaiMediaUnderstandingProvider } from "../../media-understanding-provider-_fn_LIOv.js";
+import { c as buildZaiModelDefinition } from "../../model-definitions-DNr6SQFQ.js";
+import { n as applyZaiConfig, r as applyZaiProviderConfig, t as ZAI_DEFAULT_MODEL_REF } from "../../onboard-Bq1S5BDC2.js";
 //#region extensions/zai/index.ts
 const PROVIDER_ID = "zai";
-const GLM5_MODEL_ID = "glm-5";
 const GLM5_TEMPLATE_MODEL_ID = "glm-4.7";
 const PROFILE_ID = "zai:default";
 function resolveGlm5ForwardCompatModel(ctx) {
 	const trimmedModelId = ctx.modelId.trim();
-	const lower = trimmedModelId.toLowerCase();
-	if (lower !== GLM5_MODEL_ID && !lower.startsWith(`${GLM5_MODEL_ID}-`)) return;
-	const template = ctx.modelRegistry.find(PROVIDER_ID, GLM5_TEMPLATE_MODEL_ID);
-	if (template) return normalizeModelCompat({
-		...template,
-		id: trimmedModelId,
-		name: trimmedModelId,
-		reasoning: true
-	});
+	if (!normalizeLowercaseStringOrEmpty(trimmedModelId).startsWith("glm-5")) return;
+	const existing = ctx.modelRegistry.find(PROVIDER_ID, trimmedModelId);
+	if (existing) return existing;
+	const def = buildZaiModelDefinition({ id: trimmedModelId });
 	return normalizeModelCompat({
-		id: trimmedModelId,
-		name: trimmedModelId,
+		...ctx.modelRegistry.find(PROVIDER_ID, GLM5_TEMPLATE_MODEL_ID),
+		id: def.id,
+		name: def.name,
 		api: "openai-completions",
 		provider: PROVIDER_ID,
-		reasoning: true,
-		input: ["text"],
-		cost: {
-			input: 0,
-			output: 0,
-			cacheRead: 0,
-			cacheWrite: 0
-		},
-		contextWindow: DEFAULT_CONTEXT_TOKENS,
-		maxTokens: DEFAULT_CONTEXT_TOKENS
+		reasoning: def.reasoning,
+		input: def.input,
+		cost: def.cost,
+		contextWindow: def.contextWindow,
+		maxTokens: def.maxTokens
 	});
 }
 function resolveZaiDefaultModel(modelIdOverride) {
@@ -400,17 +214,12 @@ var zai_default = definePluginEntry({
 				})
 			],
 			resolveDynamicModel: (ctx) => resolveGlm5ForwardCompatModel(ctx),
-			prepareExtraParams: (ctx) => {
-				if (ctx.extraParams?.tool_stream !== void 0) return ctx.extraParams;
-				return {
-					...ctx.extraParams,
-					tool_stream: true
-				};
-			},
-			wrapStreamFn: (ctx) => createZaiToolStreamWrapper(ctx.streamFn, ctx.extraParams?.tool_stream !== false),
+			...OPENAI_COMPATIBLE_REPLAY_HOOKS,
+			prepareExtraParams: (ctx) => defaultToolStreamExtraParams(ctx.extraParams),
+			...TOOL_STREAM_DEFAULT_ON_HOOKS,
 			isBinaryThinking: () => true,
 			isModernModelRef: ({ modelId }) => {
-				const lower = modelId.trim().toLowerCase();
+				const lower = normalizeLowercaseStringOrEmpty(modelId);
 				return lower.startsWith("glm-5") || lower.startsWith("glm-4.7") || lower.startsWith("glm-4.7-flash") || lower.startsWith("glm-4.7-flashx");
 			},
 			resolveUsageAuth: async (ctx) => {

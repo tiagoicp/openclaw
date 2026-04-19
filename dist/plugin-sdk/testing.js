@@ -1,54 +1,12 @@
-import { n as shouldAckReaction, t as removeAckReactionAfterReply } from "../ack-reactions-C142ljS_.js";
-import { n as it, t as globalExpect } from "../test.CTcmp4Su-lP877X1N.js";
-import path from "node:path";
-import fs from "node:fs/promises";
-//#region src/plugin-sdk/testing.ts
-/** Create a tiny Windows `.cmd` shim fixture for plugin tests that spawn CLIs. */
-async function createWindowsCmdShimFixture(params) {
-	await fs.mkdir(path.dirname(params.scriptPath), { recursive: true });
-	await fs.mkdir(path.dirname(params.shimPath), { recursive: true });
-	await fs.writeFile(params.scriptPath, "module.exports = {};\n", "utf8");
-	await fs.writeFile(params.shimPath, `@echo off\r\n${params.shimLine}\r\n`, "utf8");
-}
-/** Install a shared test matrix for target-resolution error handling. */
-function installCommonResolveTargetErrorCases(params) {
-	const { resolveTarget, implicitAllowFrom } = params;
-	it("should error on normalization failure with allowlist (implicit mode)", () => {
-		const result = resolveTarget({
-			to: "invalid-target",
-			mode: "implicit",
-			allowFrom: implicitAllowFrom
-		});
-		globalExpect(result.ok).toBe(false);
-		globalExpect(result.error).toBeDefined();
-	});
-	it("should error when no target provided with allowlist", () => {
-		const result = resolveTarget({
-			to: void 0,
-			mode: "implicit",
-			allowFrom: implicitAllowFrom
-		});
-		globalExpect(result.ok).toBe(false);
-		globalExpect(result.error).toBeDefined();
-	});
-	it("should error when no target and no allowlist", () => {
-		const result = resolveTarget({
-			to: void 0,
-			mode: "explicit",
-			allowFrom: []
-		});
-		globalExpect(result.ok).toBe(false);
-		globalExpect(result.error).toBeDefined();
-	});
-	it("should handle whitespace-only target", () => {
-		const result = resolveTarget({
-			to: "   ",
-			mode: "explicit",
-			allowFrom: []
-		});
-		globalExpect(result.ok).toBe(false);
-		globalExpect(result.error).toBeDefined();
-	});
-}
-//#endregion
-export { createWindowsCmdShimFixture, installCommonResolveTargetErrorCases, removeAckReactionAfterReply, shouldAckReaction };
+import { t as sanitizeTerminalText } from "../safe-text-DhE7pDTd.js";
+import { _ as resetPluginRuntimeStateForTest, b as createEmptyPluginRegistry, r as getActivePluginRegistry, y as setActivePluginRegistry } from "../runtime-CbczzKFG.js";
+import { a as capturePluginRegistration, i as resolveRelativeBundledPluginPublicModuleId, n as loadBundledPluginPublicSurfaceSync, r as loadBundledPluginTestApiSync } from "../bundled-plugin-public-surface-CFCnRRMH.js";
+import { r as callGateway } from "../call-CpHMuJ4Y.js";
+import { c as peekSystemEvents, l as resetSystemEventsForTest } from "../system-events-vbh3zcBC.js";
+import { t as __testing } from "../manager-DlOys1Dv.js";
+import { n as shouldAckReaction, t as removeAckReactionAfterReply } from "../ack-reactions-VcOKK2un.js";
+import { C as spyRuntimeJson, D as primeChannelOutboundSendMock, E as expectChannelInboundContextContract, S as spyRuntimeErrors, T as buildDispatchInboundCaptureMock, _ as createRequestCaptureJsonFetch, a as installCommonResolveTargetErrorCases, b as createCliRuntimeCapture, c as jsonResponse, d as buildCommandTestParams, f as runAcpRuntimeAdapterContract, g as createAuthCaptureJsonFetch, h as isLiveTestEnabled, i as withStateDirEnv, l as requestBodyText, m as createSandboxTestContext, n as countLines, o as createWindowsCmdShimFixture, p as writeSkill, r as hasBalancedFences, s as mockPinnedHostnameResolution, t as expectGeneratedTokenPersistedToGatewayAuth, u as requestUrl, v as installPinnedHostnameTestHooks, w as spyRuntimeLogs, x as firstWrittenJsonArg, y as setDefaultChannelPluginRegistryForTests } from "../testing-CzQyff1P.js";
+import { n as resolveProviderPluginChoice } from "../provider-auth-choice.runtime-TL0ICAUx.js";
+import { a as withEnvAsync, i as withEnv, o as withFetchPreconnect, r as captureEnv, t as createTempHomeEnv } from "../temp-home-DqfXHaeC.js";
+import { t as handleAcpCommand } from "../commands-acp-D17Vd7nj.js";
+export { __testing, __testing as acpManagerTesting, buildCommandTestParams, buildDispatchInboundCaptureMock, callGateway, captureEnv, capturePluginRegistration, countLines, createAuthCaptureJsonFetch, createCliRuntimeCapture, createEmptyPluginRegistry, createRequestCaptureJsonFetch, createSandboxTestContext, createTempHomeEnv, createWindowsCmdShimFixture, expectChannelInboundContextContract, expectGeneratedTokenPersistedToGatewayAuth, firstWrittenJsonArg, getActivePluginRegistry, handleAcpCommand, hasBalancedFences, installCommonResolveTargetErrorCases, installPinnedHostnameTestHooks, isLiveTestEnabled, jsonResponse, loadBundledPluginPublicSurfaceSync, loadBundledPluginTestApiSync, mockPinnedHostnameResolution, peekSystemEvents, primeChannelOutboundSendMock, removeAckReactionAfterReply, requestBodyText, requestUrl, resetPluginRuntimeStateForTest, resetSystemEventsForTest, resolveProviderPluginChoice, resolveRelativeBundledPluginPublicModuleId, runAcpRuntimeAdapterContract, sanitizeTerminalText, setActivePluginRegistry, setDefaultChannelPluginRegistryForTests, shouldAckReaction, spyRuntimeErrors, spyRuntimeJson, spyRuntimeLogs, withEnv, withEnvAsync, withFetchPreconnect, withStateDirEnv, writeSkill };

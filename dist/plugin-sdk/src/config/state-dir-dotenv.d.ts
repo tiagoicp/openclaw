@@ -1,4 +1,5 @@
 import type { OpenClawConfig } from "./types.js";
+export declare function readStateDirDotEnvVarsFromStateDir(stateDir: string): Record<string, string>;
 /**
  * Read and parse `~/.openclaw/.env` (or `$OPENCLAW_STATE_DIR/.env`), returning
  * a filtered record of key-value pairs suitable for embedding in a service

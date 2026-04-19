@@ -1,3 +1,2 @@
-import "../../model-definitions-BlFf9Zmg.js";
-import { t as buildMistralProvider } from "../../provider-catalog-BnNSpVBM.js";
+import { t as buildMistralProvider } from "../../provider-catalog-C6G48_DJ.js";
 export { buildMistralProvider };

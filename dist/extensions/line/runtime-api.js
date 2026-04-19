@@ -1,187 +1,219 @@
-import "../../redact-BDinS1q9.js";
-import "../../errors-BxyFnvP3.js";
-import "../../unhandled-rejections-CDJ8dOVP.js";
-import "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import { g as DEFAULT_ACCOUNT_ID } from "../../session-key-CYZxn_Kd.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../warning-filter-C_BEyyvc.js";
-import { t as formatDocsLink } from "../../links-DaR1j_Bv.js";
-import "../../paths-DJBuCoRE.js";
-import "../../auth-profiles-DWcA6joY.js";
-import "../../provider-runtime.runtime-DwNmuhmD.js";
-import "../../file-lock-Cm3HPowf.js";
-import "../../audit-fs-7IxnGQxG.js";
-import "../../resolve-DqJVzTVp.js";
-import "../../profiles-CRvutsjq.js";
-import "../../tailscale-FHZADwLL.js";
-import "../../tailnet-BPCtbdja.js";
-import "../../net-1LAzWzJc.js";
-import "../../auth-BC0t_CEl.js";
-import "../../credentials-6hokf6e3.js";
-import "../../message-channel-ZzTqBBLH.js";
-import "../../sessions-uRDRs4f-.js";
-import "../../plugins-h0t63KQW.js";
-import "../../paths-BEHCHyAI.js";
-import "../../delivery-context-oynQ_N5k.js";
-import "../../session-write-lock-B7nwE7de.js";
-import "../../method-scopes-DtJfTstv.js";
-import "../../call-CFi2qbI2.js";
-import "../../detect-binary-78pS71eg.js";
-import "../../prompt-style-qxNRcnm3.js";
-import "../../ports-lsof-qBGFcQvX.js";
-import "../../restart-stale-pids-ciXEfnyN.js";
-import "../../ports-DF41F7NN.js";
-import "../../logging-CS4wyI-j.js";
-import "../../commands-AceByDw5.js";
-import "../../issue-format-Cj39YIRp.js";
-import "../../provider-env-vars-BZwz5sMG.js";
-import "../../model-auth-env-BWzx2-YC.js";
-import "../../anthropic-vertex-provider-Cik2BDhe.js";
-import "../../pi-model-discovery-hz4apXP-.js";
-import "../../identity-xGthCqY8.js";
-import "../../heartbeat-DqtPOAC0.js";
-import { $a as extractCodeBlocks, Aa as createRichMenu, Ab as createImageCarousel, Ao as resolveLineGroupHistoryKey, Ay as pushTemplateMessage, Ba as setDefaultRichMenu, Bb as probeLineBot, Co as createLineWebhookReplayCache, Cy as getUserDisplayName, Da as cancelDefaultRichMenu, Db as createButtonTemplate, Do as getLineSourceInfo, Dy as pushLocationMessage, Eb as createButtonMenu, Eo as buildLinePostbackContext, Ey as pushImageMessage, Fa as getRichMenu, Fb as createYesNoConfirm, Fy as resolveLineChannelAccessToken, Ga as LineConfigSchema, Ha as unlinkRichMenuFromUsers, Hb as isSenderAllowed, Ia as getRichMenuIdOfUser, Ib as datetimePickerAction, Iy as listLineAccountIds, Ja as createLineNodeWebhookHandler, Ka as getLineRuntimeState, La as getRichMenuList, Lb as messageAction, Ly as normalizeAccountId, Ma as deleteRichMenu, Mb as createLinkMenu, Mo as resolveLineGroupsConfig, My as replyMessageLine, Na as deleteRichMenuAlias, Nb as createProductCarousel, Ny as sendMessageLine, Oa as createDefaultMenuConfig, Ob as createCarouselColumn, Oo as resolveExactLineGroupConfigKey, Oy as pushMessageLine, Pa as getDefaultRichMenuId, Pb as createTemplateCarousel, Py as showLoadingAnimation, Qa as convertTableToFlexBubble, Ra as linkRichMenuToUser, Rb as postbackAction, Ry as resolveDefaultLineAccountId, So as validateLineSignature, Sy as createTextMessageWithQuickReplies, Tb as buildTemplateMessageFromPayload, To as buildLineMessageContext, Ty as pushFlexMessage, Ua as uploadRichMenuImage, Ub as normalizeAllowFrom, Va as unlinkRichMenuFromUser, Vb as downloadLineMedia, Wa as LineChannelConfigSchema, Wb as normalizeDmAllowFromWithStore, Xa as convertCodeBlockToFlexBubble, Ya as readLineWebhookRequestBody, Za as convertLinksToFlexBubble, _o as createLineBot, ao as createAppleTvRemoteCard, bo as startLineWebhook, by as createLocationMessage, co as createAgendaCard, do as createActionCard, eo as extractLinks, fo as createCarousel, go as createNotificationBubble, ho as createListCard, io as toFlexMessage, ja as createRichMenuAlias, jb as createImageCarouselColumn, jo as resolveLineGroupLookupIds, jy as pushTextMessageWithQuickReplies, ka as createGridLayout, kb as createConfirmTemplate, ko as resolveLineGroupConfigEntry, ky as pushMessagesLine, lo as createEventCard, mo as createInfoCard, no as hasMarkdownToConvert, oo as createDeviceControlCard, po as createImageCard, qa as monitorLineProvider, ro as processLineMessage, so as createMediaPlayerCard, to as extractMarkdownTables, uo as createReceiptCard, vo as createLineWebhookCallback, vy as createFlexMessage, wo as handleLineWebhookEvents, wy as getUserProfile, xo as parseLineWebhookBody, xy as createQuickReplyItems, yo as createLineWebhookMiddleware, yy as createImageMessage, za as linkRichMenuToUsers, zb as uriAction, zy as resolveLineAccount } from "../../pi-embedded-BHLc2HPd.js";
-import "../../internal-hooks-CVdBfFMw.js";
-import "../../multimodal-CDYWira8.js";
-import "../../memory-search-B5CuuJZB.js";
-import "../../secret-input-x2By3bJy.js";
-import "../../bindings-KL-4Efmw.js";
-import "../../resolve-route-C5Xj9lGN.js";
-import "../../routing-DA_79T-X.js";
-import "../../identity-file-ClDAlI0t.js";
-import "../../outbound-runtime-BAxohuIf.js";
-import "../../provider-model-definitions-CrItEa-O.js";
-import "../../provider-models-GbpUTgQg.js";
-import "../../provider-catalog-hDyZGQ8R.js";
-import "../../provider-catalog-0WIhy6f_.js";
-import "../../provider-catalog-CdCrQ7UP.js";
-import "../../provider-catalog-DzIvFdfj.js";
-import "../../provider-catalog-COMYNKV2.js";
-import "../../provider-catalog-Bce8iOMh.js";
-import "../../provider-catalog-CPx35FBq.js";
-import "../../provider-catalog-Czll7Q5-.js";
-import "../../provider-catalog-BFvOY2Dt.js";
-import "../../provider-catalog-VZaye2Ib.js";
-import "../../models-config.providers.discovery-oJl_MWQT.js";
-import { i as stripMarkdown } from "../../text-runtime-B-kOpuLv.js";
-import "../../docker-BrzH-NvE.js";
-import "../../tool-catalog-BQWPAtTb.js";
-import "../../common-CMCEg0LE.js";
-import "../../image-ops-xftchR8Z.js";
-import "../../thinking-Me2S38se.js";
-import "../../path-alias-guards-BfUEa8Z8.js";
-import "../../sandbox-paths-DM85ql27.js";
-import "../../channel-actions-M8UJU-J1.js";
-import "../../mime-Bwp1UQ_8.js";
-import "../../ssrf-BdAu1_OT.js";
-import "../../fetch-guard-BiSGgjb-.js";
-import "../../provider-web-search-B2TRQt7q.js";
-import "../../manager-BFi-xqLj.js";
-import { r as buildChannelConfigSchema } from "../../config-schema-BoeEl_gh.js";
-import { t as clearAccountEntryFields } from "../../channel-plugin-common-Bw5e9GHM.js";
-import { o as buildTokenChannelStatusSummary, r as buildComputedAccountStatusSnapshot } from "../../status-helpers-DTFg68Zs.js";
-import "../../conversation-runtime-BfLWHgdb.js";
-import "../../runtime-whatsapp-boundary-C0sTsAVN.js";
-import "../../pairing-store-Ci8ZfuL6.js";
-import "../../json-store-Dizz4Rhx.js";
-import "../../secret-file-BzdoxKYZ.js";
-import "../../channel-config-schema-DOQ4q6a_.js";
-import "../../setup-binary-Tg8N6z5q.js";
-import "../../archive-Oi0PB5pw.js";
-import "../../fs-safe-DpC9pe80.js";
-import "../../signal-cli-install-pAmdy64m.js";
-import { rt as setSetupChannelEnabled, st as splitSetupEntries } from "../../setup-wizard-proxy-3tbzVvIf.js";
-import "../../setup-Cuh8Qocv.js";
-import { f as firstDefined } from "../../dm-policy-shared-3Jdbvvlm.js";
-import "../../runtime-env-pWTJLxVn.js";
-import "../../temp-path-DvwSkpQg.js";
-import "../../diagnostic-Dx7wnQab.js";
-import "../../logging-B3tLYQAZ.js";
-import "../../config-runtime-BMqUsOKJ.js";
-import "../../level-overrides-DxRoq-Vr.js";
-import "../../exec-approvals-CoUFlPSg.js";
-import "../../webhook-ingress-CwnvXQ9i.js";
-import "../../system-events-D_U3rn_H.js";
-import "../../ssrf-policy-Cve-f-IZ.js";
-import "../../hook-runtime-C0FQ8mwc.js";
-import "../../templating-BpbUbFSs.js";
-import "../../channel-reply-pipeline-BQ2GND11.js";
-import "../../reply-history-CYr7j6cE.js";
-import "../../commands-registry.data-C-Zb7sHo.js";
-import "../../commands-registry-kALONq2A.js";
-import "../../frontmatter-C_CWb6f1.js";
-import "../../env-overrides-CilRbuhU.js";
-import "../../skills-Xrdxpo0d.js";
-import "../../skills-remote-D055n83h.js";
-import "../../workspace-dirs-BooYyzLb.js";
-import "../../pairing-token-BhzPXbCy.js";
-import "../../skill-commands-X9DVN0CB.js";
-import "../../exec-inline-eval-CAjjj6oR.js";
-import "../../sandbox-DSgCBor-.js";
-import "../../target-registry-CUzd3r6R.js";
-import "../../external-content-BtOAY1jC.js";
-import "../../brave-iyc-zT4j.js";
-import "../../duckduckgo-RnKnjVjk.js";
-import "../../exa-B_PEobTF.js";
-import "../../security-runtime-DuEgVcd_.js";
-import "../../provider-auth-ref-CkjXioxW.js";
-import "../../provider-auth-input-DY2h0M4n.js";
-import "../../provider-auth-helpers-CfaQ5Xn6.js";
-import "../../provider-api-key-auth-Uu86HoCQ.js";
-import "../../provider-usage-D_y-rSPa.js";
-import "../../provider-models-BlbL1wnJ.js";
-import "../../media-understanding-DXKhzmxa.js";
-import "../../media-understanding-provider-mKPWfSgv.js";
-import "../../provider-entry-Dh6ETIXa.js";
-import "../../media-understanding-provider-Br6AUUTp.js";
-import "../../provider-onboard-DmLoftpN.js";
-import "../../onboard-p6odcf1a.js";
-import "../../perplexity-web-search-provider-CBvej2u9.js";
-import "../../perplexity-DVSMCtcT.js";
-import "../../model-definitions-CLlu-y8L.js";
-import "../../onboard-CQyz1Xh9.js";
-import "../../provider-catalog-BbgD0Blc.js";
-import "../../provider-models-CPWTfv6u.js";
-import "../../stream-WNyIq00o.js";
-import "../../web-search-C2bCgEzC.js";
-import "../../client-fetch-DG9t9440.js";
-import "../../config-B6bjVdCF.js";
-import "../../web-media-B7RZCKik.js";
-import "../../stagger-C20Z_jRQ.js";
-import "../../command-secret-targets-CiFc3JN3.js";
-import "../../delivery-queue-iwWmpCz9.js";
-import "../../pairing-labels-PxfGoTvk.js";
-import "../../directory-runtime-D9Y42mW-.js";
-import "../../read-only-account-inspect-DL-l3acs.js";
-import "../../src-hV2aBDoy.js";
-import "../../web-media-C0RRMmtv.js";
-import "../../state-paths-CG7b-A_-.js";
-import "../../axios-zS_oAKS1.js";
-import "../../channel-summary-BXD0QyVg.js";
-import "../../session-system-events-CRFPrG-r.js";
-import "../../ssh-tunnel-Ca8F0wnz.js";
-import "../../server-middleware-DUIlEnG_.js";
-import "../../llm-task-D_W5GYK4.js";
-import "../../tool-policy-match-DgTjuJ-l.js";
-import "../../runtime-DAr9Q1gF.js";
-import "../../channel-status-DxDpNj1k.js";
-import "../../discord-core-CTFa_tPG.js";
-import "../../cli-runtime-CivyfPOe.js";
-import "../../config-presence-Bo4-9YVM.js";
-import "../../query-expansion-CeNhqo71.js";
-import "../../search-manager-CiHiEX8K.js";
-import "../../acp-runtime-CRrXx1ZI.js";
-import "../../telegram-core-n7uYzMlP.js";
-import "../../audit-BszklQB5.js";
-import "../../gateway-runtime-_5BLwTPa.js";
-import "../../connection-auth-DQ6Wy_i-.js";
-import "../../mcp-config-vaYGkUmW.js";
-export { DEFAULT_ACCOUNT_ID, LineChannelConfigSchema, LineConfigSchema, buildChannelConfigSchema, buildComputedAccountStatusSnapshot, buildLineMessageContext, buildLinePostbackContext, buildTemplateMessageFromPayload, buildTokenChannelStatusSummary, cancelDefaultRichMenu, clearAccountEntryFields, convertCodeBlockToFlexBubble, convertLinksToFlexBubble, convertTableToFlexBubble, createActionCard, createAgendaCard, createAppleTvRemoteCard, createButtonMenu, createButtonTemplate, createCarousel, createCarouselColumn, createConfirmTemplate, createDefaultMenuConfig, createDeviceControlCard, createEventCard, createFlexMessage, createGridLayout, createImageCard, createImageCarousel, createImageCarouselColumn, createImageMessage, createInfoCard, createLineBot, createLineNodeWebhookHandler, createLineWebhookCallback, createLineWebhookMiddleware, createLineWebhookReplayCache, createLinkMenu, createListCard, createLocationMessage, createMediaPlayerCard, createNotificationBubble, createProductCarousel, createQuickReplyItems, createReceiptCard, createRichMenu, createRichMenuAlias, createTemplateCarousel, createTextMessageWithQuickReplies, createYesNoConfirm, datetimePickerAction, deleteRichMenu, deleteRichMenuAlias, downloadLineMedia, extractCodeBlocks, extractLinks, extractMarkdownTables, firstDefined, formatDocsLink, getDefaultRichMenuId, getLineRuntimeState, getLineSourceInfo, getRichMenu, getRichMenuIdOfUser, getRichMenuList, getUserDisplayName, getUserProfile, handleLineWebhookEvents, hasMarkdownToConvert, isSenderAllowed, linkRichMenuToUser, linkRichMenuToUsers, listLineAccountIds, messageAction, monitorLineProvider, normalizeAccountId, normalizeAllowFrom, normalizeDmAllowFromWithStore, parseLineWebhookBody, postbackAction, probeLineBot, processLineMessage, pushFlexMessage, pushImageMessage, pushLocationMessage, pushMessageLine, pushMessagesLine, pushTemplateMessage, pushTextMessageWithQuickReplies, readLineWebhookRequestBody, replyMessageLine, resolveDefaultLineAccountId, resolveExactLineGroupConfigKey, resolveLineAccount, resolveLineChannelAccessToken, resolveLineGroupConfigEntry, resolveLineGroupHistoryKey, resolveLineGroupLookupIds, resolveLineGroupsConfig, sendMessageLine, setDefaultRichMenu, setSetupChannelEnabled, showLoadingAnimation, splitSetupEntries, startLineWebhook, stripMarkdown, toFlexMessage, unlinkRichMenuFromUser, unlinkRichMenuFromUsers, uploadRichMenuImage, uriAction, validateLineSignature };
+import { i as normalizeLowercaseStringOrEmpty } from "../../string-coerce-BUSzWgUA.js";
+import { t as formatDocsLink } from "../../links-CX_lepoz.js";
+import { r as logVerbose } from "../../globals-BW15qYpX.js";
+import { r as buildChannelConfigSchema } from "../../config-schema-rBqVo6-O.js";
+import { a as loadConfig } from "../../io-CW6SWMPF.js";
+import { t as DEFAULT_ACCOUNT_ID } from "../../account-id-CZtNSGs2.js";
+import { t as clearAccountEntryFields } from "../../config-helpers-3aVyuY0F.js";
+import { r as stripMarkdown } from "../../text-runtime-DHfI0VWF.js";
+import "../../core-w7kNLu40.js";
+import { t as firstDefined } from "../../allow-from-BOYClNj3.js";
+import "../../channel-config-schema-8omn2SVq.js";
+import { J as setSetupChannelEnabled, Q as splitSetupEntries } from "../../setup-wizard-helpers-BrpKVoK7.js";
+import { o as buildTokenChannelStatusSummary, r as buildComputedAccountStatusSnapshot } from "../../status-helpers-C-OjDvUo.js";
+import "../../runtime-env-CJt3UE3h.js";
+import "../../setup-C59mEjks.js";
+import "../../config-runtime-svP9ZomL.js";
+import { i as resolveLineAccount, n as normalizeAccountId, r as resolveDefaultLineAccountId, t as listLineAccountIds } from "../../accounts-CVBoRexD.js";
+import { i as resolveLineGroupsConfig, n as resolveLineGroupConfigEntry, r as resolveLineGroupLookupIds, t as resolveExactLineGroupConfigKey } from "../../group-keys-CcyhX8O8.js";
+import { a as createMediaPlayerCard, c as LineChannelConfigSchema, i as createDeviceControlCard, l as LineConfigSchema, n as parseLineDirectives, r as createAppleTvRemoteCard, s as setLineRuntime, t as hasLineDirectives } from "../../reply-payload-transform-B4YU-cx_.js";
+import { n as createEventCard, r as createReceiptCard, t as createAgendaCard } from "../../schedule-cards-BkU4-4Xi.js";
+import { a as createListCard, i as createInfoCard, n as createCarousel, o as createNotificationBubble, r as createImageCard, t as createActionCard } from "../../basic-cards-DAR59-9d.js";
+import { A as createButtonMenu, B as datetimePickerAction, C as pushTemplateMessage, D as showLoadingAnimation, E as sendMessageLine, F as createImageCarouselColumn, H as postbackAction, I as createLinkMenu, L as createProductCarousel, M as createCarouselColumn, N as createConfirmTemplate, O as resolveLineChannelAccessToken, P as createImageCarousel, R as createTemplateCarousel, S as pushMessagesLine, T as replyMessageLine, U as uriAction, V as messageAction, W as toFlexMessage, _ as getUserProfile, a as extractLinks, b as pushLocationMessage, c as processLineMessage, d as createImageMessage, f as createLocationMessage, g as getUserDisplayName, h as createVideoMessage, i as extractCodeBlocks, j as createButtonTemplate, k as buildTemplateMessageFromPayload, l as createAudioMessage, m as createTextMessageWithQuickReplies, n as convertLinksToFlexBubble, o as extractMarkdownTables, p as createQuickReplyItems, r as convertTableToFlexBubble, s as hasMarkdownToConvert, t as convertCodeBlockToFlexBubble, u as createFlexMessage, v as pushFlexMessage, w as pushTextMessageWithQuickReplies, x as pushMessageLine, y as pushImageMessage, z as createYesNoConfirm } from "../../markdown-to-line-DVg8sbQe.js";
+import { a as startLineWebhook, c as downloadLineMedia, d as normalizeAllowFrom, f as normalizeDmAllowFromWithStore, i as createLineWebhookMiddleware, l as MessagingApiBlobClient, n as createLineNodeWebhookHandler, o as parseLineWebhookBody, r as readLineWebhookRequestBody, s as validateLineSignature, t as monitorLineProvider, u as isSenderAllowed } from "../../monitor-BZwNGpR0.js";
+import { t as MessagingApiClient } from "../../messagingApiClient-C0Edtsjx.js";
+import { t as probeLineBot } from "../../probe-D65SOeNd.js";
+import { readFile } from "node:fs/promises";
+//#region extensions/line/src/rich-menu.ts
+const USER_BATCH_SIZE = 500;
+function getClient(opts = {}) {
+	const account = resolveLineAccount({
+		cfg: loadConfig(),
+		accountId: opts.accountId
+	});
+	return new MessagingApiClient({ channelAccessToken: resolveLineChannelAccessToken(opts.channelAccessToken, account) });
+}
+function getBlobClient(opts = {}) {
+	const account = resolveLineAccount({
+		cfg: loadConfig(),
+		accountId: opts.accountId
+	});
+	return new MessagingApiBlobClient({ channelAccessToken: resolveLineChannelAccessToken(opts.channelAccessToken, account) });
+}
+function chunkUserIds(userIds) {
+	const batches = [];
+	for (let i = 0; i < userIds.length; i += USER_BATCH_SIZE) batches.push(userIds.slice(i, i + USER_BATCH_SIZE));
+	return batches;
+}
+async function createRichMenu(menu, opts = {}) {
+	const client = getClient(opts);
+	const richMenuRequest = {
+		size: menu.size,
+		selected: menu.selected ?? false,
+		name: menu.name.slice(0, 300),
+		chatBarText: menu.chatBarText.slice(0, 14),
+		areas: menu.areas
+	};
+	const response = await client.createRichMenu(richMenuRequest);
+	if (opts.verbose) logVerbose(`line: created rich menu ${response.richMenuId}`);
+	return response.richMenuId;
+}
+async function uploadRichMenuImage(richMenuId, imagePath, opts = {}) {
+	const blobClient = getBlobClient(opts);
+	const imageData = await readFile(imagePath);
+	const contentType = normalizeLowercaseStringOrEmpty(imagePath).endsWith(".png") ? "image/png" : "image/jpeg";
+	await blobClient.setRichMenuImage(richMenuId, new Blob([imageData], { type: contentType }));
+	if (opts.verbose) logVerbose(`line: uploaded image to rich menu ${richMenuId}`);
+}
+async function setDefaultRichMenu(richMenuId, opts = {}) {
+	await getClient(opts).setDefaultRichMenu(richMenuId);
+	if (opts.verbose) logVerbose(`line: set default rich menu to ${richMenuId}`);
+}
+async function cancelDefaultRichMenu(opts = {}) {
+	await getClient(opts).cancelDefaultRichMenu();
+	if (opts.verbose) logVerbose("line: cancelled default rich menu");
+}
+async function getDefaultRichMenuId(opts = {}) {
+	const client = getClient(opts);
+	try {
+		return (await client.getDefaultRichMenuId()).richMenuId ?? null;
+	} catch {
+		return null;
+	}
+}
+async function linkRichMenuToUser(userId, richMenuId, opts = {}) {
+	await getClient(opts).linkRichMenuIdToUser(userId, richMenuId);
+	if (opts.verbose) logVerbose(`line: linked rich menu ${richMenuId} to user ${userId}`);
+}
+async function linkRichMenuToUsers(userIds, richMenuId, opts = {}) {
+	const client = getClient(opts);
+	for (const batch of chunkUserIds(userIds)) await client.linkRichMenuIdToUsers({
+		richMenuId,
+		userIds: batch
+	});
+	if (opts.verbose) logVerbose(`line: linked rich menu ${richMenuId} to ${userIds.length} users`);
+}
+async function unlinkRichMenuFromUser(userId, opts = {}) {
+	await getClient(opts).unlinkRichMenuIdFromUser(userId);
+	if (opts.verbose) logVerbose(`line: unlinked rich menu from user ${userId}`);
+}
+async function unlinkRichMenuFromUsers(userIds, opts = {}) {
+	const client = getClient(opts);
+	for (const batch of chunkUserIds(userIds)) await client.unlinkRichMenuIdFromUsers({ userIds: batch });
+	if (opts.verbose) logVerbose(`line: unlinked rich menu from ${userIds.length} users`);
+}
+async function getRichMenuIdOfUser(userId, opts = {}) {
+	const client = getClient(opts);
+	try {
+		return (await client.getRichMenuIdOfUser(userId)).richMenuId ?? null;
+	} catch {
+		return null;
+	}
+}
+async function getRichMenuList(opts = {}) {
+	return (await getClient(opts).getRichMenuList()).richmenus ?? [];
+}
+async function getRichMenu(richMenuId, opts = {}) {
+	const client = getClient(opts);
+	try {
+		return await client.getRichMenu(richMenuId);
+	} catch {
+		return null;
+	}
+}
+async function deleteRichMenu(richMenuId, opts = {}) {
+	await getClient(opts).deleteRichMenu(richMenuId);
+	if (opts.verbose) logVerbose(`line: deleted rich menu ${richMenuId}`);
+}
+async function createRichMenuAlias(richMenuId, aliasId, opts = {}) {
+	await getClient(opts).createRichMenuAlias({
+		richMenuId,
+		richMenuAliasId: aliasId
+	});
+	if (opts.verbose) logVerbose(`line: created alias ${aliasId} for rich menu ${richMenuId}`);
+}
+async function deleteRichMenuAlias(aliasId, opts = {}) {
+	await getClient(opts).deleteRichMenuAlias(aliasId);
+	if (opts.verbose) logVerbose(`line: deleted alias ${aliasId}`);
+}
+function createGridLayout(height, actions) {
+	const colWidth = Math.floor(2500 / 3);
+	const rowHeight = Math.floor(height / 2);
+	return [
+		{
+			bounds: {
+				x: 0,
+				y: 0,
+				width: colWidth,
+				height: rowHeight
+			},
+			action: actions[0]
+		},
+		{
+			bounds: {
+				x: colWidth,
+				y: 0,
+				width: colWidth,
+				height: rowHeight
+			},
+			action: actions[1]
+		},
+		{
+			bounds: {
+				x: colWidth * 2,
+				y: 0,
+				width: colWidth,
+				height: rowHeight
+			},
+			action: actions[2]
+		},
+		{
+			bounds: {
+				x: 0,
+				y: rowHeight,
+				width: colWidth,
+				height: rowHeight
+			},
+			action: actions[3]
+		},
+		{
+			bounds: {
+				x: colWidth,
+				y: rowHeight,
+				width: colWidth,
+				height: rowHeight
+			},
+			action: actions[4]
+		},
+		{
+			bounds: {
+				x: colWidth * 2,
+				y: rowHeight,
+				width: colWidth,
+				height: rowHeight
+			},
+			action: actions[5]
+		}
+	];
+}
+function createDefaultMenuConfig() {
+	return {
+		size: {
+			width: 2500,
+			height: 843
+		},
+		selected: false,
+		name: "Default Menu",
+		chatBarText: "Menu",
+		areas: createGridLayout(843, [
+			messageAction("Help", "/help"),
+			messageAction("Status", "/status"),
+			messageAction("Settings", "/settings"),
+			messageAction("About", "/about"),
+			messageAction("Feedback", "/feedback"),
+			messageAction("Contact", "/contact")
+		])
+	};
+}
+//#endregion
+export { DEFAULT_ACCOUNT_ID, LineChannelConfigSchema, LineConfigSchema, buildChannelConfigSchema, buildComputedAccountStatusSnapshot, buildTemplateMessageFromPayload, buildTokenChannelStatusSummary, cancelDefaultRichMenu, clearAccountEntryFields, convertCodeBlockToFlexBubble, convertLinksToFlexBubble, convertTableToFlexBubble, createActionCard, createAgendaCard, createAppleTvRemoteCard, createAudioMessage, createButtonMenu, createButtonTemplate, createCarousel, createCarouselColumn, createConfirmTemplate, createDefaultMenuConfig, createDeviceControlCard, createEventCard, createFlexMessage, createGridLayout, createImageCard, createImageCarousel, createImageCarouselColumn, createImageMessage, createInfoCard, createLineNodeWebhookHandler, createLineWebhookMiddleware, createLinkMenu, createListCard, createLocationMessage, createMediaPlayerCard, createNotificationBubble, createProductCarousel, createQuickReplyItems, createReceiptCard, createRichMenu, createRichMenuAlias, createTemplateCarousel, createTextMessageWithQuickReplies, createVideoMessage, createYesNoConfirm, datetimePickerAction, deleteRichMenu, deleteRichMenuAlias, downloadLineMedia, extractCodeBlocks, extractLinks, extractMarkdownTables, firstDefined, formatDocsLink, getDefaultRichMenuId, getRichMenu, getRichMenuIdOfUser, getRichMenuList, getUserDisplayName, getUserProfile, hasLineDirectives, hasMarkdownToConvert, isSenderAllowed, linkRichMenuToUser, linkRichMenuToUsers, listLineAccountIds, messageAction, monitorLineProvider, normalizeAccountId, normalizeAllowFrom, normalizeDmAllowFromWithStore, parseLineDirectives, parseLineWebhookBody, postbackAction, probeLineBot, processLineMessage, pushFlexMessage, pushImageMessage, pushLocationMessage, pushMessageLine, pushMessagesLine, pushTemplateMessage, pushTextMessageWithQuickReplies, readLineWebhookRequestBody, replyMessageLine, resolveDefaultLineAccountId, resolveExactLineGroupConfigKey, resolveLineAccount, resolveLineChannelAccessToken, resolveLineGroupConfigEntry, resolveLineGroupLookupIds, resolveLineGroupsConfig, sendMessageLine, setDefaultRichMenu, setLineRuntime, setSetupChannelEnabled, showLoadingAnimation, splitSetupEntries, startLineWebhook, stripMarkdown, toFlexMessage, unlinkRichMenuFromUser, unlinkRichMenuFromUsers, uploadRichMenuImage, uriAction, validateLineSignature };

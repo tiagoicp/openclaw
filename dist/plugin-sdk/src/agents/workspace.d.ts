@@ -23,6 +23,8 @@ export type ExtraBootstrapLoadDiagnostic = {
     detail: string;
 };
 export declare function isWorkspaceSetupCompleted(dir: string): Promise<boolean>;
+export declare function resolveWorkspaceBootstrapStatus(dir: string): Promise<"pending" | "complete">;
+export declare function isWorkspaceBootstrapPending(dir: string): Promise<boolean>;
 export declare function ensureAgentWorkspace(params?: {
     dir?: string;
     ensureBootstrapFiles?: boolean;
@@ -35,6 +37,7 @@ export declare function ensureAgentWorkspace(params?: {
     userPath?: string;
     heartbeatPath?: string;
     bootstrapPath?: string;
+    identityPathCreated?: boolean;
 }>;
 export declare function loadWorkspaceBootstrapFiles(dir: string): Promise<WorkspaceBootstrapFile[]>;
 export declare function filterBootstrapFilesForSession(files: WorkspaceBootstrapFile[], sessionKey?: string): WorkspaceBootstrapFile[];

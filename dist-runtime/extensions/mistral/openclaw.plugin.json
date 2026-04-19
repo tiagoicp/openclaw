@@ -1,5 +1,6 @@
 {
   "id": "mistral",
+  "enabledByDefault": true,
   "providers": [
     "mistral"
   ],
@@ -23,6 +24,14 @@
       "cliDescription": "Mistral API key"
     }
   ],
+  "contracts": {
+    "memoryEmbeddingProviders": [
+      "mistral"
+    ],
+    "mediaUnderstandingProviders": [
+      "mistral"
+    ]
+  },
   "configSchema": {
     "type": "object",
     "additionalProperties": false,

@@ -1,6 +1,6 @@
 import { type NormalizedUsage } from "../../agents/usage.js";
-import type { OpenClawConfig } from "../../config/config.js";
 import { type SessionSystemPromptReport } from "../../config/sessions.js";
+import type { OpenClawConfig } from "../../config/types.openclaw.js";
 export declare function persistSessionUsageUpdate(params: {
     storePath?: string;
     sessionKey?: string;
@@ -17,7 +17,9 @@ export declare function persistSessionUsageUpdate(params: {
     providerUsed?: string;
     contextTokensUsed?: number;
     promptTokens?: number;
+    usageIsContextSnapshot?: boolean;
     systemPromptReport?: SessionSystemPromptReport;
     cliSessionId?: string;
+    cliSessionBinding?: import("../../config/sessions.js").CliSessionBinding;
     logLabel?: string;
 }): Promise<void>;

@@ -1,6 +1,8 @@
 import type { ChatType } from "../channels/chat-type.js";
 import type { SafeBinProfileFixture } from "../infra/exec-safe-bin-policy.js";
 import type { AgentElevatedAllowFromConfig, SessionSendPolicyAction } from "./types.base.js";
+import type { MemoryQmdIndexPath } from "./types.memory.js";
+import type { ConfiguredProviderRequest } from "./types.provider-request.js";
 import type { SecretInput } from "./types.secrets.js";
 export type MediaUnderstandingScopeMatch = {
     channel?: string;
@@ -37,6 +39,8 @@ type MediaProviderRequestConfig = {
     baseUrl?: string;
     /** Optional headers merged into provider requests. */
     headers?: Record<string, string>;
+    /** Optional request transport overrides for provider HTTP calls. */
+    request?: ConfiguredProviderRequest;
 };
 export type MediaUnderstandingModelConfig = MediaProviderRequestConfig & {
     /** provider API id (e.g. openai, google). */
@@ -123,6 +127,13 @@ export type MediaToolsConfig = {
     models?: MediaUnderstandingModelConfig[];
     /** Max concurrent media understanding runs. */
     concurrency?: number;
+    asyncCompletion?: {
+        /**
+         * Enable direct channel sends for completed async media generation tasks.
+         * Default: false.
+         */
+        directSend?: boolean;
+    };
     image?: MediaUnderstandingConfig;
     audio?: MediaUnderstandingConfig;
     video?: MediaUnderstandingConfig;
@@ -143,6 +154,8 @@ export type ToolLoopDetectionConfig = {
     historySize?: number;
     /** Warning threshold before a warning-only loop classification (default: 10). */
     warningThreshold?: number;
+    /** Block repeated calls to the same unavailable tool after this many misses (default: 10). */
+    unknownToolThreshold?: number;
     /** Critical threshold for blocking repetitive loops (default: 20). */
     criticalThreshold?: number;
     /** Global no-progress breaker threshold (default: 30). */
@@ -189,8 +202,8 @@ export declare function parseToolsBySenderTypedKey(rawKey: string): {
  */
 export type GroupToolPolicyBySenderConfig = Record<string, GroupToolPolicyConfig>;
 export type ExecToolConfig = {
-    /** Exec host routing (default: sandbox). */
-    host?: "sandbox" | "gateway" | "node";
+    /** Exec host routing (default: auto). */
+    host?: "auto" | "sandbox" | "gateway" | "node";
     /** Exec security mode (default: deny). */
     security?: "deny" | "allowlist" | "full";
     /** Exec ask mode (default: on-miss). */
@@ -225,9 +238,9 @@ export type ExecToolConfig = {
      * Default false to reduce context noise.
      */
     notifyOnExitEmptySuccess?: boolean;
-    /** apply_patch subtool configuration (experimental). */
+    /** apply_patch subtool configuration. */
     applyPatch?: {
-        /** Enable apply_patch for OpenAI models (default: false). */
+        /** Enable apply_patch for OpenAI models (default: true; set false to disable). */
         enabled?: boolean;
         /**
          * Restrict apply_patch paths to the workspace directory.
@@ -236,7 +249,7 @@ export type ExecToolConfig = {
         workspaceOnly?: boolean;
         /**
          * Optional allowlist of model ids that can use apply_patch.
-         * Accepts either raw ids (e.g. "gpt-5.2") or full ids (e.g. "openai/gpt-5.2").
+         * Accepts either raw ids (e.g. "gpt-5.4") or full ids (e.g. "openai/gpt-5.4").
          */
         allowModels?: string[];
     };
@@ -286,6 +299,11 @@ export type MemorySearchConfig = {
     sources?: Array<"memory" | "sessions">;
     /** Extra paths to include in memory search (directories or .md files). */
     extraPaths?: string[];
+    /** Optional QMD-specific extra collections for cross-agent search. */
+    qmd?: {
+        /** Additional QMD collections appended for this agent's search scope. */
+        extraCollections?: MemoryQmdIndexPath[];
+    };
     /** Optional multimodal file indexing for selected extra paths. */
     multimodal?: {
         /** Enable image/audio embeddings from extraPaths. */
@@ -300,8 +318,8 @@ export type MemorySearchConfig = {
         /** Enable session transcript indexing (experimental, default: false). */
         sessionMemory?: boolean;
     };
-    /** Embedding provider mode. */
-    provider?: "openai" | "gemini" | "local" | "voyage" | "mistral" | "ollama";
+    /** Memory embedding provider adapter id. */
+    provider?: string;
     remote?: {
         baseUrl?: string;
         apiKey?: SecretInput;
@@ -319,8 +337,8 @@ export type MemorySearchConfig = {
             timeoutMinutes?: number;
         };
     };
-    /** Fallback behavior when embeddings fail. */
-    fallback?: "openai" | "gemini" | "local" | "voyage" | "mistral" | "ollama" | "none";
+    /** Fallback memory embedding provider adapter id when embeddings fail. */
+    fallback?: string;
     /** Embedding model id (remote) or alias (local). */
     model?: string;
     /**
@@ -339,6 +357,10 @@ export type MemorySearchConfig = {
     store?: {
         driver?: "sqlite";
         path?: string;
+        fts?: {
+            /** FTS5 tokenizer (default: "unicode61"). Use "trigram" for CJK text support. */
+            tokenizer?: "unicode61" | "trigram";
+        };
         vector?: {
             /** Enable sqlite-vec extension for vector search (default: true). */
             enabled?: boolean;
@@ -410,13 +432,6 @@ export type MemorySearchConfig = {
         maxEntries?: number;
     };
 };
-type WebSearchLegacyProviderConfig = {
-    apiKey?: SecretInput;
-    baseUrl?: string;
-    model?: string;
-    mode?: string;
-    inlineCitations?: boolean;
-};
 export type ToolsConfig = {
     /** Base tool profile applied before allow/deny lists. */
     profile?: ToolProfileId;
@@ -428,7 +443,7 @@ export type ToolsConfig = {
     byProvider?: Record<string, ToolPolicyConfig>;
     web?: {
         search?: {
-            /** Enable web search tool (default: true when API key is present). */
+            /** Enable managed web_search and optional Codex-native web search. */
             enabled?: boolean;
             /** Search provider id. */
             provider?: string;
@@ -440,26 +455,51 @@ export type ToolsConfig = {
             timeoutSeconds?: number;
             /** Cache TTL in minutes for search results. */
             cacheTtlMinutes?: number;
-            /** @deprecated Legacy Brave scoped config. */
-            brave?: WebSearchLegacyProviderConfig;
-            /** @deprecated Legacy Firecrawl scoped config. */
-            firecrawl?: WebSearchLegacyProviderConfig;
-            /** @deprecated Legacy Gemini scoped config. */
-            gemini?: WebSearchLegacyProviderConfig;
-            /** @deprecated Legacy Grok scoped config. */
-            grok?: WebSearchLegacyProviderConfig;
-            /** @deprecated Legacy Kimi scoped config. */
-            kimi?: WebSearchLegacyProviderConfig;
-            /** @deprecated Legacy Perplexity scoped config. */
-            perplexity?: WebSearchLegacyProviderConfig;
+            /** Optional native Codex web search for Codex-capable models. */
+            openaiCodex?: {
+                /** Enable native Codex web search for eligible models. */
+                enabled?: boolean;
+                /** Use cached or live external web access. Default: "cached". */
+                mode?: "cached" | "live";
+                /** Optional allowlist of domains passed to the native Codex tool. */
+                allowedDomains?: string[];
+                /** Optional Codex native search context size hint. */
+                contextSize?: "low" | "medium" | "high";
+                /** Optional approximate user location passed to the native Codex tool. */
+                userLocation?: {
+                    country?: string;
+                    region?: string;
+                    city?: string;
+                    timezone?: string;
+                };
+            };
         } & Record<string, unknown>;
+        /** X (formerly Twitter) search tool configuration using xAI Grok. */
+        x_search?: {
+            /** Enable X search tool (default: true when xAI auth is available via plugin config or XAI_API_KEY). */
+            enabled?: boolean;
+            /** Model id to use for X search. */
+            model?: string;
+            /** Keep inline citations in the xAI response payload when available. */
+            inlineCitations?: boolean;
+            /** Optional max search/tool turns for xAI to use internally. */
+            maxTurns?: number;
+            /** Timeout in seconds for X search requests. */
+            timeoutSeconds?: number;
+            /** Cache TTL in minutes for X search results. */
+            cacheTtlMinutes?: number;
+        };
         fetch?: {
             /** Enable web fetch tool (default: true). */
             enabled?: boolean;
+            /** Web fetch fallback provider id. */
+            provider?: string;
             /** Max characters to return from fetched content. */
             maxChars?: number;
             /** Hard cap for maxChars (tool or config), defaults to 50000. */
             maxCharsCap?: number;
+            /** Max download size before truncation, defaults to 2000000. */
+            maxResponseBytes?: number;
             /** Timeout in seconds for fetch requests. */
             timeoutSeconds?: number;
             /** Cache TTL in minutes for fetched content. */
@@ -470,19 +510,10 @@ export type ToolsConfig = {
             userAgent?: string;
             /** Use Readability to extract main content (default: true). */
             readability?: boolean;
-            firecrawl?: {
-                /** Enable Firecrawl fallback (default: true when apiKey is set). */
-                enabled?: boolean;
-                /** Firecrawl API key (optional; defaults to FIRECRAWL_API_KEY env var). */
-                apiKey?: SecretInput;
-                /** Firecrawl base URL (default: https://api.firecrawl.dev). */
-                baseUrl?: string;
-                /** Whether to keep only main content (default: true). */
-                onlyMainContent?: boolean;
-                /** Max age (ms) for cached Firecrawl content. */
-                maxAgeMs?: number;
-                /** Timeout in seconds for Firecrawl requests. */
-                timeoutSeconds?: number;
+            /** SSRF policy configuration for web_fetch. */
+            ssrfPolicy?: {
+                /** Allow RFC 2544 benchmark range IPs (198.18.0.0/15) for fake-IP proxy compatibility (e.g., Clash TUN mode, Surge). */
+                allowRfc2544BenchmarkRange?: boolean;
             };
         };
     };
@@ -571,6 +602,11 @@ export type ToolsConfig = {
             alsoAllow?: string[];
             deny?: string[];
         };
+    };
+    /** Experimental tool flags. Default off unless explicitly enabled, except strict-agentic GPT-5 OpenAI/Codex runs may auto-enable `planTool`. */
+    experimental?: {
+        /** Enable the structured `update_plan` tool explicitly outside strict-agentic execution mode. */
+        planTool?: boolean;
     };
 };
 export {};

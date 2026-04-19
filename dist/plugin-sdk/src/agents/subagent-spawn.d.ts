@@ -1,9 +1,17 @@
+import type { SubagentLifecycleHookRunner } from "../plugins/hooks.js";
 import { decodeStrictBase64 } from "./subagent-attachments.js";
-export declare const SUBAGENT_SPAWN_MODES: readonly ["run", "session"];
-export type SpawnSubagentMode = (typeof SUBAGENT_SPAWN_MODES)[number];
-export declare const SUBAGENT_SPAWN_SANDBOX_MODES: readonly ["inherit", "require"];
-export type SpawnSubagentSandboxMode = (typeof SUBAGENT_SPAWN_SANDBOX_MODES)[number];
+export { SUBAGENT_SPAWN_ACCEPTED_NOTE, SUBAGENT_SPAWN_SESSION_ACCEPTED_NOTE, } from "./subagent-spawn-accepted-note.js";
+import { callGateway, loadConfig, updateSessionStore } from "./subagent-spawn.runtime.js";
+import { type SpawnSubagentMode, type SpawnSubagentSandboxMode } from "./subagent-spawn.types.js";
+export { SUBAGENT_SPAWN_MODES, SUBAGENT_SPAWN_SANDBOX_MODES } from "./subagent-spawn.types.js";
+export type { SpawnSubagentMode, SpawnSubagentSandboxMode } from "./subagent-spawn.types.js";
 export { decodeStrictBase64 };
+type SubagentSpawnDeps = {
+    callGateway: typeof callGateway;
+    getGlobalHookRunner: () => SubagentLifecycleHookRunner | null;
+    loadConfig: typeof loadConfig;
+    updateSessionStore: typeof updateSessionStore;
+};
 export type SpawnSubagentParams = {
     task: string;
     label?: string;
@@ -15,6 +23,7 @@ export type SpawnSubagentParams = {
     mode?: SpawnSubagentMode;
     cleanup?: "delete" | "keep";
     sandbox?: SpawnSubagentSandboxMode;
+    lightContext?: boolean;
     expectsCompletionMessage?: boolean;
     attachments?: Array<{
         name: string;
@@ -33,12 +42,11 @@ export type SpawnSubagentContext = {
     agentGroupId?: string | null;
     agentGroupChannel?: string | null;
     agentGroupSpace?: string | null;
+    agentMemberRoleIds?: string[];
     requesterAgentIdOverride?: string;
     /** Explicit workspace directory for subagent to inherit (optional). */
     workspaceDir?: string;
 };
-export declare const SUBAGENT_SPAWN_ACCEPTED_NOTE = "Auto-announce is push-based. After spawning children, do NOT call sessions_list, sessions_history, exec sleep, or any polling tool. Wait for completion events to arrive as user messages, track expected child session keys, and only send your final answer after ALL expected completions arrive. If a child completion event arrives AFTER your final answer, reply ONLY with NO_REPLY.";
-export declare const SUBAGENT_SPAWN_SESSION_ACCEPTED_NOTE = "thread-bound session stays active after this task; continue in-thread for follow-ups.";
 export type SpawnSubagentResult = {
     status: "accepted" | "forbidden" | "error";
     childSessionKey?: string;
@@ -58,14 +66,8 @@ export type SpawnSubagentResult = {
         relDir: string;
     };
 };
-export declare function splitModelRef(ref?: string): {
-    provider: undefined;
-    model: undefined;
-} | {
-    provider: string;
-    model: string;
-} | {
-    provider: undefined;
-    model: string;
-};
+export { splitModelRef } from "./subagent-spawn-plan.js";
 export declare function spawnSubagentDirect(params: SpawnSubagentParams, ctx: SpawnSubagentContext): Promise<SpawnSubagentResult>;
+export declare const __testing: {
+    setDepsForTest(overrides?: Partial<SubagentSpawnDeps>): void;
+};

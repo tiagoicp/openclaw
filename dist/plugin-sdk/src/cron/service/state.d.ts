@@ -51,6 +51,7 @@ export type CronServiceDeps = {
         agentId?: string;
         sessionKey?: string;
         contextKey?: string;
+        trusted?: boolean;
     }) => void;
     requestHeartbeatNow: (opts?: {
         reason?: string;

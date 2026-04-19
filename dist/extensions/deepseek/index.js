@@ -1,26 +1,11 @@
-import "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../paths-DJBuCoRE.js";
-import "../../file-lock-Cm3HPowf.js";
-import "../../profiles-CRvutsjq.js";
-import "../../anthropic-vertex-provider-Cik2BDhe.js";
-import "../../provider-model-definitions-CrItEa-O.js";
-import "../../provider-models-GbpUTgQg.js";
-import "../../provider-api-key-auth-Uu86HoCQ.js";
-import { t as defineSingleProviderPluginEntry } from "../../provider-entry-Dh6ETIXa.js";
-import "../../provider-onboard-DmLoftpN.js";
-import { n as applyDeepSeekConfig, t as DEEPSEEK_DEFAULT_MODEL_REF } from "../../onboard-DjlQoInS.js";
-import { t as buildDeepSeekProvider } from "../../provider-catalog-BWa5UqJ0.js";
+import { n as readConfiguredProviderCatalogEntries } from "../../provider-catalog-shared-WlJCcG8_.js";
+import { t as defineSingleProviderPluginEntry } from "../../provider-entry-Cn-adoN0.js";
+import { t as buildDeepSeekProvider } from "../../provider-catalog-BdLwl0kI.js";
+import { n as applyDeepSeekConfig, t as DEEPSEEK_DEFAULT_MODEL_REF } from "../../onboard-CTIWI4Is.js";
+//#region extensions/deepseek/index.ts
+const PROVIDER_ID = "deepseek";
 var deepseek_default = defineSingleProviderPluginEntry({
-	id: "deepseek",
+	id: PROVIDER_ID,
 	name: "DeepSeek Provider",
 	description: "Bundled DeepSeek provider plugin",
 	provider: {
@@ -44,7 +29,12 @@ var deepseek_default = defineSingleProviderPluginEntry({
 				groupHint: "API key"
 			}
 		}],
-		catalog: { buildProvider: buildDeepSeekProvider }
+		catalog: { buildProvider: buildDeepSeekProvider },
+		augmentModelCatalog: ({ config }) => readConfiguredProviderCatalogEntries({
+			config,
+			providerId: PROVIDER_ID
+		}),
+		matchesContextOverflowError: ({ errorMessage }) => /\bdeepseek\b.*(?:input.*too long|context.*exceed)/i.test(errorMessage)
 	}
 });
 //#endregion

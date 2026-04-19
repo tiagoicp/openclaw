@@ -1,13 +1,21 @@
-type EmbeddedPiQueueHandle = {
+export type EmbeddedPiQueueHandle = {
+    kind?: "embedded";
     queueMessage: (text: string) => Promise<void>;
     isStreaming: () => boolean;
     isCompacting: () => boolean;
+    cancel?: (reason?: "user_abort" | "restart" | "superseded") => void;
     abort: () => void;
 };
 export type ActiveEmbeddedRunSnapshot = {
     transcriptLeafId: string | null;
     messages?: unknown[];
     inFlightPrompt?: string;
+};
+export type EmbeddedRunModelSwitchRequest = {
+    provider: string;
+    model: string;
+    authProfileId?: string;
+    authProfileIdSource?: "auto" | "user";
 };
 export declare function queueEmbeddedPiMessage(sessionId: string, text: string): boolean;
 /**
@@ -22,8 +30,11 @@ export declare function abortEmbeddedPiRun(sessionId: undefined, opts: {
 }): boolean;
 export declare function isEmbeddedPiRunActive(sessionId: string): boolean;
 export declare function isEmbeddedPiRunStreaming(sessionId: string): boolean;
+export declare function resolveActiveEmbeddedRunSessionId(sessionKey: string): string | undefined;
 export declare function getActiveEmbeddedRunCount(): number;
 export declare function getActiveEmbeddedRunSnapshot(sessionId: string): ActiveEmbeddedRunSnapshot | undefined;
+export declare function requestEmbeddedRunModelSwitch(sessionId: string, request: EmbeddedRunModelSwitchRequest): boolean;
+export declare function consumeEmbeddedRunModelSwitch(sessionId: string): EmbeddedRunModelSwitchRequest | undefined;
 /**
  * Wait for active embedded runs to drain.
  *
@@ -42,4 +53,3 @@ export declare function clearActiveEmbeddedRun(sessionId: string, handle: Embedd
 export declare const __testing: {
     resetActiveEmbeddedRuns(): void;
 };
-export type { EmbeddedPiQueueHandle };

@@ -1,8 +1,5 @@
-import type { OpenClawConfig } from "./config.js";
+import type { ResolveMarkdownTableModeParams } from "./markdown-tables.types.js";
 import type { MarkdownTableMode } from "./types.base.js";
-export declare const DEFAULT_TABLE_MODES: Map<string, MarkdownTableMode>;
-export declare function resolveMarkdownTableMode(params: {
-    cfg?: Partial<OpenClawConfig>;
-    channel?: string | null;
-    accountId?: string | null;
-}): MarkdownTableMode;
+export declare const DEFAULT_TABLE_MODES: ReadonlyMap<string, MarkdownTableMode>;
+export type { ResolveMarkdownTableMode, ResolveMarkdownTableModeParams, } from "./markdown-tables.types.js";
+export declare function resolveMarkdownTableMode(params: ResolveMarkdownTableModeParams): MarkdownTableMode;

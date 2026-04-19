@@ -1,8 +1,11 @@
 import fs from "node:fs";
 import JSON5 from "json5";
+import { clearRuntimeConfigSnapshot as clearRuntimeConfigSnapshotState, getRuntimeConfigSnapshot as getRuntimeConfigSnapshotState, getRuntimeConfigSourceSnapshot as getRuntimeConfigSourceSnapshotState, resetConfigRuntimeState as resetConfigRuntimeStateState, setRuntimeConfigSnapshot as setRuntimeConfigSnapshotState, setRuntimeConfigSnapshotRefreshHandler as setRuntimeConfigSnapshotRefreshHandlerState, type RuntimeConfigWriteNotification } from "./runtime-snapshot.js";
 import type { OpenClawConfig, ConfigFileSnapshot } from "./types.js";
+export { clearRuntimeConfigSnapshotState as clearRuntimeConfigSnapshot, getRuntimeConfigSnapshotState as getRuntimeConfigSnapshot, getRuntimeConfigSourceSnapshotState as getRuntimeConfigSourceSnapshot, resetConfigRuntimeStateState as resetConfigRuntimeState, setRuntimeConfigSnapshotState as setRuntimeConfigSnapshot, setRuntimeConfigSnapshotRefreshHandlerState as setRuntimeConfigSnapshotRefreshHandler, };
 export { CircularIncludeError, ConfigIncludeError } from "./includes.js";
 export { MissingEnvVarError } from "./env-substitution.js";
+export { resolveShellEnvExpectedKeys } from "./shell-env-expected-keys.js";
 export type ParseConfigJson5Result = {
     ok: true;
     parsed: unknown;
@@ -26,18 +29,22 @@ export type ConfigWriteOptions = {
      * even if schema/default normalization reintroduces them.
      */
     unsetPaths?: string[][];
+    /**
+     * Internal fast path for callers that already hold a fresh config snapshot.
+     * Avoids rereading the full config just to prepare an immediate write.
+     */
+    baseSnapshot?: ConfigFileSnapshot;
+    /**
+     * Internal one-shot CLI fast path. When no runtime snapshot is active, skip
+     * the post-write runtime snapshot refresh/reload tail entirely.
+     */
+    skipRuntimeSnapshotRefresh?: boolean;
 };
 export type ReadConfigFileSnapshotForWriteResult = {
     snapshot: ConfigFileSnapshot;
     writeOptions: ConfigWriteOptions;
 };
-export type RuntimeConfigSnapshotRefreshParams = {
-    sourceConfig: OpenClawConfig;
-};
-export type RuntimeConfigSnapshotRefreshHandler = {
-    refresh: (params: RuntimeConfigSnapshotRefreshParams) => boolean | Promise<boolean>;
-    clearOnRefreshFailure?: () => void;
-};
+export type ConfigWriteNotification = RuntimeConfigWriteNotification;
 export declare class ConfigRuntimeRefreshError extends Error {
     constructor(message: string, options?: {
         cause?: unknown;
@@ -61,19 +68,23 @@ export declare function parseConfigJson5(raw: string, json5?: {
 export declare function createConfigIO(overrides?: ConfigIoDeps): {
     configPath: string;
     loadConfig: () => OpenClawConfig;
+    readBestEffortConfig: () => Promise<OpenClawConfig>;
+    readSourceConfigBestEffort: () => Promise<OpenClawConfig>;
     readConfigFileSnapshot: () => Promise<ConfigFileSnapshot>;
     readConfigFileSnapshotForWrite: () => Promise<ReadConfigFileSnapshotForWriteResult>;
-    writeConfigFile: (cfg: OpenClawConfig, options?: ConfigWriteOptions) => Promise<void>;
+    writeConfigFile: (cfg: OpenClawConfig, options?: ConfigWriteOptions) => Promise<{
+        persistedHash: string;
+    }>;
 };
 export declare function clearConfigCache(): void;
-export declare function setRuntimeConfigSnapshot(config: OpenClawConfig, sourceConfig?: OpenClawConfig): void;
-export declare function clearRuntimeConfigSnapshot(): void;
-export declare function getRuntimeConfigSnapshot(): OpenClawConfig | null;
-export declare function getRuntimeConfigSourceSnapshot(): OpenClawConfig | null;
+export declare function registerConfigWriteListener(listener: (event: ConfigWriteNotification) => void): () => void;
 export declare function projectConfigOntoRuntimeSourceSnapshot(config: OpenClawConfig): OpenClawConfig;
-export declare function setRuntimeConfigSnapshotRefreshHandler(refreshHandler: RuntimeConfigSnapshotRefreshHandler | null): void;
 export declare function loadConfig(): OpenClawConfig;
+export declare function getRuntimeConfig(): OpenClawConfig;
 export declare function readBestEffortConfig(): Promise<OpenClawConfig>;
+export declare function readSourceConfigBestEffort(): Promise<OpenClawConfig>;
 export declare function readConfigFileSnapshot(): Promise<ConfigFileSnapshot>;
+export declare function readSourceConfigSnapshot(): Promise<ConfigFileSnapshot>;
 export declare function readConfigFileSnapshotForWrite(): Promise<ReadConfigFileSnapshotForWriteResult>;
+export declare function readSourceConfigSnapshotForWrite(): Promise<ReadConfigFileSnapshotForWriteResult>;
 export declare function writeConfigFile(cfg: OpenClawConfig, options?: ConfigWriteOptions): Promise<void>;

@@ -1,186 +1,301 @@
-import "../../redact-BDinS1q9.js";
-import "../../errors-BxyFnvP3.js";
-import "../../unhandled-rejections-CDJ8dOVP.js";
-import "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../warning-filter-C_BEyyvc.js";
-import "../../links-DaR1j_Bv.js";
-import "../../paths-DJBuCoRE.js";
-import "../../auth-profiles-DWcA6joY.js";
-import "../../provider-runtime.runtime-DwNmuhmD.js";
-import "../../file-lock-Cm3HPowf.js";
-import "../../audit-fs-7IxnGQxG.js";
-import "../../resolve-DqJVzTVp.js";
-import "../../profiles-CRvutsjq.js";
-import "../../tailscale-FHZADwLL.js";
-import "../../tailnet-BPCtbdja.js";
-import "../../net-1LAzWzJc.js";
-import "../../auth-BC0t_CEl.js";
-import "../../credentials-6hokf6e3.js";
-import "../../message-channel-ZzTqBBLH.js";
-import "../../sessions-uRDRs4f-.js";
-import "../../plugins-h0t63KQW.js";
-import "../../paths-BEHCHyAI.js";
-import "../../delivery-context-oynQ_N5k.js";
-import "../../session-write-lock-B7nwE7de.js";
-import "../../method-scopes-DtJfTstv.js";
-import "../../call-CFi2qbI2.js";
-import "../../detect-binary-78pS71eg.js";
-import "../../prompt-style-qxNRcnm3.js";
-import "../../ports-lsof-qBGFcQvX.js";
-import "../../restart-stale-pids-ciXEfnyN.js";
-import "../../ports-DF41F7NN.js";
-import "../../logging-CS4wyI-j.js";
-import "../../commands-AceByDw5.js";
-import "../../issue-format-Cj39YIRp.js";
-import "../../provider-env-vars-BZwz5sMG.js";
-import "../../model-auth-env-BWzx2-YC.js";
-import "../../anthropic-vertex-provider-Cik2BDhe.js";
-import "../../pi-model-discovery-hz4apXP-.js";
-import "../../identity-xGthCqY8.js";
-import "../../heartbeat-DqtPOAC0.js";
-import { $f as resolveIMessageGroupRequireMention, Bf as inferIMessageTargetChatType, Gf as parseIMessageTarget, Hf as looksLikeIMessageExplicitTargetId, Jf as parseChatTargetPrefixesOrThrow, Kf as createAllowedChatSenderMatcher, Qf as resolveServicePrefixedTarget, Uf as normalizeIMessageHandle, Vf as isAllowedIMessageSender, Wf as parseIMessageAllowTarget, Xf as resolveServicePrefixedChatTarget, Yf as resolveServicePrefixedAllowTarget, Zf as resolveServicePrefixedOrChatAllowTarget, ep as resolveIMessageGroupToolPolicy, ip as resolveIMessageAccount, np as listIMessageAccountIds, qf as parseChatAllowTargetPrefixes, rp as resolveDefaultIMessageAccountId, tp as listEnabledIMessageAccounts, zf as formatIMessageChatTarget } from "../../pi-embedded-BHLc2HPd.js";
-import "../../internal-hooks-CVdBfFMw.js";
-import "../../multimodal-CDYWira8.js";
-import "../../memory-search-B5CuuJZB.js";
-import "../../secret-input-x2By3bJy.js";
-import "../../bindings-KL-4Efmw.js";
-import "../../resolve-route-C5Xj9lGN.js";
-import "../../routing-DA_79T-X.js";
-import "../../identity-file-ClDAlI0t.js";
-import "../../outbound-runtime-BAxohuIf.js";
-import "../../provider-model-definitions-CrItEa-O.js";
-import "../../provider-models-GbpUTgQg.js";
-import "../../provider-catalog-hDyZGQ8R.js";
-import "../../provider-catalog-0WIhy6f_.js";
-import "../../provider-catalog-CdCrQ7UP.js";
-import "../../provider-catalog-DzIvFdfj.js";
-import "../../provider-catalog-COMYNKV2.js";
-import "../../provider-catalog-Bce8iOMh.js";
-import "../../provider-catalog-CPx35FBq.js";
-import "../../provider-catalog-Czll7Q5-.js";
-import "../../provider-catalog-BFvOY2Dt.js";
-import "../../provider-catalog-VZaye2Ib.js";
-import "../../models-config.providers.discovery-oJl_MWQT.js";
-import "../../text-runtime-B-kOpuLv.js";
-import "../../docker-BrzH-NvE.js";
-import "../../tool-catalog-BQWPAtTb.js";
-import "../../common-CMCEg0LE.js";
-import "../../image-ops-xftchR8Z.js";
-import "../../thinking-Me2S38se.js";
-import "../../path-alias-guards-BfUEa8Z8.js";
-import "../../sandbox-paths-DM85ql27.js";
-import "../../channel-actions-M8UJU-J1.js";
-import "../../mime-Bwp1UQ_8.js";
-import "../../ssrf-BdAu1_OT.js";
-import "../../fetch-guard-BiSGgjb-.js";
-import "../../provider-web-search-B2TRQt7q.js";
-import "../../manager-BFi-xqLj.js";
-import "../../config-schema-BoeEl_gh.js";
-import "../../channel-plugin-common-Bw5e9GHM.js";
-import "../../status-helpers-DTFg68Zs.js";
-import "../../conversation-runtime-BfLWHgdb.js";
-import "../../runtime-whatsapp-boundary-C0sTsAVN.js";
-import "../../pairing-store-Ci8ZfuL6.js";
-import "../../json-store-Dizz4Rhx.js";
-import "../../secret-file-BzdoxKYZ.js";
-import "../../channel-config-schema-DOQ4q6a_.js";
-import "../../setup-binary-Tg8N6z5q.js";
-import "../../archive-Oi0PB5pw.js";
-import "../../fs-safe-DpC9pe80.js";
-import "../../signal-cli-install-pAmdy64m.js";
-import "../../setup-wizard-proxy-3tbzVvIf.js";
-import "../../setup-Cuh8Qocv.js";
-import "../../dm-policy-shared-3Jdbvvlm.js";
-import "../../runtime-env-pWTJLxVn.js";
-import "../../temp-path-DvwSkpQg.js";
-import "../../diagnostic-Dx7wnQab.js";
-import "../../logging-B3tLYQAZ.js";
-import "../../config-runtime-BMqUsOKJ.js";
-import "../../level-overrides-DxRoq-Vr.js";
-import "../../exec-approvals-CoUFlPSg.js";
-import "../../webhook-ingress-CwnvXQ9i.js";
-import "../../system-events-D_U3rn_H.js";
-import "../../ssrf-policy-Cve-f-IZ.js";
-import "../../hook-runtime-C0FQ8mwc.js";
-import "../../templating-BpbUbFSs.js";
-import "../../channel-reply-pipeline-BQ2GND11.js";
-import "../../reply-history-CYr7j6cE.js";
-import "../../commands-registry.data-C-Zb7sHo.js";
-import "../../commands-registry-kALONq2A.js";
-import "../../frontmatter-C_CWb6f1.js";
-import "../../env-overrides-CilRbuhU.js";
-import "../../skills-Xrdxpo0d.js";
-import "../../skills-remote-D055n83h.js";
-import "../../workspace-dirs-BooYyzLb.js";
-import "../../pairing-token-BhzPXbCy.js";
-import "../../skill-commands-X9DVN0CB.js";
-import "../../exec-inline-eval-CAjjj6oR.js";
-import "../../sandbox-DSgCBor-.js";
-import "../../target-registry-CUzd3r6R.js";
-import "../../external-content-BtOAY1jC.js";
-import "../../brave-iyc-zT4j.js";
-import "../../duckduckgo-RnKnjVjk.js";
-import "../../exa-B_PEobTF.js";
-import "../../security-runtime-DuEgVcd_.js";
-import "../../provider-auth-ref-CkjXioxW.js";
-import "../../provider-auth-input-DY2h0M4n.js";
-import "../../provider-auth-helpers-CfaQ5Xn6.js";
-import "../../provider-api-key-auth-Uu86HoCQ.js";
-import "../../provider-usage-D_y-rSPa.js";
-import "../../provider-models-BlbL1wnJ.js";
-import "../../media-understanding-DXKhzmxa.js";
-import "../../media-understanding-provider-mKPWfSgv.js";
-import "../../provider-entry-Dh6ETIXa.js";
-import "../../media-understanding-provider-Br6AUUTp.js";
-import "../../provider-onboard-DmLoftpN.js";
-import "../../onboard-p6odcf1a.js";
-import "../../perplexity-web-search-provider-CBvej2u9.js";
-import "../../perplexity-DVSMCtcT.js";
-import "../../model-definitions-CLlu-y8L.js";
-import "../../onboard-CQyz1Xh9.js";
-import "../../provider-catalog-BbgD0Blc.js";
-import "../../provider-models-CPWTfv6u.js";
-import "../../stream-WNyIq00o.js";
-import "../../web-search-C2bCgEzC.js";
-import "../../client-fetch-DG9t9440.js";
-import "../../config-B6bjVdCF.js";
-import "../../web-media-B7RZCKik.js";
-import "../../stagger-C20Z_jRQ.js";
-import "../../command-secret-targets-CiFc3JN3.js";
-import "../../delivery-queue-iwWmpCz9.js";
-import "../../pairing-labels-PxfGoTvk.js";
-import "../../directory-runtime-D9Y42mW-.js";
-import "../../read-only-account-inspect-DL-l3acs.js";
-import "../../src-hV2aBDoy.js";
-import "../../web-media-C0RRMmtv.js";
-import "../../state-paths-CG7b-A_-.js";
-import "../../axios-zS_oAKS1.js";
-import "../../channel-summary-BXD0QyVg.js";
-import "../../session-system-events-CRFPrG-r.js";
-import "../../ssh-tunnel-Ca8F0wnz.js";
-import "../../server-middleware-DUIlEnG_.js";
-import "../../llm-task-D_W5GYK4.js";
-import "../../tool-policy-match-DgTjuJ-l.js";
-import "../../runtime-DAr9Q1gF.js";
-import "../../channel-status-DxDpNj1k.js";
-import "../../discord-core-CTFa_tPG.js";
-import "../../cli-runtime-CivyfPOe.js";
-import "../../config-presence-Bo4-9YVM.js";
-import "../../query-expansion-CeNhqo71.js";
-import "../../search-manager-CiHiEX8K.js";
-import "../../acp-runtime-CRrXx1ZI.js";
-import "../../telegram-core-n7uYzMlP.js";
-import "../../audit-BszklQB5.js";
-import "../../gateway-runtime-_5BLwTPa.js";
-import "../../connection-auth-DQ6Wy_i-.js";
-import "../../mcp-config-vaYGkUmW.js";
-export { createAllowedChatSenderMatcher, formatIMessageChatTarget, inferIMessageTargetChatType, isAllowedIMessageSender, listEnabledIMessageAccounts, listIMessageAccountIds, looksLikeIMessageExplicitTargetId, normalizeIMessageHandle, parseChatAllowTargetPrefixes, parseChatTargetPrefixesOrThrow, parseIMessageAllowTarget, parseIMessageTarget, resolveDefaultIMessageAccountId, resolveIMessageAccount, resolveIMessageGroupRequireMention, resolveIMessageGroupToolPolicy, resolveServicePrefixedAllowTarget, resolveServicePrefixedChatTarget, resolveServicePrefixedOrChatAllowTarget, resolveServicePrefixedTarget };
+import { t as DEFAULT_ACCOUNT_ID } from "../../account-id-CZtNSGs2.js";
+import { r as createLazyRuntimeModule } from "../../lazy-runtime-C48wNwsc.js";
+import { c as createScopedChannelConfigAdapter, m as formatTrimmedAllowFromEntries, t as adaptScopedAccountAccessor } from "../../channel-config-helpers-Da4M1Ru3.js";
+import { n as describeAccountSnapshot } from "../../account-helpers-Cq1Zr5oH.js";
+import { t as buildOutboundBaseSessionKey } from "../../base-session-key-p0_-kW2R.js";
+import { n as createChannelPluginBase, o as getChatChannelMeta, r as createChatChannelPlugin } from "../../core-w7kNLu40.js";
+import "../../channel-core-DRGB1UWh.js";
+import "../../routing-CKtHAXfV.js";
+import { r as createRestrictSendersChannelSecurity } from "../../channel-policy-fpyKQCGQ.js";
+import { a as resolveServicePrefixedChatTarget, i as resolveServicePrefixedAllowTarget, n as parseChatAllowTargetPrefixes, o as resolveServicePrefixedOrChatAllowTarget, r as parseChatTargetPrefixesOrThrow, s as resolveServicePrefixedTarget, t as createAllowedChatSenderMatcher } from "../../channel-targets-DdpMe36e.js";
+import { c as collectStatusIssuesFromLastError, d as createDefaultChannelRuntimeState, u as createComputedAccountStatusAdapter } from "../../status-helpers-C-OjDvUo.js";
+import { t as sanitizeForPlainText } from "../../sanitize-text-353-OQG5.js";
+import "../../outbound-runtime-Ct6SRp91.js";
+import { t as chunkTextForOutbound } from "../../text-chunking-lDajLZMN.js";
+import { n as buildDmGroupAccountAllowlistAdapter } from "../../allowlist-config-edit-CENrHe-Q.js";
+import { n as buildPassiveProbedChannelStatusSummary } from "../../extension-shared-B3txLw6Y.js";
+import { a as listIMessageAccountIds, i as listEnabledIMessageAccounts, n as resolveIMessageAttachmentRoots, o as resolveDefaultIMessageAccountId, r as resolveIMessageRemoteAttachmentRoots, s as resolveIMessageAccount } from "../../media-contract-a3so6Jpt.js";
+import { a as matchIMessageAcpConversation, c as formatIMessageChatTarget, d as looksLikeIMessageExplicitTargetId, f as normalizeIMessageHandle, g as normalizeIMessageMessagingTarget, h as looksLikeIMessageTargetId, i as resolveIMessageInboundConversationId, l as inferIMessageTargetChatType, m as parseIMessageTarget, o as normalizeIMessageAcpConversationId, p as parseIMessageAllowTarget, r as DEFAULT_IMESSAGE_PROBE_TIMEOUT_MS, s as resolveIMessageConversationIdFromTarget, t as probeIMessage, u as isAllowedIMessageSender } from "../../probe-CA4zOQas.js";
+import { n as createIMessageConversationBindingManager, t as __testing } from "../../conversation-bindings-Dlc-lt11.js";
+import { n as resolveIMessageGroupToolPolicy, t as resolveIMessageGroupRequireMention } from "../../group-policy-DN6CA2ah.js";
+import { o as imessageSetupAdapter, r as createIMessageSetupWizardProxy, t as IMESSAGE_LEGACY_OUTBOUND_SEND_DEP_KEYS } from "../../outbound-send-deps-DyqduJGt.js";
+import { t as IMessageChannelConfigSchema } from "../../config-schema-BKFUYcKZ.js";
+//#region extensions/imessage/src/shared.ts
+const IMESSAGE_CHANNEL = "imessage";
+async function loadIMessageChannelRuntime$1() {
+	return await import("../../channel.runtime-DCYzhN67.js");
+}
+const imessageSetupWizard = createIMessageSetupWizardProxy(async () => (await loadIMessageChannelRuntime$1()).imessageSetupWizard);
+const imessageConfigAdapter = createScopedChannelConfigAdapter({
+	sectionKey: IMESSAGE_CHANNEL,
+	listAccountIds: listIMessageAccountIds,
+	resolveAccount: adaptScopedAccountAccessor(resolveIMessageAccount),
+	defaultAccountId: resolveDefaultIMessageAccountId,
+	clearBaseFields: [
+		"cliPath",
+		"dbPath",
+		"service",
+		"region",
+		"name"
+	],
+	resolveAllowFrom: (account) => account.config.allowFrom,
+	formatAllowFrom: (allowFrom) => formatTrimmedAllowFromEntries(allowFrom),
+	resolveDefaultTo: (account) => account.config.defaultTo
+});
+const imessageSecurityAdapter = createRestrictSendersChannelSecurity({
+	channelKey: IMESSAGE_CHANNEL,
+	resolveDmPolicy: (account) => account.config.dmPolicy,
+	resolveDmAllowFrom: (account) => account.config.allowFrom,
+	resolveGroupPolicy: (account) => account.config.groupPolicy,
+	surface: "iMessage groups",
+	openScope: "any member",
+	groupPolicyPath: "channels.imessage.groupPolicy",
+	groupAllowFromPath: "channels.imessage.groupAllowFrom",
+	mentionGated: false,
+	policyPathSuffix: "dmPolicy"
+});
+function createIMessagePluginBase(params) {
+	return {
+		...createChannelPluginBase({
+			id: IMESSAGE_CHANNEL,
+			meta: {
+				...getChatChannelMeta(IMESSAGE_CHANNEL),
+				aliases: ["imsg"],
+				showConfigured: false
+			},
+			setupWizard: params.setupWizard,
+			capabilities: {
+				chatTypes: ["direct", "group"],
+				media: true
+			},
+			reload: { configPrefixes: ["channels.imessage"] },
+			configSchema: IMessageChannelConfigSchema,
+			config: {
+				...imessageConfigAdapter,
+				isConfigured: (account) => account.configured,
+				describeAccount: (account) => describeAccountSnapshot({
+					account,
+					configured: account.configured
+				})
+			},
+			security: imessageSecurityAdapter,
+			setup: params.setup
+		}),
+		messaging: {
+			resolveInboundAttachmentRoots: (params) => resolveIMessageAttachmentRoots({
+				accountId: params.accountId,
+				cfg: params.cfg
+			}),
+			resolveRemoteInboundAttachmentRoots: (params) => resolveIMessageRemoteAttachmentRoots({
+				accountId: params.accountId,
+				cfg: params.cfg
+			})
+		}
+	};
+}
+//#endregion
+//#region extensions/imessage/src/status-core.ts
+async function probeIMessageStatusAccount(params) {
+	return await params.probeIMessageAccount({
+		timeoutMs: params.timeoutMs,
+		cliPath: params.account.config.cliPath,
+		dbPath: params.account.config.dbPath
+	});
+}
+//#endregion
+//#region extensions/imessage/src/channel.ts
+const loadIMessageChannelRuntime = createLazyRuntimeModule(() => import("../../channel.runtime-DCYzhN67.js"));
+function buildIMessageBaseSessionKey(params) {
+	return buildOutboundBaseSessionKey({
+		...params,
+		channel: "imessage"
+	});
+}
+function resolveIMessageOutboundSessionRoute(params) {
+	const parsed = parseIMessageTarget(params.target);
+	if (parsed.kind === "handle") {
+		const handle = normalizeIMessageHandle(parsed.to);
+		if (!handle) return null;
+		const peer = {
+			kind: "direct",
+			id: handle
+		};
+		const baseSessionKey = buildIMessageBaseSessionKey({
+			cfg: params.cfg,
+			agentId: params.agentId,
+			accountId: params.accountId,
+			peer
+		});
+		return {
+			sessionKey: baseSessionKey,
+			baseSessionKey,
+			peer,
+			chatType: "direct",
+			from: `imessage:${handle}`,
+			to: `imessage:${handle}`
+		};
+	}
+	const peerId = parsed.kind === "chat_id" ? String(parsed.chatId) : parsed.kind === "chat_guid" ? parsed.chatGuid : parsed.chatIdentifier;
+	if (!peerId) return null;
+	const peer = {
+		kind: "group",
+		id: peerId
+	};
+	const baseSessionKey = buildIMessageBaseSessionKey({
+		cfg: params.cfg,
+		agentId: params.agentId,
+		accountId: params.accountId,
+		peer
+	});
+	const toPrefix = parsed.kind === "chat_id" ? "chat_id" : parsed.kind === "chat_guid" ? "chat_guid" : "chat_identifier";
+	return {
+		sessionKey: baseSessionKey,
+		baseSessionKey,
+		peer,
+		chatType: "group",
+		from: `imessage:group:${peerId}`,
+		to: `${toPrefix}:${peerId}`
+	};
+}
+const imessagePlugin = createChatChannelPlugin({
+	base: {
+		...createIMessagePluginBase({
+			setupWizard: imessageSetupWizard,
+			setup: imessageSetupAdapter
+		}),
+		allowlist: buildDmGroupAccountAllowlistAdapter({
+			channelId: "imessage",
+			resolveAccount: resolveIMessageAccount,
+			normalize: ({ values }) => formatTrimmedAllowFromEntries(values),
+			resolveDmAllowFrom: (account) => account.config.allowFrom,
+			resolveGroupAllowFrom: (account) => account.config.groupAllowFrom,
+			resolveDmPolicy: (account) => account.config.dmPolicy,
+			resolveGroupPolicy: (account) => account.config.groupPolicy
+		}),
+		groups: {
+			resolveRequireMention: resolveIMessageGroupRequireMention,
+			resolveToolPolicy: resolveIMessageGroupToolPolicy
+		},
+		doctor: { groupAllowFromFallbackToAllowFrom: false },
+		conversationBindings: {
+			supportsCurrentConversationBinding: true,
+			createManager: ({ cfg, accountId }) => createIMessageConversationBindingManager({
+				cfg,
+				accountId: accountId ?? void 0
+			})
+		},
+		bindings: {
+			compileConfiguredBinding: ({ conversationId }) => normalizeIMessageAcpConversationId(conversationId),
+			matchInboundConversation: ({ compiledBinding, conversationId }) => matchIMessageAcpConversation({
+				bindingConversationId: compiledBinding.conversationId,
+				conversationId
+			}),
+			resolveCommandConversation: ({ originatingTo, commandTo, fallbackTo }) => {
+				const conversationId = resolveIMessageConversationIdFromTarget(originatingTo ?? "") ?? resolveIMessageConversationIdFromTarget(commandTo ?? "") ?? resolveIMessageConversationIdFromTarget(fallbackTo ?? "");
+				return conversationId ? { conversationId } : null;
+			}
+		},
+		messaging: {
+			normalizeTarget: normalizeIMessageMessagingTarget,
+			inferTargetChatType: ({ to }) => inferIMessageTargetChatType(to),
+			resolveOutboundSessionRoute: (params) => resolveIMessageOutboundSessionRoute(params),
+			targetResolver: {
+				looksLikeId: looksLikeIMessageExplicitTargetId,
+				hint: "<handle|chat_id:ID>",
+				resolveTarget: async ({ normalized }) => {
+					const to = normalized?.trim();
+					if (!to) return null;
+					const chatType = inferIMessageTargetChatType(to);
+					if (!chatType) return null;
+					return {
+						to,
+						kind: chatType === "direct" ? "user" : "group",
+						source: "normalized"
+					};
+				}
+			}
+		},
+		status: createComputedAccountStatusAdapter({
+			defaultRuntime: createDefaultChannelRuntimeState(DEFAULT_ACCOUNT_ID, {
+				cliPath: null,
+				dbPath: null
+			}),
+			collectStatusIssues: (accounts) => collectStatusIssuesFromLastError("imessage", accounts),
+			buildChannelSummary: ({ snapshot }) => buildPassiveProbedChannelStatusSummary(snapshot, {
+				cliPath: snapshot.cliPath ?? null,
+				dbPath: snapshot.dbPath ?? null
+			}),
+			probeAccount: async ({ account, timeoutMs }) => await probeIMessageStatusAccount({
+				account,
+				timeoutMs,
+				probeIMessageAccount: async (params) => await (await loadIMessageChannelRuntime()).probeIMessageAccount(params)
+			}),
+			resolveAccountSnapshot: ({ account, runtime }) => ({
+				accountId: account.accountId,
+				name: account.name,
+				enabled: account.enabled,
+				configured: account.configured,
+				extra: {
+					cliPath: runtime?.cliPath ?? account.config.cliPath ?? null,
+					dbPath: runtime?.dbPath ?? account.config.dbPath ?? null
+				}
+			}),
+			resolveAccountState: ({ enabled }) => enabled ? "enabled" : "disabled"
+		}),
+		gateway: { startAccount: async (ctx) => {
+			const conversationBindings = createIMessageConversationBindingManager({
+				cfg: ctx.cfg,
+				accountId: ctx.accountId
+			});
+			try {
+				return await (await loadIMessageChannelRuntime()).startIMessageGatewayAccount(ctx);
+			} finally {
+				conversationBindings.stop();
+			}
+		} }
+	},
+	pairing: { text: {
+		idLabel: "imessageSenderId",
+		message: "OpenClaw: your access has been approved.",
+		notify: async ({ id }) => await (await loadIMessageChannelRuntime()).notifyIMessageApproval(id)
+	} },
+	security: imessageSecurityAdapter,
+	outbound: {
+		base: {
+			deliveryMode: "direct",
+			chunker: chunkTextForOutbound,
+			chunkerMode: "text",
+			textChunkLimit: 4e3,
+			sanitizeText: ({ text }) => sanitizeForPlainText(text)
+		},
+		attachedResults: {
+			channel: "imessage",
+			sendText: async ({ cfg, to, text, accountId, deps, replyToId }) => await (await loadIMessageChannelRuntime()).sendIMessageOutbound({
+				cfg,
+				to,
+				text,
+				accountId: accountId ?? void 0,
+				deps,
+				replyToId: replyToId ?? void 0
+			}),
+			sendMedia: async ({ cfg, to, text, mediaUrl, mediaLocalRoots, accountId, deps, replyToId }) => await (await loadIMessageChannelRuntime()).sendIMessageOutbound({
+				cfg,
+				to,
+				text,
+				mediaUrl,
+				mediaLocalRoots,
+				accountId: accountId ?? void 0,
+				deps,
+				replyToId: replyToId ?? void 0
+			})
+		}
+	}
+});
+//#endregion
+//#region extensions/imessage/src/channel.setup.ts
+const imessageSetupPlugin = { ...createIMessagePluginBase({
+	setupWizard: imessageSetupWizard,
+	setup: imessageSetupAdapter
+}) };
+//#endregion
+export { DEFAULT_IMESSAGE_PROBE_TIMEOUT_MS, IMESSAGE_LEGACY_OUTBOUND_SEND_DEP_KEYS, __testing, createAllowedChatSenderMatcher, createIMessageConversationBindingManager, formatIMessageChatTarget, imessagePlugin, imessageSetupPlugin, inferIMessageTargetChatType, isAllowedIMessageSender, listEnabledIMessageAccounts, listIMessageAccountIds, looksLikeIMessageExplicitTargetId, looksLikeIMessageTargetId, matchIMessageAcpConversation, normalizeIMessageAcpConversationId, normalizeIMessageHandle, normalizeIMessageMessagingTarget, parseChatAllowTargetPrefixes, parseChatTargetPrefixesOrThrow, parseIMessageAllowTarget, parseIMessageTarget, probeIMessage, resolveDefaultIMessageAccountId, resolveIMessageAccount, resolveIMessageConversationIdFromTarget, resolveIMessageGroupRequireMention, resolveIMessageGroupToolPolicy, resolveIMessageInboundConversationId, resolveServicePrefixedAllowTarget, resolveServicePrefixedChatTarget, resolveServicePrefixedOrChatAllowTarget, resolveServicePrefixedTarget };

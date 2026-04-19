@@ -1,23 +1,16 @@
 import { type DeliveryContext } from "../utils/delivery-context.js";
-import type { SpawnSubagentMode } from "./subagent-spawn.js";
-export declare function captureSubagentCompletionReply(sessionKey: string): Promise<string | undefined>;
-export declare function buildSubagentSystemPrompt(params: {
-    requesterSessionKey?: string;
-    requesterOrigin?: DeliveryContext;
-    childSessionKey: string;
-    label?: string;
-    task?: string;
-    /** Whether ACP-specific routing guidance should be included. Defaults to true. */
-    acpEnabled?: boolean;
-    /** Depth of the child being spawned (1 = sub-agent, 2 = sub-sub-agent). */
-    childDepth?: number;
-    /** Config value: max allowed spawn depth. */
-    maxSpawnDepth?: number;
-}): string;
-export type SubagentRunOutcome = {
-    status: "ok" | "error" | "timeout" | "unknown";
-    error?: string;
+import { type SubagentRunOutcome } from "./subagent-announce-output.js";
+import { callGateway, loadConfig } from "./subagent-announce.runtime.js";
+import type { SpawnSubagentMode } from "./subagent-spawn.types.js";
+type SubagentAnnounceDeps = {
+    callGateway: typeof callGateway;
+    loadConfig: typeof loadConfig;
+    loadSubagentRegistryRuntime: typeof loadSubagentRegistryRuntime;
 };
+declare function loadSubagentRegistryRuntime(): Promise<typeof import("./subagent-announce.registry.runtime.js")>;
+export { buildSubagentSystemPrompt } from "./subagent-system-prompt.js";
+export { captureSubagentCompletionReply } from "./subagent-announce-output.js";
+export type { SubagentRunOutcome } from "./subagent-announce-output.js";
 export type SubagentAnnounceType = "subagent task" | "cron job";
 export declare function runSubagentAnnounceFlow(params: {
     childSessionKey: string;
@@ -46,3 +39,6 @@ export declare function runSubagentAnnounceFlow(params: {
     signal?: AbortSignal;
     bestEffortDeliver?: boolean;
 }): Promise<boolean>;
+export declare const __testing: {
+    setDepsForTest(overrides?: Partial<SubagentAnnounceDeps>): void;
+};

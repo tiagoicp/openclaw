@@ -1,210 +1,34 @@
-import "../../redact-BDinS1q9.js";
-import "../../errors-BxyFnvP3.js";
-import "../../unhandled-rejections-CDJ8dOVP.js";
-import { O as loadConfig, uo as getChildLogger } from "../../env-D1ktUnAV.js";
-import "../../paths-CjuwkA2v.js";
-import "../../safe-text-K2Nonoo3.js";
-import "../../tmp-openclaw-dir-DzRxfh9a.js";
-import "../../theme-BH5F9mlg.js";
-import "../../version-DGzLsBG-.js";
-import { l as normalizeMainKey } from "../../session-key-CYZxn_Kd.js";
-import "../../zod-schema.agent-runtime-DNndkpI8.js";
-import "../../runtime-BF_KUcJM.js";
-import "../../registry-bOiEdffE.js";
-import "../../ip-ByO4-_4f.js";
-import "../../warning-filter-C_BEyyvc.js";
-import "../../links-DaR1j_Bv.js";
-import "../../paths-DJBuCoRE.js";
-import "../../auth-profiles-DWcA6joY.js";
-import "../../provider-runtime.runtime-DwNmuhmD.js";
-import "../../file-lock-Cm3HPowf.js";
-import "../../audit-fs-7IxnGQxG.js";
-import "../../resolve-DqJVzTVp.js";
-import "../../profiles-CRvutsjq.js";
-import { t as redactIdentifier } from "../../redact-identifier-BiwwDfOa.js";
-import "../../tailscale-FHZADwLL.js";
-import "../../tailnet-BPCtbdja.js";
-import "../../net-1LAzWzJc.js";
-import "../../auth-BC0t_CEl.js";
-import "../../credentials-6hokf6e3.js";
-import "../../message-channel-ZzTqBBLH.js";
-import { F as evaluateSessionFreshness, I as resolveChannelResetConfig, L as resolveSessionResetPolicy, P as resolveSessionKey, R as resolveSessionResetType, b as updateSessionStore, m as loadSessionStore, z as resolveThreadFlag } from "../../sessions-uRDRs4f-.js";
-import "../../plugins-h0t63KQW.js";
-import { l as resolveStorePath } from "../../paths-BEHCHyAI.js";
-import "../../delivery-context-oynQ_N5k.js";
-import "../../session-write-lock-B7nwE7de.js";
-import "../../method-scopes-DtJfTstv.js";
-import "../../call-CFi2qbI2.js";
-import "../../detect-binary-78pS71eg.js";
-import "../../prompt-style-qxNRcnm3.js";
-import "../../ports-lsof-qBGFcQvX.js";
-import "../../restart-stale-pids-ciXEfnyN.js";
-import "../../ports-DF41F7NN.js";
-import "../../logging-CS4wyI-j.js";
-import "../../commands-AceByDw5.js";
-import "../../issue-format-Cj39YIRp.js";
-import "../../provider-env-vars-BZwz5sMG.js";
-import "../../model-auth-env-BWzx2-YC.js";
-import "../../anthropic-vertex-provider-Cik2BDhe.js";
-import "../../pi-model-discovery-hz4apXP-.js";
-import "../../identity-xGthCqY8.js";
-import { a as stripHeartbeatToken, i as resolveHeartbeatPrompt, n as HEARTBEAT_PROMPT, o as HEARTBEAT_TOKEN, s as SILENT_REPLY_TOKEN } from "../../heartbeat-DqtPOAC0.js";
-import { $y as emitHeartbeatEvent, Bt as getWebAuthAgeMs, Gt as pickWebChannel, Ht as logWebSelfId, Jt as readWebSelfIdentity, Kt as readCredsJsonRaw, Mu as getReplyFromConfig, Qt as webAuthExists, Qy as resolveHeartbeatVisibility, Ut as logoutWeb, Vt as hasWebCredsSync, Wt as maybeRestoreCredsFromBackup, Xt as resolveWebCredsBackupPath, Yt as resolveDefaultWebAuthDir, Zt as resolveWebCredsPath, hC as appendCronStyleCurrentTimeLine, qt as readWebSelfId, rb as resolveIndicatorType, vf as resolveHeartbeatReplyPayload, zt as WA_WEB_AUTH_DIR } from "../../pi-embedded-BHLc2HPd.js";
-import "../../internal-hooks-CVdBfFMw.js";
-import "../../multimodal-CDYWira8.js";
-import "../../memory-search-B5CuuJZB.js";
-import "../../secret-input-x2By3bJy.js";
-import "../../bindings-KL-4Efmw.js";
-import "../../resolve-route-C5Xj9lGN.js";
-import "../../routing-DA_79T-X.js";
-import "../../identity-file-ClDAlI0t.js";
-import "../../outbound-runtime-BAxohuIf.js";
-import "../../provider-model-definitions-CrItEa-O.js";
-import "../../provider-models-GbpUTgQg.js";
-import "../../provider-catalog-hDyZGQ8R.js";
-import "../../provider-catalog-0WIhy6f_.js";
-import "../../provider-catalog-CdCrQ7UP.js";
-import "../../provider-catalog-DzIvFdfj.js";
-import "../../provider-catalog-COMYNKV2.js";
-import "../../provider-catalog-Bce8iOMh.js";
-import "../../provider-catalog-CPx35FBq.js";
-import "../../provider-catalog-Czll7Q5-.js";
-import "../../provider-catalog-BFvOY2Dt.js";
-import "../../provider-catalog-VZaye2Ib.js";
-import "../../models-config.providers.discovery-oJl_MWQT.js";
-import "../../text-runtime-B-kOpuLv.js";
-import "../../docker-BrzH-NvE.js";
-import "../../tool-catalog-BQWPAtTb.js";
-import "../../common-CMCEg0LE.js";
-import { s as optimizeImageToPng } from "../../image-ops-xftchR8Z.js";
-import "../../thinking-Me2S38se.js";
-import "../../path-alias-guards-BfUEa8Z8.js";
-import "../../sandbox-paths-DM85ql27.js";
-import "../../channel-actions-M8UJU-J1.js";
-import "../../mime-Bwp1UQ_8.js";
-import "../../ssrf-BdAu1_OT.js";
-import "../../fetch-guard-BiSGgjb-.js";
-import "../../provider-web-search-B2TRQt7q.js";
-import "../../manager-BFi-xqLj.js";
-import "../../config-schema-BoeEl_gh.js";
-import "../../channel-plugin-common-Bw5e9GHM.js";
-import "../../status-helpers-DTFg68Zs.js";
-import "../../conversation-runtime-BfLWHgdb.js";
-import { S as resolveWhatsAppHeartbeatRecipients } from "../../runtime-whatsapp-boundary-C0sTsAVN.js";
-import "../../pairing-store-Ci8ZfuL6.js";
-import "../../json-store-Dizz4Rhx.js";
-import "../../secret-file-BzdoxKYZ.js";
-import "../../channel-config-schema-DOQ4q6a_.js";
-import "../../setup-binary-Tg8N6z5q.js";
-import "../../archive-Oi0PB5pw.js";
-import "../../fs-safe-DpC9pe80.js";
-import "../../signal-cli-install-pAmdy64m.js";
-import "../../setup-wizard-proxy-3tbzVvIf.js";
-import "../../setup-Cuh8Qocv.js";
-import "../../dm-policy-shared-3Jdbvvlm.js";
-import "../../runtime-env-pWTJLxVn.js";
-import "../../temp-path-DvwSkpQg.js";
-import "../../diagnostic-Dx7wnQab.js";
-import "../../logging-B3tLYQAZ.js";
-import "../../config-runtime-BMqUsOKJ.js";
-import "../../level-overrides-DxRoq-Vr.js";
-import "../../exec-approvals-CoUFlPSg.js";
-import "../../webhook-ingress-CwnvXQ9i.js";
-import "../../system-events-D_U3rn_H.js";
-import "../../ssrf-policy-Cve-f-IZ.js";
-import { p as resolveSendableOutboundReplyParts, s as hasOutboundReplyContent } from "../../reply-payload-DgkHZodm.js";
-import "../../hook-runtime-C0FQ8mwc.js";
-import "../../templating-BpbUbFSs.js";
-import "../../channel-reply-pipeline-BQ2GND11.js";
-import "../../reply-history-CYr7j6cE.js";
-import "../../commands-registry.data-C-Zb7sHo.js";
-import "../../commands-registry-kALONq2A.js";
-import "../../frontmatter-C_CWb6f1.js";
-import "../../env-overrides-CilRbuhU.js";
-import "../../skills-Xrdxpo0d.js";
-import "../../skills-remote-D055n83h.js";
-import "../../workspace-dirs-BooYyzLb.js";
-import "../../pairing-token-BhzPXbCy.js";
-import "../../skill-commands-X9DVN0CB.js";
-import "../../exec-inline-eval-CAjjj6oR.js";
-import "../../sandbox-DSgCBor-.js";
-import "../../target-registry-CUzd3r6R.js";
-import "../../external-content-BtOAY1jC.js";
-import "../../brave-iyc-zT4j.js";
-import "../../duckduckgo-RnKnjVjk.js";
-import "../../exa-B_PEobTF.js";
-import "../../security-runtime-DuEgVcd_.js";
-import "../../provider-auth-ref-CkjXioxW.js";
-import "../../provider-auth-input-DY2h0M4n.js";
-import "../../provider-auth-helpers-CfaQ5Xn6.js";
-import "../../provider-api-key-auth-Uu86HoCQ.js";
-import "../../provider-usage-D_y-rSPa.js";
-import "../../provider-models-BlbL1wnJ.js";
-import "../../media-understanding-DXKhzmxa.js";
-import "../../media-understanding-provider-mKPWfSgv.js";
-import "../../provider-entry-Dh6ETIXa.js";
-import "../../media-understanding-provider-Br6AUUTp.js";
-import "../../provider-onboard-DmLoftpN.js";
-import "../../onboard-p6odcf1a.js";
-import "../../perplexity-web-search-provider-CBvej2u9.js";
-import "../../perplexity-DVSMCtcT.js";
-import "../../model-definitions-CLlu-y8L.js";
-import "../../onboard-CQyz1Xh9.js";
-import "../../provider-catalog-BbgD0Blc.js";
-import "../../provider-models-CPWTfv6u.js";
-import "../../stream-WNyIq00o.js";
-import "../../web-search-C2bCgEzC.js";
-import "../../client-fetch-DG9t9440.js";
-import "../../config-B6bjVdCF.js";
-import { a as getDefaultLocalRoots, r as LocalMediaAccessError } from "../../web-media-B7RZCKik.js";
-import "../../stagger-C20Z_jRQ.js";
-import "../../command-secret-targets-CiFc3JN3.js";
-import "../../delivery-queue-iwWmpCz9.js";
-import "../../pairing-labels-PxfGoTvk.js";
-import "../../directory-runtime-D9Y42mW-.js";
-import "../../read-only-account-inspect-DL-l3acs.js";
-import "../../src-hV2aBDoy.js";
-import "../../web-media-C0RRMmtv.js";
-import "../../state-paths-CG7b-A_-.js";
-import "../../axios-zS_oAKS1.js";
-import "../../channel-summary-BXD0QyVg.js";
-import "../../session-system-events-CRFPrG-r.js";
-import "../../ssh-tunnel-Ca8F0wnz.js";
-import "../../server-middleware-DUIlEnG_.js";
-import "../../llm-task-D_W5GYK4.js";
-import "../../tool-policy-match-DgTjuJ-l.js";
-import "../../runtime-DAr9Q1gF.js";
-import "../../channel-status-DxDpNj1k.js";
-import "../../discord-core-CTFa_tPG.js";
-import "../../cli-runtime-CivyfPOe.js";
-import "../../config-presence-Bo4-9YVM.js";
-import "../../query-expansion-CeNhqo71.js";
-import "../../search-manager-CiHiEX8K.js";
-import "../../acp-runtime-CRrXx1ZI.js";
-import "../../telegram-core-n7uYzMlP.js";
-import "../../audit-BszklQB5.js";
-import "../../gateway-runtime-_5BLwTPa.js";
-import "../../connection-auth-DQ6Wy_i-.js";
-import "../../mcp-config-vaYGkUmW.js";
-import "../../setup-tools-BPcAipMK.js";
-import { o as DEFAULT_WEB_MEDIA_BYTES } from "../../whatsapp-core-BmB62TpE.js";
-import { i as setActiveWebListener, n as requireActiveWebListener, r as resolveWebAccountId, t as getActiveWebListener } from "../../active-listener-DHk43GUu.js";
-import { C as monitorWebInbox, D as resetWebInboundDedupe, E as extractText, S as newConnectionId$1, T as extractMediaPlaceholder, _ as sendReactionWhatsApp, b as optimizeImageToJpeg, g as sendPollWhatsApp, h as sendMessageWhatsApp, m as monitorWebChannel, p as loginWeb, v as loadWebMedia, w as extractLocationData, x as whatsappHeartbeatLog, y as loadWebMediaRaw } from "../../channel.runtime-BRHQdHXW.js";
-import { a as waitForWaConnection, i as waitForCredsSaveQueueWithTimeout, n as newConnectionId, o as formatError, r as waitForCredsSaveQueue, s as getStatusCode, t as createWaSocket } from "../../session-C1LRC5LC.js";
-import { n as waitForWebLogin, t as startWebLoginWithQr } from "../../login-qr-DKFB-akp.js";
-import "../../login-qr-api-Bbjfe-7o.js";
-import { t as createWhatsAppLoginTool } from "../../agent-tools-login-C5bv0UuI.js";
-import { n as whatsAppActionRuntime, t as handleWhatsAppAction } from "../../action-runtime-WAAygv_T.js";
+import { n as resolveWebCredsBackupPath, r as resolveWebCredsPath, t as hasWebCredsSync } from "./creds-files-BD3Rjqo2.js";
+import { n as whatsAppActionRuntime, t as handleWhatsAppAction } from "./action-runtime-D1f0ejAd.js";
+import { n as sendPollWhatsApp, r as sendReactionWhatsApp, t as sendMessageWhatsApp } from "./send-p7kpa9Bq.js";
+import { startWebLoginWithQr, waitForWebLogin } from "./login-qr-runtime.js";
+import { t as createWhatsAppLoginTool } from "./agent-tools-login-B6GOGkxE.js";
+import { r as setWhatsAppRuntime, t as resolveWhatsAppHeartbeatRecipients } from "./heartbeat-recipients-DED81Dvv.js";
+import { a as maybeRestoreCredsFromBackup, c as readWebSelfId, d as webAuthExists, i as logoutWeb, l as readWebSelfIdentity, n as getWebAuthAgeMs, o as pickWebChannel, r as logWebSelfId, s as readCredsJsonRaw, t as WA_WEB_AUTH_DIR, u as resolveDefaultWebAuthDir } from "./auth-store-B4KNpGf3.js";
+import { t as DEFAULT_WEB_MEDIA_BYTES } from "./constants-CeG_MuQR.js";
+import "./runtime-api-BEv_BMQ3.js";
+import { n as resolveWebAccountId, t as getActiveWebListener } from "./active-listener-DwG_HfNK.js";
+import { n as getStatusCode, t as formatError } from "./session-errors-Cr4zW6Iw.js";
+import { c as waitForCredsSaveQueue, d as writeCredsJsonAtomically, l as waitForCredsSaveQueueWithTimeout, m as newConnectionId$1, o as createWaSocket, s as newConnectionId, u as waitForWaConnection } from "./connection-controller-D-mDo951.js";
+import { S as whatsappHeartbeatLog, _ as resolveSessionKey$1, a as loadWebMedia, b as resolveStorePath$1, c as optimizeImageToPng, d as extractMediaPlaceholder, f as extractText, g as resolveChannelResetConfig, h as loadSessionStore$1, i as getDefaultLocalRoots, l as monitorWebInbox, m as evaluateSessionFreshness, n as monitorWebChannel, o as loadWebMediaRaw, p as resetWebInboundDedupe, r as LocalMediaAccessError, s as optimizeImageToJpeg, t as loginWeb, u as extractLocationData, v as resolveSessionResetPolicy, x as resolveThreadFlag, y as resolveSessionResetType } from "./login-BA1ILTeW.js";
+import { normalizeOptionalLowercaseString, redactIdentifier as redactIdentifier$1 } from "openclaw/plugin-sdk/text-runtime";
+import { canonicalizeMainSessionAlias, loadConfig as loadConfig$1, loadSessionStore, resolveSessionKey, resolveStorePath, updateSessionStore as updateSessionStore$1 } from "openclaw/plugin-sdk/config-runtime";
+import { getChildLogger as getChildLogger$2 } from "openclaw/plugin-sdk/runtime-env";
+import { emitHeartbeatEvent, resolveHeartbeatVisibility, resolveIndicatorType } from "openclaw/plugin-sdk/infra-runtime";
+import { normalizeMainKey, normalizeMainKey as normalizeMainKey$1 } from "openclaw/plugin-sdk/routing";
+import { hasOutboundReplyContent, resolveSendableOutboundReplyParts as resolveSendableOutboundReplyParts$1 } from "openclaw/plugin-sdk/reply-payload";
+import { DEFAULT_HEARTBEAT_ACK_MAX_CHARS, HEARTBEAT_PROMPT, HEARTBEAT_TOKEN, HEARTBEAT_TOKEN as HEARTBEAT_TOKEN$1, SILENT_REPLY_TOKEN, getReplyFromConfig, resolveHeartbeatPrompt, resolveHeartbeatReplyPayload, stripHeartbeatToken, stripHeartbeatToken as stripHeartbeatToken$1 } from "openclaw/plugin-sdk/reply-runtime";
+import { appendCronStyleCurrentTimeLine } from "openclaw/plugin-sdk/agent-runtime";
 //#region extensions/whatsapp/src/auto-reply/session-snapshot.ts
 function getSessionSnapshot(cfg, from, _isHeartbeat = false, ctx) {
 	const sessionCfg = cfg.session;
 	const scope = sessionCfg?.scope ?? "per-sender";
-	const key = ctx?.sessionKey?.trim() ?? resolveSessionKey(scope, {
+	const key = ctx?.sessionKey?.trim() ?? resolveSessionKey$1(scope, {
 		From: from,
 		To: "",
 		Body: ""
 	}, normalizeMainKey(sessionCfg?.mainKey));
-	const entry = loadSessionStore(resolveStorePath(sessionCfg?.store))[key];
+	const entry = loadSessionStore$1(resolveStorePath$1(sessionCfg?.store))[key];
 	const isThread = resolveThreadFlag({
 		sessionKey: key,
 		messageThreadId: ctx?.messageThreadId ?? null,
@@ -243,23 +67,27 @@ function getSessionSnapshot(cfg, from, _isHeartbeat = false, ctx) {
 }
 //#endregion
 //#region extensions/whatsapp/src/auto-reply/heartbeat-runner.ts
+function resolveDefaultAgentIdFromConfig(cfg) {
+	const agents = cfg.agents?.list ?? [];
+	return normalizeOptionalLowercaseString(agents.find((agent) => agent?.default)?.id ?? agents[0]?.id ?? "main") ?? "main";
+}
 async function runWebHeartbeatOnce(opts) {
 	const { cfg: cfgOverride, to, verbose = false, sessionId, overrideBody, dryRun = false } = opts;
 	const replyResolver = opts.replyResolver ?? getReplyFromConfig;
 	const sender = opts.sender ?? sendMessageWhatsApp;
 	const runId = newConnectionId$1();
-	const redactedTo = redactIdentifier(to);
-	const heartbeatLogger = getChildLogger({
+	const redactedTo = redactIdentifier$1(to);
+	const heartbeatLogger = getChildLogger$2({
 		module: "web-heartbeat",
 		runId,
 		to: redactedTo
 	});
-	const cfg = cfgOverride ?? loadConfig();
+	const cfg = cfgOverride ?? loadConfig$1();
 	const visibility = resolveHeartbeatVisibility({
 		cfg,
 		channel: "whatsapp"
 	});
-	const heartbeatOkText = HEARTBEAT_TOKEN;
+	const heartbeatOkText = HEARTBEAT_TOKEN$1;
 	const maybeSendHeartbeatOk = async () => {
 		if (!visibility.showOk) return false;
 		if (dryRun) {
@@ -278,8 +106,13 @@ async function runWebHeartbeatOnce(opts) {
 	};
 	const sessionCfg = cfg.session;
 	const sessionScope = sessionCfg?.scope ?? "per-sender";
-	const mainKey = normalizeMainKey(sessionCfg?.mainKey);
-	const sessionKey = resolveSessionKey(sessionScope, { From: to }, mainKey);
+	const mainKey = normalizeMainKey$1(sessionCfg?.mainKey);
+	const rawSessionKey = resolveSessionKey(sessionScope, { From: to }, mainKey);
+	const sessionKey = canonicalizeMainSessionAlias({
+		cfg,
+		agentId: resolveDefaultAgentIdFromConfig(cfg),
+		sessionKey: rawSessionKey
+	});
 	if (sessionId) {
 		const storePath = resolveStorePath(cfg.session?.store);
 		const store = loadSessionStore(storePath);
@@ -289,7 +122,7 @@ async function runWebHeartbeatOnce(opts) {
 			sessionId,
 			updatedAt: Date.now()
 		};
-		await updateSessionStore(storePath, (nextStore) => {
+		await updateSessionStore$1(storePath, (nextStore) => {
 			nextStore[sessionKey] = {
 				...nextStore[sessionKey] ?? current,
 				sessionId,
@@ -297,7 +130,7 @@ async function runWebHeartbeatOnce(opts) {
 			};
 		});
 	}
-	const sessionSnapshot = getSessionSnapshot(cfg, to, true);
+	const sessionSnapshot = getSessionSnapshot(cfg, to, true, { sessionKey });
 	if (verbose) heartbeatLogger.info({
 		to: redactedTo,
 		sessionKey: sessionSnapshot.key,
@@ -368,10 +201,10 @@ async function runWebHeartbeatOnce(opts) {
 			});
 			return;
 		}
-		const reply = resolveSendableOutboundReplyParts(replyPayload);
+		const reply = resolveSendableOutboundReplyParts$1(replyPayload);
 		const hasMedia = reply.hasMedia;
-		const ackMaxChars = Math.max(0, cfg.agents?.defaults?.heartbeat?.ackMaxChars ?? 300);
-		const stripped = stripHeartbeatToken(replyPayload.text, {
+		const ackMaxChars = Math.max(0, cfg.agents?.defaults?.heartbeat?.ackMaxChars ?? DEFAULT_HEARTBEAT_ACK_MAX_CHARS);
+		const stripped = stripHeartbeatToken$1(replyPayload.text, {
 			mode: "heartbeat",
 			maxAckChars: ackMaxChars
 		});
@@ -380,7 +213,7 @@ async function runWebHeartbeatOnce(opts) {
 			const store = loadSessionStore(storePath);
 			if (sessionSnapshot.entry && store[sessionSnapshot.key]) {
 				store[sessionSnapshot.key].updatedAt = sessionSnapshot.entry.updatedAt;
-				await updateSessionStore(storePath, (nextStore) => {
+				await updateSessionStore$1(storePath, (nextStore) => {
 					const nextEntry = nextStore[sessionSnapshot.key];
 					if (!nextEntry) return;
 					nextStore[sessionSnapshot.key] = {
@@ -466,4 +299,4 @@ function resolveHeartbeatRecipients(cfg, opts = {}) {
 	return resolveWhatsAppHeartbeatRecipients(cfg, opts);
 }
 //#endregion
-export { DEFAULT_WEB_MEDIA_BYTES, HEARTBEAT_PROMPT, HEARTBEAT_TOKEN, LocalMediaAccessError, SILENT_REPLY_TOKEN, WA_WEB_AUTH_DIR, createWaSocket, createWhatsAppLoginTool, extractLocationData, extractMediaPlaceholder, extractText, formatError, getActiveWebListener, getDefaultLocalRoots, getStatusCode, getWebAuthAgeMs, handleWhatsAppAction, hasWebCredsSync, loadWebMedia, loadWebMediaRaw, logWebSelfId, loginWeb, logoutWeb, maybeRestoreCredsFromBackup, monitorWebChannel, monitorWebInbox, newConnectionId, optimizeImageToJpeg, optimizeImageToPng, pickWebChannel, readCredsJsonRaw, readWebSelfId, readWebSelfIdentity, requireActiveWebListener, resetWebInboundDedupe, resolveDefaultWebAuthDir, resolveHeartbeatRecipients, resolveWebAccountId, resolveWebCredsBackupPath, resolveWebCredsPath, runWebHeartbeatOnce, sendMessageWhatsApp, sendPollWhatsApp, sendReactionWhatsApp, setActiveWebListener, startWebLoginWithQr, stripHeartbeatToken, waitForCredsSaveQueue, waitForCredsSaveQueueWithTimeout, waitForWaConnection, waitForWebLogin, webAuthExists, whatsAppActionRuntime };
+export { DEFAULT_WEB_MEDIA_BYTES, HEARTBEAT_PROMPT, HEARTBEAT_TOKEN, LocalMediaAccessError, SILENT_REPLY_TOKEN, WA_WEB_AUTH_DIR, createWaSocket, createWhatsAppLoginTool, extractLocationData, extractMediaPlaceholder, extractText, formatError, getActiveWebListener, getDefaultLocalRoots, getStatusCode, getWebAuthAgeMs, handleWhatsAppAction, hasWebCredsSync, loadWebMedia, loadWebMediaRaw, logWebSelfId, loginWeb, logoutWeb, maybeRestoreCredsFromBackup, monitorWebChannel, monitorWebInbox, newConnectionId, optimizeImageToJpeg, optimizeImageToPng, pickWebChannel, readCredsJsonRaw, readWebSelfId, readWebSelfIdentity, resetWebInboundDedupe, resolveDefaultWebAuthDir, resolveHeartbeatRecipients, resolveWebAccountId, resolveWebCredsBackupPath, resolveWebCredsPath, runWebHeartbeatOnce, sendMessageWhatsApp, sendPollWhatsApp, sendReactionWhatsApp, setWhatsAppRuntime, startWebLoginWithQr, stripHeartbeatToken, waitForCredsSaveQueue, waitForCredsSaveQueueWithTimeout, waitForWaConnection, waitForWebLogin, webAuthExists, whatsAppActionRuntime, writeCredsJsonAtomically };
